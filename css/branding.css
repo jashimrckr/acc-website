@@ -1,0 +1,37 @@
+:root {
+    /* Brand Golds */
+    --color-gold-light: #cda11c;
+    --color-gold-dark: #ce9722;
+
+    /* Brand Blues */
+    --color-blue-light: #819ad2;
+    --color-blue-medium-light: #708ee7;
+    --color-blue-medium: #3a49c8;
+    --color-blue-dark: #334ea5;
+
+    /* Brand Dark Blues */
+    --color-navy-1: #334988;
+    --color-navy-2: #324182;
+    --color-navy-3: #363f91;
+    --color-navy-4: #2d3d90;
+    --color-navy-5: #303d78;
+    --color-navy-6: #021652;
+    /* Muted Blues */
+    --color-muted-blue-1: #6a7fae;
+    --color-muted-blue-2: #607aaf;
+
+    /* Brand Grays */
+    --color-gray-0: #666;
+    --color-gray-1: #8f93a3;
+    --color-gray-2: #8c90a1;
+    --color-gray-3: #ddd;
+    --color-gray-4: #eee;
+    --color-gray-blue: #6f6f86;
+
+    /* Brand Green */
+    --color-green: #0f8d4f;
+    --color-green-dark: #026836;
+
+    /* Brand black */
+    --color-black: #222;
+}

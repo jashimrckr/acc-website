@@ -1,0 +1,625 @@
+/* ====================================================
+   Hero Section
+   ==================================================== */
+.home-page section {
+    min-height: 95dvh;
+    padding: 120px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.home-page .inner {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.home-page .inner h2,
+.home-page .inner .content h2 {
+    font-size: clamp(2.25rem, 5vw, 3.75rem);
+    line-height: 1.18;
+    font-weight: 400;
+    letter-spacing: -0.5px;
+}
+
+.home-page .inner .content {
+    padding-right: 40%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    transform: translateY(calc(var(--scroll-p, 0%) * -3));
+    padding-bottom: 20px;
+}
+
+.home-page .inner .content p {
+    color: #333;
+    font-size: 1.125rem;
+    line-height: 1.6;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 16px;
+    padding-top: 16px;
+    flex-wrap: wrap;
+}
+
+.appalachia-bg-hero {
+    background: url('../images/bg.png') no-repeat right bottom;
+    background-size: 100%;
+    background-position: 102% calc(110% + var(--scroll-p, 0%));
+    transition: background-position 0.1s ease-out;
+}
+
+.appalachia-bg-hero section {
+    background: transparent url('../images/people2.png') no-repeat right 10% bottom;
+    background-position: 100% calc(112% - var(--scroll-p, 0%));
+    background-size: 70%;
+    transition: background-position 0.1s ease-out;
+}
+
+/* ====================================================
+   More About ACC
+   ==================================================== */
+.more-about-acc {
+    background: rgb(2, 18, 40);
+    color: #fff;
+    padding: 20px 0;
+}
+
+.more-about-acc .split-content {
+    display: flex;
+    gap: 4rem;
+    align-items: center;
+}
+
+.more-about-acc-left {
+    width: 40%;
+}
+
+.more-about-acc-left h3 {
+    font-size: 30px;
+    line-height: 1.2em;
+    margin-bottom: 16px;
+}
+
+.more-about-acc-left p {
+    opacity: 0.75;
+    margin-bottom: 16px;
+    line-height: 1.6;
+}
+
+.more-about-acc-left h4 {
+    font-size: 18px;
+    margin-bottom: 16px;
+    line-height: 1.4;
+}
+
+.more-about-acc-left h4 strong {
+    display: block;
+}
+
+.keypoint {
+    width: 60%;
+    position: relative;
+    padding: 2rem 3rem;
+    display: flex;
+    align-items: center;
+}
+
+.keypoint p {
+    font-size: 30px;
+    line-height: 1.35;
+    font-style: italic;
+    position: relative;
+    z-index: 2;
+}
+
+.quote-icon {
+    width: 48px;
+    height: 48px;
+    color: rgba(255, 255, 255, 0.15);
+    position: absolute;
+    z-index: 1;
+}
+
+.quote-open {
+    top: -10px;
+    left: 0;
+}
+
+.quote-close {
+    bottom: 0;
+    right: 0;
+}
+
+/* ====================================================
+   Details About ACC / By Numbers
+   ==================================================== */
+.details-about-acc {
+    background: transparent url('../images/tree-autumn.png') no-repeat center top;
+    background-size: 50%;
+    padding: calc(4rem + 50px) 0 4rem 0;
+    color: #000;
+    min-height: 100dvh;
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+.details-about-acc .inner h2 {
+    font-size: 30px;
+    line-height: 1.25em;
+    max-width: 800px;
+    margin: 0 auto 16px;
+    width: 100%;
+    font-weight: 700;
+    text-align: center;
+}
+
+.impact-content {
+    max-width: 800px;
+    margin: 0 auto 0;
+    width: 100%;
+}
+
+.details-about-acc .inner p {
+    line-height: 1.6;
+    color: #666;
+    max-width: 800px;
+    margin: 0 auto 16px;
+    width: 100%;
+    font-size: 18px;
+}
+
+.details-about-acc .inner p strong {
+    color: #000;
+}
+
+.bynumbers {
+    display: flex;
+    gap: 16px;
+    margin: 24px 0;
+}
+
+.bynumbers>span {
+    flex: 1;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 16px;
+    border-radius: 10px;
+    background: #f8f8f8;
+    gap: 10px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.bynumbers>span:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.bynumbers>span img {
+    width: 100px;
+    height: auto;
+    max-height: 70px;
+    object-fit: contain;
+}
+
+.bynumbers>span strong {
+    font-size: 32px;
+    display: block;
+    line-height: 1em;
+    color: #000;
+}
+
+.bynumbers>span em {
+    font-size: 15px;
+    font-style: normal;
+    font-weight: bold;
+    line-height: 1.2;
+    color: #4a5568;
+}
+
+.details-about-acc .button-holder {
+    padding-top: 24px;
+    text-align: center;
+}
+
+/* ====================================================
+   How ACC Moves Capital
+   ==================================================== */
+.how-acc-move-capital {
+    background: #32875d url(../images/StrategicGovernance.png) fixed;
+    background-size: cover;
+    background-position: center;
+    min-height: 70dvh;
+    display: flex;
+    align-items: center;
+}
+
+.how-acc-move-capital .inner h2 {
+    font-size: 30px;
+    line-height: 1.2em;
+    max-width: 800px;
+    margin: 0 auto 24px;
+    width: 100%;
+    font-weight: 700;
+    text-align: center;
+    color: #fff;
+}
+
+.captal-points {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 24px 0;
+    width: 100%;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    align-items: center;
+}
+
+.captal-points>div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    flex: 1;
+}
+
+.captal-points>div strong {
+    font-size: 16px;
+    line-height: 1.25em;
+}
+
+.captal-points>div img {
+    margin-bottom: 12px;
+    max-height: 70px;
+    object-fit: contain;
+}
+
+.captal-points>div:not(:last-child)::after {
+    content: "\2192";
+    position: absolute;
+    top: 50%;
+    right: -10px;
+    transform: translate(50%, -50%);
+    font-size: 26px;
+    color: #fff;
+    line-height: 1;
+}
+
+.captal-moving-to-communities img {
+    margin: 0 auto;
+}
+
+/* ====================================================
+   RESPONSIVE DESIGN BREAKPOINTS
+   ==================================================== */
+
+/* Tablet (max-width: 1024px) */
+@media (max-width: 1024px) {
+    .home-page section {
+        min-height: auto;
+        padding: 70px 0;
+    }
+
+    .home-page .inner .content {
+        padding-right: 25%;
+        transform: none;
+    }
+
+    .home-page .inner h2,
+    .home-page .inner .content h2 {
+        font-size: 2.85rem;
+    }
+
+    .appalachia-bg-hero {
+        background-size: cover;
+        background-position: bottom center;
+    }
+
+    .appalachia-bg-hero section {
+        background-size: 55%;
+        background-position: right bottom;
+    }
+
+    .more-about-acc .split-content {
+        gap: 2.5rem;
+    }
+
+    .more-about-acc-left {
+        width: 45%;
+    }
+
+    .keypoint {
+        width: 55%;
+        padding: 2rem;
+    }
+
+    .keypoint p {
+        font-size: 24px;
+    }
+
+    .details-about-acc {
+        min-height: auto;
+        padding: 60px 0;
+        background-size: 75%;
+    }
+
+    .bynumbers {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+
+    .bynumbers>span img {
+        width: 90px;
+    }
+
+    .how-acc-move-capital {
+        min-height: auto;
+        padding: 60px 0;
+        background-attachment: scroll;
+    }
+
+    .captal-points {
+        gap: 10px;
+    }
+
+    .captal-points>div strong {
+        font-size: 14px;
+    }
+
+    .captal-points>div img {
+        max-height: 56px;
+    }
+
+    .captal-points>div:not(:last-child)::after {
+        font-size: 20px;
+        right: -6px;
+    }
+}
+
+/* Intermediate Tablet & Landscape Mobile (max-width: 900px) */
+@media (max-width: 900px) {
+    .more-about-acc .split-content {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .more-about-acc-left {
+        width: 100%;
+    }
+
+    .keypoint {
+        width: 100%;
+        padding: 2.5rem 1.5rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.12);
+        box-sizing: border-box;
+    }
+
+    .keypoint p {
+        font-size: 22px;
+    }
+
+    .home-page .inner .content {
+        padding-right: 15%;
+        padding-bottom: 20%;
+    }
+
+    .appalachia-bg-hero section {
+        background-size: 100%;
+        background-position: bottom center;
+        min-height: 80dvh;
+    }
+}
+
+/* Mobile Devices (max-width: 768px) */
+@media (max-width: 768px) {
+
+    .home-page .inner {
+        justify-content: flex-start;
+    }
+
+    .home-page .inner .content {
+        padding-right: 0;
+        width: 100%;
+        transform: none;
+        gap: 14px;
+        padding-bottom: 0;
+    }
+
+    .home-page .inner h2,
+    .home-page .inner .content h2 {
+        font-size: clamp(1.85rem, 7vw, 2.35rem);
+        line-height: 1.2;
+    }
+
+    .home-page .inner .content p {
+        font-size: 1rem;
+        line-height: 1.55;
+    }
+
+    .appalachia-bg-hero {
+        background: url('../images/bg.png') no-repeat center bottom;
+        background-size: cover;
+    }
+
+
+    .hero-actions {
+        padding-top: 8px;
+    }
+
+    .more-about-acc {
+        padding: 10px 0;
+    }
+
+    .more-about-acc-left h3 {
+        font-size: 24px;
+        margin-bottom: 12px;
+    }
+
+    .more-about-acc-left p {
+        font-size: 15px;
+    }
+
+    .keypoint {
+        padding: 4rem 0;
+    }
+
+    .keypoint p {
+        font-size: 18px;
+        line-height: 1.45;
+    }
+
+    .quote-icon {
+        width: 32px;
+        height: 32px;
+
+    }
+
+    .quote-open {
+        top: 15px;
+    }
+
+    .details-about-acc {
+        padding: 40px 0;
+        background-size: 90%;
+    }
+
+    .details-about-acc .inner h2 {
+        font-size: 24px;
+        margin-bottom: 12px;
+    }
+
+    .details-about-acc .inner p {
+        font-size: 15px;
+        line-height: 1.55;
+    }
+
+    .bynumbers {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        margin: 20px 0;
+    }
+
+    .bynumbers>span {
+        padding: 16px 10px;
+        gap: 6px;
+    }
+
+    .bynumbers>span img {
+        width: 60px;
+        max-height: 48px;
+    }
+
+    .bynumbers>span strong {
+        font-size: 24px;
+    }
+
+    .bynumbers>span em {
+        font-size: 13px;
+    }
+
+    .details-about-acc .button-holder {
+        padding-top: 16px;
+    }
+
+    .how-acc-move-capital {
+        padding: 48px 0;
+        background-attachment: scroll;
+    }
+
+    .how-acc-move-capital .inner h2 {
+        font-size: 24px;
+        margin-bottom: 16px;
+    }
+
+    .captal-points {
+        flex-direction: column;
+        gap: 28px;
+        padding: 16px 0;
+        max-width: 320px;
+    }
+
+    .captal-points>div {
+        width: 100%;
+        flex: none;
+        background: rgba(0, 0, 0, 0.22);
+        padding: 16px 20px;
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(4px);
+        box-sizing: border-box;
+    }
+
+    .captal-points>div img {
+        max-height: 56px;
+        margin-bottom: 8px;
+    }
+
+    .captal-points>div strong {
+        font-size: 15px;
+    }
+
+    .captal-points>div:not(:last-child)::after {
+        content: "\2193";
+        position: absolute;
+        top: auto;
+        bottom: -24px;
+        left: 50%;
+        right: auto;
+        transform: translateX(-50%);
+        font-size: 20px;
+        color: #fff;
+        line-height: 1;
+    }
+}
+
+/* Small Mobile (max-width: 480px) */
+@media (max-width: 480px) {
+    .hero-actions {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .hero-actions .btn {
+        width: 100%;
+    }
+
+    .details-about-acc .button-holder .btn {
+        width: 100%;
+        font-size: 14px;
+        padding: 0 16px;
+    }
+
+    .bynumbers {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+    }
+
+    .bynumbers>span {
+        padding: 12px 6px;
+    }
+
+    .bynumbers>span img {
+        width: 50px;
+        max-height: 40px;
+    }
+
+    .bynumbers>span strong {
+        font-size: 20px;
+    }
+
+    .bynumbers>span em {
+        font-size: 11px;
+    }
+}
