@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://staccrckrdhdemoinc1.z20.web.core.windows.net/sitemap.xml
