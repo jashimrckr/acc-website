@@ -54,7 +54,7 @@
 }
 
 .appalachia-bg-hero section {
-    background: transparent url('../images/people2.png') no-repeat right 10% bottom;
+    /* background: transparent url('../images/people2.png') no-repeat right 10% bottom; */
     background-position: 100% calc(112% - var(--scroll-p, 0%));
     background-size: 70%;
     transition: background-position 0.1s ease-out;
