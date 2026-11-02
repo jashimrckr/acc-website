@@ -2,8 +2,8 @@
 const headerHTML = `
      <header class="site-header">
         <div class="header-container">
-            <a href="index.html" class="logo">
-                <img src="images/ACC-Logo-800x618.png" alt="ACC Logo">
+            <a href="index.html" class="logo" aria-label="Appalachian Community Capital Home">
+                <img src="images/ACC-Logo-header.png" alt="Appalachian Community Capital">
             </a>
             <nav class="main-nav">
                 <ul class="nav-list">
@@ -22,16 +22,69 @@ const headerHTML = `
                     <li class="nav-item">
                         <a href="our-network.html" class="nav-link">Our Network</a>
                     </li>
-                    <li class="nav-item">
-                        <a href="impact-insights.html" class="nav-link">Impact & Insights</a>
+                    <li class="nav-item has-dropdown">
+                        <a href="impact-insights.html" class="nav-link">
+                            Impact &amp; Insights
+                            <svg class="dropdown-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        </a>
+                        <div class="nav-dropdown-menu">
+                            <ul class="nav-dropdown-list">
+                                <li>
+                                    <a href="impact-insights.html#metrics" class="nav-dropdown-item">
+                                        <span class="dropdown-item-title">Impact Metrics</span>
+                                        <span class="dropdown-item-desc">Verified data &amp; regional member survey</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="impact-insights.html#stories" class="nav-dropdown-item">
+                                        <span class="dropdown-item-title">Stories of Impact</span>
+                                        <span class="dropdown-item-desc">Community spotlights &amp; lender partnerships</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="impact-insights.html#reports" class="nav-dropdown-item">
+                                        <span class="dropdown-item-title">Reports &amp; Resources</span>
+                                        <span class="dropdown-item-desc">Annual impact reports &amp; publications</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item has-dropdown">
+                        <a href="news-events.html" class="nav-link">
+                            News &amp; Events
+                            <svg class="dropdown-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        </a>
+                        <div class="nav-dropdown-menu">
+                            <ul class="nav-dropdown-list">
+                                <li>
+                                    <a href="news-events.html#news" class="nav-dropdown-item">
+                                        <span class="dropdown-item-title">News</span>
+                                        <span class="dropdown-item-desc">Press releases &amp; official announcements</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="news-events.html#media" class="nav-dropdown-item">
+                                        <span class="dropdown-item-title">Media</span>
+                                        <span class="dropdown-item-desc">Media coverage, press kit &amp; contacts</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="news-events.html#events" class="nav-dropdown-item">
+                                        <span class="dropdown-item-title">Events</span>
+                                        <span class="dropdown-item-desc">Summits, webinars &amp; convenings</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
                     </li>
                     <li class="nav-item hide">
-                        <a href="impact-insights.html#invest" class="nav-link">Invest</a>
+                        <a href="invest.html" class="nav-link">Invest</a>
                     </li>
                 </ul>
             </nav>
             <div class="header-actions">
-                <a href="impact-insights.html#invest" class="btn-primary">Invest in ACC <span><svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 30 30" width="30px" height="30px" fill="currentColor">    <path d="M 24 4 C 22.891 4 21.931109 4.6117656 21.412109 5.5097656 C 23.183109 6.2907656 24.507719 7.9035625 24.886719 9.8515625 C 26.106719 9.4705625 27 8.344 27 7 C 27 5.346 25.654 4 24 4 z M 19 7 A 4 4 0 0 0 15 11 A 4 4 0 0 0 19 15 A 4 4 0 0 0 23 11 A 4 4 0 0 0 19 7 z M 8 14 A 3 3 0 0 0 6.8828125 14.216797 L 2 16 L 2 24 L 6.2207031 22.166016 C 6.7187031 21.950016 7.2821563 21.942438 7.7851562 22.148438 L 16.849609 25.851562 C 16.849609 25.851562 16.853494 25.851563 16.853516 25.851562 A 1.5 1.5 0 0 0 17.5 26 A 1.5 1.5 0 0 0 18.238281 25.802734 C 18.238413 25.802691 18.244057 25.802776 18.244141 25.802734 L 27.230469 20.810547 L 27.228516 20.808594 A 1.5 1.5 0 0 0 28 19.5 A 1.5 1.5 0 0 0 26.5 18 A 1.5 1.5 0 0 0 25.863281 18.144531 L 25.863281 18.142578 L 19 21 L 17.5 21 A 1.5 1.5 0 0 0 19 19.5 A 1.5 1.5 0 0 0 17.964844 18.074219 L 17.964844 18.072266 L 9.2714844 14.28125 L 9.2597656 14.28125 A 3 3 0 0 0 8 14 z"/></svg> </span> </a>
+                <a href="invest.html" class="btn-primary">Invest in ACC <span><svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 30 30" width="30px" height="30px" fill="currentColor">    <path d="M 24 4 C 22.891 4 21.931109 4.6117656 21.412109 5.5097656 C 23.183109 6.2907656 24.507719 7.9035625 24.886719 9.8515625 C 26.106719 9.4705625 27 8.344 27 7 C 27 5.346 25.654 4 24 4 z M 19 7 A 4 4 0 0 0 15 11 A 4 4 0 0 0 19 15 A 4 4 0 0 0 23 11 A 4 4 0 0 0 19 7 z M 8 14 A 3 3 0 0 0 6.8828125 14.216797 L 2 16 L 2 24 L 6.2207031 22.166016 C 6.7187031 21.950016 7.2821563 21.942438 7.7851562 22.148438 L 16.849609 25.851562 C 16.849609 25.851562 16.853494 25.851563 16.853516 25.851562 A 1.5 1.5 0 0 0 17.5 26 A 1.5 1.5 0 0 0 18.238281 25.802734 C 18.238413 25.802691 18.244057 25.802776 18.244141 25.802734 L 27.230469 20.810547 L 27.228516 20.808594 A 1.5 1.5 0 0 0 28 19.5 A 1.5 1.5 0 0 0 26.5 18 A 1.5 1.5 0 0 0 25.863281 18.144531 L 25.863281 18.142578 L 19 21 L 17.5 21 A 1.5 1.5 0 0 0 19 19.5 A 1.5 1.5 0 0 0 17.964844 18.074219 L 17.964844 18.072266 L 9.2714844 14.28125 L 9.2597656 14.28125 A 3 3 0 0 0 8 14 z"/></svg> </span> </a>
                 <button class="mobile-menu-btn" aria-label="Toggle Menu">
                     <svg class="hamburger-icon" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor"
                         stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -75,6 +128,12 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (currentPath.includes('impact-insights.html')) {
         const link = document.querySelector('.site-header .nav-link[href="impact-insights.html"]');
         if (link) link.closest('.nav-item').classList.add('active');
+    } else if (currentPath.includes('news-events.html')) {
+        const link = document.querySelector('.site-header .nav-link[href="news-events.html"]');
+        if (link) link.closest('.nav-item').classList.add('active');
+    } else if (currentPath.includes('invest.html')) {
+        const investBtn = document.querySelector('.site-header .btn-primary');
+        if (investBtn) investBtn.style.boxShadow = '0 0 0 3px rgba(45, 154, 94, 0.4)';
     } else {
         const homeLink = document.querySelector('.site-header .nav-link[aria-label="Home"]');
         if (homeLink) homeLink.closest('.nav-item').classList.add('active');
@@ -102,6 +161,118 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // Initialize dropdowns & handle click-to-hide
+    const dropdownItems = document.querySelectorAll('.site-header .has-dropdown');
+
+    dropdownItems.forEach(dropdownItem => {
+        const dropdownMenu = dropdownItem.querySelector('.nav-dropdown-menu');
+        const dropdownLink = dropdownItem.querySelector('.nav-link');
+
+        if (dropdownLink) {
+            dropdownLink.addEventListener('click', (e) => {
+                if (window.innerWidth <= 1024) {
+                    e.preventDefault();
+                    if (!dropdownItem.classList.contains('dropdown-open')) {
+                        // Close any other open dropdowns
+                        dropdownItems.forEach(other => {
+                            if (other !== dropdownItem) {
+                                other.classList.remove('dropdown-open');
+                                other.classList.add('dropdown-hidden');
+                                const otherMenu = other.querySelector('.nav-dropdown-menu');
+                                if (otherMenu) otherMenu.classList.add('is-hidden');
+                            }
+                        });
+                        dropdownItem.classList.remove('dropdown-hidden');
+                        if (dropdownMenu) dropdownMenu.classList.remove('is-hidden');
+                        dropdownItem.classList.add('dropdown-open');
+                    } else {
+                        dropdownItem.classList.remove('dropdown-open');
+                        dropdownItem.classList.add('dropdown-hidden');
+                        if (dropdownMenu) dropdownMenu.classList.add('is-hidden');
+                    }
+                } else {
+                    dropdownItem.classList.remove('dropdown-hidden');
+                    if (dropdownMenu) dropdownMenu.classList.remove('is-hidden');
+                }
+            });
+        }
+
+        // When clicking on any dropdown item, hide the menu immediately
+        const dropdownLinks = dropdownItem.querySelectorAll('.nav-dropdown-item');
+        dropdownLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                // Immediately hide dropdown
+                dropdownItem.classList.add('dropdown-hidden');
+                dropdownItem.classList.remove('dropdown-open');
+                if (dropdownMenu) dropdownMenu.classList.add('is-hidden');
+
+                // If mobile drawer is open, close it
+                if (siteHeader && siteHeader.classList.contains('menu-open')) {
+                    siteHeader.classList.remove('menu-open');
+                    if (hamburgerIcon) hamburgerIcon.style.display = 'block';
+                    if (closeIcon) closeIcon.style.display = 'none';
+                    document.body.style.overflow = '';
+                }
+
+                // If clicking an anchor for the current page, scroll into view
+                const href = link.getAttribute('href');
+                if (href && href.includes('#')) {
+                    const [page, hash] = href.split('#');
+                    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+                    if (!page || page === currentPage) {
+                        const targetEl = document.getElementById(hash);
+                        if (targetEl) {
+                            targetEl.scrollIntoView({ behavior: 'smooth' });
+                        }
+                    }
+                }
+
+                // Blur focused link
+                if (document.activeElement) {
+                    document.activeElement.blur();
+                }
+            });
+        });
+
+        // Re-enable dropdown display when cursor enters or moves over dropdown container
+        dropdownItem.addEventListener('mouseenter', () => {
+            dropdownItem.classList.remove('dropdown-hidden');
+            if (dropdownMenu) dropdownMenu.classList.remove('is-hidden');
+        });
+
+        dropdownItem.addEventListener('mousemove', () => {
+            if (dropdownItem.classList.contains('dropdown-hidden')) {
+                dropdownItem.classList.remove('dropdown-hidden');
+                if (dropdownMenu) dropdownMenu.classList.remove('is-hidden');
+            }
+        });
+    });
+
+    // Close dropdowns and mobile menu when clicking outside
+    const handleOutsideClick = (e) => {
+        dropdownItems.forEach(dropdownItem => {
+            if (!dropdownItem.contains(e.target)) {
+                dropdownItem.classList.add('dropdown-hidden');
+                dropdownItem.classList.remove('dropdown-open');
+                const dropdownMenu = dropdownItem.querySelector('.nav-dropdown-menu');
+                if (dropdownMenu) dropdownMenu.classList.add('is-hidden');
+                if (document.activeElement && dropdownItem.contains(document.activeElement)) {
+                    document.activeElement.blur();
+                }
+            }
+        });
+
+        if (siteHeader && siteHeader.classList.contains('menu-open') && !siteHeader.contains(e.target)) {
+            siteHeader.classList.remove('menu-open');
+            if (hamburgerIcon) hamburgerIcon.style.display = 'block';
+            if (closeIcon) closeIcon.style.display = 'none';
+            document.body.style.overflow = '';
+        }
+    };
+
+    document.addEventListener('click', handleOutsideClick);
+    document.addEventListener('touchstart', handleOutsideClick, { passive: true });
 
     // Parallax background effect for hero section (on home page)
     const heroSection = document.querySelector('.appalachia-bg-hero');
@@ -225,13 +396,22 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
-        // Check if hash matches a tab (e.g., #news, #stories, #events)
-        const hash = window.location.hash.replace('#', '').toLowerCase();
-        if (hash) {
-            const matchingTab = document.querySelector(`.tab-pill[data-tab="${hash}"]`);
-            if (matchingTab) {
-                matchingTab.click();
+        // Activate tab matching URL hash
+        const activateTabFromHash = () => {
+            const hash = window.location.hash.replace('#', '').toLowerCase();
+            if (hash) {
+                const matchingTab = document.querySelector(`.tab-pill[data-tab="${hash}"]`);
+                if (matchingTab) {
+                    matchingTab.click();
+                    const targetEl = document.getElementById(hash);
+                    if (targetEl) {
+                        targetEl.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
             }
-        }
+        };
+
+        activateTabFromHash();
+        window.addEventListener('hashchange', activateTabFromHash);
     }
 });
