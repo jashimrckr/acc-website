@@ -1,4 +1,4 @@
-// We store the header HTML in a template string so it works locally without a server (no CORS issues).
+﻿// We store the header HTML in a template string so it works locally without a server (no CORS issues).
 const headerHTML = `
      <header class="site-header">
         <div class="header-container">
@@ -83,8 +83,106 @@ const headerHTML = `
                     </li>
                 </ul>
             </nav>
-            <div class="header-actions">
-                <a href="invest.html" class="btn-primary">Invest in ACC <span><svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 30 30" width="30px" height="30px" fill="currentColor">    <path d="M 24 4 C 22.891 4 21.931109 4.6117656 21.412109 5.5097656 C 23.183109 6.2907656 24.507719 7.9035625 24.886719 9.8515625 C 26.106719 9.4705625 27 8.344 27 7 C 27 5.346 25.654 4 24 4 z M 19 7 A 4 4 0 0 0 15 11 A 4 4 0 0 0 19 15 A 4 4 0 0 0 23 11 A 4 4 0 0 0 19 7 z M 8 14 A 3 3 0 0 0 6.8828125 14.216797 L 2 16 L 2 24 L 6.2207031 22.166016 C 6.7187031 21.950016 7.2821563 21.942438 7.7851562 22.148438 L 16.849609 25.851562 C 16.849609 25.851562 16.853494 25.851563 16.853516 25.851562 A 1.5 1.5 0 0 0 17.5 26 A 1.5 1.5 0 0 0 18.238281 25.802734 C 18.238413 25.802691 18.244057 25.802776 18.244141 25.802734 L 27.230469 20.810547 L 27.228516 20.808594 A 1.5 1.5 0 0 0 28 19.5 A 1.5 1.5 0 0 0 26.5 18 A 1.5 1.5 0 0 0 25.863281 18.144531 L 25.863281 18.142578 L 19 21 L 17.5 21 A 1.5 1.5 0 0 0 19 19.5 A 1.5 1.5 0 0 0 17.964844 18.074219 L 17.964844 18.072266 L 9.2714844 14.28125 L 9.2597656 14.28125 A 3 3 0 0 0 8 14 z"/></svg> </span> </a>
+                        <div class="header-actions">
+                <div class="invest-dropdown-wrapper">
+                    <!-- Popup Button (Collapsed State) -->
+                    <button class="invest-trigger-btn" id="investTriggerBtn" aria-expanded="false" aria-haspopup="true" aria-label="Invest in Our Work Menu">
+                        <span class="invest-btn-icon">
+                            <svg width="22" height="22" viewBox="0 0 30 30" fill="currentColor">
+                                <circle cx="18" cy="8" r="4.5" />
+                                <path d="M 8 14 A 3 3 0 0 0 6.88 14.22 L 2 16 L 2 24 L 6.22 22.17 C 6.72 21.95 7.28 21.94 7.79 22.15 L 16.85 25.85 A 1.5 1.5 0 0 0 17.5 26 A 1.5 1.5 0 0 0 18.24 25.8 L 27.23 20.81 A 1.5 1.5 0 0 0 28 19.5 A 1.5 1.5 0 0 0 26.5 18 L 19 21 L 17.5 21 A 1.5 1.5 0 0 0 19 19.5 A 1.5 1.5 0 0 0 17.96 18.07 L 9.27 14.28 A 3 3 0 0 0 8 14 z"/>
+                            </svg>
+                        </span>
+                        <span class="invest-btn-text">Invest in Our Work</span>
+                        <span class="invest-btn-chevron">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </span>
+                    </button>
+
+                    <!-- Popup Expand (Expanded State) -->
+                    <div class="invest-popup-menu" id="investPopupMenu" role="menu">
+                        <button class="invest-popup-header-pill" id="investPopupCloseBtn" aria-label="Collapse menu">
+                            <span class="invest-btn-icon">
+                                <svg width="22" height="22" viewBox="0 0 30 30" fill="currentColor">
+                                    <circle cx="18" cy="8" r="4.5" />
+                                    <path d="M 8 14 A 3 3 0 0 0 6.88 14.22 L 2 16 L 2 24 L 6.22 22.17 C 6.72 21.95 7.28 21.94 7.79 22.15 L 16.85 25.85 A 1.5 1.5 0 0 0 17.5 26 A 1.5 1.5 0 0 0 18.24 25.8 L 27.23 20.81 A 1.5 1.5 0 0 0 28 19.5 A 1.5 1.5 0 0 0 26.5 18 L 19 21 L 17.5 21 A 1.5 1.5 0 0 0 19 19.5 A 1.5 1.5 0 0 0 17.96 18.07 L 9.27 14.28 A 3 3 0 0 0 8 14 z"/>
+                                </svg>
+                            </span>
+                            <span class="invest-btn-text">Invest in Our Work</span>
+                            <span class="invest-btn-chevron">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="18 15 12 9 6 15"></polyline>
+                                </svg>
+                            </span>
+                        </button>
+
+                        <div class="invest-popup-list">
+                            <a href="invest.html" class="invest-popup-item" role="menuitem">
+                                <div class="item-main">
+                                    <span class="item-icon">
+                                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M21.5 10A9 9 0 0 0 6 5.3L3 8"/>
+                                            <polyline points="3 3 3 8 8 8"/>
+                                            <path d="M2.5 14a9 9 0 0 0 15.5 4.7l3-2.7"/>
+                                            <polyline points="21 21 21 16 16 16"/>
+                                            <path d="M12 7.5v9"/>
+                                            <path d="M14.5 9.5a2 2 0 0 0-2-1.5h-1a1.5 1.5 0 0 0 0 3h1a1.5 1.5 0 0 1 0 3h-1a2 2 0 0 1-2-1.5"/>
+                                        </svg>
+                                    </span>
+                                    <span class="item-label">Invest</span>
+                                </div>
+                                <span class="item-arrow">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <polyline points="9 18 15 12 9 6"></polyline>
+                                    </svg>
+                                </span>
+                            </a>
+
+                            <a href="invest.html#contact" class="invest-popup-item" role="menuitem">
+                                <div class="item-main">
+                                    <span class="item-icon">
+                                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="m11 17 2 2a1 1 0 0 0 1.4 0l4.3-4.3a1 1 0 0 0 0-1.4l-3-3a1 1 0 0 0-1.4 0L13 11.6"/>
+                                            <path d="m13 7-2-2a1 1 0 0 0-1.4 0L5.3 9.3a1 1 0 0 0 0 1.4l3 3a1 1 0 0 0 1.4 0L11 12.4"/>
+                                            <path d="m8.5 8.5 7 7"/>
+                                        </svg>
+                                    </span>
+                                    <span class="item-label">Partner With Us</span>
+                                </div>
+                                <span class="item-arrow">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <polyline points="9 18 15 12 9 6"></polyline>
+                                    </svg>
+                                </span>
+                            </a>
+
+                            <a href="donate.html" class="invest-popup-item" role="menuitem">
+                                <div class="item-main">
+                                    <span class="item-icon">
+                                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M3 21c4-1 6-4 6-9"/>
+                                            <path d="M9 12c-3 0-5.5-1.5-6-4 2.5-.5 5 1 6 4z"/>
+                                            <path d="M9 14c2.5 0 4.5-1.5 5-3.5-2-.5-4 1-5 3.5z"/>
+                                            <path d="M15 6l4-2"/>
+                                            <path d="M19 4a1.5 1.5 0 0 1 2 2l-1 1"/>
+                                            <path d="M14 6l3.5 3.5a1.5 1.5 0 0 1 .4 1.1l-.4 3.4a1.5 1.5 0 0 1-1.5 1.3l-2.5-.5a1.5 1.5 0 0 1-1.2-1.3L12 10.5 14 6z"/>
+                                            <circle cx="11.5" cy="11.5" r="0.7" fill="currentColor"/>
+                                            <circle cx="10" cy="14" r="0.7" fill="currentColor"/>
+                                        </svg>
+                                    </span>
+                                    <span class="item-label">Donate</span>
+                                </div>
+                                <span class="item-arrow">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <polyline points="9 18 15 12 9 6"></polyline>
+                                    </svg>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
                 <button class="mobile-menu-btn" aria-label="Toggle Menu">
                     <svg class="hamburger-icon" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor"
                         stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -131,12 +229,41 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (currentPath.includes('news-events.html')) {
         const link = document.querySelector('.site-header .nav-link[href="news-events.html"]');
         if (link) link.closest('.nav-item').classList.add('active');
-    } else if (currentPath.includes('invest.html')) {
-        const investBtn = document.querySelector('.site-header .btn-primary');
+    } else if (currentPath.includes('invest.html') || currentPath.includes('donate.html')) {
+        const investBtn = document.querySelector('.site-header .invest-trigger-btn');
         if (investBtn) investBtn.style.boxShadow = '0 0 0 3px rgba(45, 154, 94, 0.4)';
     } else {
         const homeLink = document.querySelector('.site-header .nav-link[aria-label="Home"]');
         if (homeLink) homeLink.closest('.nav-item').classList.add('active');
+    }
+
+    // Invest In Our Work dropdown popup toggle
+    const investWrapper = document.querySelector('.invest-dropdown-wrapper');
+    const investTriggerBtn = document.getElementById('investTriggerBtn');
+    const investPopupCloseBtn = document.getElementById('investPopupCloseBtn');
+
+    if (investWrapper && investTriggerBtn) {
+        investTriggerBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const isOpen = investWrapper.classList.toggle('is-open');
+            investTriggerBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        });
+
+        if (investPopupCloseBtn) {
+            investPopupCloseBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                investWrapper.classList.remove('is-open');
+                investTriggerBtn.setAttribute('aria-expanded', 'false');
+            });
+
+            const investPopupItems = investWrapper.querySelectorAll('.invest-popup-item');
+            investPopupItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    investWrapper.classList.remove('is-open');
+                    investTriggerBtn.setAttribute('aria-expanded', 'false');
+                });
+            });
+        }
     }
 
     // Initialize header interactions
@@ -207,7 +334,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 dropdownItem.classList.remove('dropdown-open');
                 if (dropdownMenu) dropdownMenu.classList.add('is-hidden');
 
-                // If mobile drawer is open, close it
+                // If invest popup or mobile drawer is open, close them
+                if (investWrapper) {
+                    investWrapper.classList.remove('is-open');
+                    if (investTriggerBtn) investTriggerBtn.setAttribute('aria-expanded', 'false');
+                }
+
                 if (siteHeader && siteHeader.classList.contains('menu-open')) {
                     siteHeader.classList.remove('menu-open');
                     if (hamburgerIcon) hamburgerIcon.style.display = 'block';
@@ -263,6 +395,11 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
+        if (investWrapper && !investWrapper.contains(e.target)) {
+            investWrapper.classList.remove('is-open');
+            if (investTriggerBtn) investTriggerBtn.setAttribute('aria-expanded', 'false');
+        }
+
         if (siteHeader && siteHeader.classList.contains('menu-open') && !siteHeader.contains(e.target)) {
             siteHeader.classList.remove('menu-open');
             if (hamburgerIcon) hamburgerIcon.style.display = 'block';
@@ -273,6 +410,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.addEventListener('click', handleOutsideClick);
     document.addEventListener('touchstart', handleOutsideClick, { passive: true });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            if (investWrapper && investWrapper.classList.contains('is-open')) {
+                investWrapper.classList.remove('is-open');
+                if (investTriggerBtn) investTriggerBtn.setAttribute('aria-expanded', 'false');
+            }
+        }
+    });
 
     // Parallax background effect for hero section (on home page)
     const heroSection = document.querySelector('.appalachia-bg-hero');
