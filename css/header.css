@@ -291,7 +291,240 @@
 
 .btn-primary:hover {
     background-color: var(--color-green-dark);
+}
 
+/* ====================================================
+   Invest In Our Work Popup Dropdown
+   ==================================================== */
+.invest-dropdown-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+/* Collapsed State (Popup Button) */
+.invest-trigger-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background-color: #026836;
+    color: #ffffff;
+    border: none;
+    padding: 0 20px 0 18px;
+    height: 48px;
+    border-radius: 9999px;
+    font-size: 15px;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+
+    transition: background-color 0.25s ease, box-shadow 0.25s ease, transform 0.2s ease;
+    white-space: nowrap;
+}
+
+.invest-trigger-btn:hover {
+    background-color: #01522a;
+    box-shadow: 0 6px 18px rgba(2, 104, 54, 0.35);
+    transform: translateY(-1px);
+}
+
+.invest-trigger-btn .invest-btn-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+}
+
+.invest-trigger-btn .invest-btn-text {
+    color: #ffffff;
+    letter-spacing: -0.01em;
+}
+
+.invest-trigger-btn .invest-btn-chevron {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    margin-left: 2px;
+    transition: transform 0.25s ease;
+}
+
+/* Expanded State Container (Popup Expand) */
+.invest-popup-menu {
+    position: absolute;
+    top: -12px;
+    right: -12px;
+    min-width: 259px;
+    background-color: #026836;
+    border-radius: 33px;
+    padding: 12px;
+    box-shadow: 0 22px 50px rgba(0, 0, 0, 0.28), 0 8px 20px rgba(2, 104, 54, 0.2);
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.96) translateY(-4px);
+    transform-origin: top right;
+    transition: opacity 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+        visibility 0.22s;
+    z-index: 1200;
+    pointer-events: none;
+    box-sizing: border-box;
+}
+
+.invest-dropdown-wrapper.is-open .invest-popup-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1) translateY(0);
+    pointer-events: auto;
+}
+
+/* Top White Pill Button inside Expanded Menu */
+.invest-popup-header-pill {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ffffff;
+    color: #000000;
+    border: none;
+    padding: 0 18px 0 16px;
+    height: 48px;
+    border-radius: 9999px;
+    font-size: 15px;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    box-sizing: border-box;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: background-color 0.2s ease;
+}
+
+.invest-popup-header-pill:hover {
+    background-color: #f8fafc;
+}
+
+.invest-popup-header-pill .invest-btn-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000000;
+}
+
+.invest-popup-header-pill .invest-btn-text {
+    color: #000000;
+    letter-spacing: -0.01em;
+    flex: 1;
+    text-align: left;
+    margin-left: 10px;
+}
+
+.invest-popup-header-pill .invest-btn-chevron {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000000;
+}
+
+/* 3 Menu Items List */
+.invest-popup-list {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-top: 10px;
+
+}
+
+.invest-popup-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 14px;
+    border-radius: 16px;
+    text-decoration: none;
+    color: #ffffff;
+    transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.invest-popup-item:hover {
+    background-color: rgba(255, 255, 255, 0.12);
+    transform: translateX(2px);
+    color: #ffffff;
+}
+
+.invest-popup-item .item-main {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.invest-popup-item .item-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    color: #ffffff;
+    flex-shrink: 0;
+}
+
+.invest-popup-item .item-label {
+    font-size: 16px;
+    font-weight: 600;
+    color: #ffffff;
+    letter-spacing: -0.01em;
+}
+
+.invest-popup-item .item-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    opacity: 0.9;
+    transition: transform 0.2s ease;
+}
+
+.invest-popup-item:hover .item-arrow {
+    transform: translateX(3px);
+    opacity: 1;
+}
+
+@media (max-width: 1024px) {
+    .site-header.menu-open .invest-dropdown-wrapper {
+        width: 100%;
+        margin-top: 16px;
+    }
+
+    .site-header.menu-open .invest-trigger-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .invest-popup-menu {
+        right: 0;
+        top: 0;
+        width: 100%;
+        min-width: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .invest-trigger-btn {
+        padding: 0 14px 0 12px;
+        gap: 8px;
+        font-size: 13.5px;
+        height: 42px;
+    }
+
+    .invest-popup-menu {
+        right: -8px;
+        top: -4px;
+        min-width: 260px;
+    }
+
+    .invest-popup-header-pill {
+        height: 42px;
+        font-size: 13.5px;
+        padding: 0 14px 0 12px;
+    }
 }
 
 /* Mobile Menu Button */
