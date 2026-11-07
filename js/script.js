@@ -1,4 +1,4 @@
-﻿// We store the header HTML in a template string so it works locally without a server (no CORS issues).
+// We store the header HTML in a template string so it works locally without a server (no CORS issues).
 const headerHTML = `
      <header class="site-header">
         <div class="header-container">
@@ -77,6 +77,9 @@ const headerHTML = `
                                 </li>
                             </ul>
                         </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link">Contact</a>
                     </li>
                     <li class="nav-item hide">
                         <a href="invest.html" class="nav-link">Invest</a>
@@ -228,6 +231,9 @@ document.addEventListener('DOMContentLoaded', () => {
         if (link) link.closest('.nav-item').classList.add('active');
     } else if (currentPath.includes('news-events.html')) {
         const link = document.querySelector('.site-header .nav-link[href="news-events.html"]');
+        if (link) link.closest('.nav-item').classList.add('active');
+    } else if (currentPath.includes('contact.html')) {
+        const link = document.querySelector('.site-header .nav-link[href="contact.html"]');
         if (link) link.closest('.nav-item').classList.add('active');
     } else if (currentPath.includes('invest.html') || currentPath.includes('donate.html')) {
         const investBtn = document.querySelector('.site-header .invest-trigger-btn');
@@ -560,4 +566,227 @@ document.addEventListener('DOMContentLoaded', () => {
         activateTabFromHash();
         window.addEventListener('hashchange', activateTabFromHash);
     }
+
+    // ----------------------------------------------------
+    // ACC Contact Form & CAPTCHA Interactions
+    // ----------------------------------------------------
+    const contactForms = document.querySelectorAll('.acc-contact-form');
+
+    contactForms.forEach(form => {
+        const wrapper = form.closest('.acc-contact-form-wrapper');
+        const successCard = wrapper ? wrapper.querySelector('.form-success-card') : null;
+        const resetBtn = successCard ? successCard.querySelector('.btn-reset-form') : null;
+        const phoneInput = form.querySelector('.input-phone');
+        const captchaCard = form.querySelector('.captcha-card');
+        const captchaCheckbox = form.querySelector('.captcha-checkbox');
+        const captchaLeft = form.querySelector('.captcha-left');
+        const captchaError = form.querySelector('.captcha-error');
+        const submitBtn = form.querySelector('.btn-contact-submit');
+        const realRecaptcha = form.querySelector('.g-recaptcha');
+        const siteKey = realRecaptcha ? (realRecaptcha.getAttribute('data-sitekey') || '').trim() : '';
+        const useRealRecaptcha = siteKey.length > 0 && siteKey !== 'YOUR_SITE_KEY';
+
+        if (useRealRecaptcha) {
+            // Hide the demo widget and reveal real Google reCAPTCHA
+            if (captchaCard) captchaCard.style.display = 'none';
+            if (realRecaptcha) realRecaptcha.style.display = 'block';
+
+            // Load Google reCAPTCHA script if not already added
+            if (!document.getElementById('google-recaptcha-api')) {
+                const script = document.createElement('script');
+                script.id = 'google-recaptcha-api';
+                script.src = 'https://www.google.com/recaptcha/api.js';
+                script.async = true;
+                script.defer = true;
+                document.head.appendChild(script);
+            }
+        }
+
+        // Phone number input formatter: (XXX) XXX-XXXX
+        if (phoneInput) {
+            phoneInput.addEventListener('input', (e) => {
+                let numbers = e.target.value.replace(/\D/g, '').substring(0, 10);
+                let formatted = '';
+                if (numbers.length > 0) {
+                    formatted = '(' + numbers.substring(0, 3);
+                }
+                if (numbers.length >= 4) {
+                    formatted += ') ' + numbers.substring(3, 6);
+                }
+                if (numbers.length >= 7) {
+                    formatted += '-' + numbers.substring(6, 10);
+                }
+                e.target.value = formatted;
+            });
+        }
+
+        // Interactive simulated CAPTCHA
+        if (captchaLeft && captchaCard && captchaCheckbox) {
+            const toggleCaptcha = () => {
+                if (captchaCard.getAttribute('data-verified') === 'true') {
+                    return;
+                }
+
+                captchaCheckbox.classList.add('loading');
+                captchaCard.classList.remove('error');
+                if (captchaError) captchaError.classList.remove('visible');
+
+                setTimeout(() => {
+                    captchaCheckbox.classList.remove('loading');
+                    captchaCheckbox.classList.add('verified');
+                    captchaCard.setAttribute('data-verified', 'true');
+                }, 600);
+            };
+
+            captchaLeft.addEventListener('click', toggleCaptcha);
+            captchaLeft.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    toggleCaptcha();
+                }
+            });
+        }
+
+        // Form submit validation & processing
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            let isValid = true;
+
+            // Clear previous errors
+            form.querySelectorAll('.acc-form-input, .acc-form-select, .acc-form-textarea').forEach(input => {
+                input.classList.remove('has-error');
+            });
+            form.querySelectorAll('.field-error-msg').forEach(msg => {
+                msg.classList.remove('visible');
+            });
+
+            // Validate First Name
+            const firstNameInput = form.querySelector('.input-first-name');
+            if (firstNameInput && !firstNameInput.value.trim()) {
+                isValid = false;
+                firstNameInput.classList.add('has-error');
+                const err = firstNameInput.parentElement.querySelector('.field-error-msg');
+                if (err) err.classList.add('visible');
+            }
+
+            // Validate Last Name
+            const lastNameInput = form.querySelector('.input-last-name');
+            if (lastNameInput && !lastNameInput.value.trim()) {
+                isValid = false;
+                lastNameInput.classList.add('has-error');
+                const err = lastNameInput.parentElement.querySelector('.field-error-msg');
+                if (err) err.classList.add('visible');
+            }
+
+            // Validate Phone
+            if (phoneInput) {
+                const digits = phoneInput.value.replace(/\D/g, '');
+                if (digits.length < 10) {
+                    isValid = false;
+                    phoneInput.classList.add('has-error');
+                    const err = phoneInput.parentElement.querySelector('.field-error-msg');
+                    if (err) err.classList.add('visible');
+                }
+            }
+
+            // Validate Email
+            const emailInput = form.querySelector('.input-email');
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (emailInput && !emailRegex.test(emailInput.value.trim())) {
+                isValid = false;
+                emailInput.classList.add('has-error');
+                const err = emailInput.parentElement.querySelector('.field-error-msg');
+                if (err) err.classList.add('visible');
+            }
+
+            // Validate CAPTCHA
+            if (useRealRecaptcha) {
+                if (typeof grecaptcha !== 'undefined') {
+                    const response = grecaptcha.getResponse();
+                    if (!response || response.length === 0) {
+                        isValid = false;
+                        if (captchaError) {
+                            captchaError.textContent = 'Please complete the Google reCAPTCHA verification';
+                            captchaError.classList.add('visible');
+                        }
+                    }
+                }
+            } else if (captchaCard && captchaCard.getAttribute('data-verified') !== 'true') {
+                isValid = false;
+                captchaCard.classList.add('error');
+                if (captchaError) {
+                    captchaError.textContent = 'Please verify that you are not a robot';
+                    captchaError.classList.add('visible');
+                }
+            }
+
+            if (!isValid) {
+                const firstInvalid = form.querySelector('.has-error');
+                if (firstInvalid) {
+                    firstInvalid.focus();
+                } else if (captchaCard && captchaCard.getAttribute('data-verified') !== 'true') {
+                    captchaLeft.focus();
+                }
+                return;
+            }
+
+            // Valid: Simulate Submission
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = `
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="captcha-spin" style="animation: captchaSpin 0.7s linear infinite;">
+                        <circle cx="12" cy="12" r="10" stroke-opacity="0.3"></circle>
+                        <path d="M12 2a10 10 0 0 1 10 10"></path>
+                    </svg>
+                    SUBMITTING...
+                `;
+            }
+
+            setTimeout(() => {
+                const nameVal = firstNameInput ? firstNameInput.value.trim() : '';
+                form.style.display = 'none';
+
+                if (successCard) {
+                    const userMsg = successCard.querySelector('.success-user-text');
+                    if (userMsg && nameVal) {
+                        userMsg.textContent = `Thank you, ${nameVal}! Your inquiry has been submitted to Appalachian Community Capital. A member of our team will follow up with you promptly.`;
+                    }
+                    successCard.classList.add('visible');
+                }
+
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'SUBMIT';
+                }
+            }, 600);
+        });
+
+        // Reset form handler
+        if (resetBtn) {
+            resetBtn.addEventListener('click', () => {
+                form.reset();
+                if (useRealRecaptcha && typeof grecaptcha !== 'undefined') {
+                    try { grecaptcha.reset(); } catch (err) {}
+                }
+                if (captchaCard) {
+                    captchaCard.setAttribute('data-verified', 'false');
+                    captchaCard.classList.remove('error');
+                }
+                if (captchaCheckbox) {
+                    captchaCheckbox.classList.remove('verified', 'loading');
+                }
+                form.querySelectorAll('.acc-form-input, .acc-form-select, .acc-form-textarea').forEach(input => {
+                    input.classList.remove('has-error');
+                });
+                form.querySelectorAll('.field-error-msg').forEach(msg => {
+                    msg.classList.remove('visible');
+                });
+
+                if (successCard) {
+                    successCard.classList.remove('visible');
+                }
+                form.style.display = 'flex';
+            });
+        }
+    });
 });

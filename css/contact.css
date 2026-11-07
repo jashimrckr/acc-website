@@ -1,0 +1,776 @@
+/* ==========================================================================
+   Contact Section & Page Styling - Appalachian Community Capital
+   Matches ACC Brand Guidelines and Form Reference Specification
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Contact Form Core Styles
+   -------------------------------------------------------------------------- */
+.acc-contact-form-wrapper {
+    background: #ffffff;
+    border-radius: 16px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 10px 30px rgba(2, 22, 82, 0.06);
+    padding: 36px 40px;
+    position: relative;
+    box-sizing: border-box;
+}
+
+@media (max-width: 640px) {
+    .acc-contact-form-wrapper {
+        padding: 24px 20px;
+        border-radius: 12px;
+    }
+}
+
+.acc-contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.form-label {
+    font-size: 14.5px;
+    font-weight: 700;
+    color: #475569;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    letter-spacing: -0.01em;
+}
+
+.form-label .required-star {
+    color: #dc2626;
+    font-weight: 800;
+}
+
+/* Two-column layout for Name and Phone/Email */
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+@media (max-width: 640px) {
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+}
+
+.input-subfield {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.field-sublabel {
+    font-size: 13px;
+    color: #71717a;
+    margin-top: 6px;
+    font-weight: 400;
+}
+
+/* Input, Select, Textarea Styles matching Image 1 & 2 */
+.acc-form-input,
+.acc-form-select,
+.acc-form-textarea {
+    width: 100%;
+    background-color: #f8fafc;
+    border: 1px solid #dcdfe4;
+    border-radius: 6px;
+    padding: 12px 14px;
+    font-size: 15px;
+    font-family: inherit;
+    color: #1e293b;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+    outline: none;
+}
+
+.acc-form-input::placeholder,
+.acc-form-textarea::placeholder {
+    color: #94a3b8;
+    opacity: 1;
+}
+
+.acc-form-input:focus,
+.acc-form-select:focus,
+.acc-form-textarea:focus {
+    border-color: #026836;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 3px rgba(2, 104, 54, 0.14);
+}
+
+.acc-form-input.has-error,
+.acc-form-select.has-error,
+.acc-form-textarea.has-error {
+    border-color: #dc2626 !important;
+    background-color: #fffaf0;
+    box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.12);
+}
+
+.field-error-msg {
+    font-size: 12px;
+    color: #dc2626;
+    margin-top: 4px;
+    display: none;
+    font-weight: 500;
+}
+
+.field-error-msg.visible {
+    display: block;
+}
+
+/* Select Dropdown Styling */
+.select-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.acc-form-select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding-right: 42px;
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    background-size: 16px 16px;
+}
+
+.acc-form-select option {
+    background-color: #ffffff;
+    color: #1e293b;
+    padding: 10px;
+}
+
+/* Textarea */
+.acc-form-textarea {
+    resize: vertical;
+    min-height: 125px;
+    line-height: 1.5;
+}
+
+/* --------------------------------------------------------------------------
+   Interactive CAPTCHA Widget (reCAPTCHA style as shown in Image 1)
+   -------------------------------------------------------------------------- */
+.captcha-container {
+    margin-top: 4px;
+}
+
+.captcha-card {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 304px;
+    background: #f9fafb;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    padding: 12px 14px;
+    box-sizing: border-box;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    user-select: none;
+    transition: border-color 0.2s ease;
+}
+
+.captcha-card:hover {
+    border-color: #9ca3af;
+}
+
+.captcha-card.error {
+    border-color: #dc2626;
+    background-color: #fef2f2;
+}
+
+.captcha-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+}
+
+.captcha-checkbox {
+    width: 24px;
+    height: 24px;
+    border: 2px solid #c1c7cd;
+    border-radius: 3px;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+.captcha-checkbox:hover {
+    border-color: #9ca3af;
+}
+
+.captcha-checkbox.loading {
+    border-color: transparent;
+    border-top-color: #026836;
+    border-radius: 50%;
+    animation: captchaSpin 0.7s linear infinite;
+}
+
+@keyframes captchaSpin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.captcha-checkbox.verified {
+    background-color: #026836;
+    border-color: #026836;
+}
+
+.captcha-checkbox.verified svg {
+    display: block;
+    color: #ffffff;
+}
+
+.captcha-checkbox svg {
+    display: none;
+    width: 15px;
+    height: 15px;
+    stroke-width: 3;
+}
+
+.captcha-text {
+    font-size: 14px;
+    color: #334155;
+    font-weight: 500;
+}
+
+.captcha-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+}
+
+.captcha-logo svg {
+    width: 26px;
+    height: 26px;
+}
+
+.captcha-branding {
+    font-size: 9px;
+    font-weight: 700;
+    color: #64748b;
+    letter-spacing: -0.02em;
+    line-height: 1;
+}
+
+.captcha-links {
+    font-size: 8px;
+    color: #94a3b8;
+    line-height: 1.2;
+}
+
+.captcha-links a {
+    color: #64748b;
+    text-decoration: none;
+}
+
+.captcha-links a:hover {
+    text-decoration: underline;
+}
+
+/* --------------------------------------------------------------------------
+   Submit Button (Pill shaped, green, as shown in Image 1)
+   -------------------------------------------------------------------------- */
+.form-submit-row {
+    margin-top: 6px;
+    display: flex;
+    align-items: center;
+}
+
+.btn-contact-submit {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #026836;
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 12px 36px;
+    border-radius: 9999px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(2, 104, 54, 0.22);
+    transition: background-color 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
+    gap: 8px;
+}
+
+.btn-contact-submit:hover {
+    background-color: #01522a;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(2, 104, 54, 0.32);
+}
+
+.btn-contact-submit:active {
+    transform: translateY(0);
+}
+
+.btn-contact-submit:disabled {
+    background-color: #94a3b8;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* --------------------------------------------------------------------------
+   Form Submission Success & Feedback States
+   -------------------------------------------------------------------------- */
+.form-success-card {
+    display: none;
+    text-align: center;
+    padding: 48px 24px;
+    animation: fadeIn 0.4s ease forwards;
+}
+
+.form-success-card.visible {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.success-icon-badge {
+    width: 68px;
+    height: 68px;
+    border-radius: 50%;
+    background-color: #ecfdf5;
+    color: #026836;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    box-shadow: 0 0 0 8px rgba(2, 104, 54, 0.08);
+}
+
+.success-icon-badge svg {
+    width: 36px;
+    height: 36px;
+}
+
+.form-success-card h3 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 12px;
+}
+
+.form-success-card p {
+    font-size: 15px;
+    color: #475569;
+    line-height: 1.6;
+    max-width: 480px;
+    margin: 0 auto 24px;
+}
+
+.btn-reset-form {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    border: 1.5px solid #026836;
+    color: #026836;
+    padding: 10px 24px;
+    border-radius: 9999px;
+    font-weight: 700;
+    font-size: 13.5px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-reset-form:hover {
+    background: #026836;
+    color: #ffffff;
+}
+
+/* --------------------------------------------------------------------------
+   Home Page Contact Section (.home-contact-section)
+   -------------------------------------------------------------------------- */
+.home-contact-section {
+    background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+    padding: 90px 0 100px;
+    position: relative;
+    border-top: 1px solid #e2e8f0;
+}
+
+.home-contact-section .inner {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.contact-section-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.35fr;
+    gap: 60px;
+    align-items: start;
+}
+
+@media (max-width: 1080px) {
+    .contact-section-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+}
+
+.contact-info-col {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contact-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12.5px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #026836;
+}
+
+.contact-kicker svg {
+    width: 18px;
+    height: 18px;
+}
+
+.contact-info-col h2 {
+    font-size: clamp(2rem, 3.2vw, 2.75rem);
+    line-height: 1.2;
+    font-weight: 700;
+    color: #021228;
+    margin: 0;
+    letter-spacing: -0.02em;
+}
+
+.contact-intro {
+    font-size: 16px;
+    color: #475569;
+    line-height: 1.65;
+    margin: 0;
+}
+
+.contact-channels-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 8px;
+}
+
+.contact-channel-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 16px 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.contact-channel-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(2, 22, 82, 0.06);
+    border-color: #cbd5e1;
+}
+
+.channel-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: #ecfdf5;
+    color: #026836;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.channel-icon svg {
+    width: 22px;
+    height: 22px;
+}
+
+.channel-content {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.channel-label {
+    font-size: 12px;
+    font-weight: 700;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.channel-value {
+    font-size: 15.5px;
+    font-weight: 700;
+    color: #0f172a;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+a.channel-value:hover {
+    color: #026836;
+}
+
+.channel-sub {
+    font-size: 13px;
+    color: #64748b;
+}
+
+.contact-badge-card {
+    background: linear-gradient(135deg, #021228 0%, #0d2757 100%);
+    color: #ffffff;
+    border-radius: 14px;
+    padding: 22px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    box-shadow: 0 8px 24px rgba(2, 18, 40, 0.15);
+}
+
+.contact-badge-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.contact-badge-title {
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #e5b93b;
+}
+
+.contact-badge-card p {
+    font-size: 13.5px;
+    color: #cbd5e1;
+    line-height: 1.55;
+    margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Dedicated Contact Page Styling (contact.html)
+   -------------------------------------------------------------------------- */
+.contact-page .page-hero.hero-contact {
+    min-height: 65dvh;
+    padding: 140px 0 80px;
+}
+
+.contact-page .page-hero.hero-contact::before {
+    background-image: url('../images/photos/DSC07100-1.jpg');
+    opacity: 0.22;
+}
+
+.contact-page-layout {
+    padding: 70px 0 100px;
+}
+
+.contact-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 60px;
+}
+
+@media (max-width: 900px) {
+    .contact-cards-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+}
+
+.contact-target-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 28px 26px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.contact-target-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(2, 22, 82, 0.08);
+    border-color: #cbd5e1;
+}
+
+.contact-target-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: #ecfdf5;
+    color: #026836;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 18px;
+}
+
+.contact-target-icon.navy {
+    background: #eff6ff;
+    color: #2563eb;
+}
+
+.contact-target-icon.gold {
+    background: #fffbeb;
+    color: #b45309;
+}
+
+.contact-target-card h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 8px;
+}
+
+.contact-target-card p {
+    font-size: 14px;
+    color: #64748b;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+.contact-target-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #026836;
+    font-weight: 700;
+    font-size: 13.5px;
+    text-decoration: none;
+    transition: gap 0.2s ease, color 0.2s ease;
+}
+
+.contact-target-link:hover {
+    color: #01522a;
+    gap: 12px;
+}
+
+/* Location and Info Split */
+.contact-office-details {
+    background: #f8fafc;
+    border-radius: 16px;
+    border: 1px solid #e2e8f0;
+    padding: 32px;
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    .contact-office-details {
+        grid-template-columns: 1fr;
+        padding: 24px;
+    }
+}
+
+.office-info-block h4 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 12px;
+}
+
+.office-info-block p {
+    font-size: 14.5px;
+    color: #475569;
+    line-height: 1.6;
+    margin-bottom: 16px;
+}
+
+.office-hours-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 13.5px;
+    color: #64748b;
+}
+
+.office-hours-item {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 6px;
+    border-bottom: 1px dashed #e2e8f0;
+}
+
+.office-hours-item span:first-child {
+    font-weight: 600;
+    color: #334155;
+}
+
+.map-card-container {
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #cbd5e1;
+    background: #ffffff;
+    height: 220px;
+    position: relative;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.map-placeholder-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.map-placeholder-content svg {
+    color: #026836;
+    margin-bottom: 8px;
+}
+
+.map-placeholder-content strong {
+    font-size: 15px;
+    color: #0f172a;
+}
+
+.map-placeholder-content span {
+    font-size: 13px;
+    color: #64748b;
+    margin-top: 4px;
+    margin-bottom: 12px;
+}
+
