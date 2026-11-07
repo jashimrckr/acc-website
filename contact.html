@@ -36,6 +36,7 @@
 
     <!-- Stylesheets -->
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script src="js/script.js" defer></script>
     <!-- Microsoft Clarity -->
     <script type="text/javascript">
@@ -164,43 +165,44 @@
                                     </label>
                                     <div class="form-row">
                                         <div class="input-subfield">
-                                            <input type="text" class="acc-form-input input-first-name" name="firstName" required autocomplete="given-name" aria-label="First Name">
+                                            <input type="text" id="firstName" class="acc-form-input input-first-name" name="firstName" required autocomplete="given-name" aria-label="First Name">
                                             <span class="field-sublabel">First</span>
                                             <span class="field-error-msg">Please enter your first name</span>
                                         </div>
                                         <div class="input-subfield">
-                                            <input type="text" class="acc-form-input input-last-name" name="lastName" required autocomplete="family-name" aria-label="Last Name">
+                                            <input type="text" id="lastName" class="acc-form-input input-last-name" name="lastName" required autocomplete="family-name" aria-label="Last Name">
                                             <span class="field-sublabel">Last</span>
                                             <span class="field-error-msg">Please enter your last name</span>
                                         </div>
                                     </div>
+                                    <input type="hidden" id="name" name="name">
                                 </div>
 
                                 <!-- Phone & Email -->
                                 <div class="form-row">
                                     <div class="form-group">
-                                        <label class="form-label" for="pagePhoneInput">
-                                            Phone<span class="required-star">*</span>
+                                        <label class="form-label" for="phone">
+                                            Phone
                                         </label>
-                                        <input type="tel" id="pagePhoneInput" class="acc-form-input input-phone" name="phone" placeholder="(999) 999-9999" required autocomplete="tel">
+                                        <input type="tel" id="phone" class="acc-form-input input-phone" name="phone" placeholder="(999) 999-9999" required autocomplete="tel">
                                         <span class="field-error-msg">Please enter a valid phone number</span>
                                     </div>
                                     <div class="form-group">
-                                        <label class="form-label" for="pageEmailInput">
+                                        <label class="form-label" for="email">
                                             Email<span class="required-star">*</span>
                                         </label>
-                                        <input type="email" id="pageEmailInput" class="acc-form-input input-email" name="email" required autocomplete="email">
+                                        <input type="email" id="email" class="acc-form-input input-email" name="email" required autocomplete="email">
                                         <span class="field-error-msg">Please enter a valid email address</span>
                                     </div>
                                 </div>
 
-                                <!-- How Can We Help You -->
+                                <!-- How Can We Help You (Subject) -->
                                 <div class="form-group">
-                                    <label class="form-label" for="pageHelpTopic">
+                                    <label class="form-label" for="subject">
                                         How Can We Help You
                                     </label>
                                     <div class="select-wrapper">
-                                        <select id="pageHelpTopic" class="acc-form-select" name="inquiryType">
+                                        <select id="subject" class="acc-form-select" name="inquiryType">
                                             <option value="I am a CDFI looking to Explore Membership">I am a CDFI looking to Explore Membership</option>
                                             <option value="I am looking to support or invest in ACC">I am looking to support or invest in ACC</option>
                                             <option value="I am generally interested in ACC and want to Learn More">I am generally interested in ACC and want to Learn More</option>
@@ -208,41 +210,20 @@
                                     </div>
                                 </div>
 
-                                <!-- Anything Else You'd Like Us To Know? -->
+                                <!-- Anything Else You'd Like Us To Know? (Message) -->
                                 <div class="form-group">
-                                    <label class="form-label" for="pageMessageInput">
-                                        Anything Else You'd Like Us To Know?
+                                    <label class="form-label" for="message">
+                                        Anything Else You'd Like Us To Know?<span class="required-star">*</span>
                                     </label>
-                                    <textarea id="pageMessageInput" class="acc-form-textarea" name="message" rows="5"></textarea>
+                                    <textarea id="message" class="acc-form-textarea" name="message" rows="5" required placeholder="Tell us about your organization or inquiry..."></textarea>
+                                    <span class="field-error-msg">Please enter your message</span>
                                 </div>
 
                                 <!-- CAPTCHA -->
                                 <div class="form-group captcha-container">
                                     <label class="form-label">CAPTCHA</label>
-                                    <!-- Google reCAPTCHA v2 (active when data-sitekey is set) -->
-                                    <div class="g-recaptcha" data-sitekey="6LfwEWUrAAAAABEwoPI5JYN0hBnaS8Bk3I3CNLzh" style="display: none;"></div>
-                                    <div class="captcha-card" data-verified="false">
-                                        <div class="captcha-left" role="button" tabindex="0" aria-label="I'm not a robot checkbox">
-                                            <div class="captcha-checkbox">
-                                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                                    <polyline points="20 6 9 17 4 12"></polyline>
-                                                </svg>
-                                            </div>
-                                            <span class="captcha-text">I'm not a robot</span>
-                                        </div>
-                                        <div class="captcha-right">
-                                            <div class="captcha-logo">
-                                                <svg viewBox="0 0 48 48" fill="none" width="26" height="26">
-                                                    <path d="M38.5 24A14.5 14.5 0 0 0 16.4 12.3L13.8 9.7A18.1 18.1 0 0 1 42.1 24h-3.6z" fill="#026836"/>
-                                                    <path d="M9.5 24A14.5 14.5 0 0 0 31.6 35.7l2.6 2.6A18.1 18.1 0 0 1 5.9 24h3.6z" fill="#4285F4"/>
-                                                    <path d="M24 9.5a14.5 14.5 0 0 0-11.7 5.9L9.7 12.8A18.1 18.1 0 0 1 24 5.9v3.6z" fill="#1A73E8"/>
-                                                </svg>
-                                            </div>
-                                            <span class="captcha-branding">reCAPTCHA</span>
-                                            <span class="captcha-links"><a href="https://www.google.com/intl/en/policies/privacy/" target="_blank" rel="noopener">Privacy</a> &bull; <a href="https://www.google.com/intl/en/policies/terms/" target="_blank" rel="noopener">Terms</a></span>
-                                        </div>
-                                    </div>
-                                    <span class="field-error-msg captcha-error">Please verify that you are not a robot</span>
+                                    <div class="g-recaptcha" data-sitekey="6LfwEWUrAAAAABEwoPI5JYN0hBnaS8Bk3I3CNLzh"></div>
+                                    <span class="field-error-msg captcha-error">Please complete the CAPTCHA.</span>
                                 </div>
 
                                 <!-- SUBMIT button -->
