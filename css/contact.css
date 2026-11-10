@@ -774,3 +774,252 @@ a.channel-value:hover {
     margin-bottom: 12px;
 }
 
+/* --------------------------------------------------------------------------
+   Small Business Funding Banner & Redirect Callouts
+   -------------------------------------------------------------------------- */
+.small-biz-funding-banner {
+    background: linear-gradient(135deg, #021228 0%, #0d2757 55%, #183b78 100%);
+    border-radius: 16px;
+    padding: 30px 36px;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    margin-bottom: 48px;
+    box-shadow: 0 12px 32px rgba(2, 18, 40, 0.14);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    position: relative;
+    overflow: hidden;
+}
+
+.small-biz-funding-banner::after {
+    content: '';
+    position: absolute;
+    right: -40px;
+    bottom: -40px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(229, 185, 59, 0.18) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+@media (max-width: 860px) {
+    .small-biz-funding-banner {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 24px 20px;
+        gap: 20px;
+    }
+}
+
+.small-biz-funding-content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-width: 720px;
+    position: relative;
+    z-index: 1;
+}
+
+.small-biz-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #e5b93b;
+}
+
+.small-biz-badge svg {
+    width: 16px;
+    height: 16px;
+}
+
+.small-biz-funding-content h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0;
+    letter-spacing: -0.01em;
+}
+
+.small-biz-funding-content p {
+    font-size: 14.5px;
+    color: #cbd5e1;
+    line-height: 1.55;
+    margin: 0;
+}
+
+.btn-deeproots-redirect {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background-color: #e5b93b;
+    color: #021228 !important;
+    font-weight: 700;
+    font-size: 14px;
+    padding: 13px 26px;
+    border-radius: 9999px;
+    text-decoration: none;
+    white-space: nowrap;
+    box-shadow: 0 4px 14px rgba(229, 185, 59, 0.3);
+    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+}
+
+.btn-deeproots-redirect:hover {
+    background-color: #f3c74d;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(229, 185, 59, 0.45);
+}
+
+.btn-deeproots-redirect svg {
+    transition: transform 0.2s ease;
+}
+
+.btn-deeproots-redirect:hover svg {
+    transform: translateX(4px);
+}
+
+/* Callout inside contact form wrapper */
+.form-funding-notice {
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    border-radius: 10px;
+    padding: 14px 16px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 22px;
+}
+
+.form-funding-notice svg {
+    width: 20px;
+    height: 20px;
+    color: #026836;
+    flex-shrink: 0;
+    margin-top: 1px;
+}
+
+.form-funding-notice-text {
+    font-size: 13.5px;
+    color: #166534;
+    line-height: 1.5;
+}
+
+.form-funding-notice-text strong {
+    font-weight: 700;
+    color: #14532d;
+    display: block;
+    margin-bottom: 2px;
+}
+
+.form-funding-notice-text a {
+    color: #026836;
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.form-funding-notice-text a:hover {
+    color: #01522a;
+}
+
+/* Callout notice outside contact form wrapper */
+.form-funding-notice.outside-card {
+    background: #ffffff;
+    border: 1px solid #bbf7d0;
+    border-left: 4px solid #026836;
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 16px rgba(2, 22, 82, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+@media (max-width: 640px) {
+    .form-funding-notice.outside-card {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 16px;
+        gap: 12px;
+    }
+}
+
+.form-funding-notice.outside-card .form-funding-notice-main {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.form-funding-notice.outside-card svg.notice-icon {
+    width: 22px;
+    height: 22px;
+    color: #026836;
+    flex-shrink: 0;
+    margin-top: 1px;
+}
+
+.form-funding-notice.outside-card .form-funding-notice-text strong {
+    font-size: 14.5px;
+    font-weight: 700;
+    color: #0f172a;
+    display: block;
+    margin-bottom: 3px;
+}
+
+.form-funding-notice.outside-card .form-funding-notice-text span {
+    font-size: 13.5px;
+    color: #475569;
+    line-height: 1.45;
+}
+
+.btn-funding-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background-color: #026836;
+    color: #ffffff !important;
+    font-weight: 700;
+    font-size: 13px;
+    padding: 9px 18px;
+    border-radius: 9999px;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+    flex-shrink: 0;
+    box-shadow: 0 2px 8px rgba(2, 104, 54, 0.2);
+}
+
+.btn-funding-pill:hover {
+    background-color: #01522a;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(2, 104, 54, 0.3);
+}
+
+.form-submission-error {
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    color: #991b1b;
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 13.5px;
+    font-weight: 500;
+    display: none;
+    margin-bottom: 16px;
+}
+
+.form-submission-error.visible {
+    display: block;
+}
+

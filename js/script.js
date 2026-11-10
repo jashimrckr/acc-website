@@ -628,6 +628,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     msg.classList.remove('visible');
                 });
 
+                const formError = wrapper ? wrapper.querySelector('.form-submission-error') : null;
+                if (formError) {
+                    formError.classList.remove('visible');
+                    formError.textContent = '';
+                }
+
                 if (successCard) {
                     successCard.classList.remove('visible');
                 }
@@ -658,6 +664,7 @@ async function submitContactForm(formElement) {
     const captchaError = form.querySelector('.captcha-error');
     const wrapper = form.closest('.acc-contact-form-wrapper');
     const successCard = wrapper ? wrapper.querySelector('.form-success-card') : null;
+    const formError = wrapper ? wrapper.querySelector('.form-submission-error') : null;
 
     // Reset error styling
     form.querySelectorAll('.acc-form-input, .acc-form-select, .acc-form-textarea').forEach(input => {
@@ -666,6 +673,10 @@ async function submitContactForm(formElement) {
     form.querySelectorAll('.field-error-msg').forEach(msg => {
         msg.classList.remove('visible');
     });
+    if (formError) {
+        formError.classList.remove('visible');
+        formError.textContent = '';
+    }
 
     let isValid = true;
 
@@ -783,9 +794,12 @@ async function submitContactForm(formElement) {
         }
 
     } catch (error) {
-        console.error(error);
-        alert(error.message);
-        if (captchaError) {
+        console.error("Submission error:", error);
+        if (formError) {
+            formError.textContent = error.message || "Unable to submit message. Please try again.";
+            formError.classList.add('visible');
+            formError.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        } else if (captchaError) {
             captchaError.textContent = error.message;
             captchaError.classList.add('visible');
         }
