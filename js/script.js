@@ -1,4 +1,4 @@
-﻿// We store the header HTML in a template string so it works locally without a server (no CORS issues).
+// We store the header HTML in a template string so it works locally without a server (no CORS issues).
 const headerHTML = `
      <header class="site-header">
         <div class="header-container">
@@ -77,6 +77,9 @@ const headerHTML = `
                                 </li>
                             </ul>
                         </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link">Contact</a>
                     </li>
                     <li class="nav-item hide">
                         <a href="invest.html" class="nav-link">Invest</a>
@@ -228,6 +231,9 @@ document.addEventListener('DOMContentLoaded', () => {
         if (link) link.closest('.nav-item').classList.add('active');
     } else if (currentPath.includes('news-events.html')) {
         const link = document.querySelector('.site-header .nav-link[href="news-events.html"]');
+        if (link) link.closest('.nav-item').classList.add('active');
+    } else if (currentPath.includes('contact.html')) {
+        const link = document.querySelector('.site-header .nav-link[href="contact.html"]');
         if (link) link.closest('.nav-item').classList.add('active');
     } else if (currentPath.includes('invest.html') || currentPath.includes('donate.html')) {
         const investBtn = document.querySelector('.site-header .invest-trigger-btn');
@@ -485,9 +491,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         memberCards.forEach(card => {
             const cardState = (card.getAttribute('data-state') || '').toLowerCase();
+            const isDeepRoots = card.getAttribute('data-deeproots') === 'true';
             const cardText = card.textContent.toLowerCase();
 
-            const matchesState = (selectedState === 'all' || cardState.includes(selectedState.toLowerCase()));
+            const matchesState = selectedState === 'all'
+                || (selectedState === 'deeproots' ? isDeepRoots : cardState.includes(selectedState.toLowerCase()));
             const matchesQuery = !query || cardText.includes(query);
 
             if (matchesState && matchesQuery) {
@@ -560,4 +568,253 @@ document.addEventListener('DOMContentLoaded', () => {
         activateTabFromHash();
         window.addEventListener('hashchange', activateTabFromHash);
     }
+
+    // ----------------------------------------------------
+    // ACC Contact Form Backend Integration & CAPTCHA
+    // ----------------------------------------------------
+    const contactForms = document.querySelectorAll('.acc-contact-form');
+
+    contactForms.forEach(form => {
+        const wrapper = form.closest('.acc-contact-form-wrapper');
+        const successCard = wrapper ? wrapper.querySelector('.form-success-card') : null;
+        const resetBtn = successCard ? successCard.querySelector('.btn-reset-form') : null;
+        const phoneInput = form.querySelector('.input-phone');
+        const firstNameInput = form.querySelector('.input-first-name');
+        const lastNameInput = form.querySelector('.input-last-name');
+
+        // Synchronize hidden name input
+        const updateHiddenName = () => {
+            const hiddenName = form.querySelector('#name') || form.querySelector('#homeName') || form.querySelector('input[name="name"]');
+            if (hiddenName && firstNameInput && lastNameInput) {
+                hiddenName.value = `${firstNameInput.value} ${lastNameInput.value}`.trim();
+            }
+        };
+        if (firstNameInput) firstNameInput.addEventListener('input', updateHiddenName);
+        if (lastNameInput) lastNameInput.addEventListener('input', updateHiddenName);
+
+        // Phone number input formatter: (XXX) XXX-XXXX
+        if (phoneInput) {
+            phoneInput.addEventListener('input', (e) => {
+                let numbers = e.target.value.replace(/\D/g, '').substring(0, 10);
+                let formatted = '';
+                if (numbers.length > 0) {
+                    formatted = '(' + numbers.substring(0, 3);
+                }
+                if (numbers.length >= 4) {
+                    formatted += ') ' + numbers.substring(3, 6);
+                }
+                if (numbers.length >= 7) {
+                    formatted += '-' + numbers.substring(6, 10);
+                }
+                e.target.value = formatted;
+            });
+        }
+
+        // Form submit listener
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            submitContactForm(form);
+        });
+
+        // Reset form handler
+        if (resetBtn) {
+            resetBtn.addEventListener('click', () => {
+                form.reset();
+                if (typeof grecaptcha !== 'undefined') {
+                    try { grecaptcha.reset(); } catch (err) {}
+                }
+                form.querySelectorAll('.acc-form-input, .acc-form-select, .acc-form-textarea').forEach(input => {
+                    input.classList.remove('has-error');
+                });
+                form.querySelectorAll('.field-error-msg').forEach(msg => {
+                    msg.classList.remove('visible');
+                });
+
+                const formError = wrapper ? wrapper.querySelector('.form-submission-error') : null;
+                if (formError) {
+                    formError.classList.remove('visible');
+                    formError.textContent = '';
+                }
+
+                if (successCard) {
+                    successCard.classList.remove('visible');
+                }
+                form.style.display = 'flex';
+            });
+        }
+    });
 });
+
+/**
+ * Submits the ACC contact form to the Azure Functions backend endpoint
+ * http://localhost:7071/api/contact/submit
+ */
+async function submitContactForm(formElement) {
+    const form = formElement instanceof HTMLFormElement 
+        ? formElement 
+        : (document.querySelector('.acc-contact-form') || document.querySelector('form'));
+    
+    if (!form) return;
+
+    const firstNameInput = form.querySelector('.input-first-name');
+    const lastNameInput = form.querySelector('.input-last-name');
+    const emailInput = form.querySelector('.input-email');
+    const phoneInput = form.querySelector('.input-phone');
+    const subjectSelect = form.querySelector('.acc-form-select');
+    const messageInput = form.querySelector('.acc-form-textarea');
+    const submitBtn = form.querySelector('.btn-contact-submit');
+    const captchaError = form.querySelector('.captcha-error');
+    const wrapper = form.closest('.acc-contact-form-wrapper');
+    const successCard = wrapper ? wrapper.querySelector('.form-success-card') : null;
+    const formError = wrapper ? wrapper.querySelector('.form-submission-error') : null;
+
+    // Reset error styling
+    form.querySelectorAll('.acc-form-input, .acc-form-select, .acc-form-textarea').forEach(input => {
+        input.classList.remove('has-error');
+    });
+    form.querySelectorAll('.field-error-msg').forEach(msg => {
+        msg.classList.remove('visible');
+    });
+    if (formError) {
+        formError.classList.remove('visible');
+        formError.textContent = '';
+    }
+
+    let isValid = true;
+
+    // Validate First Name
+    if (firstNameInput && !firstNameInput.value.trim()) {
+        isValid = false;
+        firstNameInput.classList.add('has-error');
+        const err = firstNameInput.parentElement.querySelector('.field-error-msg');
+        if (err) err.classList.add('visible');
+    }
+
+    // Validate Last Name
+    if (lastNameInput && !lastNameInput.value.trim()) {
+        isValid = false;
+        lastNameInput.classList.add('has-error');
+        const err = lastNameInput.parentElement.querySelector('.field-error-msg');
+        if (err) err.classList.add('visible');
+    }
+
+    // Validate Email
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (emailInput && !emailRegex.test(emailInput.value.trim())) {
+        isValid = false;
+        emailInput.classList.add('has-error');
+        const err = emailInput.parentElement.querySelector('.field-error-msg');
+        if (err) err.classList.add('visible');
+    }
+
+    // Validate Message (required by backend)
+    if (messageInput && !messageInput.value.trim()) {
+        isValid = false;
+        messageInput.classList.add('has-error');
+        const err = messageInput.parentElement.querySelector('.field-error-msg');
+        if (err) err.classList.add('visible');
+    }
+
+    if (!isValid) {
+        const firstInvalid = form.querySelector('.has-error');
+        if (firstInvalid) firstInvalid.focus();
+        return;
+    }
+
+    // Obtain real reCAPTCHA token
+    let captchaToken = "";
+    if (typeof grecaptcha !== 'undefined') {
+        try {
+            captchaToken = grecaptcha.getResponse();
+        } catch (e) {
+            console.warn("grecaptcha.getResponse error:", e);
+        }
+    }
+
+    if (!captchaToken) {
+        if (captchaError) {
+            captchaError.textContent = "Please complete the CAPTCHA.";
+            captchaError.classList.add('visible');
+        }
+        return;
+    }
+
+    const firstName = firstNameInput ? firstNameInput.value.trim() : "";
+    const lastName = lastNameInput ? lastNameInput.value.trim() : "";
+    const fullName = `${firstName} ${lastName}`.trim() || (document.getElementById("name") ? document.getElementById("name").value.trim() : "");
+    const email = emailInput ? emailInput.value.trim() : (document.getElementById("email") ? document.getElementById("email").value.trim() : "");
+    const phone = phoneInput ? phoneInput.value.trim() : "";
+    const subject = subjectSelect ? subjectSelect.value.trim() : (document.getElementById("subject") ? document.getElementById("subject").value.trim() : "");
+    let rawMessage = messageInput ? messageInput.value.trim() : (document.getElementById("message") ? document.getElementById("message").value.trim() : "");
+
+    const payload = {
+        name: fullName,
+        email: email,
+        phone: phone,
+        subject: subject,
+        message: rawMessage,
+        captchaToken: captchaToken
+    };
+
+    if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = `
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="captcha-spin" style="animation: captchaSpin 0.7s linear infinite;">
+                <circle cx="12" cy="12" r="10" stroke-opacity="0.3"></circle>
+                <path d="M12 2a10 10 0 0 1 10 10"></path>
+            </svg>
+            SUBMITTING...
+        `;
+    }
+
+    try {
+        const response = await fetch(
+            "http://localhost:7071/api/contact/submit",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(payload)
+            }
+        );
+
+        const result = await response.json();
+
+        if (!response.ok) {
+            throw new Error(result.error || "Submission failed");
+        }
+
+        // Transition to success state
+        form.style.display = 'none';
+        if (successCard) {
+            const userMsg = successCard.querySelector('.success-user-text');
+            if (userMsg && fullName) {
+                userMsg.textContent = `Thank you, ${fullName}! Your message has been sent to Appalachian Community Capital. A member of our team will follow up with you promptly.`;
+            }
+            successCard.classList.add('visible');
+        }
+
+    } catch (error) {
+        console.error("Submission error:", error);
+        if (formError) {
+            formError.textContent = error.message || "Unable to submit message. Please try again.";
+            formError.classList.add('visible');
+            formError.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        } else if (captchaError) {
+            captchaError.textContent = error.message;
+            captchaError.classList.add('visible');
+        }
+
+    } finally {
+        if (typeof grecaptcha !== 'undefined') {
+            try { grecaptcha.reset(); } catch (e) {}
+        }
+        if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'SUBMIT';
+        }
+    }
+}
+
+window.submitContactForm = submitContactForm;

@@ -35,6 +35,7 @@
     <link rel="stylesheet" href="css/pages.css">
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/invest.css">
     <link rel="shortcut icon" href="images/ACC-Favicon.png" type="image/x-icon">
     <script src="js/script.js" defer></script>
     <!-- Microsoft Clarity -->
@@ -53,16 +54,13 @@
 
     <main class="page-content">
         <!-- Page Hero -->
-        <section class="page-hero hero-impact"
-            style="background: linear-gradient(135deg, #021a3a 0%, #0c3875 60%, #124d9c 100%);">
+        <section class="page-hero hero-impact hero-invest">
             <div class="inner">
                 <nav class="breadcrumb-trail" aria-label="Breadcrumb">
                     <a href="index.html">Home</a>
                     <span>/</span>
                     <span>Invest &amp; Support</span>
                 </nav>
-
-
 
                 <h1>Invest in ACC Through Our<br><strong>Community Investment Notes</strong></h1>
 
@@ -83,8 +81,7 @@
                         </svg>
                     </a>
                     <a href="https://app.smartsheet.com/b/form/89654ea06a0b48d7abec20ed2a7bf064" target="_blank"
-                        rel="noopener noreferrer" class="btn-hero-secondary"
-                        style="background: rgba(255, 255, 255, 0.15); border-color: rgba(255, 255, 255, 0.4);">
+                        rel="noopener noreferrer" class="btn-hero-secondary btn-hero-step2">
                         <span>Step 2: Get Started Questionnaire</span>
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -97,8 +94,8 @@
             </div>
         </section>
 
-        <!-- MAIN FEATURED SECTION: COMMUNITY INVESTMENT NOTES (Matches attached image) -->
-        <section class="content-section" id="notes" style="background: #ffffff; padding: 90px 0 100px;">
+        <!-- MAIN FEATURED SECTION: COMMUNITY INVESTMENT NOTES -->
+        <section class="content-section invest-notes-section" id="notes">
             <div class="inner">
                 <div class="invest-notes-layout">
                     <!-- Left Column: Big Headline -->
@@ -160,19 +157,18 @@
         </section>
 
         <!-- SECTION: OFFERING SPECIFICATIONS & PHILANTHROPY CALLOUT -->
-        <section class="content-section" style="background: #f8fafc; ">
+        <section class="content-section invest-details-section">
             <div class="inner">
-                <div class="section-header text-center" style="margin-bottom: 48px;">
+                <div class="section-header text-center invest-details-header">
                     <span class="section-kicker">Offering Details</span>
                     <h2 class="section-title">Key Notes Parameters at a Glance</h2>
-                    <p class="section-lead"
-                        style="max-width: 720px; margin: 0 auto; color: #475569; font-size: 16px; line-height: 1.6;">
+                    <p class="section-lead invest-details-lead">
                         Rigorous underwriting, institutional governance, and verifiable impact across Central
                         Appalachia.
                     </p>
                 </div>
 
-                <div class="stats-card-grid" style="margin-bottom: 50px;">
+                <div class="stats-card-grid invest-stats-grid">
                     <div class="stat-item">
                         <div class="stat-value gold">1&ndash;10 Yrs</div>
                         <div class="stat-label">Maturity Terms</div>
@@ -196,21 +192,17 @@
                 </div>
 
                 <!-- Charitable Giving Card Linking to donate.html -->
-                <div
-                    style="background: #ffffff; border-radius: 20px; padding: 36px 40px; border: 1px solid #e2e8f0; box-shadow: 0 4px 20px rgba(0,0,0,0.03); display: flex; align-items: center; justify-content: space-between; gap: 30px; flex-wrap: wrap;">
-                    <div style="max-width: 680px;">
-                        <span
-                            style="font-size: 13px; font-weight: 800; color: #026836; text-transform: uppercase; letter-spacing: 0.08em; display: block; margin-bottom: 6px;">Looking
-                            for Charitable Giving?</span>
-                        <h3 style="font-size: 1.5rem; font-weight: 700; color: #0f172a; margin-bottom: 8px;">The
-                            Gambrell Fund for Strategic Initiatives</h3>
-                        <p style="font-size: 14.5px; color: #475569; line-height: 1.6; margin: 0;">
+                <div class="invest-philanthropy-card">
+                    <div class="invest-philanthropy-copy">
+                        <span class="invest-philanthropy-kicker">Looking for Charitable Giving?</span>
+                        <h3 class="invest-philanthropy-title">The Gambrell Fund for Strategic Initiatives</h3>
+                        <p class="invest-philanthropy-desc">
                             Honoring Donna Gambrell&rsquo;s legacy with endowed resources supporting rising
                             changemakers, entrepreneurial ecosystems, and underinvested communities.
                         </p>
                     </div>
-                    <div>
-                        <a href="donate.html" class="btn-donate-green" style="font-size: 14px; padding: 12px 28px;">
+                    <div class="invest-philanthropy-action">
+                        <a href="donate.html" class="btn-donate-green btn-gambrell-donate">
                             <span>Donate to Gambrell Fund</span>
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                 stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -224,63 +216,52 @@
         </section>
 
         <!-- 2030 Vision Card -->
-        <section class="content-section" id="vision" style="padding-top: 0; ">
+        <section class="content-section invest-vision-section" id="vision">
             <div class="inner">
-                <div
-                    style="background: linear-gradient(135deg, #021228 0%, #0c2b5f 100%); border-radius: 24px; padding: 48px; color: #ffffff;">
-                    <div class="grid-2col" style="align-items: center;">
+                <div class="invest-vision-card">
+                    <div class="invest-vision-grid">
                         <div>
-                            <span
-                                style="font-size: 13px; font-weight: 800; color: #e5b93b; letter-spacing: 0.08em; text-transform: uppercase; display: block; margin-bottom: 10px;">Long-Term
-                                Strategic Horizon</span>
-                            <h3 style="font-size: 2.2rem; font-weight: 700; color: #ffffff; margin-bottom: 16px;">ACC
-                                Vision 2030: Mobilizing $250 Million</h3>
-                            <p style="font-size: 1.05rem; line-height: 1.6; color: #cbd5e1; margin-bottom: 24px;">
+                            <span class="invest-vision-kicker">Long-Term Strategic Horizon</span>
+                            <h3 class="invest-vision-title">ACC Vision 2030: Mobilizing $250 Million</h3>
+                            <p class="invest-vision-desc">
                                 By 2030, ACC plans to mobilize $250M in catalytic capital to expand economic
                                 opportunity, grow resilient local businesses, create family-sustaining jobs, and build
                                 lasting community wealth across Appalachia.
                             </p>
-                            <div style="display: flex; gap: 20px; flex-wrap: wrap;">
-                                <div>
-                                    <div style="font-size: 2rem; font-weight: 800; color: #e5b93b;">$195M</div>
-                                    <div style="font-size: 13px; color: #94a3b8; font-weight: 600;">Expand Capital
-                                        Access</div>
+                            <div class="invest-vision-metrics">
+                                <div class="invest-vision-metric">
+                                    <div class="invest-metric-value">$195M</div>
+                                    <div class="invest-metric-label">Expand Capital Access</div>
                                 </div>
-                                <div style="border-left: 1px solid rgba(255,255,255,0.15); padding-left: 20px;">
-                                    <div style="font-size: 2rem; font-weight: 800; color: #e5b93b;">$30M</div>
-                                    <div style="font-size: 13px; color: #94a3b8; font-weight: 600;">Programs &amp;
-                                        Innovation</div>
+                                <div class="invest-vision-metric">
+                                    <div class="invest-metric-value">$30M</div>
+                                    <div class="invest-metric-label">Programs &amp; Innovation</div>
                                 </div>
-                                <div style="border-left: 1px solid rgba(255,255,255,0.15); padding-left: 20px;">
-                                    <div style="font-size: 2rem; font-weight: 800; color: #e5b93b;">$25M</div>
-                                    <div style="font-size: 13px; color: #94a3b8; font-weight: 600;">Membership Services
-                                    </div>
+                                <div class="invest-vision-metric">
+                                    <div class="invest-metric-value">$25M</div>
+                                    <div class="invest-metric-label">Membership Services</div>
                                 </div>
                             </div>
                         </div>
-                        <div
-                            style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.2); border-radius: 18px; padding: 32px; backdrop-filter: blur(8px);">
-                            <h4 style="font-size: 1.25rem; font-weight: 700; color: #ffffff; margin-bottom: 12px;">$7M
-                                Strategic Investment Ask</h4>
-                            <p style="font-size: 13.5px; color: #d1d8e8; line-height: 1.55; margin-bottom: 20px;">
+                        <div class="invest-ask-box">
+                            <h4 class="invest-ask-title">$7M Strategic Investment Ask</h4>
+                            <p class="invest-ask-desc">
                                 To achieve this vision, ACC is securing $7M in targeted catalytic investments:
                             </p>
-                            <ul
-                                style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 14px; font-size: 14px; color: #e2e8f0;">
-                                <li style="display: flex; gap: 10px;">
-                                    <strong style="color: #e5b93b; min-width: 50px;">$2M</strong>
+                            <ul class="invest-ask-list">
+                                <li>
+                                    <strong class="invest-ask-amount">$2M</strong>
                                     <span>Unrestricted operating capital to reinforce leadership, data infrastructure,
                                         and lending technology.</span>
                                 </li>
-                                <li style="display: flex; gap: 10px;">
-                                    <strong style="color: #e5b93b; min-width: 50px;">$5M</strong>
+                                <li>
+                                    <strong class="invest-ask-amount">$5M</strong>
                                     <span>Equity balance sheet capital, leveraging additional debt capital by a factor
                                         of nine (9:1) for regional members.</span>
                                 </li>
                             </ul>
-                            <div style="margin-top: 24px;">
-                                <a href="#contact" class="btn-hero-primary"
-                                    style="padding: 10px 22px; font-size: 13px; background: #026836;">Inquire About
+                            <div class="invest-ask-cta">
+                                <a href="#contact" class="btn-hero-primary btn-invest-ask">Inquire About
                                     Strategic Investment &rarr;</a>
                             </div>
                         </div>
@@ -290,51 +271,43 @@
         </section>
 
         <!-- Investor Relations & Contact Section -->
-        <section class="content-section" id="contact" style="background: #ffffff; ">
+        <section class="content-section invest-contact-section" id="contact">
             <div class="inner">
-                <div
-                    style="background: linear-gradient(135deg, #f8fafc 0%, #edf2f7 100%); border: 1px solid #e2e8f0; border-radius: 24px; padding: 48px; display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: center;">
+                <div class="invest-contact-card">
                     <div>
-                        <span
-                            style="font-size: 13px; font-weight: 800; color: #026836; text-transform: uppercase; letter-spacing: 0.08em; display: block; margin-bottom: 10px;">Investor
-                            &amp; Partner Relations</span>
-                        <h2 style="font-size: 2rem; font-weight: 700; color: #0f172a; margin-bottom: 14px;">Connect With
-                            ACC Leadership</h2>
-                        <p style="font-size: 15px; color: #475569; line-height: 1.6; margin-bottom: 24px;">
+                        <span class="invest-contact-kicker">Investor &amp; Partner Relations</span>
+                        <h2 class="invest-contact-title">Connect With ACC Leadership</h2>
+                        <p class="invest-contact-desc">
                             We welcome conversations with institutional investors, donor-advised funds, family offices,
                             and foundations seeking accountable, verified community impact in central Appalachia.
                         </p>
-                        <div
-                            style="display: flex; flex-direction: column; gap: 12px; font-size: 14.5px; color: #1e293b;">
-                            <div style="display: flex; align-items: center; gap: 12px;">
-                                <span style="font-weight: 700; color: #0f172a; min-width: 110px;">Office:</span>
+                        <div class="invest-contact-meta">
+                            <div class="invest-contact-row">
+                                <span class="invest-contact-label">Office:</span>
                                 <span>(540) 251-4244</span>
                             </div>
-                            <div style="display: flex; align-items: center; gap: 12px;">
-                                <span style="font-weight: 700; color: #0f172a; min-width: 110px;">Address:</span>
+                            <div class="invest-contact-row">
+                                <span class="invest-contact-label">Address:</span>
                                 <span>110 Peppers Ferry Road NW, Christiansburg, VA 24073</span>
                             </div>
-                            <div style="display: flex; align-items: center; gap: 12px;">
-                                <span style="font-weight: 700; color: #0f172a; min-width: 110px;">Status:</span>
+                            <div class="invest-contact-row">
+                                <span class="invest-contact-label">Status:</span>
                                 <span>501(c)(3) Certified CDFI</span>
                             </div>
                         </div>
                     </div>
 
-                    <div
-                        style="background: #ffffff; border-radius: 18px; padding: 32px; border: 1px solid #cbd5e1; box-shadow: 0 10px 25px rgba(0,0,0,0.05);">
-                        <h4 style="font-size: 1.2rem; font-weight: 700; color: #0f172a; margin-bottom: 8px;">Direct
-                            Inquiries</h4>
-                        <p style="font-size: 13.5px; color: #64748b; margin-bottom: 20px;">
+                    <div class="invest-inquiries-box">
+                        <h4 class="invest-inquiries-title">Direct Inquiries</h4>
+                        <p class="invest-inquiries-desc">
                             For Community Investment Note term sheets, syndications, or questionnaire support:
                         </p>
-                        <div style="margin-bottom: 20px;">
-                            <div style="font-size: 15px; font-weight: 700; color: #0f172a;">Shauna Yeldell</div>
-                            <div style="font-size: 13px; color: #64748b;">Chief Operations &amp; Member Relations</div>
+                        <div class="invest-inquiries-person">
+                            <div class="invest-inquiries-name">Shauna Yeldell</div>
+                            <div class="invest-inquiries-role">Chief Operations &amp; Member Relations</div>
                         </div>
                         <a href="mailto:syeldell@appalachiancommunitycapitalcdfi.org?subject=ACC%20Investment%20Inquiry"
-                            class="btn-donate-green"
-                            style="display: flex; justify-content: center; width: 100%; font-size: 14px; padding: 12px 20px;">
+                            class="btn-donate-green btn-invest-email">
                             Send Direct Email &rarr;
                         </a>
                     </div>
@@ -381,15 +354,14 @@
                         <div class="footer-social">
                             <div class="fusion-social-networks-wrapper">
                                 <a class="fusion-social-network-icon fusion-tooltip fusion-linkedin awb-icon-linkedin"
-                                    style="color:#2176ff;font-size:16px;" data-placement="top" data-title="LinkedIn"
-                                    data-toggle="tooltip" title="" aria-label="linkedin" target="_blank"
-                                    rel="noopener noreferrer" href="https://www.linkedin.com/company/acc-cdfi"
+                                    data-placement="top" data-title="LinkedIn" data-toggle="tooltip" title=""
+                                    aria-label="linkedin" target="_blank" rel="noopener noreferrer"
+                                    href="https://www.linkedin.com/company/acc-cdfi"
                                     data-original-title="LinkedIn"></a>
                                 <a class="fusion-social-network-icon fusion-tooltip fusion-instagram awb-icon-instagram"
-                                    style="color:#2176ff;font-size:16px;" data-placement="top" data-title="Instagram"
-                                    data-toggle="tooltip" title="" aria-label="instagram" target="_blank"
-                                    rel="noopener noreferrer" href="https://www.instagram.com/acc_cdfi"
-                                    data-original-title="Instagram"></a>
+                                    data-placement="top" data-title="Instagram" data-toggle="tooltip" title=""
+                                    aria-label="instagram" target="_blank" rel="noopener noreferrer"
+                                    href="https://www.instagram.com/acc_cdfi" data-original-title="Instagram"></a>
                             </div>
                         </div>
                     </div>
@@ -419,6 +391,7 @@
                                     <li><a href="about.html#mission">Mission &amp; History</a></li>
                                     <li><a href="about.html#leadership">Board &amp; Leadership</a></li>
                                     <li><a href="impact-insights.html#reports">Financial Audits</a></li>
+                                    <li><a href="contact.html">Contact Us</a></li>
                                 </ul>
                             </div>
                             <div class="footer-column">
@@ -473,6 +446,16 @@
                             </svg>
                             (540) 251-4244
                         </span>
+                        <a href="contact.html" class="footer-contact-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
+                                </path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                            Contact Us
+                        </a>
                     </div>
                     <div class="cert-info">
                         501(c)(3) Certified CDFI

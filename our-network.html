@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -33,6 +33,8 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/pages.css">
     <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/our-network.css">
     <link rel="shortcut icon" href="images/ACC-Favicon.png" type="image/x-icon">
     <script src="js/script.js" defer></script>
     <!-- Microsoft Clarity -->
@@ -45,7 +47,7 @@
     </script>
 </head>
 
-<body>
+<body class="network-page">
     <!-- Header dynamically loaded via script.js -->
     <div id="header-placeholder"></div>
 
@@ -72,7 +74,7 @@
                 <h1>Rooted in communities. <br><strong>Connected for greater impact.</strong></h1>
                 <p class="hero-lead">
                     At the heart of ACC is a network of 46 community-based CDFIs with more than $5 billion in combined
-                    assets. These institutions know their communities—the entrepreneurs, opportunities, and local
+                    assets. These institutions know their communities&mdash;the entrepreneurs, opportunities, and local
                     challenges. ACC unites this local insight with capital, technology, and scale that no single lender
                     can achieve alone.
                 </p>
@@ -85,11 +87,9 @@
                             <polyline points="12 5 19 12 12 19"></polyline>
                         </svg>
                     </a>
-                    <a href="#states-reach" class="btn-hero-secondary" style="display: none;">13-State Regional
-                        Reach</a>
+                    <a href="#states-reach" class="btn-hero-secondary hero-btn-hidden">13-State Regional Reach</a>
                     <a href="#membership" class="btn-hero-secondary">Member Value &amp; Benefits</a>
-                    <a href="#become-a-member" class="btn-hero-secondary"
-                        style="background: rgba(229, 185, 59, 0.15); border-color: #e5b93b; color: #f5c443;">
+                    <a href="#become-a-member" class="btn-hero-secondary hero-btn-gold">
                         Become a Member &rarr;
                     </a>
                 </div>
@@ -99,7 +99,7 @@
         <!-- Network Stats Ribbon -->
         <section class="stats-ribbon">
             <div class="inner">
-                <div class="stats-grid">
+                <div class="stats-grid network-stats-grid">
                     <div class="stat-item">
                         <span class="stat-number">46</span>
                         <span class="stat-label">CDFI Members &amp; Growing</span>
@@ -130,42 +130,39 @@
         </section>
 
         <!-- Network Strategic Intro -->
-        <section class="content-section" style="padding-bottom: 20px;">
+        <section class="content-section network-intro-section">
             <div class="inner">
-                <div class="grid-2col" style="align-items: center;">
+                <div class="grid-2col network-intro-grid">
                     <div>
                         <span class="section-kicker">Local Leadership &bull; Regional Scale</span>
                         <h2 class="section-title">The Power of a Unified CDFI Ecosystem</h2>
                         <p class="section-desc">
-                            Appalachia’s community development financial institutions are deeply embedded in the towns
+                            Appalachia&rsquo;s community development financial institutions are deeply embedded in the towns
                             and counties they serve. They sit across kitchen tables with first-time entrepreneurs,
                             underwrite main street revivals, and finance clean energy transitions.
                         </p>
                         <p class="section-desc">
                             Individually, community lenders often faced barriers when accessing large national
                             institutional investors or managing high-tech underwriting infrastructure. Appalachian
-                            Community Capital serves as the catalytic intermediary—aggregating regional demand,
+                            Community Capital serves as the catalytic intermediary&mdash;aggregating regional demand,
                             syndicating blended capital, and delivering shared analytics.
                         </p>
-                        <div style="margin-top: 28px; display: flex; gap: 24px; flex-wrap: wrap;">
-                            <div
-                                style="display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 700; color: #0f172a;">
+                        <div class="network-highlights-row">
+                            <div class="network-highlight-item">
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00966a"
                                     stroke-width="2.5">
                                     <polyline points="20 6 9 17 4 12"></polyline>
                                 </svg>
                                 90% Loans &gt;$100K &bull; 70% &lt;$50K
                             </div>
-                            <div
-                                style="display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 700; color: #0f172a;">
+                            <div class="network-highlight-item">
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00966a"
                                     stroke-width="2.5">
                                     <polyline points="20 6 9 17 4 12"></polyline>
                                 </svg>
                                 60% Commercial Real Estate
                             </div>
-                            <div
-                                style="display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 700; color: #0f172a;">
+                            <div class="network-highlight-item">
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00966a"
                                     stroke-width="2.5">
                                     <polyline points="20 6 9 17 4 12"></polyline>
@@ -175,14 +172,12 @@
                         </div>
                     </div>
                     <div>
-                        <div
-                            style="background: #ffffff; border-radius: 20px; border: 1px solid #e2e8f0; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.06);">
+                        <div class="network-photo-card">
                             <img src="images/photos/20230425_171000.jpg" alt="ACC CDFI Network Leadership Gathering"
-                                style="width: 100%; height: 320px; object-fit: cover;">
-                            <div style="padding: 22px 26px; background: #021228; color: #ffffff;">
-                                <h4 style="font-size: 16px; font-weight: 700; color: #f5c443; margin-bottom: 6px;">
-                                    Collaborative Network Cohorts</h4>
-                                <p style="font-size: 13.5px; color: #cbd5e1; margin: 0; line-height: 1.5;">
+                                class="network-photo-img">
+                            <div class="network-photo-caption">
+                                <h4>Collaborative Network Cohorts</h4>
+                                <p>
                                     Member executives convene regularly across the 13 states to share risk models,
                                     co-lend on larger transactions, and steer regional capital strategies.
                                 </p>
@@ -194,8 +189,7 @@
         </section>
 
         <!-- 13 States Reach & Geographic Coverage -->
-        <section class="content-section" id="states-reach"
-            style="background: #f8fafc; padding-top: 60px; display: none;">
+        <section class="content-section network-reach-section is-hidden" id="states-reach">
             <div class="inner">
                 <div class="section-header center">
                     <span class="section-kicker">Geographic Footprint</span>
@@ -209,14 +203,11 @@
 
                 <!-- 13 States Map Overview Box -->
                 <div class="map-overview-box">
-                    <div class="grid-2col" style="align-items: center;">
+                    <div class="grid-2col network-reach-grid">
                         <div>
-                            <span
-                                style="font-size: 12px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: #e5b93b; display: block; margin-bottom: 8px;">Regional
-                                Footprint</span>
-                            <h3 style="font-size: 2rem; font-weight: 700; color: #ffffff; margin-bottom: 14px;">The
-                                Appalachian Regional Commission (ARC) Territory</h3>
-                            <p style="font-size: 15px; color: #cbd5e1; line-height: 1.6; margin-bottom: 24px;">
+                            <span class="reach-kicker">Regional Footprint</span>
+                            <h3 class="reach-title">The Appalachian Regional Commission (ARC) Territory</h3>
+                            <p class="reach-desc">
                                 Established in partnership with ARC, ACC's member CDFIs provide seamless lending
                                 coverage across every single subregion of Appalachia: Northern, North Central, Central,
                                 South Central, and Southern Appalachia.
@@ -235,46 +226,37 @@
                                 <span>Tennessee (TN) &bull; 52 Counties</span>
                                 <span>Virginia (VA) &bull; 25 Counties</span>
                                 <span>West Virginia (WV) &bull; All 55 Counties</span>
-                                <span
-                                    style="background: rgba(229, 185, 59, 0.2); border-color: #e5b93b; color: #f5c443;">National
-                                    Clean Energy Affiliates</span>
+                                <span class="reach-pill-gold">National Clean Energy Affiliates</span>
                             </div>
                         </div>
-                        <div
-                            style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); border-radius: 16px; padding: 28px; backdrop-filter: blur(8px);">
-                            <h4
-                                style="font-size: 1.25rem; font-weight: 700; color: #ffffff; margin-bottom: 16px; display: flex; align-items: center; gap: 10px;">
+                        <div class="reach-highlights-card">
+                            <h4 class="reach-highlights-title">
                                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#e5b93b"
                                     stroke-width="2">
                                     <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
                                 </svg>
                                 Coverage Highlights
                             </h4>
-                            <div
-                                style="display: flex; flex-direction: column; gap: 14px; font-size: 14px; color: #e2e8f0;">
-                                <div
-                                    style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 8px;">
+                            <div class="reach-highlights-list">
+                                <div class="reach-highlight-row">
                                     <span>Distressed &amp; At-Risk Counties</span>
-                                    <strong style="color: #ffffff;">82% of Footprint</strong>
+                                    <strong class="reach-highlight-val">82% of Footprint</strong>
                                 </div>
-                                <div
-                                    style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 8px;">
+                                <div class="reach-highlight-row">
                                     <span>Coal-Impacted Communities</span>
-                                    <strong style="color: #ffffff;">100% Eligible</strong>
+                                    <strong class="reach-highlight-val">100% Eligible</strong>
                                 </div>
-                                <div
-                                    style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 8px;">
+                                <div class="reach-highlight-row">
                                     <span>Women &amp; Minority Led CDFIs</span>
-                                    <strong style="color: #ffffff;">21 of 46 Members</strong>
+                                    <strong class="reach-highlight-val">21 of 46 Members</strong>
                                 </div>
-                                <div
-                                    style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 8px;">
+                                <div class="reach-highlight-row">
                                     <span>Helene Disaster Relief Zones</span>
-                                    <strong style="color: #ffffff;">31 WNC Counties</strong>
+                                    <strong class="reach-highlight-val">31 WNC Counties</strong>
                                 </div>
-                                <div style="display: flex; justify-content: space-between; padding-top: 4px;">
+                                <div class="reach-highlight-row reach-highlight-row--total">
                                     <span>Combined Loan Capital Under Mgmt</span>
-                                    <strong style="color: #e5b93b;">&gt;$5,000,000,000</strong>
+                                    <strong class="reach-highlight-gold">&gt;$5,000,000,000</strong>
                                 </div>
                             </div>
                         </div>
@@ -284,21 +266,19 @@
         </section>
 
         <!-- Interactive Member Network Directory -->
-        <section class="content-section" id="directory" style="background: #c9e2ff;">
+        <section class="content-section network-directory-section" id="directory">
             <div class="inner">
-                <div class="section-header-split"
-                    style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 20px; margin-bottom: 24px;">
-                    <div style="max-width: 680px;">
+                <div class="section-header-split">
+                    <div class="directory-header-copy">
                         <span class="section-kicker">Interactive Member Directory</span>
-                        <h2 class="section-title" style="margin-bottom: 8px;">Explore ACC Member Institutions</h2>
-                        <p class="section-desc" style="margin: 0;">
+                        <h2 class="section-title directory-header-title">Explore ACC Member Institutions</h2>
+                        <p class="section-desc directory-header-desc">
                             Filter by state or search by institution name to explore the CDFIs, community lenders, and
                             aligned energy partners delivering capital across Appalachia.
                         </p>
                     </div>
-                    <div style="padding-bottom: 4px;">
-                        <a href="#become-a-member" class="btn btn-primary"
-                            style="display: inline-flex; align-items: center; gap: 8px; background: #2d3d90; color: #ffffff; padding: 13px 26px; border-radius: 999px; text-decoration: none; font-weight: 700; font-size: 14px; box-shadow: 0 4px 14px rgba(45, 61, 144, 0.25); transition: all 0.2s ease;">
+                    <div class="directory-header-action">
+                        <a href="#become-a-member" class="btn btn-primary btn-network-navy">
                             <span>Become a Member</span>
                             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                 stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -322,13 +302,17 @@
                                 placeholder="Search members by name, keyword, or community...">
                         </div>
                         <div class="network-count-pill">
-                            Showing <span id="active-member-count" style="font-weight: 800; color: var(--color-navy-4);">46</span> of 46 Member CDFIs
+                            Showing <span id="active-member-count" class="network-count-num">46</span> of 46 Member CDFIs
                         </div>
                     </div>
 
                     <!-- State Filter Buttons -->
                     <div class="state-filter-scroll">
                         <button class="state-btn active" data-state="all">All Regions (46)</button>
+                        <button class="state-btn deeproots-filter-btn" data-state="deeproots">
+                            <img src="images/deeproots-logo.png" alt="" aria-hidden="true">
+                            <span>DeepRoots Providers (14)</span>
+                        </button>
                         <button class="state-btn" data-state="NC">North Carolina (NC)</button>
                         <button class="state-btn" data-state="KY">Kentucky (KY)</button>
                         <button class="state-btn" data-state="WV">West Virginia (WV)</button>
@@ -349,15 +333,33 @@
                 <!-- Member Cards Grid -->
                 <div class="network-cards-grid" id="member-cards-container">
                     <!-- Access to Capital for Entrepreneurs (ACE) -->
-                    <div class="member-card" data-state="GA NC">
+                    <div class="member-card" data-deeproots="true" data-state="GA NC">
                         <div class="member-card-header">
                             <div class="member-logo">
-                                <img src="images/members/aceloans.png" alt="Access to Capital for Entrepreneurs (ACE) Logo" loading="lazy">
+                                <img src="images/members/aceloans.png"
+                                    alt="Access to Capital for Entrepreneurs (ACE) Logo" loading="lazy">
                             </div>
-                            <span class="member-state-tag">Georgia &bull; NC Regional</span>
+                            <div class="member-header-tags">
+                                <span class="member-state-tag">Georgia &bull; NC Regional</span>
+                                <a href="https://deeproots.accdata.org/providers" target="_blank"
+                                    rel="noopener noreferrer" class="deeproots-provider-badge"
+                                    title="View on DeepRoots Data Analytics Hub">
+                                    <img src="images/deeproots-logo.png" alt="DeepRoots" class="deeproots-badge-logo">
+                                    <span class="deeproots-badge-label">DeepRoots Provider</span>
+                                    <svg class="deeproots-badge-arrow" width="12" height="12" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                        <polyline points="15 3 21 3 21 9"></polyline>
+                                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                                    </svg>
+                                </a>
+                            </div>
                         </div>
                         <h3>Access to Capital for Entrepreneurs (ACE)</h3>
-                        <p>Specializes in small business loans paired with intensive business consulting and financial education for underserved entrepreneurs, women, and minority business owners across Georgia.</p>
+                        <p>Specializes in small business loans paired with intensive business consulting and financial
+                            education for underserved entrepreneurs, women, and minority business owners across Georgia.
+                        </p>
                         <div class="member-card-footer">
                             <span class="member-type-badge">CDFI Loan Fund</span>
                             <a href="http://www.aceloans.org/" target="_blank" rel="noopener" class="member-site-link">
@@ -369,15 +371,19 @@
                     <div class="member-card" data-state="NY">
                         <div class="member-card-header">
                             <div class="member-logo">
-                                <img src="images/members/alternatives.png" alt="Alternatives Federal Credit Union Logo" loading="lazy">
+                                <img src="images/members/alternatives.png" alt="Alternatives Federal Credit Union Logo"
+                                    loading="lazy">
                             </div>
                             <span class="member-state-tag">New York &bull; Finger Lakes / Southern Tier</span>
                         </div>
                         <h3>Alternatives Federal Credit Union</h3>
-                        <p>Dedicated to building community wealth and financial wellness through affordable lending, free tax assistance, and financial coaching for underserved communities in upstate New York.</p>
+                        <p>Dedicated to building community wealth and financial wellness through affordable lending,
+                            free tax assistance, and financial coaching for underserved communities in upstate New York.
+                        </p>
                         <div class="member-card-footer">
                             <span class="member-type-badge">Credit Union CDFI</span>
-                            <a href="http://www.alternatives.org/" target="_blank" rel="noopener" class="member-site-link">
+                            <a href="http://www.alternatives.org/" target="_blank" rel="noopener"
+                                class="member-site-link">
                                 Visit Website &rarr;
                             </a>
                         </div>
@@ -386,12 +392,14 @@
                     <div class="member-card" data-state="SC">
                         <div class="member-card-header">
                             <div class="member-logo">
-                                <img src="images/members/adcloans.png" alt="Appalachian Development Corporation (ADC) Logo" loading="lazy">
+                                <img src="images/members/adcloans.png"
+                                    alt="Appalachian Development Corporation (ADC) Logo" loading="lazy">
                             </div>
                             <span class="member-state-tag">South Carolina &bull; Upstate</span>
                         </div>
                         <h3>Appalachian Development Corporation (ADC)</h3>
-                        <p>Promotes economic development and job creation across Appalachian South Carolina by providing SBA 504 loans, direct small business financing, and working capital.</p>
+                        <p>Promotes economic development and job creation across Appalachian South Carolina by providing
+                            SBA 504 loans, direct small business financing, and working capital.</p>
                         <div class="member-card-footer">
                             <span class="member-type-badge">Certified CDFI</span>
                             <a href="http://adcloans.com/" target="_blank" rel="noopener" class="member-site-link">
@@ -402,13 +410,16 @@
                     <!-- Appalachian Growth Capital (AGC) -->
                     <div class="member-card" data-state="OH">
                         <div class="member-card-header">
-                            <div class="member-logo">
-                                <img src="images/members/appcap.png" alt="Appalachian Growth Capital (AGC) Logo" loading="lazy">
+                            <div class="member-logo member-logo--dark">
+                                <img src="images/members/appcap.png" alt="Appalachian Growth Capital (AGC) Logo"
+                                    loading="lazy">
                             </div>
                             <span class="member-state-tag">Ohio &bull; 32 Appalachian Counties</span>
                         </div>
                         <h3>Appalachian Growth Capital (AGC)</h3>
-                        <p>Delivers flexible small business financing and technical assistance to companies and commercial enterprises throughout the 32 Appalachian counties of eastern and southern Ohio.</p>
+                        <p>Delivers flexible small business financing and technical assistance to companies and
+                            commercial enterprises throughout the 32 Appalachian counties of eastern and southern Ohio.
+                        </p>
                         <div class="member-card-footer">
                             <span class="member-type-badge">CDFI Loan Fund</span>
                             <a href="http://appcap.org/" target="_blank" rel="noopener" class="member-site-link">
@@ -417,18 +428,37 @@
                         </div>
                     </div>
                     <!-- Bridgeway Capital -->
-                    <div class="member-card" data-state="PA WV OH">
+                    <div class="member-card" data-deeproots="true" data-state="PA WV OH">
                         <div class="member-card-header">
                             <div class="member-logo">
-                                <img src="images/members/bridgewaycapital.png" alt="Bridgeway Capital Logo" loading="lazy">
+                                <img src="images/members/bridgewaycapital.png" alt="Bridgeway Capital Logo"
+                                    loading="lazy">
                             </div>
-                            <span class="member-state-tag">Pennsylvania &bull; WV / OH</span>
+                            <div class="member-header-tags">
+                                <span class="member-state-tag">Pennsylvania &bull; WV / OH</span>
+                                <a href="https://deeproots.accdata.org/providers" target="_blank"
+                                    rel="noopener noreferrer" class="deeproots-provider-badge"
+                                    title="View on DeepRoots Data Analytics Hub">
+                                    <img src="images/deeproots-logo.png" alt="DeepRoots" class="deeproots-badge-logo">
+                                    <span class="deeproots-badge-label">DeepRoots Provider</span>
+                                    <svg class="deeproots-badge-arrow" width="12" height="12" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                        <polyline points="15 3 21 3 21 9"></polyline>
+                                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                                    </svg>
+                                </a>
+                            </div>
                         </div>
                         <h3>Bridgeway Capital</h3>
-                        <p>Combines capital and educational resources to spur economic opportunity, supporting small businesses, healthy food access, community real estate, and creative enterprises across Western PA, WV, and OH.</p>
+                        <p>Combines capital and educational resources to spur economic opportunity, supporting small
+                            businesses, healthy food access, community real estate, and creative enterprises across
+                            Western PA, WV, and OH.</p>
                         <div class="member-card-footer">
                             <span class="member-type-badge">CDFI Loan Fund</span>
-                            <a href="https://bridgewaycapital.org/" target="_blank" rel="noopener" class="member-site-link">
+                            <a href="https://bridgewaycapital.org/" target="_blank" rel="noopener"
+                                class="member-site-link">
                                 Visit Website &rarr;
                             </a>
                         </div>
@@ -442,7 +472,9 @@
                             <span class="member-state-tag">Alabama &bull; Statewide &amp; Southeast</span>
                         </div>
                         <h3>Bronze Valley</h3>
-                        <p>An investment platform and CDFI supporting diverse innovation, tech startups, and female- and minority-led enterprises, accelerating capital access and tech-enabled jobs across the South.</p>
+                        <p>An investment platform and CDFI supporting diverse innovation, tech startups, and female- and
+                            minority-led enterprises, accelerating capital access and tech-enabled jobs across the
+                            South.</p>
                         <div class="member-card-footer">
                             <span class="member-type-badge">CDFI Venture Fund</span>
                             <a href="http://bronzevalley.com/" target="_blank" rel="noopener" class="member-site-link">
@@ -451,15 +483,33 @@
                         </div>
                     </div>
                     <!-- Carolina Community Impact (CCI) -->
-                    <div class="member-card" data-state="NC">
+                    <div class="member-card" data-deeproots="true" data-state="NC">
                         <div class="member-card-header">
                             <div class="member-logo">
-                                <img src="images/members/ccifund.png" alt="Carolina Community Impact (CCI) Logo" loading="lazy">
+                                <img src="images/members/ccifund.png" alt="Carolina Community Impact (CCI) Logo"
+                                    loading="lazy">
                             </div>
-                            <span class="member-state-tag">North Carolina &bull; Central &amp; Statewide</span>
+                            <div class="member-header-tags">
+                                <span class="member-state-tag">North Carolina &bull; Central &amp; Statewide</span>
+                                <a href="https://deeproots.accdata.org/providers" target="_blank"
+                                    rel="noopener noreferrer" class="deeproots-provider-badge"
+                                    title="View on DeepRoots Data Analytics Hub">
+                                    <img src="images/deeproots-logo.png" alt="DeepRoots" class="deeproots-badge-logo">
+                                    <span class="deeproots-badge-label">DeepRoots Provider</span>
+                                    <svg class="deeproots-badge-arrow" width="12" height="12" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                        <polyline points="15 3 21 3 21 9"></polyline>
+                                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                                    </svg>
+                                </a>
+                            </div>
                         </div>
                         <h3>Carolina Community Impact (CCI)</h3>
-                        <p>Provides microloans, small business debt, and credit coaching to underserved entrepreneurs and microenterprises throughout North Carolina unable to secure traditional commercial loans.</p>
+                        <p>Provides microloans, small business debt, and credit coaching to underserved entrepreneurs
+                            and microenterprises throughout North Carolina unable to secure traditional commercial
+                            loans.</p>
                         <div class="member-card-footer">
                             <span class="member-type-badge">Certified CDFI</span>
                             <a href="http://ccifund.org" target="_blank" rel="noopener" class="member-site-link">
@@ -468,32 +518,69 @@
                         </div>
                     </div>
                     <!-- Carolina Small Business Development Fund -->
-                    <div class="member-card" data-state="NC">
+                    <div class="member-card" data-deeproots="true" data-state="NC">
                         <div class="member-card-header">
                             <div class="member-logo">
-                                <img src="images/members/carolinasmallbusiness.png" alt="Carolina Small Business Development Fund Logo" loading="lazy">
+                                <img src="images/members/carolinasmallbusiness.png"
+                                    alt="Carolina Small Business Development Fund Logo" loading="lazy">
                             </div>
-                            <span class="member-state-tag">North Carolina &bull; Western &amp; Statewide</span>
+                            <div class="member-header-tags">
+                                <span class="member-state-tag">North Carolina &bull; Western &amp; Statewide</span>
+                                <a href="https://deeproots.accdata.org/providers" target="_blank"
+                                    rel="noopener noreferrer" class="deeproots-provider-badge"
+                                    title="View on DeepRoots Data Analytics Hub">
+                                    <img src="images/deeproots-logo.png" alt="DeepRoots" class="deeproots-badge-logo">
+                                    <span class="deeproots-badge-label">DeepRoots Provider</span>
+                                    <svg class="deeproots-badge-arrow" width="12" height="12" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                        <polyline points="15 3 21 3 21 9"></polyline>
+                                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                                    </svg>
+                                </a>
+                            </div>
                         </div>
                         <h3>Carolina Small Business Development Fund</h3>
-                        <p>Fosters economic prosperity across North Carolina by providing small business loans, technical coaching, and business development solutions for startups, minorities, and women entrepreneurs.</p>
+                        <p>Fosters economic prosperity across North Carolina by providing small business loans,
+                            technical coaching, and business development solutions for startups, minorities, and women
+                            entrepreneurs.</p>
                         <div class="member-card-footer">
                             <span class="member-type-badge">CDFI Loan Fund</span>
-                            <a href="http://www.carolinasmallbusiness.org/" target="_blank" rel="noopener" class="member-site-link">
+                            <a href="http://www.carolinasmallbusiness.org/" target="_blank" rel="noopener"
+                                class="member-site-link">
                                 Visit Website &rarr;
                             </a>
                         </div>
                     </div>
                     <!-- Community Reinvestment Fund, USA (CRF) -->
-                    <div class="member-card" data-state="National">
+                    <div class="member-card" data-deeproots="true" data-state="National">
                         <div class="member-card-header">
                             <div class="member-logo">
-                                <img src="images/members/crfusa.png" alt="Community Reinvestment Fund, USA (CRF) Logo" loading="lazy">
+                                <img src="images/members/crfusa.png" alt="Community Reinvestment Fund, USA (CRF) Logo"
+                                    loading="lazy">
                             </div>
-                            <span class="member-state-tag">National Intermediary &bull; Multi-State</span>
+                            <div class="member-header-tags">
+                                <span class="member-state-tag">National Intermediary &bull; Multi-State</span>
+                                <a href="https://deeproots.accdata.org/providers" target="_blank"
+                                    rel="noopener noreferrer" class="deeproots-provider-badge"
+                                    title="View on DeepRoots Data Analytics Hub">
+                                    <img src="images/deeproots-logo.png" alt="DeepRoots" class="deeproots-badge-logo">
+                                    <span class="deeproots-badge-label">DeepRoots Provider</span>
+                                    <svg class="deeproots-badge-arrow" width="12" height="12" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                        <polyline points="15 3 21 3 21 9"></polyline>
+                                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                                    </svg>
+                                </a>
+                            </div>
                         </div>
                         <h3>Community Reinvestment Fund, USA (CRF)</h3>
-                        <p>A national nonprofit CDFI delivering transformative capital, fintech platforms, and loan syndication capacity to strengthen local community development lenders across Appalachia and nationwide.</p>
+                        <p>A national nonprofit CDFI delivering transformative capital, fintech platforms, and loan
+                            syndication capacity to strengthen local community development lenders across Appalachia and
+                            nationwide.</p>
                         <div class="member-card-footer">
                             <span class="member-type-badge">National CDFI Intermediary</span>
                             <a href="https://crfusa.com/" target="_blank" rel="noopener" class="member-site-link">
@@ -502,18 +589,37 @@
                         </div>
                     </div>
                     <!-- CommunityWorks -->
-                    <div class="member-card" data-state="SC">
+                    <div class="member-card" data-deeproots="true" data-state="SC">
                         <div class="member-card-header">
                             <div class="member-logo">
-                                <img src="images/members/communityworkscarolina.png" alt="CommunityWorks Logo" loading="lazy">
+                                <img src="images/members/communityworkscarolina.png" alt="CommunityWorks Logo"
+                                    loading="lazy">
                             </div>
-                            <span class="member-state-tag">South Carolina &bull; Upstate &amp; Statewide</span>
+                            <div class="member-header-tags">
+                                <span class="member-state-tag">South Carolina &bull; Upstate &amp; Statewide</span>
+                                <a href="https://deeproots.accdata.org/providers" target="_blank"
+                                    rel="noopener noreferrer" class="deeproots-provider-badge"
+                                    title="View on DeepRoots Data Analytics Hub">
+                                    <img src="images/deeproots-logo.png" alt="DeepRoots" class="deeproots-badge-logo">
+                                    <span class="deeproots-badge-label">DeepRoots Provider</span>
+                                    <svg class="deeproots-badge-arrow" width="12" height="12" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                        <polyline points="15 3 21 3 21 9"></polyline>
+                                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                                    </svg>
+                                </a>
+                            </div>
                         </div>
                         <h3>CommunityWorks</h3>
-                        <p>Builds financial equity and creates opportunities for underserved families and small businesses across South Carolina through microbusiness lending, downpayment assistance, and affordable housing finance.</p>
+                        <p>Builds financial equity and creates opportunities for underserved families and small
+                            businesses across South Carolina through microbusiness lending, downpayment assistance, and
+                            affordable housing finance.</p>
                         <div class="member-card-footer">
                             <span class="member-type-badge">Certified CDFI</span>
-                            <a href="http://communityworkscarolina.org/" target="_blank" rel="noopener" class="member-site-link">
+                            <a href="http://communityworkscarolina.org/" target="_blank" rel="noopener"
+                                class="member-site-link">
                                 Visit Website &rarr;
                             </a>
                         </div>
@@ -527,7 +633,8 @@
                             <span class="member-state-tag">Kentucky &bull; Statewide</span>
                         </div>
                         <h3>Community Ventures</h3>
-                        <p>Helps Kentucky families and entrepreneurs build wealth and prosperity through homeownership programs, business incubation, and accessible commercial and small enterprise loans.</p>
+                        <p>Helps Kentucky families and entrepreneurs build wealth and prosperity through homeownership
+                            programs, business incubation, and accessible commercial and small enterprise loans.</p>
                         <div class="member-card-footer">
                             <span class="member-type-badge">CDFI Community Lender</span>
                             <a href="https://cvky.org/" target="_blank" rel="noopener" class="member-site-link">
@@ -539,15 +646,19 @@
                     <div class="member-card" data-state="WV">
                         <div class="member-card-header">
                             <div class="member-logo">
-                                <img src="images/members/communityworkswv.png" alt="CommunityWorks in West Virginia Logo" loading="lazy">
+                                <img src="images/members/communityworkswv.png"
+                                    alt="CommunityWorks in West Virginia Logo" loading="lazy">
                             </div>
                             <span class="member-state-tag">West Virginia &bull; Statewide</span>
                         </div>
                         <h3>CommunityWorks in West Virginia</h3>
-                        <p>A statewide network of community-based non-profit organizations working together to create affordable housing opportunities, enterprise credit, and neighborhood revitalization in West Virginia.</p>
+                        <p>A statewide network of community-based non-profit organizations working together to create
+                            affordable housing opportunities, enterprise credit, and neighborhood revitalization in West
+                            Virginia.</p>
                         <div class="member-card-footer">
                             <span class="member-type-badge">Housing &amp; Community CDFI</span>
-                            <a href="https://communityworkswv.org/" target="_blank" rel="noopener" class="member-site-link">
+                            <a href="https://communityworkswv.org/" target="_blank" rel="noopener"
+                                class="member-site-link">
                                 Visit Website &rarr;
                             </a>
                         </div>
@@ -556,12 +667,15 @@
                     <div class="member-card" data-state="National NY">
                         <div class="member-card-header">
                             <div class="member-logo">
-                                <img src="images/members/thedof.png" alt="Disability Opportunity Fund (DOF) Logo" loading="lazy">
+                                <img src="images/members/thedof.png" alt="Disability Opportunity Fund (DOF) Logo"
+                                    loading="lazy">
                             </div>
                             <span class="member-state-tag">National &bull; Specialized CDFI</span>
                         </div>
                         <h3>Disability Opportunity Fund (DOF)</h3>
-                        <p>Provides specialized financing and technical assistance to organizations serving people with disabilities and their families across healthcare, accessible housing, and vocational facilities nationwide.</p>
+                        <p>Provides specialized financing and technical assistance to organizations serving people with
+                            disabilities and their families across healthcare, accessible housing, and vocational
+                            facilities nationwide.</p>
                         <div class="member-card-footer">
                             <span class="member-type-badge">National CDFI</span>
                             <a href="https://thedof.org/" target="_blank" rel="noopener" class="member-site-link">
@@ -573,12 +687,15 @@
                     <div class="member-card" data-state="OH">
                         <div class="member-card-header">
                             <div class="member-logo">
-                                <img src="images/members/ecdi.png" alt="Economic &amp; Community Development Institute Logo" loading="lazy">
+                                <img src="images/members/ecdi.png"
+                                    alt="Economic &amp; Community Development Institute Logo" loading="lazy">
                             </div>
                             <span class="member-state-tag">Ohio &bull; Appalachian Ohio &amp; Statewide</span>
                         </div>
                         <h3>Economic &amp; Community Development Institute</h3>
-                        <p>One of the top SBA microlenders nationwide, delivering small business loans, business training, and an incubator network for underserved and low-income entrepreneurs across Ohio.</p>
+                        <p>One of the top SBA microlenders nationwide, delivering small business loans, business
+                            training, and an incubator network for underserved and low-income entrepreneurs across Ohio.
+                        </p>
                         <div class="member-card-footer">
                             <span class="member-type-badge">SBA Microloan CDFI</span>
                             <a href="https://www.ecdi.org/" target="_blank" rel="noopener" class="member-site-link">
@@ -590,15 +707,18 @@
                     <div class="member-card" data-state="OH">
                         <div class="member-card-header">
                             <div class="member-logo">
-                                <img src="images/members/financefund.png" alt="Finance Fund Capital Corporation (FCAP) Logo" loading="lazy">
+                                <img src="images/members/financefund.png"
+                                    alt="Finance Fund Capital Corporation (FCAP) Logo" loading="lazy">
                             </div>
                             <span class="member-state-tag">Ohio &bull; Appalachian Ohio &amp; Statewide</span>
                         </div>
                         <h3>Finance Fund Capital Corporation (FCAP)</h3>
-                        <p>Bridges financing gaps in underserved Ohio communities for manufacturing, healthcare centers, commercial real estate, and healthy food distribution initiatives.</p>
+                        <p>Bridges financing gaps in underserved Ohio communities for manufacturing, healthcare centers,
+                            commercial real estate, and healthy food distribution initiatives.</p>
                         <div class="member-card-footer">
                             <span class="member-type-badge">Certified CDFI</span>
-                            <a href="http://www.financefund.org/" target="_blank" rel="noopener" class="member-site-link">
+                            <a href="http://www.financefund.org/" target="_blank" rel="noopener"
+                                class="member-site-link">
                                 Visit Website &rarr;
                             </a>
                         </div>
@@ -612,7 +732,8 @@
                             <span class="member-state-tag">Virginia &bull; Mid-Atlantic</span>
                         </div>
                         <h3>Foodshed Capital</h3>
-                        <p>Provides zero-to-low interest, non-extractive loans and business mentoring to regenerative farmers, sustainable agriculture operations, and equitable regional food systems.</p>
+                        <p>Provides zero-to-low interest, non-extractive loans and business mentoring to regenerative
+                            farmers, sustainable agriculture operations, and equitable regional food systems.</p>
                         <div class="member-card-footer">
                             <span class="member-type-badge">Regenerative Ag CDFI</span>
                             <a href="http://foodcap.org/" target="_blank" rel="noopener" class="member-site-link">
@@ -624,15 +745,19 @@
                     <div class="member-card" data-state="VA">
                         <div class="member-card-header">
                             <div class="member-logo">
-                                <img src="images/members/hamptonroadsventures.png" alt="Hampton Roads Ventures, LLC Logo" loading="lazy">
+                                <img src="images/members/hamptonroadsventures.png"
+                                    alt="Hampton Roads Ventures, LLC Logo" loading="lazy">
                             </div>
                             <span class="member-state-tag">Virginia &bull; Regional</span>
                         </div>
                         <h3>Hampton Roads Ventures, LLC</h3>
-                        <p>Specializes in New Markets Tax Credit (NMTC) financing and debt deployment for high-impact industrial, healthcare, and infrastructure projects in economically distressed rural areas.</p>
+                        <p>Specializes in New Markets Tax Credit (NMTC) financing and debt deployment for high-impact
+                            industrial, healthcare, and infrastructure projects in economically distressed rural areas.
+                        </p>
                         <div class="member-card-footer">
                             <span class="member-type-badge">NMTC &amp; Equity CDFI</span>
-                            <a href="http://www.hamptonroadsventures.com/" target="_blank" rel="noopener" class="member-site-link">
+                            <a href="http://www.hamptonroadsventures.com/" target="_blank" rel="noopener"
+                                class="member-site-link">
                                 Visit Website &rarr;
                             </a>
                         </div>
@@ -646,7 +771,9 @@
                             <span class="member-state-tag">Midwest &bull; Regional Partner</span>
                         </div>
                         <h3>IFF</h3>
-                        <p>Champions nonprofits, federally qualified health centers, and community institutions with comprehensive loan capital and real estate facility planning to maximize community impact.</p>
+                        <p>Champions nonprofits, federally qualified health centers, and community institutions with
+                            comprehensive loan capital and real estate facility planning to maximize community impact.
+                        </p>
                         <div class="member-card-footer">
                             <span class="member-type-badge">CDFI &amp; Facility Lender</span>
                             <a href="https://iff.org/" target="_blank" rel="noopener" class="member-site-link">
@@ -655,18 +782,37 @@
                         </div>
                     </div>
                     <!-- Institute Capital (the Institute) -->
-                    <div class="member-card" data-state="NC">
+                    <div class="member-card" data-deeproots="true" data-state="NC">
                         <div class="member-card-header">
                             <div class="member-logo">
-                                <img src="images/members/theinstitutenc.png" alt="Institute Capital (the Institute) Logo" loading="lazy">
+                                <img src="images/members/theinstitutenc.png"
+                                    alt="Institute Capital (the Institute) Logo" loading="lazy">
                             </div>
-                            <span class="member-state-tag">North Carolina &bull; Statewide</span>
+                            <div class="member-header-tags">
+                                <span class="member-state-tag">North Carolina &bull; Statewide</span>
+                                <a href="https://deeproots.accdata.org/providers" target="_blank"
+                                    rel="noopener noreferrer" class="deeproots-provider-badge"
+                                    title="View on DeepRoots Data Analytics Hub">
+                                    <img src="images/deeproots-logo.png" alt="DeepRoots" class="deeproots-badge-logo">
+                                    <span class="deeproots-badge-label">DeepRoots Provider</span>
+                                    <svg class="deeproots-badge-arrow" width="12" height="12" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                        <polyline points="15 3 21 3 21 9"></polyline>
+                                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                                    </svg>
+                                </a>
+                            </div>
                         </div>
                         <h3>Institute Capital (the Institute)</h3>
-                        <p>The CDFI affiliate of the North Carolina Institute of Minority Economic Development, providing debt solutions, equity, and business advisory to diverse and minority-owned firms.</p>
+                        <p>The CDFI affiliate of the North Carolina Institute of Minority Economic Development,
+                            providing debt solutions, equity, and business advisory to diverse and minority-owned firms.
+                        </p>
                         <div class="member-card-footer">
                             <span class="member-type-badge">Diverse Enterprise CDFI</span>
-                            <a href="https://theinstitutenc.org/about-us/" target="_blank" rel="noopener" class="member-site-link">
+                            <a href="https://theinstitutenc.org/about-us/" target="_blank" rel="noopener"
+                                class="member-site-link">
                                 Visit Website &rarr;
                             </a>
                         </div>
@@ -680,7 +826,9 @@
                             <span class="member-state-tag">Pennsylvania &bull; Western PA</span>
                         </div>
                         <h3>InvestPGH</h3>
-                        <p>City-partnered CDFI providing microloans, commercial facade loans, and contractor lines of credit to stimulate equitable economic growth and small business retention in Western Pennsylvania.</p>
+                        <p>City-partnered CDFI providing microloans, commercial facade loans, and contractor lines of
+                            credit to stimulate equitable economic growth and small business retention in Western
+                            Pennsylvania.</p>
                         <div class="member-card-footer">
                             <span class="member-type-badge">Certified CDFI</span>
                             <a href="https://investpgh.org" target="_blank" rel="noopener" class="member-site-link">
@@ -692,12 +840,14 @@
                     <div class="member-card" data-state="KY">
                         <div class="member-card-header">
                             <div class="member-logo">
-                                <img src="images/members/khic.png" alt="Kentucky Highlands Investment Corporation Logo" loading="lazy">
+                                <img src="images/members/khic.png" alt="Kentucky Highlands Investment Corporation Logo"
+                                    loading="lazy">
                             </div>
                             <span class="member-state-tag">Kentucky &bull; Southeastern KY</span>
                         </div>
                         <h3>Kentucky Highlands Investment Corporation</h3>
-                        <p>Founded in 1968, KHIC has catalyzed thousands of jobs across 22 southern and eastern Kentucky counties through venture debt, equipment loans, and comprehensive business assistance.</p>
+                        <p>Founded in 1968, KHIC has catalyzed thousands of jobs across 22 southern and eastern Kentucky
+                            counties through venture debt, equipment loans, and comprehensive business assistance.</p>
                         <div class="member-card-footer">
                             <span class="member-type-badge">CDFI &amp; CDC</span>
                             <a href="http://khic.org/" target="_blank" rel="noopener" class="member-site-link">
@@ -714,7 +864,8 @@
                             <span class="member-state-tag">Multi-State &bull; Regional Partner</span>
                         </div>
                         <h3>LiftFund</h3>
-                        <p>Provides capital and business coaching to micro-enterprises and small business owners who lack access to conventional commercial bank loans across rural and underserved areas.</p>
+                        <p>Provides capital and business coaching to micro-enterprises and small business owners who
+                            lack access to conventional commercial bank loans across rural and underserved areas.</p>
                         <div class="member-card-footer">
                             <span class="member-type-badge">Small Business CDFI</span>
                             <a href="http://liftfund.com/" target="_blank" rel="noopener" class="member-site-link">
@@ -731,58 +882,115 @@
                             <span class="member-state-tag">Virginia &bull; Central &amp; Southwest VA</span>
                         </div>
                         <h3>Locus</h3>
-                        <p>Connects mission-driven capital with community-based institutions, financing clean energy, affordable housing, and community real estate across Virginia and Central Appalachia.</p>
+                        <p>Connects mission-driven capital with community-based institutions, financing clean energy,
+                            affordable housing, and community real estate across Virginia and Central Appalachia.</p>
                         <div class="member-card-footer">
                             <span class="member-type-badge">Community Investment Intermediary</span>
-                            <a href="http://www.locusimpact.org/" target="_blank" rel="noopener" class="member-site-link">
+                            <a href="http://www.locusimpact.org/" target="_blank" rel="noopener"
+                                class="member-site-link">
                                 Visit Website &rarr;
                             </a>
                         </div>
                     </div>
                     <!-- Mountain Association -->
-                    <div class="member-card" data-state="KY">
+                    <div class="member-card" data-deeproots="true" data-state="KY">
                         <div class="member-card-header">
                             <div class="member-logo">
-                                <img src="images/members/mtassociation.png" alt="Mountain Association Logo" loading="lazy">
+                                <img src="images/members/mtassociation.png" alt="Mountain Association Logo"
+                                    loading="lazy">
                             </div>
-                            <span class="member-state-tag">Kentucky &bull; Eastern KY</span>
+                            <div class="member-header-tags">
+                                <span class="member-state-tag">Kentucky &bull; Eastern KY</span>
+                                <a href="https://deeproots.accdata.org/providers" target="_blank"
+                                    rel="noopener noreferrer" class="deeproots-provider-badge"
+                                    title="View on DeepRoots Data Analytics Hub">
+                                    <img src="images/deeproots-logo.png" alt="DeepRoots" class="deeproots-badge-logo">
+                                    <span class="deeproots-badge-label">DeepRoots Provider</span>
+                                    <svg class="deeproots-badge-arrow" width="12" height="12" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                        <polyline points="15 3 21 3 21 9"></polyline>
+                                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                                    </svg>
+                                </a>
+                            </div>
                         </div>
                         <h3>Mountain Association</h3>
-                        <p>Invests in people and places in Eastern Kentucky through loans, clean energy financing, and direct business coaching to build a resilient, diverse, and just new economy.</p>
+                        <p>Invests in people and places in Eastern Kentucky through loans, clean energy financing, and
+                            direct business coaching to build a resilient, diverse, and just new economy.</p>
                         <div class="member-card-footer">
                             <span class="member-type-badge">Certified CDFI</span>
-                            <a href="https://mtassociation.org/" target="_blank" rel="noopener" class="member-site-link">
+                            <a href="https://mtassociation.org/" target="_blank" rel="noopener"
+                                class="member-site-link">
                                 Visit Website &rarr;
                             </a>
                         </div>
                     </div>
                     <!-- Mountain BizWorks -->
-                    <div class="member-card" data-state="NC">
+                    <div class="member-card" data-deeproots="true" data-state="NC">
                         <div class="member-card-header">
                             <div class="member-logo">
-                                <img src="images/members/mountainbizworks.png" alt="Mountain BizWorks Logo" loading="lazy">
+                                <img src="images/members/mountainbizworks.png" alt="Mountain BizWorks Logo"
+                                    loading="lazy">
                             </div>
-                            <span class="member-state-tag">North Carolina &bull; Western NC</span>
+                            <div class="member-header-tags">
+                                <span class="member-state-tag">North Carolina &bull; Western NC</span>
+                                <a href="https://deeproots.accdata.org/providers" target="_blank"
+                                    rel="noopener noreferrer" class="deeproots-provider-badge"
+                                    title="View on DeepRoots Data Analytics Hub">
+                                    <img src="images/deeproots-logo.png" alt="DeepRoots" class="deeproots-badge-logo">
+                                    <span class="deeproots-badge-label">DeepRoots Provider</span>
+                                    <svg class="deeproots-badge-arrow" width="12" height="12" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                        <polyline points="15 3 21 3 21 9"></polyline>
+                                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                                    </svg>
+                                </a>
+                            </div>
                         </div>
                         <h3>Mountain BizWorks</h3>
-                        <p>Provides small business loans, business coaching, and disaster recovery financing across 26 Western North Carolina mountain counties. Anchor administrator of the WNC Small Business Initiative.</p>
+                        <p>Provides small business loans, business coaching, and disaster recovery financing across 26
+                            Western North Carolina mountain counties. Anchor administrator of the WNC Small Business
+                            Initiative.</p>
                         <div class="member-card-footer">
                             <span class="member-type-badge">CDFI Loan Fund</span>
-                            <a href="http://www.mountainbizworks.org/" target="_blank" rel="noopener" class="member-site-link">
+                            <a href="http://www.mountainbizworks.org/" target="_blank" rel="noopener"
+                                class="member-site-link">
                                 Visit Website &rarr;
                             </a>
                         </div>
                     </div>
                     <!-- Neighborhood Community Development Fund -->
-                    <div class="member-card" data-state="PA">
+                    <div class="member-card" data-deeproots="true" data-state="PA">
                         <div class="member-card-header">
                             <div class="member-logo">
-                                <img src="images/members/ncd-fund.png" alt="Neighborhood Community Development Fund Logo" loading="lazy">
+                                <img src="images/members/ncd-fund.png"
+                                    alt="Neighborhood Community Development Fund Logo" loading="lazy">
                             </div>
-                            <span class="member-state-tag">Pennsylvania &bull; Western PA</span>
+                            <div class="member-header-tags">
+                                <span class="member-state-tag">Pennsylvania &bull; Western PA</span>
+                                <a href="https://deeproots.accdata.org/providers" target="_blank"
+                                    rel="noopener noreferrer" class="deeproots-provider-badge"
+                                    title="View on DeepRoots Data Analytics Hub">
+                                    <img src="images/deeproots-logo.png" alt="DeepRoots" class="deeproots-badge-logo">
+                                    <span class="deeproots-badge-label">DeepRoots Provider</span>
+                                    <svg class="deeproots-badge-arrow" width="12" height="12" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                        <polyline points="15 3 21 3 21 9"></polyline>
+                                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                                    </svg>
+                                </a>
+                            </div>
                         </div>
                         <h3>Neighborhood Community Development Fund</h3>
-                        <p>Delivers financing and technical support to small businesses, real estate developers, and social ventures revitalizing diverse neighborhoods across Pittsburgh and Allegheny County.</p>
+                        <p>Delivers financing and technical support to small businesses, real estate developers, and
+                            social ventures revitalizing diverse neighborhoods across Pittsburgh and Allegheny County.
+                        </p>
                         <div class="member-card-footer">
                             <span class="member-type-badge">Certified CDFI</span>
                             <a href="https://www.ncd-fund.org/" target="_blank" rel="noopener" class="member-site-link">
@@ -794,15 +1002,19 @@
                     <div class="member-card" data-state="AL">
                         <div class="member-card-header">
                             <div class="member-logo">
-                                <img src="images/members/neighborhoodconcepts.png" alt="North Alabama Revolving Loan Fund Logo" loading="lazy">
+                                <img src="images/members/neighborhoodconcepts.png"
+                                    alt="North Alabama Revolving Loan Fund Logo" loading="lazy">
                             </div>
                             <span class="member-state-tag">Alabama &bull; North Alabama</span>
                         </div>
                         <h3>North Alabama Revolving Loan Fund</h3>
-                        <p>Administered by Neighborhood Concepts, providing flexible financing and technical assistance to start-ups and existing small enterprises across North Alabama unable to access conventional bank loans.</p>
+                        <p>Administered by Neighborhood Concepts, providing flexible financing and technical assistance
+                            to start-ups and existing small enterprises across North Alabama unable to access
+                            conventional bank loans.</p>
                         <div class="member-card-footer">
                             <span class="member-type-badge">CDFI Microlender</span>
-                            <a href="http://www.neighborhoodconcepts.org/" target="_blank" rel="noopener" class="member-site-link">
+                            <a href="http://www.neighborhoodconcepts.org/" target="_blank" rel="noopener"
+                                class="member-site-link">
                                 Visit Website &rarr;
                             </a>
                         </div>
@@ -811,15 +1023,19 @@
                     <div class="member-card" data-state="AL">
                         <div class="member-card-header">
                             <div class="member-logo">
-                                <img src="images/members/opportunityalabama.png" alt="Opportunity Alabama (OPAL) Logo" loading="lazy">
+                                <img src="images/members/opportunityalabama.png" alt="Opportunity Alabama (OPAL) Logo"
+                                    loading="lazy">
                             </div>
                             <span class="member-state-tag">Alabama &bull; Statewide</span>
                         </div>
                         <h3>Opportunity Alabama (OPAL)</h3>
-                        <p>A nonprofit initiative dedicated to connecting capital with place, OPAL drives investment in Alabama’s rural towns, Opportunity Zones, and main street enterprises to stimulate sustainable growth.</p>
+                        <p>A nonprofit initiative dedicated to connecting capital with place, OPAL drives investment in
+                            Alabama’s rural towns, Opportunity Zones, and main street enterprises to stimulate
+                            sustainable growth.</p>
                         <div class="member-card-footer">
                             <span class="member-type-badge">Impact Capital Intermediary</span>
-                            <a href="https://opportunityalabama.com/" target="_blank" rel="noopener" class="member-site-link">
+                            <a href="https://opportunityalabama.com/" target="_blank" rel="noopener"
+                                class="member-site-link">
                                 Visit Website &rarr;
                             </a>
                         </div>
@@ -828,29 +1044,50 @@
                     <div class="member-card" data-state="KY">
                         <div class="member-card-header">
                             <div class="member-logo">
-                                <img src="images/members/parkcommunity.png" alt="Park Community Credit Union Logo" loading="lazy">
+                                <img src="images/members/parkcommunity.png" alt="Park Community Credit Union Logo"
+                                    loading="lazy">
                             </div>
                             <span class="member-state-tag">Kentucky &bull; Bluegrass &amp; Eastern KY</span>
                         </div>
                         <h3>Park Community Credit Union</h3>
-                        <p>A CDFI-certified cooperative credit union offering fair lending, credit restoration, and accessible consumer and commercial loans throughout Kentucky communities.</p>
+                        <p>A CDFI-certified cooperative credit union offering fair lending, credit restoration, and
+                            accessible consumer and commercial loans throughout Kentucky communities.</p>
                         <div class="member-card-footer">
                             <span class="member-type-badge">Credit Union CDFI</span>
-                            <a href="http://www.parkcommunity.com/" target="_blank" rel="noopener" class="member-site-link">
+                            <a href="http://www.parkcommunity.com/" target="_blank" rel="noopener"
+                                class="member-site-link">
                                 Visit Website &rarr;
                             </a>
                         </div>
                     </div>
                     <!-- Partner Community Capital (PCAP) -->
-                    <div class="member-card" data-state="WV VA NC">
+                    <div class="member-card" data-deeproots="true" data-state="WV VA NC">
                         <div class="member-card-header">
-                            <div class="member-logo">
-                                <img src="images/members/partnercap.svg" alt="Partner Community Capital (PCAP) Logo" loading="lazy">
+                            <div class="member-logo member-logo--dark">
+                                <img src="images/members/partnercap.svg" alt="Partner Community Capital (PCAP) Logo"
+                                    loading="lazy">
                             </div>
-                            <span class="member-state-tag">West Virginia &bull; VA / NC</span>
+                            <div class="member-header-tags">
+                                <span class="member-state-tag">West Virginia &bull; VA / NC</span>
+                                <a href="https://deeproots.accdata.org/providers" target="_blank"
+                                    rel="noopener noreferrer" class="deeproots-provider-badge"
+                                    title="View on DeepRoots Data Analytics Hub">
+                                    <img src="images/deeproots-logo.png" alt="DeepRoots" class="deeproots-badge-logo">
+                                    <span class="deeproots-badge-label">DeepRoots Provider</span>
+                                    <svg class="deeproots-badge-arrow" width="12" height="12" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                        <polyline points="15 3 21 3 21 9"></polyline>
+                                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                                    </svg>
+                                </a>
+                            </div>
                         </div>
                         <h3>Partner Community Capital (PCAP)</h3>
-                        <p>Delivers flexible capital and advisory services to triple-bottom-line businesses in clean energy, sustainable agriculture, ecotourism, and community facilities across West Virginia and surrounding states.</p>
+                        <p>Delivers flexible capital and advisory services to triple-bottom-line businesses in clean
+                            energy, sustainable agriculture, ecotourism, and community facilities across West Virginia
+                            and surrounding states.</p>
                         <div class="member-card-footer">
                             <span class="member-type-badge">Certified CDFI</span>
                             <a href="http://www.partnercap.org" target="_blank" rel="noopener" class="member-site-link">
@@ -859,18 +1096,36 @@
                         </div>
                     </div>
                     <!-- Pathway Lending -->
-                    <div class="member-card" data-state="TN AL KY">
+                    <div class="member-card" data-deeproots="true" data-state="TN AL KY">
                         <div class="member-card-header">
                             <div class="member-logo">
                                 <img src="images/members/pathwaylending.png" alt="Pathway Lending Logo" loading="lazy">
                             </div>
-                            <span class="member-state-tag">Tennessee &bull; AL / KY</span>
+                            <div class="member-header-tags">
+                                <span class="member-state-tag">Tennessee &bull; AL / KY</span>
+                                <a href="https://deeproots.accdata.org/providers" target="_blank"
+                                    rel="noopener noreferrer" class="deeproots-provider-badge"
+                                    title="View on DeepRoots Data Analytics Hub">
+                                    <img src="images/deeproots-logo.png" alt="DeepRoots" class="deeproots-badge-logo">
+                                    <span class="deeproots-badge-label">DeepRoots Provider</span>
+                                    <svg class="deeproots-badge-arrow" width="12" height="12" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                        <polyline points="15 3 21 3 21 9"></polyline>
+                                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                                    </svg>
+                                </a>
+                            </div>
                         </div>
                         <h3>Pathway Lending</h3>
-                        <p>Drives economic development by providing commercial lending, clean energy financing, and Women's Business Center technical assistance to under-resourced entrepreneurs across Tennessee and contiguous states.</p>
+                        <p>Drives economic development by providing commercial lending, clean energy financing, and
+                            Women's Business Center technical assistance to under-resourced entrepreneurs across
+                            Tennessee and contiguous states.</p>
                         <div class="member-card-footer">
                             <span class="member-type-badge">CDFI Loan Fund</span>
-                            <a href="http://www.pathwaylending.org/" target="_blank" rel="noopener" class="member-site-link">
+                            <a href="http://www.pathwaylending.org/" target="_blank" rel="noopener"
+                                class="member-site-link">
                                 Visit Website &rarr;
                             </a>
                         </div>
@@ -884,7 +1139,8 @@
                             <span class="member-state-tag">Virginia &bull; Southwest VA</span>
                         </div>
                         <h3>People Incorporated</h3>
-                        <p>Community Action Agency and CDFI providing microloans, business lines of credit, and financial coaching to small business owners and community centers in Southwest Virginia.</p>
+                        <p>Community Action Agency and CDFI providing microloans, business lines of credit, and
+                            financial coaching to small business owners and community centers in Southwest Virginia.</p>
                         <div class="member-card-footer">
                             <span class="member-type-badge">CDFI Loan Fund</span>
                             <a href="http://www.peopleinc.net/" target="_blank" rel="noopener" class="member-site-link">
@@ -893,18 +1149,36 @@
                         </div>
                     </div>
                     <!-- Piedmont Business Capital -->
-                    <div class="member-card" data-state="NC">
+                    <div class="member-card" data-deeproots="true" data-state="NC">
                         <div class="member-card-header">
                             <div class="member-logo">
-                                <img src="images/members/piedmontbusinesscapital.png" alt="Piedmont Business Capital Logo" loading="lazy">
+                                <img src="images/members/piedmontbusinesscapital.png"
+                                    alt="Piedmont Business Capital Logo" loading="lazy">
                             </div>
-                            <span class="member-state-tag">North Carolina &bull; Piedmont &amp; Triad</span>
+                            <div class="member-header-tags">
+                                <span class="member-state-tag">North Carolina &bull; Piedmont &amp; Triad</span>
+                                <a href="https://deeproots.accdata.org/providers" target="_blank"
+                                    rel="noopener noreferrer" class="deeproots-provider-badge"
+                                    title="View on DeepRoots Data Analytics Hub">
+                                    <img src="images/deeproots-logo.png" alt="DeepRoots" class="deeproots-badge-logo">
+                                    <span class="deeproots-badge-label">DeepRoots Provider</span>
+                                    <svg class="deeproots-badge-arrow" width="12" height="12" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                        <polyline points="15 3 21 3 21 9"></polyline>
+                                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                                    </svg>
+                                </a>
+                            </div>
                         </div>
                         <h3>Piedmont Business Capital</h3>
-                        <p>Empowers women, minority, and low-wealth small business owners with microloans and strategic business consulting to foster local wealth creation across North Carolina.</p>
+                        <p>Empowers women, minority, and low-wealth small business owners with microloans and strategic
+                            business consulting to foster local wealth creation across North Carolina.</p>
                         <div class="member-card-footer">
                             <span class="member-type-badge">Certified CDFI</span>
-                            <a href="https://www.piedmontbusinesscapital.org/" target="_blank" rel="noopener" class="member-site-link">
+                            <a href="https://www.piedmontbusinesscapital.org/" target="_blank" rel="noopener"
+                                class="member-site-link">
                                 Visit Website &rarr;
                             </a>
                         </div>
@@ -913,12 +1187,14 @@
                     <div class="member-card" data-state="MS AL">
                         <div class="member-card-header">
                             <div class="member-logo">
-                                <img src="images/members/rclfms.png" alt="Renaissance Community Loan Fund Logo" loading="lazy">
+                                <img src="images/members/rclfms.png" alt="Renaissance Community Loan Fund Logo"
+                                    loading="lazy">
                             </div>
                             <span class="member-state-tag">Mississippi &bull; AL &amp; Delta</span>
                         </div>
                         <h3>Renaissance Community Loan Fund</h3>
-                        <p>Provides innovative commercial and home mortgage lending, small business working capital, and community development financing across Mississippi and Alabama.</p>
+                        <p>Provides innovative commercial and home mortgage lending, small business working capital, and
+                            community development financing across Mississippi and Alabama.</p>
                         <div class="member-card-footer">
                             <span class="member-type-badge">CDFI Loan Fund</span>
                             <a href="http://www.rclfms.com/" target="_blank" rel="noopener" class="member-site-link">
@@ -935,7 +1211,8 @@
                             <span class="member-state-tag">Alabama &bull; Statewide</span>
                         </div>
                         <h3>Sabre Finance</h3>
-                        <p>Delivers micro-loans and small business capital to help Alabama entrepreneurs establish and grow their enterprises, creating sustainable jobs in under-resourced towns.</p>
+                        <p>Delivers micro-loans and small business capital to help Alabama entrepreneurs establish and
+                            grow their enterprises, creating sustainable jobs in under-resourced towns.</p>
                         <div class="member-card-footer">
                             <span class="member-type-badge">Small Business CDFI</span>
                             <a href="https://sabrefinance.org/" target="_blank" rel="noopener" class="member-site-link">
@@ -947,29 +1224,50 @@
                     <div class="member-card" data-state="SC">
                         <div class="member-card-header">
                             <div class="member-logo">
-                                <img src="images/members/sccommunityloanfund.png" alt="South Carolina Community Loan Fund Logo" loading="lazy">
+                                <img src="images/members/sccommunityloanfund.png"
+                                    alt="South Carolina Community Loan Fund Logo" loading="lazy">
                             </div>
                             <span class="member-state-tag">South Carolina &bull; Statewide</span>
                         </div>
                         <h3>South Carolina Community Loan Fund</h3>
-                        <p>Advances equitable community development by providing loans and technical assistance for affordable housing, healthy food retail, community facilities, and small businesses throughout South Carolina.</p>
+                        <p>Advances equitable community development by providing loans and technical assistance for
+                            affordable housing, healthy food retail, community facilities, and small businesses
+                            throughout South Carolina.</p>
                         <div class="member-card-footer">
                             <span class="member-type-badge">CDFI Loan Fund</span>
-                            <a href="https://sccommunityloanfund.org/" target="_blank" rel="noopener" class="member-site-link">
+                            <a href="https://sccommunityloanfund.org/" target="_blank" rel="noopener"
+                                class="member-site-link">
                                 Visit Website &rarr;
                             </a>
                         </div>
                     </div>
                     <!-- Southeast Rural Community Assistance Project (SERCAP) -->
-                    <div class="member-card" data-state="VA">
+                    <div class="member-card" data-deeproots="true" data-state="VA">
                         <div class="member-card-header">
                             <div class="member-logo">
-                                <img src="images/members/sercap.png" alt="Southeast Rural Community Assistance Project (SERCAP) Logo" loading="lazy">
+                                <img src="images/members/sercap.png"
+                                    alt="Southeast Rural Community Assistance Project (SERCAP) Logo" loading="lazy">
                             </div>
-                            <span class="member-state-tag">Virginia &bull; Multi-State Regional</span>
+                            <div class="member-header-tags">
+                                <span class="member-state-tag">Virginia &bull; Multi-State Regional</span>
+                                <a href="https://deeproots.accdata.org/providers" target="_blank"
+                                    rel="noopener noreferrer" class="deeproots-provider-badge"
+                                    title="View on DeepRoots Data Analytics Hub">
+                                    <img src="images/deeproots-logo.png" alt="DeepRoots" class="deeproots-badge-logo">
+                                    <span class="deeproots-badge-label">DeepRoots Provider</span>
+                                    <svg class="deeproots-badge-arrow" width="12" height="12" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                        <polyline points="15 3 21 3 21 9"></polyline>
+                                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                                    </svg>
+                                </a>
+                            </div>
                         </div>
                         <h3>Southeast Rural Community Assistance Project (SERCAP)</h3>
-                        <p>Dedicated to improving water, wastewater, community infrastructure, and small business financing for low-to-moderate-income rural communities throughout 7 southeastern states.</p>
+                        <p>Dedicated to improving water, wastewater, community infrastructure, and small business
+                            financing for low-to-moderate-income rural communities throughout 7 southeastern states.</p>
                         <div class="member-card-footer">
                             <span class="member-type-badge">Infrastructure CDFI</span>
                             <a href="https://www.sercap.org" target="_blank" rel="noopener" class="member-site-link">
@@ -981,15 +1279,18 @@
                     <div class="member-card" data-state="KY">
                         <div class="member-card-header">
                             <div class="member-logo">
-                                <img src="images/members/southeastkentucky.png" alt="Southeast Kentucky Economic Development (SKED) Logo" loading="lazy">
+                                <img src="images/members/southeastkentucky.png"
+                                    alt="Southeast Kentucky Economic Development (SKED) Logo" loading="lazy">
                             </div>
                             <span class="member-state-tag">Kentucky &bull; 45 Counties</span>
                         </div>
                         <h3>Southeast Kentucky Economic Development (SKED)</h3>
-                        <p>Formed in 1986 to stimulate economic growth in 45 southern and eastern Kentucky counties through business loans, SBA lending, and workforce coaching.</p>
+                        <p>Formed in 1986 to stimulate economic growth in 45 southern and eastern Kentucky counties
+                            through business loans, SBA lending, and workforce coaching.</p>
                         <div class="member-card-footer">
                             <span class="member-type-badge">Certified CDFI</span>
-                            <a href="http://www.southeastkentucky.com/" target="_blank" rel="noopener" class="member-site-link">
+                            <a href="http://www.southeastkentucky.com/" target="_blank" rel="noopener"
+                                class="member-site-link">
                                 Visit Website &rarr;
                             </a>
                         </div>
@@ -998,15 +1299,18 @@
                     <div class="member-card" data-state="VA">
                         <div class="member-card-header">
                             <div class="member-logo">
-                                <img src="images/members/tapintohope.png" alt="TAP / Business Seed Capital Logo" loading="lazy">
+                                <img src="images/members/tapintohope.png" alt="TAP / Business Seed Capital Logo"
+                                    loading="lazy">
                             </div>
                             <span class="member-state-tag">Virginia &bull; Roanoke Valley &amp; Western VA</span>
                         </div>
                         <h3>TAP / Business Seed Capital</h3>
-                        <p>Part of Total Action for Progress (TAP), providing Seed Capital microloans, startup support, and business coaching to aspiring entrepreneurs in Western Virginia.</p>
+                        <p>Part of Total Action for Progress (TAP), providing Seed Capital microloans, startup support,
+                            and business coaching to aspiring entrepreneurs in Western Virginia.</p>
                         <div class="member-card-footer">
                             <span class="member-type-badge">Community Action CDFI</span>
-                            <a href="http://www.tapintohope.org" target="_blank" rel="noopener" class="member-site-link">
+                            <a href="http://www.tapintohope.org" target="_blank" rel="noopener"
+                                class="member-site-link">
                                 Visit Website &rarr;
                             </a>
                         </div>
@@ -1015,15 +1319,18 @@
                     <div class="member-card" data-state="WV">
                         <div class="member-card-header">
                             <div class="member-logo">
-                                <img src="images/members/wvruralhealth.png" alt="The Center for Rural Health Development Logo" loading="lazy">
+                                <img src="images/members/wvruralhealth.png"
+                                    alt="The Center for Rural Health Development Logo" loading="lazy">
                             </div>
                             <span class="member-state-tag">West Virginia &bull; Statewide</span>
                         </div>
                         <h3>The Center for Rural Health Development</h3>
-                        <p>Manages the West Virginia Loan Fund to provide low-cost capital for rural health centers, clinics, dental practices, and community healthcare infrastructure.</p>
+                        <p>Manages the West Virginia Loan Fund to provide low-cost capital for rural health centers,
+                            clinics, dental practices, and community healthcare infrastructure.</p>
                         <div class="member-card-footer">
                             <span class="member-type-badge">Healthcare CDFI</span>
-                            <a href="http://www.wvruralhealth.org/" target="_blank" rel="noopener" class="member-site-link">
+                            <a href="http://www.wvruralhealth.org/" target="_blank" rel="noopener"
+                                class="member-site-link">
                                 Visit Website &rarr;
                             </a>
                         </div>
@@ -1037,10 +1344,12 @@
                             <span class="member-state-tag">Pennsylvania &bull; PA / WV / MD / OH</span>
                         </div>
                         <h3>The Progress Fund</h3>
-                        <p>Specializes in financing recreation, hospitality, agricultural tourism, and trail-side small businesses across Pennsylvania, West Virginia, Maryland, and Ohio.</p>
+                        <p>Specializes in financing recreation, hospitality, agricultural tourism, and trail-side small
+                            businesses across Pennsylvania, West Virginia, Maryland, and Ohio.</p>
                         <div class="member-card-footer">
                             <span class="member-type-badge">Tourism &amp; Trail CDFI</span>
-                            <a href="https://www.progressfund.org" target="_blank" rel="noopener" class="member-site-link">
+                            <a href="https://www.progressfund.org" target="_blank" rel="noopener"
+                                class="member-site-link">
                                 Visit Website &rarr;
                             </a>
                         </div>
@@ -1049,12 +1358,14 @@
                     <div class="member-card" data-state="MS">
                         <div class="member-card-header">
                             <div class="member-logo">
-                                <img src="images/members/trpdd.png" alt="Three Rivers Planning &amp; Development Logo" loading="lazy">
+                                <img src="images/members/trpdd.png" alt="Three Rivers Planning &amp; Development Logo"
+                                    loading="lazy">
                             </div>
                             <span class="member-state-tag">Mississippi &bull; Pontotoc &amp; North MS</span>
                         </div>
                         <h3>Three Rivers Planning &amp; Development</h3>
-                        <p>Promotes economic vitality and local enterprise in Northeast Mississippi through revolving loan funds, commercial lending, and infrastructure financing.</p>
+                        <p>Promotes economic vitality and local enterprise in Northeast Mississippi through revolving
+                            loan funds, commercial lending, and infrastructure financing.</p>
                         <div class="member-card-footer">
                             <span class="member-type-badge">Planning District CDFI</span>
                             <a href="http://www.trpdd.com/" target="_blank" rel="noopener" class="member-site-link">
@@ -1066,15 +1377,18 @@
                     <div class="member-card" data-state="VA">
                         <div class="member-card-header">
                             <div class="member-logo">
-                                <img src="images/members/vibrantcommunities.png" alt="Virginia Community Development Fund Logo" loading="lazy">
+                                <img src="images/members/vibrantcommunities.png"
+                                    alt="Virginia Community Development Fund Logo" loading="lazy">
                             </div>
                             <span class="member-state-tag">Virginia &bull; Vibrant Communities</span>
                         </div>
                         <h3>Virginia Community Development Fund</h3>
-                        <p>Administers flexible lending programs to finance community facilities, affordable housing initiatives, and job-creating enterprises across underserved Virginia regions.</p>
+                        <p>Administers flexible lending programs to finance community facilities, affordable housing
+                            initiatives, and job-creating enterprises across underserved Virginia regions.</p>
                         <div class="member-card-footer">
                             <span class="member-type-badge">Certified CDFI</span>
-                            <a href="https://www.vibrantcommunities.us" target="_blank" rel="noopener" class="member-site-link">
+                            <a href="https://www.vibrantcommunities.us" target="_blank" rel="noopener"
+                                class="member-site-link">
                                 Visit Website &rarr;
                             </a>
                         </div>
@@ -1083,12 +1397,14 @@
                     <div class="member-card" data-state="WV">
                         <div class="member-card-header">
                             <div class="member-logo">
-                                <img src="images/members/wdgwv.png" alt="Woodlands Community Lenders Logo" loading="lazy">
+                                <img src="images/members/wdgwv.png" alt="Woodlands Community Lenders Logo"
+                                    loading="lazy">
                             </div>
                             <span class="member-state-tag">West Virginia &bull; Barbour, Randolph, Tucker</span>
                         </div>
                         <h3>Woodlands Community Lenders</h3>
-                        <p>Supports downtown revitalizations, food enterprises, and rural entrepreneurship across Barbour, Randolph, and Tucker counties with targeted loan capital.</p>
+                        <p>Supports downtown revitalizations, food enterprises, and rural entrepreneurship across
+                            Barbour, Randolph, and Tucker counties with targeted loan capital.</p>
                         <div class="member-card-footer">
                             <span class="member-type-badge">CDFI Microlender</span>
                             <a href="http://www.wdgwv.org/" target="_blank" rel="noopener" class="member-site-link">
@@ -1100,15 +1416,18 @@
                     <div class="member-card" data-state="National PA">
                         <div class="member-card-header">
                             <div class="member-logo">
-                                <img src="images/members/reinvestment.png" alt="Reinvestment Fund (RF) Logo" loading="lazy">
+                                <img src="images/members/reinvestment.png" alt="Reinvestment Fund (RF) Logo"
+                                    loading="lazy">
                             </div>
                             <span class="member-state-tag">National &bull; PA &amp; Multi-State</span>
                         </div>
                         <h3>Reinvestment Fund (RF)</h3>
-                        <p>Brings financial and analytical tools to create healthy, equitable communities, investing billions in affordable housing, clean energy, schools, and community healthcare.</p>
+                        <p>Brings financial and analytical tools to create healthy, equitable communities, investing
+                            billions in affordable housing, clean energy, schools, and community healthcare.</p>
                         <div class="member-card-footer">
                             <span class="member-type-badge">National CDFI</span>
-                            <a href="https://www.reinvestment.com/" target="_blank" rel="noopener" class="member-site-link">
+                            <a href="https://www.reinvestment.com/" target="_blank" rel="noopener"
+                                class="member-site-link">
                                 Visit Website &rarr;
                             </a>
                         </div>
@@ -1117,15 +1436,18 @@
                     <div class="member-card" data-state="National">
                         <div class="member-card-header">
                             <div class="member-logo">
-                                <img src="images/members/redefinealliance.png" alt="Redefine Alliance / Impact Investing Fund (RIIF) Logo" loading="lazy">
+                                <img src="images/members/redefinealliance.png"
+                                    alt="Redefine Alliance / Impact Investing Fund (RIIF) Logo" loading="lazy">
                             </div>
                             <span class="member-state-tag">National Energy &amp; Impact Affiliate</span>
                         </div>
                         <h3>Redefine Alliance / Impact Investing Fund (RIIF)</h3>
-                        <p>Aligns low-carbon technologies, clean energy projects, and catalytic capital to transform underserved energy and rural communities into resilient local economies.</p>
+                        <p>Aligns low-carbon technologies, clean energy projects, and catalytic capital to transform
+                            underserved energy and rural communities into resilient local economies.</p>
                         <div class="member-card-footer">
                             <span class="member-type-badge">Impact Investment Fund</span>
-                            <a href="https://redefinealliance.org/impact-investing/" target="_blank" rel="noopener" class="member-site-link">
+                            <a href="https://redefinealliance.org/impact-investing/" target="_blank" rel="noopener"
+                                class="member-site-link">
                                 Visit Website &rarr;
                             </a>
                         </div>
@@ -1133,16 +1455,13 @@
                 </div>
 
                 <!-- Phase 2 Full Directory Pathway Note -->
-                <div
-                    style="margin-top: 48px; background: #ffffff; border-radius: 16px; border: 1px solid #e2e8f0; padding: 28px 32px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px;">
-                    <div>
-                        <h4 style="font-size: 1.15rem; font-weight: 700; color: #0f172a; margin-bottom: 4px;">Are you a
-                            CDFI serving Appalachia?</h4>
-                        <p style="font-size: 14px; color: #64748b; margin: 0;">Explore full network membership benefits,
-                            peer learning cohorts, and loan participation pools.</p>
+                <div class="network-pathway-card">
+                    <div class="network-pathway-copy">
+                        <h4 class="network-pathway-title">Are you a CDFI serving Appalachia?</h4>
+                        <p class="network-pathway-desc">Explore full network membership benefits, peer learning
+                            cohorts, and loan participation pools.</p>
                     </div>
-                    <a href="#membership" class="btn dark"
-                        style="background: var(--color-navy-4); color: #ffffff; padding: 12px 24px; border-radius: 999px; text-decoration: none; font-weight: 700; font-size: 14px;">
+                    <a href="#membership" class="btn dark btn-pathway-cta">
                         Explore Membership Opportunities &rarr;
                     </a>
                 </div>
@@ -1150,21 +1469,19 @@
         </section>
 
         <!-- Network Value & Benefits Section -->
-        <section class="content-section" id="membership" style="background: #f8fafc;">
+        <section class="content-section network-membership-section" id="membership">
             <div class="inner">
-                <div class="section-header-split"
-                    style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 20px; margin-bottom: 40px;">
-                    <div style="max-width: 680px;">
+                <div class="section-header-split membership-header-split">
+                    <div class="directory-header-copy">
                         <span class="section-kicker">Member Value Proposition</span>
-                        <h2 class="section-title" style="margin-bottom: 12px;">Why Community Lenders Join ACC</h2>
-                        <p class="section-desc" style="margin: 0;">
+                        <h2 class="section-title membership-header-title">Why Community Lenders Join ACC</h2>
+                        <p class="section-desc directory-header-desc">
                             Participation in ACC gives locally rooted institutions the collective power, institutional
                             balance sheet, and technological tools of a multi-billion-dollar regional network.
                         </p>
                     </div>
-                    <div style="padding-bottom: 6px;">
-                        <a href="#become-a-member" class="btn btn-primary"
-                            style="display: inline-flex; align-items: center; gap: 8px; background: #2d3d90; color: #ffffff; padding: 14px 28px; border-radius: 999px; text-decoration: none; font-weight: 700; font-size: 15px; box-shadow: 0 4px 14px rgba(45, 61, 144, 0.3); transition: all 0.2s ease;">
+                    <div class="membership-header-action">
+                        <a href="#become-a-member" class="btn btn-primary btn-network-navy btn-network-navy--lg">
                             <span>Become a Member</span>
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                 stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -1175,7 +1492,7 @@
                     </div>
                 </div>
 
-                <div class="grid-3col">
+                <div class="grid-3col membership-pillars-grid">
                     <!-- Value 1 -->
                     <div class="pillar-card">
                         <div class="pillar-icon-box">
@@ -1284,15 +1601,13 @@
                 </div>
 
                 <!-- Membership Benefits & Criteria Showcase -->
-                <div class="membership-details-block" id="benefits-criteria" style="margin-top: 60px;">
-                    <div class="grid-2col" style="gap: 32px; align-items: stretch;">
+                <div class="membership-details-block" id="benefits-criteria">
+                    <div class="grid-2col membership-details-grid">
 
                         <!-- Core Membership Benefits -->
-                        <div class="member-detail-card"
-                            style="background: #ffffff; border-radius: 20px; padding: 40px; border: 1px solid #e2e8f0; box-shadow: 0 10px 30px rgba(0,0,0,0.04); display: flex; flex-direction: column;">
-                            <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 24px;">
-                                <div
-                                    style="width: 48px; height: 48px; border-radius: 12px; background: linear-gradient(135deg, #00966a 0%, #007553 100%); color: #ffffff; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                        <div class="member-detail-card">
+                            <div class="detail-card-head">
+                                <div class="detail-card-icon detail-card-icon--green">
                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                         stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                                         <path
@@ -1301,67 +1616,48 @@
                                     </svg>
                                 </div>
                                 <div>
-                                    <span
-                                        style="font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; color: #00966a; display: block;">Official
-                                        Privileges</span>
-                                    <h3 style="font-size: 1.5rem; font-weight: 700; color: #0f172a; margin: 0;">
-                                        Membership Benefits</h3>
+                                    <span class="detail-card-kicker detail-card-kicker--green">Official Privileges</span>
+                                    <h3 class="detail-card-title">Membership Benefits</h3>
                                 </div>
                             </div>
-                            <p style="font-size: 15px; color: #64748b; line-height: 1.6; margin-bottom: 24px;">
+                            <p class="detail-card-intro">
                                 Becoming a member of Appalachian Community Capital connects your CDFI to dedicated debt
                                 facilities, regional governance, and vital technical support:
                             </p>
-                            <ul
-                                style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 18px; flex: 1;">
-                                <li style="display: flex; gap: 14px; align-items: flex-start;">
-                                    <span
-                                        style="width: 28px; height: 28px; border-radius: 50%; background: rgba(0, 150, 106, 0.12); color: #00966a; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px; flex-shrink: 0; margin-top: 2px;">1</span>
+                            <ul class="benefits-list">
+                                <li class="benefit-item">
+                                    <span class="benefit-step-num">1</span>
                                     <div>
-                                        <strong
-                                            style="color: #0f172a; font-size: 15px; display: block; margin-bottom: 4px;">Financing
-                                            for Organizations</strong>
-                                        <span
-                                            style="color: #475569; font-size: 14px; line-height: 1.5; display: block;">Direct
-                                            access to debt capital and wholesale lending facilities for organizations
-                                            that meet ACC lending requirements.</span>
+                                        <strong class="benefit-title">Financing for Organizations</strong>
+                                        <span class="benefit-desc">Direct access to debt capital and wholesale lending
+                                            facilities for organizations that meet ACC lending requirements.</span>
                                     </div>
                                 </li>
-                                <li style="display: flex; gap: 14px; align-items: flex-start;">
-                                    <span
-                                        style="width: 28px; height: 28px; border-radius: 50%; background: rgba(0, 150, 106, 0.12); color: #00966a; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px; flex-shrink: 0; margin-top: 2px;">2</span>
+                                <li class="benefit-item">
+                                    <span class="benefit-step-num">2</span>
                                     <div>
-                                        <strong
-                                            style="color: #0f172a; font-size: 15px; display: block; margin-bottom: 4px;">Board
-                                            of Directors Representation</strong>
-                                        <span
-                                            style="color: #475569; font-size: 14px; line-height: 1.5; display: block;">Eligibility
-                                            for membership and voting voice on the ACC Board of Directors, ensuring
-                                            strategic guidance reflects local practitioner needs.</span>
+                                        <strong class="benefit-title">Board of Directors Representation</strong>
+                                        <span class="benefit-desc">Eligibility for membership and voting voice on the
+                                            ACC Board of Directors, ensuring strategic guidance reflects local
+                                            practitioner needs.</span>
                                     </div>
                                 </li>
-                                <li style="display: flex; gap: 14px; align-items: flex-start;">
-                                    <span
-                                        style="width: 28px; height: 28px; border-radius: 50%; background: rgba(0, 150, 106, 0.12); color: #00966a; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px; flex-shrink: 0; margin-top: 2px;">3</span>
+                                <li class="benefit-item">
+                                    <span class="benefit-step-num">3</span>
                                     <div>
-                                        <strong
-                                            style="color: #0f172a; font-size: 15px; display: block; margin-bottom: 4px;">Shared
-                                            Best Practices &amp; Feedback</strong>
-                                        <span
-                                            style="color: #475569; font-size: 14px; line-height: 1.5; display: block;">Active
-                                            peer-learning networks and collaborative feedback sessions with fellow
-                                            regional CDFIs to continuously elevate community development lending.</span>
+                                        <strong class="benefit-title">Shared Best Practices &amp; Feedback</strong>
+                                        <span class="benefit-desc">Active peer-learning networks and collaborative
+                                            feedback sessions with fellow regional CDFIs to continuously elevate
+                                            community development lending.</span>
                                     </div>
                                 </li>
                             </ul>
                         </div>
 
                         <!-- Membership Criteria & Requirements -->
-                        <div class="member-detail-card"
-                            style="background: #ffffff; border-radius: 20px; padding: 40px; border: 1px solid #e2e8f0; box-shadow: 0 10px 30px rgba(0,0,0,0.04); display: flex; flex-direction: column;">
-                            <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 24px;">
-                                <div
-                                    style="width: 48px; height: 48px; border-radius: 12px; background: linear-gradient(135deg, #0c2b5f 0%, #1e3a8a 100%); color: #ffffff; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                        <div class="member-detail-card">
+                            <div class="detail-card-head">
+                                <div class="detail-card-icon detail-card-icon--navy">
                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                         stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                                         <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
@@ -1369,56 +1665,52 @@
                                     </svg>
                                 </div>
                                 <div>
-                                    <span
-                                        style="font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; color: var(--color-navy-4); display: block;">Eligibility
-                                        Standards</span>
-                                    <h3 style="font-size: 1.5rem; font-weight: 700; color: #0f172a; margin: 0;">
-                                        Membership Criteria</h3>
+                                    <span class="detail-card-kicker detail-card-kicker--navy">Eligibility Standards</span>
+                                    <h3 class="detail-card-title">Membership Criteria</h3>
                                 </div>
                             </div>
-                            <p style="font-size: 15px; color: #64748b; line-height: 1.6; margin-bottom: 20px;">
+                            <p class="detail-card-intro">
                                 ACC membership is open to mission-driven lending institutions meeting the following
                                 standards:
                             </p>
-                            <ul
-                                style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 14px; font-size: 14px; color: #334155;">
-                                <li style="display: flex; gap: 10px; align-items: flex-start;">
-                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00966a"
-                                        stroke-width="2.5" style="margin-top: 2px; flex-shrink: 0;">
+                            <ul class="criteria-list">
+                                <li class="criteria-item">
+                                    <svg class="criteria-check" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                        stroke="#00966a" stroke-width="2.5">
                                         <polyline points="20 6 9 17 4 12"></polyline>
                                     </svg>
                                     <span><strong>Appalachian Footprint:</strong> Operates in the Appalachian Region
                                         service area as defined by the Appalachian Regional Commission (ARC).</span>
                                 </li>
-                                <li style="display: flex; gap: 10px; align-items: flex-start;">
-                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00966a"
-                                        stroke-width="2.5" style="margin-top: 2px; flex-shrink: 0;">
+                                <li class="criteria-item">
+                                    <svg class="criteria-check" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                        stroke="#00966a" stroke-width="2.5">
                                         <polyline points="20 6 9 17 4 12"></polyline>
                                     </svg>
                                     <span><strong>Mission-Based Enterprise Lender:</strong> Primarily provides business
                                         and enterprise loans dedicated to improving social and economic conditions for
                                         underserved residents.</span>
                                 </li>
-                                <li style="display: flex; gap: 10px; align-items: flex-start;">
-                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00966a"
-                                        stroke-width="2.5" style="margin-top: 2px; flex-shrink: 0;">
+                                <li class="criteria-item">
+                                    <svg class="criteria-check" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                        stroke="#00966a" stroke-width="2.5">
                                         <polyline points="20 6 9 17 4 12"></polyline>
                                     </svg>
                                     <span><strong>Distressed Market Targeting:</strong> Serves economically distressed
                                         communities, low-income populations, or underbanked markets with development
                                         services paired to loans.</span>
                                 </li>
-                                <li style="display: flex; gap: 10px; align-items: flex-start;">
-                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00966a"
-                                        stroke-width="2.5" style="margin-top: 2px; flex-shrink: 0;">
+                                <li class="criteria-item">
+                                    <svg class="criteria-check" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                        stroke="#00966a" stroke-width="2.5">
                                         <polyline points="20 6 9 17 4 12"></polyline>
                                     </svg>
                                     <span><strong>Impact Tracking:</strong> Maintains a comprehensive impact measurement
                                         and loan tracking system.</span>
                                 </li>
-                                <li style="display: flex; gap: 10px; align-items: flex-start;">
-                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00966a"
-                                        stroke-width="2.5" style="margin-top: 2px; flex-shrink: 0;">
+                                <li class="criteria-item">
+                                    <svg class="criteria-check" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                        stroke="#00966a" stroke-width="2.5">
                                         <polyline points="20 6 9 17 4 12"></polyline>
                                     </svg>
                                     <span><strong>Program Sophistication:</strong> Demonstrated compliance with
@@ -1430,69 +1722,50 @@
                     </div>
 
                     <!-- Annual Rates & Application Dues Box -->
-                    <div
-                        style="background: #ffffff; border-radius: 20px; border: 1px solid #e2e8f0; padding: 36px 40px; margin-top: 32px; box-shadow: 0 4px 20px rgba(0,0,0,0.03);">
-                        <div
-                            style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 20px; margin-bottom: 24px;">
+                    <div class="dues-overview-card">
+                        <div class="dues-header">
                             <div>
-                                <span
-                                    style="font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; color: var(--color-navy-4); display: block; margin-bottom: 6px;">Membership
-                                    Investment</span>
-                                <h4 style="font-size: 1.35rem; font-weight: 700; color: #0f172a; margin: 0;">Annual Dues
-                                    Structure for New Members</h4>
+                                <span class="dues-kicker">Membership Investment</span>
+                                <h4 class="dues-title">Annual Dues Structure for New Members</h4>
                             </div>
-                            <span
-                                style="font-size: 13px; color: #64748b; background: #f1f5f9; padding: 6px 14px; border-radius: 999px; font-weight: 600;">Tiered
-                                by Total Asset Size</span>
+                            <span class="dues-tier-badge">Tiered by Total Asset Size</span>
                         </div>
-                        <div class="grid-3col" style="gap: 20px;">
-                            <div
-                                style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 14px; padding: 22px; text-align: center;">
-                                <div style="font-size: 1.85rem; font-weight: 800; color: #0f172a; margin-bottom: 4px;">
-                                    $1,000 <span style="font-size: 14px; font-weight: 600; color: #64748b;">/
-                                        year</span></div>
-                                <div style="font-size: 13.5px; font-weight: 600; color: #475569;">Assets &lt; $50
-                                    Million</div>
+                        <div class="grid-3col dues-tiers-grid">
+                            <div class="dues-tier-card">
+                                <div class="dues-tier-price">
+                                    $1,000 <span class="dues-tier-unit">/ year</span>
+                                </div>
+                                <div class="dues-tier-cap">Assets &lt; $50 Million</div>
                             </div>
-                            <div
-                                style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 14px; padding: 22px; text-align: center;">
-                                <div style="font-size: 1.85rem; font-weight: 800; color: #0f172a; margin-bottom: 4px;">
-                                    $1,500 <span style="font-size: 14px; font-weight: 600; color: #64748b;">/
-                                        year</span></div>
-                                <div style="font-size: 13.5px; font-weight: 600; color: #475569;">Assets $51M &ndash;
-                                    $74 Million</div>
+                            <div class="dues-tier-card">
+                                <div class="dues-tier-price">
+                                    $1,500 <span class="dues-tier-unit">/ year</span>
+                                </div>
+                                <div class="dues-tier-cap">Assets $51M &ndash; $74 Million</div>
                             </div>
-                            <div
-                                style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 14px; padding: 22px; text-align: center;">
-                                <div style="font-size: 1.85rem; font-weight: 800; color: #0f172a; margin-bottom: 4px;">
-                                    $2,000 <span style="font-size: 14px; font-weight: 600; color: #64748b;">/
-                                        year</span></div>
-                                <div style="font-size: 13.5px; font-weight: 600; color: #475569;">Assets &gt; $75
-                                    Million</div>
+                            <div class="dues-tier-card">
+                                <div class="dues-tier-price">
+                                    $2,000 <span class="dues-tier-unit">/ year</span>
+                                </div>
+                                <div class="dues-tier-cap">Assets &gt; $75 Million</div>
                             </div>
                         </div>
                     </div>
 
                     <!-- Become a Member Action Block -->
-                    <div id="become-a-member"
-                        style="background: linear-gradient(135deg, #021228 0%, #0c2b5f 100%); border-radius: 20px; padding: 48px; color: #ffffff; margin-top: 32px; box-shadow: 0 15px 40px rgba(0, 33, 85, 0.2);">
-                        <div class="grid-2col" style="align-items: center; gap: 40px;">
+                    <div id="become-a-member" class="become-member-card">
+                        <div class="grid-2col become-member-grid">
                             <div>
-                                <span
-                                    style="font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; color: #e5b93b; display: block; margin-bottom: 10px;">Membership
-                                    Onboarding</span>
-                                <h3 style="font-size: 2rem; font-weight: 700; color: #ffffff; margin-bottom: 14px;">How
-                                    to Become an ACC Member</h3>
-                                <p style="font-size: 15px; color: #cbd5e1; line-height: 1.6; margin-bottom: 20px;">
+                                <span class="become-member-kicker">Membership Onboarding</span>
+                                <h3 class="become-member-title">How to Become an ACC Member</h3>
+                                <p class="become-member-desc">
                                     Organizations interested in joining Appalachian Community Capital submit standard
                                     underwriting and community lending records for Board review during regularly
                                     scheduled quarterly meetings.
                                 </p>
-                                <div style="font-size: 13.5px; color: #e2e8f0; line-height: 1.6; margin-bottom: 24px;">
-                                    <strong style="color: #ffffff; display: block; margin-bottom: 8px;">Required
-                                        Application Submission:</strong>
-                                    <ul
-                                        style="padding-left: 20px; margin: 0; display: flex; flex-direction: column; gap: 6px;">
+                                <div class="become-member-reqs">
+                                    <strong class="become-member-reqs-title">Required Application Submission:</strong>
+                                    <ul class="become-member-reqs-list">
                                         <li>1-page narrative of current or planned community lending in Appalachia</li>
                                         <li>Most recent interim financial statement &amp; audited financials (past 3
                                             years)</li>
@@ -1500,41 +1773,32 @@
                                         <li>Organizational chart &amp; executive leadership contacts</li>
                                     </ul>
                                 </div>
-                                <div style="font-size: 12.5px; color: #94a3b8; font-style: italic;">
+                                <div class="become-member-note">
                                     Submissions are reviewed quarterly by the Board of Directors, followed by formal
                                     written notice.
                                 </div>
                             </div>
 
                             <!-- Dedicated Direct Contact Card -->
-                            <div
-                                style="background: rgba(255, 255, 255, 0.07); border: 1px solid rgba(255, 255, 255, 0.16); border-radius: 16px; padding: 32px; backdrop-filter: blur(8px);">
-                                <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 16px;">
-                                    <div
-                                        style="width: 48px; height: 48px; border-radius: 50%; background: #e5b93b; color: #021228; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 18px;">
-                                        SY
-                                    </div>
+                            <div class="become-member-contact-box">
+                                <div class="contact-lead-head">
+                                    <div class="contact-lead-avatar">SY</div>
                                     <div>
-                                        <h4 style="font-size: 1.25rem; font-weight: 700; color: #ffffff; margin: 0;">
-                                            Shauna Yeldell</h4>
-                                        <div style="font-size: 13.5px; color: #e5b93b; font-weight: 600;">Chief Lending
-                                            Officer</div>
+                                        <h4 class="contact-lead-name">Shauna Yeldell</h4>
+                                        <div class="contact-lead-role">Chief Lending Officer</div>
                                     </div>
                                 </div>
-                                <p style="font-size: 14px; color: #cbd5e1; line-height: 1.6; margin-bottom: 24px;">
+                                <p class="contact-lead-desc">
                                     Ready to explore network membership, loan syndications, or review application
                                     criteria? Connect directly with ACC Lending Leadership:
                                 </p>
-                                <div style="display: flex; flex-direction: column; gap: 14px; margin-bottom: 24px;">
+                                <div class="contact-lead-actions">
                                     <a href="mailto:syeldell@appalachiancommunitycapitalcdfi.org?subject=ACC%20Membership%20Inquiry"
-                                        class="btn-primary"
-                                        style="justify-content: center; text-align: center; text-decoration: none; padding: 12px 20px; font-size: 14px; font-weight: 700;">
+                                        class="btn-primary btn-email-lead">
                                         Email Shauna Yeldell
                                     </a>
-                                    
                                 </div>
-                                <div
-                                    style="border-top: 1px solid rgba(255,255,255,0.12); padding-top: 14px; font-size: 12.5px; color: #94a3b8; display: flex; justify-content: space-between; align-items: center;">
+                                <div class="contact-lead-meta">
                                     <span>Headquarters: (540) 251-4244</span>
                                     <span>Christiansburg, VA</span>
                                 </div>
@@ -1546,28 +1810,24 @@
         </section>
 
         <!-- Network Impact Quote Banner -->
-        <section class="content-section" style="padding: 0;">
+        <section class="content-section network-quote-section">
             <div class="inner">
-                <div
-                    style="background: linear-gradient(135deg, #0d7843  0%, #0f8d4f  100%); border-radius: 24px; padding: 50px; color: #ffffff; display: grid; grid-template-columns: 1fr 1.3fr; gap: 40px; align-items: center; box-shadow: 0 15px 40px rgba(0,0,0,0.15);">
-                    <div style="border-radius: 16px; overflow: hidden; height: 260px;">
-                        <img src="images/photos/community-dinner.jpg" alt="Appalachian Community Gathering"
-                            style="width: 100%; height: 100%; object-fit: cover;">
+                <div class="network-quote-banner">
+                    <div class="network-quote-photo">
+                        <img src="images/photos/community-dinner.jpg" alt="Appalachian Community Gathering">
                     </div>
                     <div>
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="rgba(229, 185, 59, 0.3)"
-                            style="margin-bottom: 16px;">
+                        <svg class="network-quote-mark" width="40" height="40" viewBox="0 0 24 24"
+                            fill="rgba(229, 185, 59, 0.3)">
                             <path
                                 d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
                         </svg>
-                        <blockquote
-                            style="font-size: 1.25rem; font-style: italic; line-height: 1.6; color: #e2e8f0; margin-bottom: 20px;">
+                        <blockquote class="network-quote-text">
                             "The ACC network changed our capacity overnight. Instead of struggling as isolated local
                             lenders, we now tap into institutional capital, co-underwrite clean energy projects, and
                             respond instantly when disasters strike our communities."
                         </blockquote>
-                        <div style="font-size: 14px; font-weight: 700; color: #e5b93b;">Executive Director, Central
-                            Appalachian CDFI Member</div>
+                        <div class="network-quote-author">Executive Director, Central Appalachian CDFI Member</div>
                     </div>
                 </div>
             </div>
@@ -1605,12 +1865,12 @@
                         <div class="footer-social">
                             <div class="fusion-social-networks-wrapper"><a
                                     class="fusion-social-network-icon fusion-tooltip fusion-linkedin awb-icon-linkedin"
-                                    style="color:#2176ff;font-size:16px;" data-placement="top" data-title="LinkedIn"
+                                    data-placement="top" data-title="LinkedIn"
                                     data-toggle="tooltip" title="" aria-label="linkedin" target="_blank"
                                     rel="noopener noreferrer" href="https://www.linkedin.com/company/acc-cdfi"
                                     data-original-title="LinkedIn"></a><a
                                     class="fusion-social-network-icon fusion-tooltip fusion-instagram awb-icon-instagram"
-                                    style="color:#2176ff;font-size:16px;" data-placement="top" data-title="Instagram"
+                                    data-placement="top" data-title="Instagram"
                                     data-toggle="tooltip" title="" aria-label="instagram" target="_blank"
                                     rel="noopener noreferrer" href="https://www.instagram.com/acc_cdfi"
                                     data-original-title="Instagram"></a></div>
@@ -1642,6 +1902,7 @@
                                     <li><a href="about.html#mission">Mission &amp; History</a></li>
                                     <li><a href="about.html#leadership">Board &amp; Leadership</a></li>
                                     <li><a href="impact-insights.html#governance">Financial Audits</a></li>
+                                    <li><a href="contact.html">Contact Us</a></li>
                                 </ul>
                             </div>
                             <div class="footer-column">
@@ -1696,6 +1957,16 @@
                             </svg>
                             (540) 251-4244
                         </span>
+                        <a href="contact.html" class="footer-contact-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
+                                </path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                            Contact Us
+                        </a>
                     </div>
                     <div class="cert-info">
                         501(c)(3) Certified CDFI
