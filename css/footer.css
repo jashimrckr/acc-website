@@ -1,4 +1,4 @@
-footer {
+﻿footer {
     background-color: #f7f6ef;
     color: #4a5568;
     padding-top: 60px;
@@ -247,6 +247,25 @@ footer {
 
 .contact-info svg {
     color: #666;
+}
+
+.contact-info a.footer-contact-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #666;
+    text-decoration: none;
+    font-weight: 700;
+    transition: color 0.2s ease;
+}
+
+.contact-info a.footer-contact-link svg {
+    color: #666;
+}
+
+.contact-info a.footer-contact-link:hover {
+    color: var(--color-navy-6);
+    text-decoration: underline;
 }
 
 .cert-info {

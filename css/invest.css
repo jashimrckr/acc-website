@@ -1,0 +1,572 @@
+/* ==========================================================================
+   Invest Page Styling - Appalachian Community Capital
+   Responsive spacing, fluid padding/gaps, and clean component layout
+   ========================================================================== */
+
+.invest-page {
+    background-color: #ffffff;
+}
+
+.invest-page .content-section {
+    padding: clamp(44px, 6vw, 84px) 0;
+}
+
+.invest-page .content-section .inner {
+    padding: 0 clamp(1.25rem, 3vw, 2rem);
+}
+
+/* Hero Section */
+.invest-page .page-hero.hero-invest {
+    background: linear-gradient(135deg, #021a3a 0%, #0c3875 60%, #124d9c 100%);
+    min-height: auto;
+    padding: clamp(56px, 7vw, 110px) 0 clamp(48px, 6.5vw, 96px);
+}
+
+.invest-page .hero-invest .inner {
+    padding: 0 clamp(1.25rem, 3vw, 2rem);
+}
+
+.invest-page .hero-invest .hero-actions-row {
+    gap: clamp(10px, 1.6vw, 16px);
+}
+
+.invest-page .hero-invest .btn-hero-step2 {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+.invest-page .hero-invest .btn-hero-step2:hover {
+    background: rgba(255, 255, 255, 0.24);
+    border-color: #ffffff;
+}
+
+/* ==========================================================================
+   Community Investment Notes Layout (#notes)
+   ========================================================================== */
+.invest-notes-section {
+    background: #ffffff;
+}
+
+.invest-notes-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.35fr);
+    gap: clamp(28px, 5vw, 72px);
+    align-items: start;
+}
+
+.invest-notes-col-left {
+    position: relative;
+    padding-top: 4px;
+}
+
+.invest-notes-title {
+    font-family: var(--font-heading, 'Outfit', 'Google Sans', sans-serif);
+    font-size: clamp(1.75rem, 3.1vw, 2.75rem);
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    color: #0c2340;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.invest-notes-col-right {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.invest-notes-subtitle {
+    font-size: clamp(1.05rem, 1.35vw, 1.18rem);
+    font-weight: 500;
+    color: #59677b;
+    line-height: 1.45;
+    margin: 0 0 clamp(14px, 2vw, 18px) 0;
+}
+
+.invest-notes-lead {
+    font-size: clamp(0.98rem, 1.2vw, 1.05rem);
+    line-height: 1.7;
+    color: #374151;
+    margin: 0 0 clamp(18px, 2.5vw, 24px) 0;
+}
+
+.invest-notes-label {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin: 0 0 12px 0;
+    line-height: 1.4;
+}
+
+.invest-notes-list {
+    list-style-type: disc;
+    padding-left: 22px;
+    margin: 0 0 clamp(22px, 3vw, 32px) 0;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(10px, 1.4vw, 12px);
+}
+
+.invest-notes-list li {
+    font-size: 0.98rem;
+    line-height: 1.6;
+    color: #374151;
+}
+
+.invest-notes-list strong {
+    font-weight: 700;
+    color: #111827;
+}
+
+.invest-notes-btn-stack {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: clamp(12px, 1.8vw, 15px);
+    margin-top: clamp(8px, 1.5vw, 16px);
+}
+
+.btn-invest-step {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #026836;
+    color: #ffffff !important;
+    padding: clamp(12px, 1.8vw, 15px) clamp(18px, 3vw, 36px);
+    border-radius: 9999px;
+    font-size: clamp(12.5px, 1.3vw, 14.5px);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    text-decoration: none;
+    box-shadow: 0 4px 14px rgba(2, 104, 54, 0.25);
+    transition: background-color 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
+    cursor: pointer;
+    box-sizing: border-box;
+    text-align: center;
+    line-height: 1.35;
+    width: 100%;
+}
+
+.btn-invest-step:hover {
+    background-color: #01522a;
+    color: #ffffff !important;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 22px rgba(2, 104, 54, 0.38);
+}
+
+/* ==========================================================================
+   Offering Parameters & Philanthropy Callout
+   ========================================================================== */
+.invest-details-section {
+    background: #f8fafc;
+    padding-bottom: clamp(28px, 4vw, 52px);
+}
+
+.invest-details-header {
+    margin-bottom: clamp(28px, 4vw, 48px);
+}
+
+.invest-details-lead {
+    max-width: 720px;
+    margin: 0 auto;
+    color: #475569;
+    font-size: clamp(15px, 1.3vw, 16px);
+    line-height: 1.6;
+}
+
+.invest-stats-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    padding: clamp(22px, 3vw, 34px) clamp(20px, 3.2vw, 36px);
+    gap: clamp(18px, 2.5vw, 28px);
+    margin-bottom: clamp(28px, 4vw, 48px);
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 18px rgba(15, 23, 42, 0.03);
+}
+
+.invest-philanthropy-card {
+    background: #ffffff;
+    border-radius: clamp(16px, 2vw, 20px);
+    padding: clamp(24px, 3.5vw, 38px) clamp(22px, 3.5vw, 40px);
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: clamp(20px, 3vw, 32px);
+    flex-wrap: wrap;
+}
+
+.invest-philanthropy-copy {
+    flex: 1 1 340px;
+    max-width: 680px;
+    min-width: 0;
+}
+
+.invest-philanthropy-kicker {
+    font-size: 13px;
+    font-weight: 800;
+    color: #026836;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    display: block;
+    margin-bottom: 6px;
+}
+
+.invest-philanthropy-title {
+    font-size: clamp(1.25rem, 1.8vw, 1.5rem);
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 8px;
+    line-height: 1.3;
+}
+
+.invest-philanthropy-desc {
+    font-size: 14.5px;
+    color: #475569;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.invest-philanthropy-action {
+    flex-shrink: 0;
+}
+
+.btn-gambrell-donate {
+    font-size: 14px;
+    padding: 12px 28px;
+}
+
+/* ==========================================================================
+   Vision 2030 Card Section (#vision)
+   ========================================================================== */
+.invest-page .invest-vision-section {
+    background: #f8fafc;
+    padding-top: 0;
+}
+
+.invest-vision-card {
+    background: linear-gradient(135deg, #021228 0%, #0c2b5f 100%);
+    border-radius: clamp(18px, 2.5vw, 24px);
+    padding: clamp(24px, 4.5vw, 48px);
+    color: #ffffff;
+}
+
+.invest-vision-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+    gap: clamp(24px, 4vw, 48px);
+    align-items: center;
+}
+
+.invest-vision-kicker {
+    font-size: 13px;
+    font-weight: 800;
+    color: #e5b93b;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.invest-vision-title {
+    font-size: clamp(1.6rem, 2.6vw, 2.2rem);
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 14px;
+    line-height: 1.2;
+}
+
+.invest-vision-desc {
+    font-size: clamp(0.96rem, 1.2vw, 1.05rem);
+    line-height: 1.65;
+    color: #cbd5e1;
+    margin-bottom: clamp(20px, 3vw, 26px);
+}
+
+.invest-vision-metrics {
+    display: flex;
+    gap: clamp(16px, 2.5vw, 24px);
+    flex-wrap: wrap;
+}
+
+.invest-vision-metric {
+    border-left: 1px solid rgba(255, 255, 255, 0.15);
+    padding-left: clamp(14px, 2vw, 20px);
+}
+
+.invest-vision-metric:first-child {
+    border-left: none;
+    padding-left: 0;
+}
+
+.invest-metric-value {
+    font-size: clamp(1.5rem, 2.4vw, 2rem);
+    font-weight: 800;
+    color: #e5b93b;
+    line-height: 1.15;
+}
+
+.invest-metric-label {
+    font-size: 13px;
+    color: #94a3b8;
+    font-weight: 600;
+    margin-top: 2px;
+}
+
+.invest-ask-box {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 18px;
+    padding: clamp(20px, 3vw, 32px);
+    backdrop-filter: blur(8px);
+}
+
+.invest-ask-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 12px;
+}
+
+.invest-ask-desc {
+    font-size: 13.5px;
+    color: #d1d8e8;
+    line-height: 1.55;
+    margin-bottom: 18px;
+}
+
+.invest-ask-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    font-size: 14px;
+    color: #e2e8f0;
+    line-height: 1.55;
+}
+
+.invest-ask-list li {
+    display: flex;
+    gap: 10px;
+}
+
+.invest-ask-amount {
+    color: #e5b93b;
+    min-width: 44px;
+    flex-shrink: 0;
+}
+
+.invest-ask-cta {
+    margin-top: 22px;
+}
+
+.btn-invest-ask {
+    padding: 11px 22px;
+    font-size: 13px;
+    background: #026836;
+}
+
+.btn-invest-ask:hover {
+    background: #01522a;
+    box-shadow: 0 8px 20px rgba(2, 104, 54, 0.35);
+}
+
+/* ==========================================================================
+   Investor Relations & Contact Section (#contact)
+   ========================================================================== */
+.invest-contact-section {
+    background: #ffffff;
+}
+
+.invest-contact-card {
+    background: linear-gradient(135deg, #f8fafc 0%, #edf2f7 100%);
+    border: 1px solid #e2e8f0;
+    border-radius: clamp(18px, 2.5vw, 24px);
+    padding: clamp(22px, 4.5vw, 48px);
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+    gap: clamp(24px, 4vw, 44px);
+    align-items: center;
+}
+
+.invest-contact-kicker {
+    font-size: 13px;
+    font-weight: 800;
+    color: #026836;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.invest-contact-title {
+    font-size: clamp(1.55rem, 2.5vw, 2rem);
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 14px;
+    line-height: 1.25;
+}
+
+.invest-contact-desc {
+    font-size: 15px;
+    color: #475569;
+    line-height: 1.6;
+    margin-bottom: clamp(18px, 2.5vw, 24px);
+}
+
+.invest-contact-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    font-size: 14.5px;
+    color: #1e293b;
+}
+
+.invest-contact-row {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.invest-contact-label {
+    font-weight: 700;
+    color: #0f172a;
+    min-width: 90px;
+}
+
+.invest-inquiries-box {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: clamp(20px, 3vw, 32px);
+    border: 1px solid #cbd5e1;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+.invest-inquiries-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 8px;
+}
+
+.invest-inquiries-desc {
+    font-size: 13.5px;
+    color: #64748b;
+    line-height: 1.55;
+    margin-bottom: 20px;
+}
+
+.invest-inquiries-person {
+    margin-bottom: 20px;
+}
+
+.invest-inquiries-name {
+    font-size: 15px;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.invest-inquiries-role {
+    font-size: 13px;
+    color: #64748b;
+}
+
+.btn-invest-email {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    font-size: 14px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+}
+
+/* ==========================================================================
+   CTA Banner Overrides
+   ========================================================================== */
+.invest-page .cta-banner {
+    padding: clamp(52px, 6.5vw, 90px) 0;
+}
+
+.invest-page .cta-banner .inner {
+    padding: 0 clamp(1.25rem, 3vw, 2rem);
+}
+
+.invest-page .cta-banner .cta-buttons {
+    gap: clamp(10px, 1.5vw, 16px);
+}
+
+/* ==========================================================================
+   Responsive Breakpoints
+   ========================================================================== */
+@media (max-width: 960px) {
+    .invest-notes-layout,
+    .invest-vision-grid,
+    .invest-contact-card {
+        grid-template-columns: 1fr;
+    }
+
+    .invest-stats-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .invest-stats-grid .stat-item {
+        border-right: none;
+        padding-right: 0;
+        padding-bottom: 16px;
+        border-bottom: 1px solid #edf0f7;
+    }
+
+    .invest-stats-grid .stat-item:nth-last-child(-n+2) {
+        border-bottom: none;
+        padding-bottom: 0;
+    }
+}
+
+@media (max-width: 600px) {
+    .invest-stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .invest-stats-grid .stat-item:nth-last-child(-n+2) {
+        border-bottom: 1px solid #edf0f7;
+        padding-bottom: 16px;
+    }
+
+    .invest-stats-grid .stat-item:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+    }
+
+    .invest-philanthropy-action,
+    .btn-gambrell-donate,
+    .invest-page .hero-actions-row a,
+    .invest-page .cta-buttons a,
+    .btn-invest-ask {
+        width: 100%;
+        justify-content: center;
+        box-sizing: border-box;
+    }
+
+    .invest-vision-metrics {
+        flex-direction: column;
+        gap: 14px;
+    }
+
+    .invest-vision-metric {
+        border-left: none;
+        padding-left: 0;
+        padding-top: 12px;
+        border-top: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .invest-vision-metric:first-child {
+        border-top: none;
+        padding-top: 0;
+    }
+}
+

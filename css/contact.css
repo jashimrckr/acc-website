@@ -1,4 +1,4 @@
-/* ==========================================================================
+﻿/* ==========================================================================
    Contact Section & Page Styling - Appalachian Community Capital
    Matches ACC Brand Guidelines and Form Reference Specification
    ========================================================================== */
@@ -10,7 +10,6 @@
     background: #ffffff;
     border-radius: 16px;
     border: 1px solid #e2e8f0;
-    box-shadow: 0 10px 30px rgba(2, 22, 82, 0.06);
     padding: 36px 40px;
     position: relative;
     box-sizing: border-box;
@@ -224,8 +223,13 @@
 }
 
 @keyframes captchaSpin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 .captcha-checkbox.verified {
@@ -348,8 +352,15 @@
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .success-icon-badge {
@@ -421,6 +432,36 @@
     padding: 0 2rem;
 }
 
+.home-contact-cta {
+    max-width: 780px;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.home-contact-cta h2 {
+    font-size: clamp(2rem, 3.2vw, 2.75rem);
+    line-height: 1.2;
+    font-weight: 700;
+    color: #021228;
+    margin: 0;
+    letter-spacing: -0.02em;
+}
+
+.home-contact-cta .contact-intro {
+    max-width: 680px;
+    margin: 0 auto;
+}
+
+.home-contact-actions {
+    margin-top: 8px;
+    display: flex;
+    justify-content: center;
+}
+
 .contact-section-grid {
     display: grid;
     grid-template-columns: 1fr 1.35fr;
@@ -476,34 +517,26 @@
 .contact-channels-list {
     display: flex;
     flex-direction: column;
-    gap: 16px;
-    margin-top: 8px;
+
 }
 
 .contact-channel-item {
     display: flex;
     align-items: flex-start;
     gap: 16px;
-    background: #ffffff;
-    border: 1px solid #e2e8f0;
-    border-radius: 12px;
-    padding: 16px 20px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
-    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    border-top: 1px solid #ddd;
+    padding: 16px 0;
+
+
 }
 
-.contact-channel-item:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(2, 22, 82, 0.06);
-    border-color: #cbd5e1;
-}
 
 .channel-icon {
     width: 44px;
     height: 44px;
     border-radius: 10px;
-    background: #ecfdf5;
-    color: #026836;
+    background: #e9ecef;
+    color: #000;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -523,10 +556,7 @@
 
 .channel-label {
     font-size: 12px;
-    font-weight: 700;
-    color: #64748b;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
+
 }
 
 .channel-value {
@@ -543,7 +573,7 @@ a.channel-value:hover {
 
 .channel-sub {
     font-size: 13px;
-    color: #64748b;
+
 }
 
 .contact-badge-card {
@@ -581,18 +611,43 @@ a.channel-value:hover {
 /* --------------------------------------------------------------------------
    Dedicated Contact Page Styling (contact.html)
    -------------------------------------------------------------------------- */
-.contact-page .page-hero.hero-contact {
-    min-height: 65dvh;
-    padding: 140px 0 80px;
-}
-
-.contact-page .page-hero.hero-contact::before {
-    background-image: url('../images/photos/DSC07100-1.jpg');
-    opacity: 0.22;
-}
-
 .contact-page-layout {
-    padding: 70px 0 100px;
+    background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+    border-top: 1px solid #e2e8f0;
+    padding: 164px 0 96px;
+}
+
+.contact-page-layout .inner {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.contact-page-intro {
+    margin-bottom: 40px;
+}
+
+.contact-page-title {
+    font-size: clamp(2.1rem, 4vw, 3.25rem);
+    line-height: 1.15;
+    font-weight: 700;
+    color: #021652;
+    letter-spacing: -0.025em;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .contact-page-layout {
+        padding: 40px 0 70px;
+    }
+
+    .contact-page-layout .inner {
+        padding: 0 1.25rem;
+    }
+
+    .contact-page-intro {
+        margin-bottom: 28px;
+    }
 }
 
 .contact-cards-grid {
@@ -737,11 +792,11 @@ a.channel-value:hover {
 .map-card-container {
     border-radius: 12px;
     overflow: hidden;
-    border: 1px solid #cbd5e1;
+    border: 1px solid #eee;
     background: #ffffff;
     height: 220px;
     position: relative;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+
 }
 
 .map-placeholder-content {
@@ -752,13 +807,13 @@ a.channel-value:hover {
     align-items: center;
     justify-content: center;
     text-align: center;
-    background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+    background: #fff;
     padding: 20px;
     box-sizing: border-box;
 }
 
 .map-placeholder-content svg {
-    color: #026836;
+    color: var(--color-navy-4);
     margin-bottom: 8px;
 }
 
@@ -890,8 +945,8 @@ a.channel-value:hover {
 
 /* Callout inside contact form wrapper */
 .form-funding-notice {
-    background: #f0fdf4;
-    border: 1px solid #bbf7d0;
+    background: #edf2f9;
+    border: 1px solid rgba(45, 61, 144, 0.22);
     border-radius: 10px;
     padding: 14px 16px;
     display: flex;
@@ -903,48 +958,52 @@ a.channel-value:hover {
 .form-funding-notice svg {
     width: 20px;
     height: 20px;
-    color: #026836;
+    color: var(--color-navy-4);
     flex-shrink: 0;
     margin-top: 1px;
 }
 
 .form-funding-notice-text {
     font-size: 13.5px;
-    color: #166534;
+    color: var(--color-navy-5);
     line-height: 1.5;
 }
 
 .form-funding-notice-text strong {
     font-weight: 700;
-    color: #14532d;
+    color: var(--color-navy-6);
     display: block;
     margin-bottom: 2px;
 }
 
 .form-funding-notice-text a {
-    color: #026836;
+    color: var(--color-navy-4);
     font-weight: 700;
     text-decoration: underline;
     text-underline-offset: 2px;
 }
 
 .form-funding-notice-text a:hover {
-    color: #01522a;
+    color: var(--color-navy-6);
 }
 
 /* Callout notice outside contact form wrapper */
 .form-funding-notice.outside-card {
     background: #ffffff;
-    border: 1px solid #bbf7d0;
-    border-left: 4px solid #026836;
+    border: 1px solid rgba(45, 61, 144, 0.2);
+    border-left: 4px solid var(--color-navy-4);
     border-radius: 12px;
     padding: 16px 20px;
     margin-bottom: 24px;
-    box-shadow: 0 4px 16px rgba(2, 22, 82, 0.05);
+    box-shadow: 0 4px 16px rgba(45, 61, 144, 0.08);
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 16px;
+}
+
+.contact-info-col .form-funding-notice.outside-card {
+    margin-bottom: 0;
 }
 
 @media (max-width: 640px) {
@@ -965,7 +1024,7 @@ a.channel-value:hover {
 .form-funding-notice.outside-card svg.notice-icon {
     width: 22px;
     height: 22px;
-    color: #026836;
+    color: var(--color-navy-4);
     flex-shrink: 0;
     margin-top: 1px;
 }
@@ -988,7 +1047,7 @@ a.channel-value:hover {
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    background-color: #026836;
+    background-color: var(--color-navy-4);
     color: #ffffff !important;
     font-weight: 700;
     font-size: 13px;
@@ -998,13 +1057,13 @@ a.channel-value:hover {
     white-space: nowrap;
     transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
     flex-shrink: 0;
-    box-shadow: 0 2px 8px rgba(2, 104, 54, 0.2);
+    box-shadow: 0 2px 8px rgba(45, 61, 144, 0.22);
 }
 
 .btn-funding-pill:hover {
-    background-color: #01522a;
+    background-color: var(--color-navy-6);
     transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(2, 104, 54, 0.3);
+    box-shadow: 0 4px 12px rgba(45, 61, 144, 0.32);
 }
 
 .form-submission-error {
@@ -1023,3 +1082,23 @@ a.channel-value:hover {
     display: block;
 }
 
+@media (max-width: 1080px) {
+    .contact-page-layout .contact-section-grid {
+        display: flex;
+        flex-direction: column-reverse;
+
+    }
+
+    .contact-form-col {
+        width: 100%;
+    }
+
+}
+
+@media (max-width: 1024px) {
+    .contact-page-layout {
+        padding: 100px 0 0;
+
+    }
+
+}

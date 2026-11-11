@@ -491,9 +491,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         memberCards.forEach(card => {
             const cardState = (card.getAttribute('data-state') || '').toLowerCase();
+            const isDeepRoots = card.getAttribute('data-deeproots') === 'true';
             const cardText = card.textContent.toLowerCase();
 
-            const matchesState = (selectedState === 'all' || cardState.includes(selectedState.toLowerCase()));
+            const matchesState = selectedState === 'all'
+                || (selectedState === 'deeproots' ? isDeepRoots : cardState.includes(selectedState.toLowerCase()));
             const matchesQuery = !query || cardText.includes(query);
 
             if (matchesState && matchesQuery) {

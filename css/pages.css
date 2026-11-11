@@ -957,15 +957,15 @@
 }
 
 .member-logo {
-    width: 48px;
-    height: 48px;
-    border-radius: 10px;
-    background: #ffffff;
+    width: 100px;
+    height: 100px;
+    border-radius: 14px;
+    background: #fff;
     border: 1px solid #e2e8f0;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 6px;
+    padding: 10px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
     flex-shrink: 0;
     overflow: hidden;
@@ -988,15 +988,24 @@ img.member-logo {
     box-shadow: 0 2px 8px rgba(45, 61, 144, 0.08);
 }
 
+.member-header-tags {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+    text-align: right;
+    min-width: 0;
+}
+
 .member-state-tag {
     font-size: 11px;
-    font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.06em;
-    background: rgba(45, 61, 144, 0.08);
-    color: var(--color-navy-4);
+    color: #666;
     padding: 4px 10px;
     border-radius: 999px;
+    line-height: 1.35;
+    max-width: 100%;
+    text-align: right;
 }
 
 .member-card h3 {
@@ -1045,6 +1054,90 @@ img.member-logo {
 
 .member-site-link:hover {
     text-decoration: underline;
+}
+
+.state-btn.deeproots-filter-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+
+}
+
+.state-btn.deeproots-filter-btn:hover {}
+
+.state-btn.deeproots-filter-btn.active {}
+
+.state-btn.deeproots-filter-btn img {
+    height: 18px;
+    width: auto;
+    object-fit: contain;
+    display: block;
+    background: #ffffff;
+    padding: 1px 5px;
+    border-radius: 999px;
+}
+
+.deeproots-provider-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px 4px 4px;
+    border-radius: 999px;
+    background: #026836;
+    color: #ffffff;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 6px rgba(2, 104, 54, 0.16);
+}
+
+.deeproots-provider-badge:hover {
+    background: #01522a;
+    color: #ffffff;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(2, 104, 54, 0.24);
+}
+
+.deeproots-badge-logo {
+    height: 20px;
+    width: auto;
+    object-fit: contain;
+    display: block;
+    background: #ffffff;
+    padding: 2px 6px;
+    border-radius: 999px;
+    border: 1px solid #e2e8f0;
+    flex-shrink: 0;
+}
+
+.deeproots-badge-label {
+    line-height: 1;
+}
+
+.deeproots-badge-arrow {
+    color: #ffffff;
+    opacity: 0.9;
+    flex-shrink: 0;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.deeproots-provider-badge:hover .deeproots-badge-arrow {
+    opacity: 1;
+    transform: translate(1px, -1px);
+}
+
+@media (max-width: 440px) {
+    .member-card-header {
+        flex-wrap: wrap;
+    }
+
+    .member-header-tags {
+        align-items: flex-start;
+        text-align: left;
+    }
 }
 
 /* 13 States Map Overview Box */
@@ -1778,7 +1871,7 @@ img.member-logo {
 
 @media (max-width: 768px) {
     .page-hero {
-        padding: 50px 0 60px;
+        padding: 80px 0 60px;
     }
 
     .page-hero h1 {
@@ -2169,18 +2262,6 @@ body.header-hidden .intractive-submenu {
         padding: 28px 20px;
     }
 
-    .membership-details-block .grid-2col {
-        grid-template-columns: 1fr !important;
-        gap: 24px !important;
-    }
-
-    .member-detail-card {
-        padding: 28px 20px !important;
-    }
-
-    #become-a-member {
-        padding: 32px 20px !important;
-    }
 }
 
 /* ==========================================================================
@@ -2404,126 +2485,19 @@ body.header-hidden .intractive-submenu {
 }
 
 
-/* ==========================================================================
-   Invest Page - Community Investment Notes Layout
-   ========================================================================== */
-.invest-notes-layout {
-    display: grid;
-    grid-template-columns: 0.95fr 1.35fr;
-    gap: 70px;
-    align-items: start;
-}
-
-.invest-notes-col-left {
-    position: relative;
-    padding-top: 4px;
-}
-
-.invest-notes-title {
-    font-family: var(--font-heading, 'Outfit', 'Google Sans', sans-serif);
-    font-size: clamp(2rem, 3.2vw, 2.75rem);
-    font-weight: 800;
-    line-height: 1.15;
-    letter-spacing: -0.01em;
-    color: #0c2340;
-    text-transform: uppercase;
-    margin: 0;
-}
-
-.invest-notes-col-right {
-    display: flex;
-    flex-direction: column;
-}
-
-.invest-notes-subtitle {
-    font-size: 1.15rem;
-    font-weight: 500;
-    color: #59677b;
-    line-height: 1.45;
-    margin: 0 0 18px 0;
-}
-
-.invest-notes-lead {
-    font-size: 1.05rem;
-    line-height: 1.7;
-    color: #374151;
-    margin: 0 0 24px 0;
-}
-
-.invest-notes-label {
-    font-size: 1.05rem;
-    font-weight: 700;
-    color: #1f2937;
-    margin: 0 0 14px 0;
-    line-height: 1.4;
-}
-
-.invest-notes-list {
-    list-style-type: disc;
-    padding-left: 22px;
-    margin: 0 0 32px 0;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-.invest-notes-list li {
-    font-size: 0.98rem;
-    line-height: 1.6;
-    color: #374151;
-}
-
-.invest-notes-list strong {
-    font-weight: 700;
-    color: #111827;
-}
-
-.invest-notes-btn-stack {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 14px;
-    margin-top: 16px;
-}
-
-.btn-invest-step {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #026836;
-    color: #ffffff !important;
-    padding: 14px 36px;
-    border-radius: 9999px;
-    font-size: 14.5px;
-    font-weight: 700;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    text-decoration: none;
-    box-shadow: 0 4px 14px rgba(2, 104, 54, 0.25);
-    transition: background-color 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
-    cursor: pointer;
-    box-sizing: border-box;
-    text-align: center;
-    line-height: 1.3;
-    width: 100%;
-}
-
-.btn-invest-step:hover {
-    background-color: #01522a;
-    color: #ffffff !important;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 22px rgba(2, 104, 54, 0.38);
-}
-
 @media (max-width: 960px) {
-    .invest-notes-layout {
-        grid-template-columns: 1fr;
-        gap: 36px;
+
+    .programs-grid,
+    .network-cards-grid {
+        display: flex;
+        flex-direction: column;
     }
 
-    .btn-invest-step {
-        width: 100%;
-        padding: 14px 20px;
-        font-size: 13.5px;
+    .capital-flow-interactive {
+        padding: 20px;
+    }
+
+    .network-cards-grid {
+        gap: 20px;
     }
 }

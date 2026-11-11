@@ -1,0 +1,931 @@
+/* ==========================================================================
+   Our Network Page Styling - Appalachian Community Capital
+   Responsive layout, fluid padding/gaps, zero inline styles
+   ========================================================================== */
+
+.network-page {
+    background-color: #ffffff;
+    overflow-x: clip;
+}
+
+.network-page .content-section {
+    padding: clamp(44px, 6vw, 80px) 0;
+}
+
+.network-page .content-section .inner,
+.network-page .stats-ribbon .inner,
+.network-page .cta-banner .inner {
+    padding: 0 clamp(1.25rem, 3vw, 2rem);
+}
+
+/* ==========================================================================
+   Hero Section
+   ========================================================================== */
+
+
+.network-page .hero-actions-row {
+    gap: clamp(10px, 1.5vw, 16px);
+}
+
+.hero-btn-hidden {
+    display: none;
+}
+
+.hero-btn-gold {
+    background: rgba(229, 185, 59, 0.15);
+    border-color: #e5b93b;
+    color: #f5c443;
+}
+
+.hero-btn-gold:hover {
+    background: rgba(229, 185, 59, 0.26);
+    border-color: #f5c443;
+    color: #ffffff;
+}
+
+/* ==========================================================================
+   Stats Ribbon
+   ========================================================================== */
+.network-page .stats-ribbon {
+    padding: clamp(24px, 3.5vw, 44px) 0 0;
+}
+
+.network-stats-grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    padding: clamp(22px, 3vw, 32px) clamp(18px, 3vw, 36px);
+    gap: clamp(16px, 2.2vw, 24px);
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 18px rgba(15, 23, 42, 0.04);
+}
+
+/* ==========================================================================
+   Strategic Intro Section
+   ========================================================================== */
+.network-page .network-intro-section {
+    padding-bottom: clamp(28px, 4vw, 48px);
+}
+
+.network-intro-grid {
+    align-items: center;
+    gap: clamp(28px, 4.5vw, 56px);
+}
+
+.network-highlights-row {
+    margin-top: clamp(20px, 3vw, 28px);
+    display: flex;
+    gap: clamp(12px, 2vw, 24px);
+    flex-wrap: wrap;
+}
+
+.network-highlight-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.network-highlight-item svg {
+    flex-shrink: 0;
+}
+
+.network-photo-card {
+    background: #ffffff;
+    border-radius: clamp(16px, 2vw, 20px);
+    border: 1px solid #e2e8f0;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+.network-photo-img {
+    width: 100%;
+    height: clamp(220px, 28vw, 320px);
+    object-fit: cover;
+    display: block;
+}
+
+.network-photo-caption {
+    padding: clamp(18px, 2.5vw, 22px) clamp(18px, 2.8vw, 26px);
+    background: #021228;
+    color: #ffffff;
+}
+
+.network-photo-caption h4 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #f5c443;
+    margin-bottom: 6px;
+}
+
+.network-photo-caption p {
+    font-size: 13.5px;
+    color: #cbd5e1;
+    margin: 0;
+    line-height: 1.55;
+}
+
+/* ==========================================================================
+   13 States Reach (#states-reach)
+   ========================================================================== */
+.network-reach-section {
+    background: #f8fafc;
+}
+
+.network-reach-section.is-hidden {
+    display: none;
+}
+
+.network-reach-grid {
+    align-items: center;
+}
+
+.reach-kicker {
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #e5b93b;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.reach-title {
+    font-size: clamp(1.5rem, 2.6vw, 2rem);
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 14px;
+    line-height: 1.25;
+}
+
+.reach-desc {
+    font-size: 15px;
+    color: #cbd5e1;
+    line-height: 1.6;
+    margin-bottom: 24px;
+}
+
+.reach-pill-gold {
+    background: rgba(229, 185, 59, 0.2);
+    border-color: #e5b93b;
+    color: #f5c443;
+}
+
+.reach-highlights-card {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 16px;
+    padding: clamp(20px, 3vw, 28px);
+    backdrop-filter: blur(8px);
+}
+
+.reach-highlights-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.reach-highlights-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    font-size: 14px;
+    color: #e2e8f0;
+}
+
+.reach-highlight-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    flex-wrap: wrap;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 8px;
+}
+
+.reach-highlight-row--total {
+    border-bottom: none;
+    padding-bottom: 0;
+    padding-top: 4px;
+}
+
+.reach-highlight-val {
+    color: #ffffff;
+}
+
+.reach-highlight-gold {
+    color: #e5b93b;
+}
+
+/* ==========================================================================
+   Interactive Member Directory (#directory)
+   ========================================================================== */
+.network-directory-section {
+    background: #c9e2ff;
+}
+
+.section-header-split {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: clamp(16px, 2.5vw, 24px);
+    margin-bottom: clamp(20px, 3vw, 28px);
+}
+
+.directory-header-copy {
+    flex: 1 1 320px;
+    max-width: 680px;
+    min-width: 0;
+}
+
+.directory-header-title {
+    margin-bottom: 8px;
+}
+
+.directory-header-desc {
+    margin: 0;
+}
+
+.directory-header-action {
+    padding-bottom: 4px;
+    flex-shrink: 0;
+}
+
+.btn-network-navy {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: #2d3d90;
+    color: #ffffff;
+    padding: 13px 26px;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14px;
+    box-shadow: 0 4px 14px rgba(45, 61, 144, 0.25);
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+}
+
+.btn-network-navy:hover {
+    background: var(--color-navy-6);
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(45, 61, 144, 0.35);
+}
+
+.btn-network-navy--lg {
+    padding: 14px 28px;
+    font-size: 15px;
+    box-shadow: 0 4px 14px rgba(45, 61, 144, 0.3);
+}
+
+.network-page .network-toolbar {
+    padding: clamp(16px, 2.5vw, 24px);
+    margin-bottom: clamp(24px, 3.5vw, 40px);
+}
+
+
+
+.network-count-num {
+    font-weight: 800;
+    color: var(--color-navy-4);
+}
+
+.network-page .network-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+    gap: clamp(16px, 2.2vw, 26px);
+}
+
+.network-page .member-card {
+    padding: clamp(18px, 2.5vw, 26px);
+    min-width: 0;
+}
+
+.member-logo.member-logo--dark {
+    background: #000000;
+    border-color: #1e293b;
+}
+
+.network-page .member-card-footer {
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* Directory Bottom Pathway Box */
+.network-pathway-card {
+    margin-top: clamp(28px, 4vw, 48px);
+    background: #ffffff;
+    border-radius: 16px;
+    border: 1px solid #e2e8f0;
+    padding: clamp(20px, 3vw, 28px) clamp(20px, 3vw, 32px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: clamp(16px, 2.5vw, 20px);
+}
+
+.network-pathway-copy {
+    flex: 1 1 280px;
+    min-width: 0;
+}
+
+.network-pathway-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 4px;
+}
+
+.network-pathway-desc {
+    font-size: 14px;
+    color: #64748b;
+    margin: 0;
+    line-height: 1.5;
+}
+
+.btn-pathway-cta {
+    background: var(--color-navy-4);
+    color: #ffffff;
+    padding: 12px 24px;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+/* ==========================================================================
+   Network Value & Membership Benefits (#membership)
+   ========================================================================== */
+.network-membership-section {
+    background: #f8fafc;
+}
+
+.membership-header-split {
+    margin-bottom: clamp(24px, 3.5vw, 40px);
+}
+
+.membership-header-title {
+    margin-bottom: 12px;
+}
+
+.membership-header-action {
+    padding-bottom: 6px;
+    flex-shrink: 0;
+}
+
+.membership-details-block {
+    margin-top: clamp(32px, 5vw, 60px);
+}
+
+.membership-details-grid {
+    gap: clamp(20px, 3vw, 32px);
+    align-items: stretch;
+}
+
+.network-page .member-detail-card {
+    background: #ffffff;
+    border-radius: clamp(16px, 2vw, 20px);
+    padding: clamp(22px, 3.5vw, 40px);
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.detail-card-head {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: clamp(18px, 2.5vw, 24px);
+}
+
+.detail-card-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.detail-card-icon--green {
+    background: linear-gradient(135deg, #00966a 0%, #007553 100%);
+}
+
+.detail-card-icon--navy {
+    background: linear-gradient(135deg, #0c2b5f 0%, #1e3a8a 100%);
+}
+
+.detail-card-kicker {
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    display: block;
+}
+
+.detail-card-kicker--green {
+    color: #00966a;
+}
+
+.detail-card-kicker--navy {
+    color: var(--color-navy-4);
+}
+
+.detail-card-title {
+    font-size: clamp(1.3rem, 1.8vw, 1.5rem);
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0;
+    line-height: 1.25;
+}
+
+.detail-card-intro {
+    font-size: 15px;
+    color: #64748b;
+    line-height: 1.6;
+    margin-bottom: clamp(18px, 2.5vw, 24px);
+}
+
+.benefits-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    flex: 1;
+}
+
+.benefit-item {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+}
+
+.benefit-step-num {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: rgba(0, 150, 106, 0.12);
+    color: #00966a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 13px;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.benefit-title {
+    color: #0f172a;
+    font-size: 15px;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.benefit-desc {
+    color: #475569;
+    font-size: 14px;
+    line-height: 1.5;
+    display: block;
+}
+
+.criteria-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    font-size: 14px;
+    color: #334155;
+    line-height: 1.55;
+}
+
+.criteria-item {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+}
+
+.criteria-check {
+    margin-top: 2px;
+    flex-shrink: 0;
+}
+
+/* Annual Dues Structure Box */
+.dues-overview-card {
+    background: #ffffff;
+    border-radius: clamp(16px, 2vw, 20px);
+    border: 1px solid #e2e8f0;
+    padding: clamp(22px, 3.5vw, 36px) clamp(20px, 3.5vw, 40px);
+    margin-top: clamp(24px, 3.5vw, 32px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+}
+
+.dues-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 16px 20px;
+    margin-bottom: clamp(18px, 2.5vw, 24px);
+}
+
+.dues-kicker {
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-navy-4);
+    display: block;
+    margin-bottom: 6px;
+}
+
+.dues-title {
+    font-size: clamp(1.2rem, 1.8vw, 1.35rem);
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0;
+}
+
+.dues-tier-badge {
+    font-size: 13px;
+    color: #64748b;
+    background: #f1f5f9;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-weight: 600;
+}
+
+.dues-tiers-grid {
+    gap: clamp(14px, 2vw, 20px);
+}
+
+.dues-tier-card {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: clamp(18px, 2.5vw, 22px);
+    text-align: center;
+}
+
+.dues-tier-price {
+    font-size: clamp(1.55rem, 2.4vw, 1.85rem);
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 4px;
+}
+
+.dues-tier-unit {
+    font-size: 14px;
+    font-weight: 600;
+    color: #64748b;
+}
+
+.dues-tier-cap {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: #475569;
+}
+
+/* Become a Member Action Block (#become-a-member) */
+.network-page .become-member-card {
+    background: linear-gradient(135deg, #021228 0%, #0c2b5f 100%);
+    border-radius: clamp(16px, 2vw, 20px);
+    padding: clamp(24px, 4.5vw, 48px);
+    color: #ffffff;
+    margin-top: clamp(24px, 3.5vw, 32px);
+    box-shadow: 0 15px 40px rgba(0, 33, 85, 0.2);
+}
+
+.become-member-grid {
+    align-items: center;
+    gap: clamp(24px, 4vw, 40px);
+}
+
+.become-member-kicker {
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #e5b93b;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.become-member-title {
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 14px;
+    line-height: 1.25;
+}
+
+.become-member-desc {
+    font-size: 15px;
+    color: #cbd5e1;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.become-member-reqs {
+    font-size: 13.5px;
+    color: #e2e8f0;
+    line-height: 1.6;
+    margin-bottom: 24px;
+}
+
+.become-member-reqs-title {
+    color: #ffffff;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.become-member-reqs-list {
+    padding-left: 20px;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.become-member-note {
+    font-size: 12.5px;
+    color: #94a3b8;
+    font-style: italic;
+}
+
+.become-member-contact-box {
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 16px;
+    padding: clamp(20px, 3vw, 32px);
+    backdrop-filter: blur(8px);
+}
+
+.contact-lead-head {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 16px;
+}
+
+.contact-lead-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #e5b93b;
+    color: #021228;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+.contact-lead-name {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0;
+}
+
+.contact-lead-role {
+    font-size: 13.5px;
+    color: #e5b93b;
+    font-weight: 600;
+}
+
+.contact-lead-desc {
+    font-size: 14px;
+    color: #cbd5e1;
+    line-height: 1.6;
+    margin-bottom: 24px;
+}
+
+.contact-lead-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 24px;
+}
+
+.btn-email-lead {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    text-decoration: none;
+    padding: 12px 20px;
+    font-size: 14px;
+    font-weight: 700;
+    border-radius: 999px;
+}
+
+.contact-lead-meta {
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    padding-top: 14px;
+    font-size: 12.5px;
+    color: #94a3b8;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px 16px;
+}
+
+/* ==========================================================================
+   Network Impact Quote Banner
+   ========================================================================== */
+.network-page .network-quote-section {
+    padding: 0 0 clamp(32px, 5vw, 56px);
+    background: #f8fafc;
+}
+
+.network-quote-banner {
+    background: linear-gradient(135deg, #0d7843 0%, #0f8d4f 100%);
+    border-radius: clamp(18px, 2.5vw, 24px);
+    padding: clamp(24px, 4.5vw, 50px);
+    color: #ffffff;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr);
+    gap: clamp(22px, 4vw, 40px);
+    align-items: center;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.network-quote-photo {
+    border-radius: 16px;
+    overflow: hidden;
+    height: clamp(210px, 32vw, 280px);
+}
+
+.network-quote-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.network-quote-mark {
+    margin-bottom: 14px;
+    display: block;
+}
+
+.network-quote-text {
+    font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+    font-style: italic;
+    line-height: 1.6;
+    color: #e2e8f0;
+    margin: 0 0 18px 0;
+}
+
+.network-quote-author {
+    font-size: 14px;
+    font-weight: 700;
+    color: #e5b93b;
+}
+
+/* ==========================================================================
+   CTA Banner Overrides
+   ========================================================================== */
+.network-page .cta-banner {
+    padding: clamp(52px, 6.5vw, 90px) 0;
+}
+
+.network-page .cta-banner .cta-buttons {
+    gap: clamp(10px, 1.5vw, 16px);
+}
+
+/* ==========================================================================
+   Responsive Breakpoints
+   ========================================================================== */
+@media (max-width: 1120px) {
+    .network-stats-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .network-stats-grid .stat-item {
+        border-right: none;
+        padding-right: 0;
+    }
+}
+
+@media (max-width: 1024px) {
+    .network-page .membership-pillars-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 960px) {
+    .network-page .network-cards-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+    }
+
+    .network-page .membership-details-block .grid-2col {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .network-quote-banner {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .network-stats-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        padding: 20px;
+        gap: 18px;
+    }
+
+    .network-stats-grid .stat-item {
+        padding-bottom: 14px;
+        border-bottom: 1px solid #edf0f7;
+    }
+
+    .network-stats-grid .stat-item:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+        grid-column: 1 / -1;
+    }
+
+    .network-page .membership-pillars-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .dues-tiers-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .search-and-counts {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+    }
+
+    .network-count-pill {
+        align-self: flex-start;
+        padding: 6px 14px;
+        background: #f8fafc;
+        border: 1px solid #e2e8f0;
+    }
+}
+
+@media (max-width: 640px) {
+    .network-page .network-cards-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .state-btn {
+        padding: 6px 12px;
+        font-size: 12.5px;
+    }
+
+    .network-page .hero-actions-row a,
+    .directory-header-action,
+    .directory-header-action .btn-network-navy,
+    .membership-header-action,
+    .membership-header-action .btn-network-navy,
+    .btn-pathway-cta,
+    .network-page .cta-buttons a {
+        width: 100%;
+        justify-content: center;
+        box-sizing: border-box;
+    }
+}
+
+@media (max-width: 480px) {
+    .network-stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .network-stats-grid .stat-item:last-child {
+        grid-column: auto;
+    }
+
+    .network-page .member-logo {
+        width: 84px;
+        height: 84px;
+        padding: 8px;
+    }
+}
