@@ -769,7 +769,7 @@ async function submitContactForm(formElement) {
 
     try {
         const response = await fetch(
-            "http://localhost:7071/api/contact/submit",
+            "https://func-accwebsite-contact-prd-auemgxbsc7gjgrg6.eastus-01.azurewebsites.net/api/contact/submit",
             {
                 method: "POST",
                 headers: {
