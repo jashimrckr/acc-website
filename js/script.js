@@ -217,7 +217,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const navItems = document.querySelectorAll('.site-header .nav-item');
     navItems.forEach(item => item.classList.remove('active'));
 
-    if (currentPath.includes('about.html')) {
+    if (currentPath.includes('404') || document.body.classList.contains('error-404-page')) {
+        // Error 404 page: leave nav links unselected
+    } else if (currentPath.includes('about.html')) {
         const link = document.querySelector('.site-header .nav-link[href="about.html"]');
         if (link) link.closest('.nav-item').classList.add('active');
     } else if (currentPath.includes('what-we-do.html')) {
@@ -241,6 +243,17 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
         const homeLink = document.querySelector('.site-header .nav-link[aria-label="Home"]');
         if (homeLink) homeLink.closest('.nav-item').classList.add('active');
+    }
+
+    // 404 Page: Dynamic URL Path Display
+    const displayUrlEl = document.getElementById('displayUrlPath');
+    if (displayUrlEl) {
+        const pathToShow = window.location.pathname + (window.location.search || '');
+        if (pathToShow && pathToShow !== '/' && !pathToShow.endsWith('404.html')) {
+            displayUrlEl.textContent = pathToShow;
+        } else {
+            displayUrlEl.textContent = pathToShow.endsWith('404.html') ? 'The requested page URL' : '/requested-address';
+        }
     }
 
     // Invest In Our Work dropdown popup toggle
