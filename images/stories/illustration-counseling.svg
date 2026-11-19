@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <defs>
+    <linearGradient id="counselBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f0fdf4"/>
+      <stop offset="60%" stop-color="#e0f2fe"/>
+      <stop offset="100%" stop-color="#ede9fe"/>
+    </linearGradient>
+    <linearGradient id="heartGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f43f5e"/>
+      <stop offset="100%" stop-color="#be123c"/>
+    </linearGradient>
+    <linearGradient id="handGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0284c7"/>
+      <stop offset="100%" stop-color="#0369a1"/>
+    </linearGradient>
+    <linearGradient id="accentGold" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="450" fill="url(#counselBg)"/>
+
+  <!-- Calm Sunrise & Radiance -->
+  <circle cx="400" cy="180" r="160" fill="#fef08a" opacity="0.3"/>
+  <circle cx="400" cy="180" r="120" fill="#bae6fd" opacity="0.35"/>
+
+  <!-- Soft Appalachian Mountain Contours -->
+  <path d="M0,280 Q200,210 400,260 T800,240 L800,450 L0,450 Z" fill="#99f6e4" opacity="0.4"/>
+  <path d="M0,320 Q240,260 480,310 T800,290 L800,450 L0,450 Z" fill="#0d9488" opacity="0.2"/>
+
+  <!-- Central Emblem: Caring Hands Cradling Heart & Growth -->
+  <g transform="translate(400, 190)">
+    <!-- Radiant Halo -->
+    <circle cx="0" cy="0" r="78" fill="#ffffff" stroke="#e0f2fe" stroke-width="4" style="filter: drop-shadow(0 8px 16px rgba(15,23,42,0.08))"/>
+    
+    <!-- Heart Symbol -->
+    <path d="M0,18 C-35,-15 -45,-45 -22,-62 C-5,-72 0,-52 0,-52 C0,-52 5,-72 22,-62 C45,-45 35,-15 0,18 Z" fill="url(#heartGrad)"/>
+
+    <!-- Sprout / Leaf of Hope -->
+    <path d="M0,-42 C12,-65 32,-70 42,-68 C40,-50 25,-40 0,-42 Z" fill="#22c55e"/>
+    <path d="M0,-42 C-12,-65 -32,-70 -42,-68 C-40,-50 -25,-40 0,-42 Z" fill="#16a34a"/>
+
+    <!-- Gentle Supportive Hands Silhouette -->
+    <path d="M-60,35 C-45,20 -20,10 0,25 C20,10 45,20 60,35 C52,50 30,55 0,48 C-30,55 -52,50 -60,35 Z" fill="url(#handGrad)"/>
+    <path d="M-45,35 Q-25,18 -5,28" stroke="#ffffff" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <path d="M45,35 Q25,18 5,28" stroke="#ffffff" stroke-width="2" fill="none" stroke-linecap="round"/>
+  </g>
+
+  <!-- Wellness Laurel Wreath Branches -->
+  <g stroke="#059669" stroke-width="2.5" fill="none" stroke-linecap="round">
+    <path d="M260,200 C250,140 290,90 350,75"/>
+    <path d="M540,200 C550,140 510,90 450,75"/>
+  </g>
+  <g fill="#10b981">
+    <ellipse cx="272" cy="170" rx="9" ry="5" transform="rotate(-30 272 170)"/>
+    <ellipse cx="262" cy="135" rx="9" ry="5" transform="rotate(-10 262 135)"/>
+    <ellipse cx="278" cy="105" rx="9" ry="5" transform="rotate(20 278 105)"/>
+    <ellipse cx="310" cy="85" rx="9" ry="5" transform="rotate(45 310 85)"/>
+    
+    <ellipse cx="528" cy="170" rx="9" ry="5" transform="rotate(30 528 170)"/>
+    <ellipse cx="538" cy="135" rx="9" ry="5" transform="rotate(10 538 135)"/>
+    <ellipse cx="522" cy="105" rx="9" ry="5" transform="rotate(-20 522 105)"/>
+    <ellipse cx="490" cy="85" rx="9" ry="5" transform="rotate(-45 490 85)"/>
+  </g>
+
+  <!-- Banner Bottom -->
+  <rect x="0" y="405" width="800" height="45" fill="#0369a1"/>
+  <rect x="0" y="402" width="800" height="3" fill="url(#accentGold)"/>
+  <text x="40" y="432" font-family="Outfit, Inter, system-ui, sans-serif" font-size="13" font-weight="700" fill="#ffffff" letter-spacing="1.5">
+    HANDINHAND COUNSELING SERVICES &#8226; MENTAL HEALTH &amp; WELLNESS
+  </text>
+  <text x="760" y="432" text-anchor="end" font-family="Outfit, Inter, system-ui, sans-serif" font-size="12" font-weight="600" fill="#fef08a">
+    ACC SPOTLIGHT
+  </text>
+</svg>

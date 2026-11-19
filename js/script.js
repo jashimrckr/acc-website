@@ -52,27 +52,39 @@ const headerHTML = `
                     </li>
                     <li class="nav-item has-dropdown">
                         <a href="news-events.html" class="nav-link">
-                            News &amp; Events
+                            News &amp; Media
                             <svg class="dropdown-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
                         </a>
                         <div class="nav-dropdown-menu">
                             <ul class="nav-dropdown-list">
                                 <li>
-                                    <a href="news-events.html#news" class="nav-dropdown-item">
-                                        <span class="dropdown-item-title">News</span>
-                                        <span class="dropdown-item-desc">Press releases &amp; official announcements</span>
+                                    <a href="news-events.html#publications" class="nav-dropdown-item">
+                                        <span class="dropdown-item-title">Publications</span>
+                                        <span class="dropdown-item-desc">Impact reports, research &amp; playbooks</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="news-events.html#media" class="nav-dropdown-item">
-                                        <span class="dropdown-item-title">Media</span>
-                                        <span class="dropdown-item-desc">Media coverage, press kit &amp; contacts</span>
+                                    <a href="news-events.html#press" class="nav-dropdown-item">
+                                        <span class="dropdown-item-title">News &amp; Press Releases</span>
+                                        <span class="dropdown-item-desc">Official announcements &amp; press releases</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="news-events.html#events" class="nav-dropdown-item">
-                                        <span class="dropdown-item-title">Events</span>
-                                        <span class="dropdown-item-desc">Summits, webinars &amp; convenings</span>
+                                    <a href="news-events.html#newsletters" class="nav-dropdown-item">
+                                        <span class="dropdown-item-title">ACC Newsletters</span>
+                                        <span class="dropdown-item-desc">Monthly updates &amp; regional lending news</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="news-events.html#podcasts" class="nav-dropdown-item">
+                                        <span class="dropdown-item-title">Podcasts</span>
+                                        <span class="dropdown-item-desc">Audio features &amp; community discussions</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="news-events.html#videos" class="nav-dropdown-item">
+                                        <span class="dropdown-item-title">Videos</span>
+                                        <span class="dropdown-item-desc">Succession series &amp; initiative spotlights</span>
                                     </a>
                                 </li>
                             </ul>
@@ -659,6 +671,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initialize leader bio modals (About page)
     initLeaderBioModals();
+
+    // Initialize story modals (Impact page)
+    initStoryModals();
 });
 
 /**
@@ -729,6 +744,131 @@ function initLeaderBioModals() {
             e.preventDefault();
             e.stopPropagation();
             const card = btn.closest('.leader-card');
+            openModal(card);
+        });
+    });
+
+    if (closeBtn) {
+        closeBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            closeModal();
+        });
+    }
+
+    if (footerCloseBtn) {
+        footerCloseBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            closeModal();
+        });
+    }
+
+    // Close on backdrop click
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            closeModal();
+        }
+    });
+
+    // Close on ESC
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+            closeModal();
+        }
+    });
+}
+
+/**
+ * Story Details Modal Functionality
+ * Opens accessible modal popup displaying the full narrative and metadata of impact stories
+ */
+function initStoryModals() {
+    const modal = document.getElementById('storyModal');
+    if (!modal) return;
+
+    const modalImgWrap = document.getElementById('storyModalHeroImgWrap');
+    const modalImg = document.getElementById('storyModalImg');
+    const modalCategory = document.getElementById('storyModalCategory');
+    const modalDate = document.getElementById('storyModalDate');
+    const modalTitle = document.getElementById('storyModalTitle');
+    const modalMeta = document.getElementById('storyModalMeta');
+    const modalBody = document.getElementById('storyModalBody');
+    const closeBtn = document.getElementById('storyModalCloseBtn');
+    const footerCloseBtn = document.getElementById('storyModalFooterCloseBtn');
+    let lastFocusedElement = null;
+
+    function openModal(card) {
+        if (!card) return;
+        lastFocusedElement = document.activeElement;
+
+        const thumbImg = card.querySelector('.news-thumb img');
+        const categoryEl = card.querySelector('.news-category');
+        const dateEl = card.querySelector('.news-date');
+        const titleEl = card.querySelector('h3');
+        const metaEl = card.querySelector('.story-meta-badge');
+        const fullContentEl = card.querySelector('.story-full-content');
+
+        if (modalImg && thumbImg) {
+            modalImg.src = thumbImg.src;
+            modalImg.alt = thumbImg.alt || (titleEl ? titleEl.textContent.trim() : '');
+            if (modalImgWrap) modalImgWrap.style.display = 'block';
+        } else if (modalImgWrap) {
+            modalImgWrap.style.display = 'none';
+        }
+
+        if (modalCategory && categoryEl) {
+            modalCategory.textContent = categoryEl.textContent.trim();
+        }
+        if (modalDate && dateEl) {
+            modalDate.textContent = dateEl.textContent.trim();
+        }
+        if (modalTitle && titleEl) {
+            modalTitle.textContent = titleEl.textContent.trim();
+        }
+        if (modalMeta) {
+            if (metaEl && metaEl.innerHTML.trim()) {
+                modalMeta.innerHTML = metaEl.innerHTML.trim();
+                modalMeta.style.display = 'flex';
+            } else {
+                modalMeta.innerHTML = '';
+                modalMeta.style.display = 'none';
+            }
+        }
+        if (modalBody) {
+            if (fullContentEl && fullContentEl.innerHTML.trim()) {
+                modalBody.innerHTML = fullContentEl.innerHTML.trim();
+            } else {
+                const excerpt = card.querySelector('.story-excerpt');
+                modalBody.innerHTML = excerpt ? `<p>${excerpt.textContent.trim()}</p>` : '';
+            }
+        }
+
+        const scrollContainer = modal.querySelector('.story-modal-scroll');
+        if (scrollContainer) scrollContainer.scrollTop = 0;
+
+        modal.classList.add('active');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('modal-open');
+
+        if (closeBtn) {
+            setTimeout(() => closeBtn.focus(), 50);
+        }
+    }
+
+    function closeModal() {
+        modal.classList.remove('active');
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('modal-open');
+        if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
+            lastFocusedElement.focus();
+        }
+    }
+
+    // Attach to all Read Full Story buttons
+    document.querySelectorAll('.story-modal-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            const card = btn.closest('.news-card');
             openModal(card);
         });
     });

@@ -754,7 +754,7 @@
    Network Impact Quote Banner
    ========================================================================== */
 .network-page .network-quote-section {
-    padding: 0 0 clamp(32px, 5vw, 56px);
+    padding: clamp(32px, 4vw, 48px) 0 clamp(32px, 5vw, 56px);
     background: #f8fafc;
 }
 

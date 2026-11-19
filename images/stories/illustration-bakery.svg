@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <defs>
+    <linearGradient id="cakeBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fffbeb"/>
+      <stop offset="50%" stop-color="#fef3c7"/>
+      <stop offset="100%" stop-color="#fed7aa"/>
+    </linearGradient>
+    <linearGradient id="cakeTierGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f43f5e"/>
+      <stop offset="50%" stop-color="#fb7185"/>
+      <stop offset="100%" stop-color="#e11d48"/>
+    </linearGradient>
+    <linearGradient id="frostingGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#f1f5f9"/>
+    </linearGradient>
+    <linearGradient id="goldBar" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#b45309"/>
+      <stop offset="50%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#b45309"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="450" fill="url(#cakeBg)"/>
+
+  <!-- Warm Sunburst & Whisk Sprinkles -->
+  <circle cx="400" cy="190" r="140" fill="#ffffff" opacity="0.6"/>
+  <circle cx="400" cy="190" r="180" fill="#fef08a" opacity="0.25"/>
+
+  <!-- Bakery Silhouette Icons & Decorative Whisk & Rolling Pin -->
+  <g transform="translate(400, 205)">
+    <!-- Pedestal Cake Stand -->
+    <path d="M-75,90 L75,90 L50,110 L-50,110 Z" fill="#94a3b8"/>
+    <rect x="-10" y="110" width="20" height="28" fill="#64748b"/>
+    <ellipse cx="0" cy="138" rx="42" ry="7" fill="#475569"/>
+
+    <!-- Bottom Tier -->
+    <rect x="-65" y="42" width="130" height="48" rx="5" fill="url(#cakeTierGrad)"/>
+    <!-- Frosting Scallops -->
+    <path d="M-65,42 Q-55,54 -45,42 Q-35,54 -25,42 Q-15,54 -5,42 Q5,54 15,42 Q25,54 35,42 Q45,54 55,42 Q65,54 65,42 L65,36 L-65,36 Z" fill="url(#frostingGrad)"/>
+
+    <!-- Middle Tier -->
+    <rect x="-48" y="0" width="96" height="42" rx="4" fill="#ffffff" stroke="#fb7185" stroke-width="2"/>
+    <path d="M-48,0 Q-38,10 -28,0 Q-18,10 -8,0 Q2,10 12,0 Q22,10 32,0 Q42,10 48,0" stroke="#f43f5e" stroke-width="2.5" fill="none"/>
+
+    <!-- Top Tier -->
+    <rect x="-32" y="-36" width="64" height="36" rx="4" fill="url(#cakeTierGrad)"/>
+    <ellipse cx="0" cy="-36" rx="32" ry="7" fill="#ffffff"/>
+
+    <!-- Cake Topper Rose / Crown -->
+    <circle cx="0" cy="-48" r="12" fill="#fbbf24"/>
+    <path d="M-6,-48 Q0,-58 6,-48 Q0,-38 -6,-48" fill="#d97706"/>
+
+    <!-- Chef's Toque / Academy Hat floating above -->
+    <g transform="translate(0, -95)">
+      <path d="M-28,25 L28,25 L24,36 L-24,36 Z" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"/>
+      <path d="M-28,25 C-38,10 -35,-15 -18,-15 C-12,-30 12,-30 18,-15 C35,-15 38,10 28,25 Z" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+      <line x1="-12" y1="5" x2="-12" y2="25" stroke="#e2e8f0" stroke-width="1.5"/>
+      <line x1="0" y1="0" x2="0" y2="25" stroke="#e2e8f0" stroke-width="1.5"/>
+      <line x1="12" y1="5" x2="12" y2="25" stroke="#e2e8f0" stroke-width="1.5"/>
+    </g>
+
+    <!-- Cross Crossed Whisks / Rolling Pin in Background -->
+    <g stroke="#d97706" stroke-width="3" stroke-linecap="round" opacity="0.5">
+      <line x1="-120" y1="-40" x2="-80" y2="60"/>
+      <line x1="120" y1="-40" x2="80" y2="60"/>
+    </g>
+  </g>
+
+  <!-- Wheat / Academy Laurel -->
+  <g stroke="#d97706" stroke-width="2" fill="#fbbf24" opacity="0.7">
+    <ellipse cx="230" cy="200" rx="10" ry="5" transform="rotate(-40 230 200)"/>
+    <ellipse cx="220" cy="170" rx="10" ry="5" transform="rotate(-20 220 170)"/>
+    <ellipse cx="225" cy="140" rx="10" ry="5" transform="rotate(0 225 140)"/>
+    
+    <ellipse cx="570" cy="200" rx="10" ry="5" transform="rotate(40 570 200)"/>
+    <ellipse cx="580" cy="170" rx="10" ry="5" transform="rotate(20 580 170)"/>
+    <ellipse cx="575" cy="140" rx="10" ry="5" transform="rotate(0 575 140)"/>
+  </g>
+
+  <!-- Bottom Brand Ribbon -->
+  <rect x="0" y="405" width="800" height="45" fill="#881337"/>
+  <rect x="0" y="402" width="800" height="3" fill="url(#goldBar)"/>
+  <text x="40" y="432" font-family="Outfit, Inter, system-ui, sans-serif" font-size="13" font-weight="700" fill="#ffffff" letter-spacing="1.5">
+    CAKES DESIGNER BOUTIQUE &amp; ACADEMY &#8226; CULINARY ARTS
+  </text>
+  <text x="760" y="432" text-anchor="end" font-family="Outfit, Inter, system-ui, sans-serif" font-size="12" font-weight="600" fill="#fef08a">
+    ACC SPOTLIGHT
+  </text>
+</svg>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <defs>
+    <linearGradient id="childBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#eff6ff"/>
+      <stop offset="60%" stop-color="#fef9c3"/>
+      <stop offset="100%" stop-color="#dbeafe"/>
+    </linearGradient>
+    <linearGradient id="blockA" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ef4444"/>
+      <stop offset="100%" stop-color="#b91c1c"/>
+    </linearGradient>
+    <linearGradient id="blockB" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#1d4ed8"/>
+    </linearGradient>
+    <linearGradient id="blockC" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#eab308"/>
+      <stop offset="100%" stop-color="#ca8a04"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="450" fill="url(#childBg)"/>
+
+  <!-- Cheerful Giant Morning Sun with Smiling Face -->
+  <circle cx="400" cy="160" r="95" fill="#fef08a" opacity="0.6"/>
+  <circle cx="400" cy="160" r="72" fill="#facc15"/>
+  <!-- Sun Eyes & Smile -->
+  <circle cx="378" cy="150" r="5" fill="#78350f"/>
+  <circle cx="422" cy="150" r="5" fill="#78350f"/>
+  <path d="M380,172 Q400,192 420,172" stroke="#78350f" stroke-width="4" fill="none" stroke-linecap="round"/>
+
+  <!-- Rainbow Arc Across Horizon -->
+  <path d="M180,360 A240,240 0 0,1 620,360" stroke="#f87171" stroke-width="8" fill="none" opacity="0.45"/>
+  <path d="M192,360 A228,228 0 0,1 608,360" stroke="#fbbf24" stroke-width="8" fill="none" opacity="0.45"/>
+  <path d="M204,360 A216,216 0 0,1 596,360" stroke="#4ade80" stroke-width="8" fill="none" opacity="0.45"/>
+  <path d="M216,360 A204,204 0 0,1 584,360" stroke="#60a5fa" stroke-width="8" fill="none" opacity="0.45"/>
+
+  <!-- ABC Learning Blocks & Open Storybook -->
+  <g transform="translate(400, 290)">
+    <!-- Open Book -->
+    <path d="M-80,40 Q-40,25 0,38 Q40,25 80,40 L70,75 Q35,62 0,72 Q-35,62 -70,75 Z" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+    <path d="M0,38 L0,72" stroke="#94a3b8" stroke-width="2"/>
+
+    <!-- Block 1 (A) -->
+    <rect x="-85" y="-35" width="55" height="55" rx="8" fill="url(#blockA)" stroke="#ffffff" stroke-width="3"/>
+    <text x="-58" y="5" font-family="'Outfit', system-ui, sans-serif" font-size="34" font-weight="800" fill="#ffffff" text-anchor="middle">A</text>
+
+    <!-- Block 2 (B) -->
+    <rect x="-26" y="-70" width="52" height="52" rx="8" fill="url(#blockB)" stroke="#ffffff" stroke-width="3"/>
+    <text x="0" y="-32" font-family="'Outfit', system-ui, sans-serif" font-size="32" font-weight="800" fill="#ffffff" text-anchor="middle">B</text>
+
+    <!-- Block 3 (C) -->
+    <rect x="30" y="-30" width="55" height="55" rx="8" fill="url(#blockC)" stroke="#ffffff" stroke-width="3"/>
+    <text x="58" y="10" font-family="'Outfit', system-ui, sans-serif" font-size="34" font-weight="800" fill="#ffffff" text-anchor="middle">C</text>
+  </g>
+
+  <!-- Soaring Paper Plane of Aspiration -->
+  <g transform="translate(560, 110) rotate(-15)">
+    <polygon points="0,0 55,-25 15,35" fill="#3b82f6"/>
+    <polygon points="0,0 55,-25 35,5" fill="#60a5fa"/>
+    <path d="M-25,25 Q-10,18 0,0" stroke="#3b82f6" stroke-width="2" stroke-dasharray="4,4" fill="none"/>
+  </g>
+
+  <!-- Bottom Brand Ribbon -->
+  <rect x="0" y="405" width="800" height="45" fill="#1e3a8a"/>
+  <rect x="0" y="402" width="800" height="3" fill="#facc15"/>
+  <text x="40" y="432" font-family="Outfit, Inter, system-ui, sans-serif" font-size="13" font-weight="700" fill="#ffffff" letter-spacing="1.5">
+    FUTURE FOCUS CHILD CARE &#8226; EARLY EDUCATION &amp; COMMUNITY
+  </text>
+  <text x="760" y="432" text-anchor="end" font-family="Outfit, Inter, system-ui, sans-serif" font-size="12" font-weight="600" fill="#fef08a">
+    ACC SPOTLIGHT
+  </text>
+</svg>

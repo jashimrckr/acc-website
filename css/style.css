@@ -57,3 +57,7 @@ body {
     background: var(--color-navy-6);
     color: #fff;
 }
+
+.inner.media-subnav-inner {
+    display: none;
+}

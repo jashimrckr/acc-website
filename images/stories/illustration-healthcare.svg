@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <defs>
+    <linearGradient id="careBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f0fdfa"/>
+      <stop offset="50%" stop-color="#e0f2fe"/>
+      <stop offset="100%" stop-color="#f1f5f9"/>
+    </linearGradient>
+    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0284c7"/>
+      <stop offset="100%" stop-color="#0369a1"/>
+    </linearGradient>
+    <linearGradient id="crossGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="450" fill="url(#careBg)"/>
+
+  <!-- Pulse Monitor Glow Line in Background -->
+  <path d="M0,225 L240,225 L260,195 L280,265 L300,165 L320,285 L340,225 L800,225" 
+        stroke="#99f6e4" stroke-width="3" fill="none" opacity="0.6"/>
+
+  <!-- Central Protective Emblem -->
+  <g transform="translate(400, 200)">
+    <!-- Circular Ambient Glow -->
+    <circle cx="0" cy="0" r="110" fill="#ffffff" stroke="#ccfbf1" stroke-width="4" style="filter: drop-shadow(0 10px 25px rgba(13,148,136,0.12))"/>
+
+    <!-- Care Shield -->
+    <path d="M0,-65 C45,-65 65,-50 65,-10 C65,40 25,70 0,85 C-25,70 -65,40 -65,-10 C-65,-50 -45,-65 0,-65 Z" fill="url(#shieldGrad)"/>
+
+    <!-- Healthcare Cross in Center -->
+    <g fill="url(#crossGrad)">
+      <rect x="-11" y="-36" width="22" height="60" rx="4"/>
+      <rect x="-30" y="-17" width="60" height="22" rx="4"/>
+    </g>
+
+    <!-- White Heart in Center of Cross -->
+    <path d="M0,-2 C-7,-10 -15,-5 -15,2 C-15,10 0,18 0,18 C0,18 15,10 15,2 C15,-5 7,-10 0,-2 Z" fill="#ffffff"/>
+
+    <!-- Supporting Hands Around Shield -->
+    <path d="M-85,30 C-65,70 -20,105 0,110 C20,105 65,70 85,30 C65,45 35,55 0,55 C-35,55 -65,45 -85,30 Z" fill="#0f766e" opacity="0.85"/>
+  </g>
+
+  <!-- Community Wellness Laurels -->
+  <g stroke="#0d9488" stroke-width="2.5" fill="#2dd4bf" opacity="0.7">
+    <ellipse cx="230" cy="180" rx="9" ry="5" transform="rotate(-30 230 180)"/>
+    <ellipse cx="240" cy="140" rx="9" ry="5" transform="rotate(-10 240 140)"/>
+    <ellipse cx="265" cy="105" rx="9" ry="5" transform="rotate(15 265 105)"/>
+
+    <ellipse cx="570" cy="180" rx="9" ry="5" transform="rotate(30 570 180)"/>
+    <ellipse cx="560" cy="140" rx="9" ry="5" transform="rotate(10 560 140)"/>
+    <ellipse cx="535" cy="105" rx="9" ry="5" transform="rotate(-15 535 105)"/>
+  </g>
+
+  <!-- Bottom Brand Ribbon -->
+  <rect x="0" y="405" width="800" height="45" fill="#0f766e"/>
+  <rect x="0" y="402" width="800" height="3" fill="#10b981"/>
+  <text x="40" y="432" font-family="Outfit, Inter, system-ui, sans-serif" font-size="13" font-weight="700" fill="#ffffff" letter-spacing="1.5">
+    FOUNDATIONS TOTAL CARE &#8226; COMPASSIONATE ASSISTED CARE
+  </text>
+  <text x="760" y="432" text-anchor="end" font-family="Outfit, Inter, system-ui, sans-serif" font-size="12" font-weight="600" fill="#ccfbf1">
+    ACC SPOTLIGHT
+  </text>
+</svg>
