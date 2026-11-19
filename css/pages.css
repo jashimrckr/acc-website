@@ -570,6 +570,292 @@
     color: #64748b;
     line-height: 1.55;
     margin-top: auto;
+    margin-bottom: 16px;
+}
+
+.leader-bio-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 8px 22px;
+    background: #f1f5f9;
+    color: var(--color-navy-4);
+    border: 1px solid #cbd5e1;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    align-self: flex-start;
+}
+
+.leader-bio-btn:hover {
+    background: var(--color-navy-4);
+    color: #ffffff;
+    border-color: var(--color-navy-4);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(45, 61, 144, 0.2);
+}
+
+.leader-bio-btn:focus-visible {
+    outline: 2px solid var(--color-gold-dark);
+    outline-offset: 2px;
+}
+
+/* Leader Bio Modal Popup */
+.leader-modal-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    background: rgba(15, 23, 42, 0.72);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.leader-modal-backdrop.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.leader-modal-card {
+    background: #ffffff;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 680px;
+    max-height: 88vh;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.35);
+    border: 1px solid #e2e8f0;
+    overflow: hidden;
+    transform: translateY(20px) scale(0.97);
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.leader-modal-backdrop.active .leader-modal-card {
+    transform: translateY(0) scale(1);
+}
+
+.leader-modal-accent-bar {
+    height: 6px;
+    background: linear-gradient(90deg, var(--color-navy-4), var(--color-gold-dark));
+    flex-shrink: 0;
+}
+
+.leader-modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 22px 28px 18px;
+    border-bottom: 1px solid #e2e8f0;
+    background: #ffffff;
+}
+
+.leader-modal-lead {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    min-width: 0;
+}
+
+.leader-modal-avatar {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+    border: 2px solid #cbd5e1;
+    background: #eef2fa;
+}
+
+.leader-modal-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 18%;
+    display: block;
+}
+
+.leader-modal-name {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0 0 4px;
+    line-height: 1.25;
+}
+
+.leader-modal-role {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-navy-4);
+    margin: 0;
+    line-height: 1.3;
+}
+
+.leader-modal-close {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #f1f5f9;
+    border: 1px solid #e2e8f0;
+    color: #475569;
+    font-size: 24px;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+    padding: 0;
+}
+
+.leader-modal-close:hover {
+    background: #e2e8f0;
+    color: #0f172a;
+}
+
+.leader-modal-close:focus-visible {
+    outline: 2px solid var(--color-navy-4);
+    outline-offset: 2px;
+}
+
+.leader-modal-body {
+    padding: 26px 28px;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    font-size: 15px;
+    line-height: 1.7;
+    color: #334155;
+    flex: 1;
+}
+
+.leader-modal-body p {
+    margin: 0 0 16px;
+}
+
+.leader-modal-body p:last-child {
+    margin-bottom: 0;
+}
+
+.leader-modal-footer {
+    padding: 16px 28px;
+    background: #f8fafc;
+    border-top: 1px solid #e2e8f0;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.leader-modal-btn-close {
+    padding: 9px 26px;
+    background: var(--color-navy-4);
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.leader-modal-btn-close:hover {
+    background: var(--color-navy-3);
+    box-shadow: 0 4px 12px rgba(45, 61, 144, 0.25);
+}
+
+.leader-modal-btn-close:focus-visible {
+    outline: 2px solid var(--color-gold-dark);
+    outline-offset: 2px;
+}
+
+body.modal-open {
+    overflow: hidden;
+}
+
+/* Executive Leadership & Board of Directors Grids */
+.leader-grid,
+#leadership .grid-3col,
+#board .grid-3col {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+}
+
+@media (max-width: 1025px) {
+    .leader-grid,
+    #leadership .grid-3col,
+    #board .grid-3col {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 24px;
+    }
+}
+
+@media (max-width: 520px) {
+    .leader-grid,
+    #leadership .grid-3col,
+    #board .grid-3col {
+        grid-template-columns: 1fr !important;
+        gap: 20px;
+    }
+
+    .leader-card .leader-info {
+        padding: 20px 18px 24px;
+    }
+
+    .leader-card .leader-name {
+        font-size: 1.2rem;
+    }
+
+    .leader-card .leader-title {
+        min-height: auto;
+        margin-bottom: 12px;
+    }
+
+    .leader-card .leader-bio {
+        margin-bottom: 14px;
+    }
+
+    .leader-modal-card {
+        max-height: 92vh;
+        border-radius: 16px;
+    }
+
+    .leader-modal-header {
+        padding: 16px 18px;
+    }
+
+    .leader-modal-avatar {
+        width: 50px;
+        height: 50px;
+    }
+
+    .leader-modal-name {
+        font-size: 1.15rem;
+    }
+
+    .leader-modal-role {
+        font-size: 13px;
+    }
+
+    .leader-modal-body {
+        padding: 18px;
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    .leader-modal-footer {
+        padding: 12px 18px;
+    }
 }
 
 /* What We Do - Three Pillars Cards */
@@ -1871,7 +2157,7 @@ img.member-logo {
     }
 
     .grid-2col,
-    .grid-3col,
+    .grid-3col:not(.leader-grid),
     .featured-report-card,
     .invest-cards-grid,
     .cta-banner-wrapper {

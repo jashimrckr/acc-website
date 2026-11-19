@@ -656,7 +656,111 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
     });
+
+    // Initialize leader bio modals (About page)
+    initLeaderBioModals();
 });
+
+/**
+ * Leader Bio Modal Functionality
+ * Opens accessible modal popup displaying the full biography of executive leaders
+ */
+function initLeaderBioModals() {
+    const modal = document.getElementById('leaderBioModal');
+    if (!modal) return;
+
+    const modalPhoto = document.getElementById('leaderModalPhoto');
+    const modalTitle = document.getElementById('leaderModalTitle');
+    const modalRole = document.getElementById('leaderModalRole');
+    const modalBody = document.getElementById('leaderModalBody');
+    const closeBtn = document.getElementById('leaderModalCloseBtn');
+    const footerCloseBtn = document.getElementById('leaderModalFooterCloseBtn');
+    let lastFocusedElement = null;
+
+    function openModal(card) {
+        if (!card) return;
+        lastFocusedElement = document.activeElement;
+
+        const photoImg = card.querySelector('.leader-photo img');
+        const nameEl = card.querySelector('.leader-name');
+        const titleEl = card.querySelector('.leader-title');
+        const fullBioEl = card.querySelector('.leader-full-bio');
+
+        if (modalPhoto && photoImg) {
+            modalPhoto.src = photoImg.src;
+            modalPhoto.alt = photoImg.alt || (nameEl ? nameEl.textContent.trim() : '');
+        }
+        if (modalTitle && nameEl) {
+            modalTitle.textContent = nameEl.textContent.trim();
+        }
+        if (modalRole && titleEl) {
+            modalRole.textContent = titleEl.textContent.trim();
+        }
+        if (modalBody) {
+            if (fullBioEl) {
+                modalBody.innerHTML = fullBioEl.innerHTML;
+            } else {
+                const shortBio = card.querySelector('.leader-bio');
+                modalBody.innerHTML = shortBio ? `<p>${shortBio.textContent.trim()}</p>` : '';
+            }
+        }
+
+        modal.classList.add('active');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('modal-open');
+
+        if (closeBtn) {
+            setTimeout(() => closeBtn.focus(), 50);
+        }
+    }
+
+    function closeModal() {
+        modal.classList.remove('active');
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('modal-open');
+        if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
+            lastFocusedElement.focus();
+        }
+    }
+
+    // Attach to all Bio buttons
+    document.querySelectorAll('.leader-bio-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            const card = btn.closest('.leader-card');
+            openModal(card);
+        });
+    });
+
+    if (closeBtn) {
+        closeBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            closeModal();
+        });
+    }
+
+    if (footerCloseBtn) {
+        footerCloseBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            closeModal();
+        });
+    }
+
+    // Close on backdrop click
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            closeModal();
+        }
+    });
+
+    // Close on ESC
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+            closeModal();
+        }
+    });
+}
 
 /**
  * Submits the ACC contact form to the Azure Functions backend endpoint
