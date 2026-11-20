@@ -1026,7 +1026,7 @@ async function submitContactForm(formElement) {
 
     try {
         const response = await fetch(
-            "https://func-accwebsite-contact-prd-auemgxbsc7gjgrg6.eastus-01.azurewebsites.net/api/contact/submit",
+            "https://func-accwebsite-prd-bacvcyekhtcmd6av.eastus-01.azurewebsites.net/api/contact/submit",
             {
                 method: "POST",
                 headers: {
@@ -1075,3 +1075,95 @@ async function submitContactForm(formElement) {
 }
 
 window.submitContactForm = submitContactForm;
+
+// Footer Newsletter Subscription Handler with Honeypot Anti-Bot Protection
+function initFooterSubscribeForms() {
+    const subscribeForms = document.querySelectorAll('.subscribe-form');
+    subscribeForms.forEach((form) => {
+        if (form.dataset.hpInit) return;
+        form.dataset.hpInit = "true";
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const nameInput = form.querySelector('input[name="name"]');
+            const emailInput = form.querySelector('input[name="email"]');
+            const honeypotInput = form.querySelector('input[name="website"]');
+            const submitBtn = form.querySelector('.subscribe-btn');
+
+            if (!nameInput || !emailInput || !submitBtn) return;
+
+            const name = nameInput.value.trim();
+            const email = emailInput.value.trim();
+
+            if (!name || !email) return;
+
+            const payload = {
+                name: name,
+                email: email,
+                website: honeypotInput ? honeypotInput.value : ""
+            };
+
+            const originalBtnHTML = submitBtn.innerHTML;
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = `
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="captcha-spin" style="animation: captchaSpin 0.7s linear infinite; display: inline-block; vertical-align: middle; margin-right: 6px;">
+                    <circle cx="12" cy="12" r="10" stroke-opacity="0.3"></circle>
+                    <path d="M12 2a10 10 0 0 1 10 10"></path>
+                </svg>
+                <span>Subscribing...</span>
+            `;
+
+            try {
+                const response = await fetch(
+                    "https://func-accwebsite-prd-bacvcyekhtcmd6av.eastus-01.azurewebsites.net/api/newsletter/subscribe",
+                    {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify(payload)
+                    }
+                );
+
+                const result = await response.json().catch(() => ({}));
+
+                if (!response.ok) {
+                    throw new Error(result.error || result.message || "Subscription failed");
+                }
+
+                // Success state
+                submitBtn.innerHTML = '<span>Subscribed!</span>';
+                submitBtn.style.backgroundColor = '#026836';
+                submitBtn.style.borderColor = '#026836';
+                form.reset();
+
+                setTimeout(() => {
+                    submitBtn.disabled = false;
+                    submitBtn.style.backgroundColor = '';
+                    submitBtn.style.borderColor = '';
+                    submitBtn.innerHTML = originalBtnHTML;
+                }, 4000);
+
+            } catch (error) {
+                console.error("Newsletter subscription error:", error);
+                submitBtn.innerHTML = '<span>Error. Try again</span>';
+                submitBtn.style.backgroundColor = '#b91c1c';
+                submitBtn.style.borderColor = '#b91c1c';
+
+                setTimeout(() => {
+                    submitBtn.disabled = false;
+                    submitBtn.style.backgroundColor = '';
+                    submitBtn.style.borderColor = '';
+                    submitBtn.innerHTML = originalBtnHTML;
+                }, 4000);
+            }
+        });
+    });
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initFooterSubscribeForms);
+} else {
+    initFooterSubscribeForms();
+}
