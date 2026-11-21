@@ -6,6 +6,16 @@ const headerHTML = `
                 <img src="images/ACC-Logo-header.png" alt="Appalachian Community Capital">
             </a>
             <nav class="main-nav">
+                <div class="mobile-search-banner">
+                    <button type="button" class="mobile-search-input-btn" id="mobileSearchTriggerBtn" aria-label="Search site routes and topics">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
+                        <span>Search routes across site...</span>
+                        <kbd class="mobile-search-kbd">Search</kbd>
+                    </button>
+                </div>
                 <ul class="nav-list">
                     <li class="nav-item">
                         <a href="index.html" class="nav-link" aria-label="Home">
@@ -99,6 +109,13 @@ const headerHTML = `
                 </ul>
             </nav>
                         <div class="header-actions">
+                <button type="button" class="header-search-icon-btn" id="siteSearchTrigger" aria-label="Search site routes (Ctrl+K)" title="Search site routes (Ctrl+K)">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                    <span class="search-tooltip">Search site <kbd>Ctrl K</kbd></span>
+                </button>
                 <div class="invest-dropdown-wrapper">
                     <!-- Popup Button (Collapsed State) -->
                     <button class="invest-trigger-btn" id="investTriggerBtn" aria-expanded="false" aria-haspopup="true" aria-label="Invest in Our Work Menu">
@@ -215,6 +232,74 @@ const headerHTML = `
             </div>
         </div>
     </header>
+    <!-- Site-Wide Search Modal & Route Navigator (Spotlight Command Palette) -->
+    <div class="site-search-modal" id="siteSearchModal" role="dialog" aria-modal="true" aria-label="Site Search and Route Navigator" hidden>
+        <div class="search-modal-backdrop" id="searchModalBackdrop"></div>
+        <div class="search-modal-dialog">
+            <div class="search-modal-header">
+                <div class="search-input-field-wrap">
+                    <span class="search-field-icon" aria-hidden="true">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
+                    </span>
+                    <input type="text" id="siteSearchInput" class="search-field-input" placeholder="Search pages, topics, CDFIs, programs, or news..." autocomplete="off" spellcheck="false" aria-label="Search anything on the site">
+                    <button type="button" class="search-field-clear" id="searchBoxClear" aria-label="Clear search input" style="display: none;">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                    </button>
+                    <button type="button" class="search-field-close" id="searchModalCloseBtn" aria-label="Close search (Esc)">
+                        <span class="search-esc-badge">ESC</span>
+                        <svg class="search-mobile-close-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Minimalist Category Filter Strip -->
+                <div class="search-filter-tabs" id="searchCategoriesBar">
+                    <button type="button" class="search-tab-pill active" data-cat="all">All</button>
+                    <button type="button" class="search-tab-pill" data-cat="Main Pages">Pages</button>
+                    <button type="button" class="search-tab-pill" data-cat="Programs &amp; Services">Programs</button>
+                    <button type="button" class="search-tab-pill" data-cat="Network &amp; Members">Network</button>
+                    <button type="button" class="search-tab-pill" data-cat="Impact &amp; Stories">Impact</button>
+                    <button type="button" class="search-tab-pill" data-cat="News &amp; Media">News</button>
+                    <button type="button" class="search-tab-pill" data-cat="About">About</button>
+                    <button type="button" class="search-tab-pill" data-cat="Invest &amp; Donate">Invest</button>
+                </div>
+            </div>
+
+            <div class="search-results-wrapper">
+                <div class="search-results-meta" id="searchResultsHeader">
+                    <span class="search-results-label" id="searchResultsCount">Suggested Pages &amp; Sections</span>
+                    <span class="search-results-tip">Press ↵ or click to open</span>
+                </div>
+                <div class="search-results-list" id="searchResultsList" role="listbox">
+                    <!-- Populated dynamically -->
+                </div>
+            </div>
+
+            <div class="search-modal-footer">
+                <div class="search-footer-preview" id="searchFooterRouteInfo">
+                    <span class="footer-preview-icon">
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                    </span>
+                    <span class="footer-preview-text">Search across all pages, programs, and reports</span>
+                </div>
+                <div class="search-footer-hints">
+                    <span class="hint-item"><kbd class="kbd-hint">&uarr;</kbd><kbd class="kbd-hint">&darr;</kbd> navigate</span>
+                    <span class="hint-item"><kbd class="kbd-hint">&crarr;</kbd> select</span>
+                    <span class="hint-item"><kbd class="kbd-hint">esc</kbd> close</span>
+                </div>
+            </div>
+        </div>
+    </div>
 `;
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -223,6 +308,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (headerPlaceholder) {
         headerPlaceholder.innerHTML = headerHTML;
     }
+
+    // Initialize Site Search and Route Navigator
+    initSiteSearch();
 
     // Set active link in header based on URL
     const currentPath = window.location.pathname.toLowerCase();
@@ -675,6 +763,775 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize story modals (Impact page)
     initStoryModals();
 });
+
+/**
+ * Site-Wide Search Bar & Route Navigator
+ * Allows searching across all pages, subroutes, anchors, programs, members, and resources
+ */
+const siteRoutes = [
+    // --- Main Pages ---
+    {
+        route: "index.html",
+        title: "Home – Appalachian Community Capital",
+        category: "Main Pages",
+        keywords: "home main appalachia region of possibility cdfi small business lenders debt financing capital partners economic opportunity",
+        desc: "ACC connects community development financial institutions with capital and partners to expand economic opportunity across Appalachia."
+    },
+    {
+        route: "about.html",
+        title: "About Us – Organization Overview",
+        category: "Main Pages",
+        keywords: "about us organization rooted in community connected for regional scale mission history leadership team board governance",
+        desc: "Learn about Appalachian Community Capital, our mission, 13-state footprint, place-based investment strategy, and leadership."
+    },
+    {
+        route: "what-we-do.html",
+        title: "What We Do – Capital, Capacity, Collaboration",
+        category: "Main Pages",
+        keywords: "what we do services wholesale lending debt facilities capacity building technical assistance collaboration clean energy",
+        desc: "How ACC delivers impact through wholesale capital deployment, capacity building, underwriting support, and ecosystem collaboration."
+    },
+    {
+        route: "our-network.html",
+        title: "Our Network – 46 Member CDFIs",
+        category: "Main Pages",
+        keywords: "our network 46 member cdfis 13 states 423 counties directory partners ecosystem deeproots lenders",
+        desc: "Explore ACC's 46 certified member CDFIs serving 423 counties across 13 Appalachian states."
+    },
+    {
+        route: "impact-insights.html",
+        title: "Impact & Insights – Data & Stories",
+        category: "Main Pages",
+        keywords: "impact insights verified metrics data member survey findings stories of impact community spotlights reports",
+        desc: "Quantitative survey findings, verified jobs numbers, and real stories of impact from entrepreneurs and community lenders."
+    },
+    {
+        route: "news-events.html",
+        title: "News & Media – Publications & Events",
+        category: "Main Pages",
+        keywords: "news media announcements press releases publications research reports newsletters podcasts videos multimedia",
+        desc: "Latest news, official press releases, research publications, monthly newsletters, audio podcasts, and video series."
+    },
+    {
+        route: "invest.html",
+        title: "Community Investment Notes – Invest in ACC",
+        category: "Main Pages",
+        keywords: "invest investment notes community investment notes impact investing fixed income notes terms prospectus vision 2030",
+        desc: "Invest in ACC Community Investment Notes to fuel small business lending and local community growth across Appalachia."
+    },
+    {
+        route: "donate.html",
+        title: "Donate – Gambrell Fund for Strategic Initiatives",
+        category: "Main Pages",
+        keywords: "donate donation gambrell fund strategic initiatives donna gambrell legacy give endowment philanthropy wire check online",
+        desc: "Support high-impact community solutions by donating to the Donna Gambrell Fund for Strategic Initiatives."
+    },
+    {
+        route: "contact.html",
+        title: "Contact Us – Headquarters & Inquiries",
+        category: "Main Pages",
+        keywords: "contact us get in touch headquarters offices phone email address christiansburg virginia washington dc inquiry form",
+        desc: "Contact the ACC team, find office addresses, send an inquiry, or explore membership and partnership opportunities."
+    },
+    {
+        route: "non-discrimination-policy.html",
+        title: "Non-Discrimination Statement & Policy",
+        category: "About",
+        keywords: "non-discrimination statement policy civil rights equal opportunity lender usda accessibility complaint compliance",
+        desc: "Official statement and policies regarding equal opportunity lending, civil rights compliance, and accessibility."
+    },
+
+    // --- About Us Subroutes ---
+    {
+        route: "about.html#who-we-are",
+        title: "Who We Are – Network for Collaboration",
+        category: "About",
+        keywords: "who we are regional intermediary mission-aligned cdfi collaboration catalytic capital scale",
+        desc: "ACC serves as a regional financial intermediary and collaborative platform for community development lenders."
+    },
+    {
+        route: "about.html#mission",
+        title: "Our Mission & Core Strategy",
+        category: "About",
+        keywords: "mission strategy purpose core values regional scale local decision making small business underinvested",
+        desc: "Connecting member CDFIs to high-impact capital, shared expertise, and collaborative regional solutions."
+    },
+    {
+        route: "about.html#history",
+        title: "History & Milestones",
+        category: "About",
+        keywords: "history milestones founding 2013 arc appalachian regional commission donna gambrell launch evolution",
+        desc: "How an innovative pilot launched in partnership with the Appalachian Regional Commission grew into a national model."
+    },
+    {
+        route: "about.html#leadership",
+        title: "Executive Leadership & Staff Bios",
+        category: "About",
+        keywords: "leadership daniel wallace president ceo shauna yeldell kelli bryant osayamen bartholomew jesse fripp john mclean pam porter liz rogers staff bios team",
+        desc: "Meet President & CEO Daniel Wallace and ACC's experienced executive leadership team dedicated to Appalachia."
+    },
+    {
+        route: "about.html#board",
+        title: "Board of Directors",
+        category: "About",
+        keywords: "board of directors clinton b gwin matt raker marten jenkins neill wright henry golatt clyde cornett ray christman robin gabbard tj bogdewic khaliff davis governance trustees",
+        desc: "Governed by seasoned leaders from across Appalachia's community development finance and banking sectors."
+    },
+    {
+        route: "about.html#governance",
+        title: "Strategic Governance & Committees",
+        category: "About",
+        keywords: "governance accountability credit committee audit committee risk management oversight community needs",
+        desc: "Robust committee structures and governance frameworks ensuring transparency and sound underwriting practices."
+    },
+
+    // --- What We Do Subroutes ---
+    {
+        route: "what-we-do.html#pillars",
+        title: "Three Pillars of Impact: Capital, Capacity, Collaboration",
+        category: "Programs & Services",
+        keywords: "pillars core methodology deliver impact capital capacity building collaboration wholesale debt",
+        desc: "A balanced three-pillar approach providing low-cost capital, operational technical assistance, and ecosystem synergy."
+    },
+    {
+        route: "what-we-do.html#capital",
+        title: "Capital Deployment & Debt Facilities",
+        category: "Programs & Services",
+        keywords: "capital access to capital debt facilities secondary loans liquidity wholesale lending loan syndication funding",
+        desc: "Supplying wholesale debt and risk-sharing loan facilities so community lenders can meet growing credit demand."
+    },
+    {
+        route: "what-we-do.html#capacity",
+        title: "Capacity Building & Technical Assistance",
+        category: "Programs & Services",
+        keywords: "capacity building technical assistance training underwriting support deeproots data hub technology tools peer learning",
+        desc: "Equipping CDFI lenders with specialized analytics, underwriting guidance, and executive leadership development."
+    },
+    {
+        route: "what-we-do.html#collaboration",
+        title: "Regional CDFI Ecosystem Collaboration",
+        category: "Programs & Services",
+        keywords: "collaboration cdfi coalition working groups knowledge sharing collective scale regional solutions",
+        desc: "Uniting independent CDFIs across 13 states to advocate, co-invest, and tackle regional economic challenges together."
+    },
+    {
+        route: "what-we-do.html#programs",
+        title: "Flagship Programs & Green Bank Initiatives",
+        category: "Programs & Services",
+        keywords: "programs green bank clean energy epa greenhouse gas reduction fund climate finance solar energy soar small farms",
+        desc: "Transformative climate finance, clean energy lending for rural communities, and strategic small business partnerships."
+    },
+
+    // --- Our Network Subroutes ---
+    {
+        route: "our-network.html#directory",
+        title: "Interactive Member Directory (46 CDFIs)",
+        category: "Network & Members",
+        keywords: "directory member directory cdfi search ace mountain bizworks fahe natural capital liftfund iff pathway lending invest pgh progress fund deeproots search lenders",
+        desc: "Search and filter all 46 certified member CDFIs by state, specialty, and DeepRoots provider participation."
+    },
+    {
+        route: "our-network.html#states-reach",
+        title: "Geographic Reach Across 13 States & 423 Counties",
+        category: "Network & Members",
+        keywords: "13 states 423 counties footprint alabama georgia kentucky maryland mississippi new york north carolina ohio pennsylvania south carolina tennessee virginia west virginia arc",
+        desc: "Serving 423 counties across all 13 states in the Appalachian Regional Commission (ARC) footprint."
+    },
+    {
+        route: "our-network.html#membership",
+        title: "Why Join ACC – Member Value & Advantages",
+        category: "Network & Members",
+        keywords: "why join acc membership benefits wholesale debt participation loans syndication peer network liquidity",
+        desc: "Explore the capital, syndication, and peer advantages available exclusively to certified ACC member lenders."
+    },
+    {
+        route: "our-network.html#benefits-criteria",
+        title: "Membership Criteria & Qualifications",
+        category: "Network & Members",
+        keywords: "membership criteria eligibility cdfi loan funds credit unions underwriting standards qualifications",
+        desc: "Review institutional requirements and eligibility criteria for community development financial institutions."
+    },
+    {
+        route: "our-network.html#become-a-member",
+        title: "How to Become an ACC Member",
+        category: "Network & Members",
+        keywords: "become a member application process apply onboarding board review join network",
+        desc: "Step-by-step onboarding guide for CDFIs interested in joining Appalachian Community Capital."
+    },
+
+    // --- Impact & Insights Subroutes ---
+    {
+        route: "impact-insights.html#metrics",
+        title: "Verified Impact Metrics & Annual Survey",
+        category: "Impact & Stories",
+        keywords: "impact metrics verified data member survey jobs created leverage ratio small business loans women minority entrepreneurs",
+        desc: "Quantitative results tracking capital leverage, jobs created or retained, and financing delivered to underserved communities."
+    },
+    {
+        route: "impact-insights.html#stories",
+        title: "Stories of Impact – Real Voices & Spotlights",
+        category: "Impact & Stories",
+        keywords: "stories of impact success stories entrepreneur spotlights handinhand counseling cakes boutique future focus child care tantrum brewing blue firefly inn horizon adult health secure futures solar shipley farms",
+        desc: "Profiles of entrepreneurs, family businesses, and community facilities strengthened by ACC and member CDFI financing."
+    },
+    {
+        route: "news-events.html#publications",
+        title: "Reports & Resources – Annual Impact Publications",
+        category: "Impact & Stories",
+        keywords: "reports resources annual report impact reports publications research papers regional data",
+        desc: "Download comprehensive annual impact reports, research studies, and regional analysis publications."
+    },
+
+    // --- News & Media Subroutes ---
+    {
+        route: "news-events.html#publications",
+        title: "Publications & Regional Research",
+        category: "News & Media",
+        keywords: "publications research reports 2025 impact report truist foundation report soar small farms opportunity zone playbook succession experience",
+        desc: "In-depth publications covering Appalachian economic trends, CDFI leadership succession, and small farm finance."
+    },
+    {
+        route: "news-events.html#press",
+        title: "News & Official Press Releases",
+        category: "News & Media",
+        keywords: "press releases news announcements media coverage grant awards leadership statements media releases",
+        desc: "Official announcements, major capital awards, program launches, and press releases."
+    },
+    {
+        route: "news-events.html#newsletters",
+        title: "Monthly Newsletters Archive",
+        category: "News & Media",
+        keywords: "newsletters monthly updates email newsletters regional lending news newsletter archive",
+        desc: "Browse archive of monthly newsletters featuring member spotlights, event recaps, and lending updates."
+    },
+    {
+        route: "news-events.html#podcasts",
+        title: "Podcasts & Audio Series",
+        category: "News & Media",
+        keywords: "podcasts audio interviews audio series community discussions cdfi conversations appalachian voices",
+        desc: "Audio interviews and discussions highlighting community lending pioneers and local leaders across the region."
+    },
+    {
+        route: "news-events.html#videos",
+        title: "Videos & Story Spotlights",
+        category: "News & Media",
+        keywords: "videos multimedia story spotlights succession series documentary videos",
+        desc: "Watch video features highlighting succession planning, entrepreneur spotlights, and community impact."
+    },
+
+    // --- Invest Subroutes ---
+    {
+        route: "invest.html#notes",
+        title: "Community Investment Note Parameters & Terms",
+        category: "Invest & Donate",
+        keywords: "notes parameters terms interest rates maturities minimum investment fixed income impact investing prospectus",
+        desc: "Key terms, maturity options, and financial profile for institutional and accredited investors."
+    },
+    {
+        route: "invest.html#vision",
+        title: "ACC Vision 2030 ($250 Million Mobilization)",
+        category: "Invest & Donate",
+        keywords: "vision 2030 250 million scale capital mobilization strategic horizon economic resilience",
+        desc: "ACC's ambitious blueprint to mobilize $250 million in catalytic capital for Appalachia by 2030."
+    },
+    {
+        route: "invest.html#contact",
+        title: "Investor & Partner Relations Inquiries",
+        category: "Invest & Donate",
+        keywords: "investor contact partner relations connect with leadership prospectus subscription",
+        desc: "Get in touch with ACC investment leadership to discuss terms, subscription documents, and partnership opportunities."
+    },
+
+    // --- Donate Subroutes ---
+    {
+        route: "donate.html#ways-to-give",
+        title: "Ways to Give – Online, Check, Wire Transfer",
+        category: "Invest & Donate",
+        keywords: "ways to give how to donate online donation check wire transfer 501c3 tax deductible endowment",
+        desc: "Detailed instructions for contributing to the Gambrell Fund via secure online portal, check, or wire transfer."
+    },
+
+    // --- Contact Subroutes ---
+    {
+        route: "contact.html#contact-form-section",
+        title: "Send a Message – Inquiry Form",
+        category: "Contact & Inquiries",
+        keywords: "contact form send message inquiry membership question partnership question form",
+        desc: "Send a direct message to the Appalachian Community Capital team for fast follow-up."
+    },
+    {
+        route: "contact.html#office-info",
+        title: "ACC Headquarters & Office Directory",
+        category: "Contact & Inquiries",
+        keywords: "office locations headquarters christiansburg virginia washington dc phone email address",
+        desc: "Physical addresses, mailing details, and contact directory for ACC's Virginia headquarters and Washington DC presence."
+    }
+];
+
+function initSiteSearch() {
+    const triggerBtn = document.getElementById('siteSearchTrigger');
+    const mobileTriggerBtn = document.getElementById('mobileSearchTriggerBtn');
+    const modal = document.getElementById('siteSearchModal');
+    if (!modal) return;
+
+    // Relocate modal directly under <body> to prevent stacking context or layout issues
+    if (modal.parentElement !== document.body) {
+        document.body.appendChild(modal);
+    }
+
+    const backdrop = document.getElementById('searchModalBackdrop');
+    const input = document.getElementById('siteSearchInput');
+    const clearBtn = document.getElementById('searchBoxClear');
+    const closeBtn = document.getElementById('searchModalCloseBtn');
+    const categoryBar = document.getElementById('searchCategoriesBar');
+    const resultsList = document.getElementById('searchResultsList');
+    const resultsCount = document.getElementById('searchResultsCount');
+    const footerRouteInfo = document.getElementById('searchFooterRouteInfo');
+
+    const categoryIcons = {
+        'Main Pages': {
+            class: 'cat-pages',
+            svg: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>'
+        },
+        'Programs & Services': {
+            class: 'cat-programs',
+            svg: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>'
+        },
+        'Network & Members': {
+            class: 'cat-network',
+            svg: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>'
+        },
+        'Impact & Stories': {
+            class: 'cat-impact',
+            svg: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>'
+        },
+        'News & Media': {
+            class: 'cat-news',
+            svg: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"></path><path d="M18 14h-8"></path><path d="M15 18h-5"></path><path d="M10 6h8v4h-8V6Z"></path></svg>'
+        },
+        'About': {
+            class: 'cat-about',
+            svg: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>'
+        },
+        'Invest & Donate': {
+            class: 'cat-invest',
+            svg: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>'
+        },
+        'Contact & Inquiries': {
+            class: 'cat-contact',
+            svg: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>'
+        }
+    };
+
+    // Adapt shortcut text for macOS vs Windows/Linux
+    const isMac = navigator.platform.toUpperCase().indexOf('MAC') >= 0;
+    const tooltipKbd = document.querySelector('.header-search-icon-btn .search-tooltip kbd');
+    if (tooltipKbd) {
+        tooltipKbd.textContent = isMac ? '⌘K' : 'Ctrl K';
+    }
+
+    let activeCategory = 'all';
+    let currentResults = [];
+    let selectedIndex = -1;
+
+    function escapeHtml(str) {
+        if (!str) return '';
+        return String(str)
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#39;');
+    }
+
+    function highlightMatch(text, tokens) {
+        if (!tokens || tokens.length === 0) return escapeHtml(text);
+        const safeTokens = tokens.map(t => t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).filter(Boolean);
+        if (!safeTokens.length) return escapeHtml(text);
+        const regex = new RegExp(`(${safeTokens.join('|')})`, 'gi');
+        const parts = String(text).split(regex);
+        return parts.map(part => {
+            if (safeTokens.some(t => new RegExp(`^${t}$`, 'i').test(part))) {
+                return `<mark class="search-highlight">${escapeHtml(part)}</mark>`;
+            }
+            return escapeHtml(part);
+        }).join('');
+    }
+
+    function openSearchModal() {
+        // If mobile nav is open, close it
+        const siteHeader = document.querySelector('.site-header');
+        if (siteHeader && siteHeader.classList.contains('menu-open')) {
+            siteHeader.classList.remove('menu-open');
+            const hamburgerIcon = document.querySelector('.hamburger-icon');
+            const closeIcon = document.querySelector('.close-icon');
+            if (hamburgerIcon) hamburgerIcon.style.display = 'block';
+            if (closeIcon) closeIcon.style.display = 'none';
+        }
+
+        modal.hidden = false;
+        // Trigger reflow for transition
+        void modal.offsetWidth;
+        modal.classList.add('is-open');
+        document.body.classList.add('search-modal-open');
+
+        // Focus search input
+        setTimeout(() => {
+            if (input) {
+                input.focus();
+                input.select();
+            }
+        }, 60);
+
+        renderResults(input ? input.value : '');
+    }
+
+    function closeSearchModal() {
+        modal.classList.remove('is-open');
+        document.body.classList.remove('search-modal-open');
+        setTimeout(() => {
+            modal.hidden = true;
+        }, 220);
+    }
+
+    function navigateToRoute(targetRoute) {
+        if (!targetRoute) return;
+        closeSearchModal();
+
+        // Check if route has an anchor and points to the current page
+        const currentFile = window.location.pathname.split('/').pop() || 'index.html';
+        const [routeFile, routeHash] = targetRoute.split('#');
+
+        const isCurrentPage = (!routeFile || routeFile === currentFile || (currentFile === '' && routeFile === 'index.html'));
+
+        if (isCurrentPage && routeHash) {
+            const targetEl = document.getElementById(routeHash);
+            if (targetEl) {
+                targetEl.scrollIntoView({ behavior: 'smooth' });
+                history.pushState(null, '', '#' + routeHash);
+                return;
+            }
+        }
+
+        window.location.href = targetRoute;
+    }
+
+    function updateSelection() {
+        if (!resultsList) return;
+        const items = resultsList.querySelectorAll('.search-result-row');
+        items.forEach((item, idx) => {
+            if (idx === selectedIndex) {
+                item.classList.add('is-selected');
+                item.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+                if (footerRouteInfo && currentResults[idx]) {
+                    footerRouteInfo.innerHTML = `
+                        <span class="footer-preview-icon">
+                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                <polyline points="9 18 15 12 9 6"></polyline>
+                            </svg>
+                        </span>
+                        <span class="footer-preview-text">Selected: <strong>${escapeHtml(currentResults[idx].title)}</strong></span>
+                    `;
+                }
+            } else {
+                item.classList.remove('is-selected');
+            }
+        });
+
+        if (selectedIndex === -1 && footerRouteInfo) {
+            footerRouteInfo.innerHTML = `
+                <span class="footer-preview-icon">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                </span>
+                <span class="footer-preview-text">Search across all pages, programs, and reports</span>
+            `;
+        }
+    }
+
+    function renderResults(query) {
+        if (!resultsList) return;
+        const rawTokens = (query || '').toLowerCase().trim().split(/\s+/).filter(Boolean);
+        let filtered = siteRoutes;
+
+        if (activeCategory !== 'all') {
+            filtered = filtered.filter(item => {
+                if (activeCategory === 'Programs & Services') return item.category.includes('Programs');
+                if (activeCategory === 'Network & Members') return item.category.includes('Network');
+                if (activeCategory === 'Impact & Stories') return item.category.includes('Impact');
+                if (activeCategory === 'News & Media') return item.category.includes('News');
+                if (activeCategory === 'Invest & Donate') return item.category.includes('Invest') || item.category.includes('Donate');
+                return item.category === activeCategory;
+            });
+        }
+
+        if (rawTokens.length > 0) {
+            const scored = [];
+            filtered.forEach(item => {
+                const titleLower = item.title.toLowerCase();
+                const routeLower = item.route.toLowerCase();
+                const kwLower = (item.keywords || '').toLowerCase();
+                const descLower = (item.desc || '').toLowerCase();
+                const catLower = item.category.toLowerCase();
+
+                let matchesAll = true;
+                let score = 0;
+
+                for (const token of rawTokens) {
+                    let matchedToken = false;
+                    if (routeLower.includes(token)) {
+                        score += 35;
+                        matchedToken = true;
+                    }
+                    if (titleLower.includes(token)) {
+                        score += 30;
+                        matchedToken = true;
+                    }
+                    if (kwLower.includes(token)) {
+                        score += 20;
+                        matchedToken = true;
+                    }
+                    if (descLower.includes(token)) {
+                        score += 15;
+                        matchedToken = true;
+                    }
+                    if (catLower.includes(token)) {
+                        score += 10;
+                        matchedToken = true;
+                    }
+
+                    if (!matchedToken) {
+                        matchesAll = false;
+                        break;
+                    }
+                }
+
+                if (matchesAll) {
+                    scored.push({ item, score });
+                }
+            });
+
+            scored.sort((a, b) => b.score - a.score);
+            currentResults = scored.map(s => s.item);
+        } else {
+            // Default list: if all categories, show top quick routes; if specific category, show all in category
+            if (activeCategory === 'all') {
+                currentResults = filtered.slice(0, 10);
+            } else {
+                currentResults = filtered;
+            }
+        }
+
+        selectedIndex = currentResults.length > 0 ? 0 : -1;
+
+        // Render counts and header
+        if (resultsCount) {
+            if (rawTokens.length > 0) {
+                resultsCount.textContent = `Found ${currentResults.length} matching result${currentResults.length === 1 ? '' : 's'}`;
+            } else {
+                resultsCount.textContent = activeCategory === 'all'
+                    ? 'Suggested Pages & Sections'
+                    : `${activeCategory} (${currentResults.length})`;
+            }
+        }
+
+        // Render card items
+        if (currentResults.length === 0) {
+            resultsList.innerHTML = `
+                <div class="search-empty-state">
+                    <svg class="empty-state-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        <line x1="8" y1="11" x2="14" y2="11"></line>
+                    </svg>
+                    <h3 class="empty-state-title">No results found for "${escapeHtml(query)}"</h3>
+                    <p class="empty-state-desc">Try a different keyword or explore popular site topics below:</p>
+                    <div class="search-suggestion-pills">
+                        <button type="button" class="search-suggestion-pill" data-suggest="lending">Lending &amp; Capital</button>
+                        <button type="button" class="search-suggestion-pill" data-suggest="directory">CDFI Directory</button>
+                        <button type="button" class="search-suggestion-pill" data-suggest="green bank">Green Bank</button>
+                        <button type="button" class="search-suggestion-pill" data-suggest="stories">Stories of Impact</button>
+                        <button type="button" class="search-suggestion-pill" data-suggest="board">Board &amp; Leadership</button>
+                        <button type="button" class="search-suggestion-pill" data-suggest="reports">Impact Reports</button>
+                        <button type="button" class="search-suggestion-pill" data-suggest="contact">Contact Us</button>
+                    </div>
+                </div>
+            `;
+
+            // Hook up suggestion pills
+            const suggestionPills = resultsList.querySelectorAll('.search-suggestion-pill');
+            suggestionPills.forEach(pill => {
+                pill.addEventListener('click', () => {
+                    const term = pill.getAttribute('data-suggest');
+                    if (input) {
+                        input.value = term;
+                        if (clearBtn) clearBtn.style.display = 'flex';
+                        renderResults(term);
+                        input.focus();
+                    }
+                });
+            });
+        } else {
+            resultsList.innerHTML = currentResults.map((item, idx) => {
+                const highlightedTitle = highlightMatch(item.title, rawTokens);
+                const highlightedDesc = highlightMatch(item.desc, rawTokens);
+                const isSelected = idx === selectedIndex ? ' is-selected' : '';
+                const iconInfo = categoryIcons[item.category] || categoryIcons['Main Pages'];
+
+                return `
+                    <a href="${escapeHtml(item.route)}" class="search-result-row${isSelected}" data-index="${idx}" data-route="${escapeHtml(item.route)}" role="option">
+                        <div class="result-leading-icon ${iconInfo.class}">
+                            ${iconInfo.svg}
+                        </div>
+                        <div class="result-body">
+                            <div class="result-headline">
+                                <span class="result-title">${highlightedTitle}</span>
+                                <span class="result-category-tag">${escapeHtml(item.category)}</span>
+                            </div>
+                            <p class="result-snippet">${highlightedDesc}</p>
+                        </div>
+                        <div class="result-trailing">
+                            <span class="result-open-pill">
+                                <span>Open</span>
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="9 18 15 12 9 6"></polyline>
+                                </svg>
+                            </span>
+                        </div>
+                    </a>
+                `;
+            }).join('');
+
+            // Hook up click & hover listeners for rows
+            const rows = resultsList.querySelectorAll('.search-result-row');
+            rows.forEach(row => {
+                row.addEventListener('mouseenter', () => {
+                    const idx = parseInt(row.getAttribute('data-index'), 10);
+                    if (!isNaN(idx)) {
+                        selectedIndex = idx;
+                        updateSelection();
+                    }
+                });
+
+                row.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const route = row.getAttribute('data-route');
+                    navigateToRoute(route);
+                });
+            });
+        }
+
+        updateSelection();
+    }
+
+    // Event Listeners for trigger buttons
+    if (triggerBtn) {
+        triggerBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            openSearchModal();
+        });
+    }
+
+    if (mobileTriggerBtn) {
+        mobileTriggerBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            openSearchModal();
+        });
+    }
+
+    if (closeBtn) {
+        closeBtn.addEventListener('click', closeSearchModal);
+    }
+
+    if (backdrop) {
+        backdrop.addEventListener('click', closeSearchModal);
+    }
+
+    if (clearBtn && input) {
+        clearBtn.addEventListener('click', () => {
+            input.value = '';
+            clearBtn.style.display = 'none';
+            renderResults('');
+            input.focus();
+        });
+    }
+
+    if (input) {
+        input.addEventListener('input', () => {
+            const query = input.value;
+            if (clearBtn) {
+                clearBtn.style.display = query.length > 0 ? 'flex' : 'none';
+            }
+            renderResults(query);
+        });
+    }
+
+    // Category Tabs filter
+    if (categoryBar) {
+        const catPills = categoryBar.querySelectorAll('.search-tab-pill');
+        catPills.forEach(pill => {
+            pill.addEventListener('click', () => {
+                catPills.forEach(p => p.classList.remove('active'));
+                pill.classList.add('active');
+                activeCategory = pill.getAttribute('data-cat') || 'all';
+                renderResults(input ? input.value : '');
+            });
+        });
+    }
+
+    // Keyboard Shortcuts and Navigation
+    document.addEventListener('keydown', (e) => {
+        // Open with Ctrl+K or Cmd+K
+        if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
+            e.preventDefault();
+            if (modal.classList.contains('is-open')) {
+                closeSearchModal();
+            } else {
+                openSearchModal();
+            }
+            return;
+        }
+
+        // Open with '/' if not already typing in another input
+        if (e.key === '/' && !modal.classList.contains('is-open')) {
+            const activeTag = document.activeElement ? document.activeElement.tagName.toLowerCase() : '';
+            if (activeTag !== 'input' && activeTag !== 'textarea' && activeTag !== 'select' && !document.activeElement.isContentEditable) {
+                e.preventDefault();
+                openSearchModal();
+                return;
+            }
+        }
+
+        // Handle keys when search modal is open
+        if (modal.classList.contains('is-open')) {
+            if (e.key === 'Escape') {
+                e.preventDefault();
+                closeSearchModal();
+            } else if (e.key === 'ArrowDown') {
+                e.preventDefault();
+                if (currentResults.length > 0) {
+                    selectedIndex = (selectedIndex + 1) % currentResults.length;
+                    updateSelection();
+                }
+            } else if (e.key === 'ArrowUp') {
+                e.preventDefault();
+                if (currentResults.length > 0) {
+                    selectedIndex = (selectedIndex - 1 + currentResults.length) % currentResults.length;
+                    updateSelection();
+                }
+            } else if (e.key === 'Enter') {
+                e.preventDefault();
+                if (selectedIndex >= 0 && selectedIndex < currentResults.length) {
+                    navigateToRoute(currentResults[selectedIndex].route);
+                } else if (currentResults.length > 0) {
+                    navigateToRoute(currentResults[0].route);
+                }
+            }
+        }
+    });
+}
 
 /**
  * Leader Bio Modal Functionality
