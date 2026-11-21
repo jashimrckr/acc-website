@@ -3599,3 +3599,302 @@ body.header-hidden .media-subnav-bar {
         max-height: 220px;
     }
 }
+
+/* ==========================================================================
+   Upcoming Events Calendar Section & Cards (News & Media)
+   ========================================================================== */
+.events-calendar-section {
+    background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+    border-top: 1px solid #e2e8f0;
+    border-bottom: 1px solid #e2e8f0;
+    padding: clamp(50px, 6vw, 84px) 0;
+}
+
+/* Notice & Sync Series Banner */
+.events-notice-card {
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-left: 5px solid #026836;
+    border-radius: 16px;
+    padding: 22px 26px;
+    margin-bottom: 36px;
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    box-shadow: 0 4px 18px rgba(15, 23, 42, 0.04);
+}
+
+.notice-icon-box {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: #e6f4ea;
+    color: #026836;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.notice-text-content {
+    flex: 1;
+}
+
+.notice-text-content h4 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0 0 4px 0;
+}
+
+.notice-text-content p {
+    font-size: 13.5px;
+    color: #64748b;
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* Events Calendar Grid */
+.events-calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px;
+}
+
+@media (max-width: 960px) {
+    .events-calendar-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .events-notice-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+}
+
+/* Calendar Event Card */
+.event-cal-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 18px;
+    padding: 24px 26px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.04);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    position: relative;
+}
+
+.event-cal-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 36px rgba(15, 23, 42, 0.08);
+    border-color: #cbd5e1;
+}
+
+/* Card Header: Calendar Tear Sheet + Badges */
+.event-card-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.event-date-sheet {
+    width: 68px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+    flex-shrink: 0;
+    text-align: center;
+    border: 1px solid #e2e8f0;
+    background: #ffffff;
+}
+
+.cal-sheet-month {
+    display: block;
+    background: #026836;
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    padding: 4px 0;
+    text-transform: uppercase;
+}
+
+.cal-sheet-day {
+    display: block;
+    font-size: 26px;
+    font-weight: 800;
+    color: #0f172a;
+    line-height: 1.15;
+    padding: 4px 0 2px 0;
+}
+
+.cal-sheet-year {
+    display: block;
+    font-size: 10px;
+    font-weight: 700;
+    color: #64748b;
+    padding-bottom: 4px;
+    text-transform: uppercase;
+}
+
+.event-header-info {
+    flex: 1;
+}
+
+.event-badges-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.event-pill-series {
+    background: #eef3ff;
+    color: #00336d;
+    font-size: 11.5px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 20px;
+    letter-spacing: 0.02em;
+}
+
+.event-pill-status {
+    background: #f1f5f9;
+    color: #475569;
+    font-size: 11.5px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.status-pulse-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #026836;
+    display: inline-block;
+    animation: statusPulse 2s infinite;
+}
+
+@keyframes statusPulse {
+    0% { transform: scale(0.95); opacity: 0.8; }
+    50% { transform: scale(1.3); opacity: 1; }
+    100% { transform: scale(0.95); opacity: 0.8; }
+}
+
+.event-timing-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-size: 12.5px;
+    color: #64748b;
+}
+
+.event-timing-meta span {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Card Body */
+.event-card-body {
+    flex: 1;
+}
+
+.event-topic-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.35;
+    margin: 0 0 8px 0;
+}
+
+.event-topic-desc {
+    font-size: 13.5px;
+    color: #475569;
+    line-height: 1.55;
+    margin: 0 0 14px 0;
+}
+
+.event-topic-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 16px;
+}
+
+.event-tag {
+    background: #f1f5f9;
+    color: #475569;
+    font-size: 11.5px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 6px;
+}
+
+/* Speaker Badge */
+.event-card-speaker {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #f8fafc;
+    border: 1px solid #edf2f7;
+    border-radius: 12px;
+    padding: 10px 14px;
+    margin-bottom: 18px;
+}
+
+.speaker-avatar {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    letter-spacing: 0.05em;
+}
+
+.speaker-details {
+    flex: 1;
+}
+
+.speaker-name {
+    font-size: 14px;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.2;
+}
+
+.speaker-affiliation {
+    font-size: 12.5px;
+    color: #64748b;
+}
+
+/* Card Footer */
+.event-card-footer {
+    display: flex;
+    align-items: center;
+    padding-top: 14px;
+    border-top: 1px solid #edf2f7;
+    margin-top: auto;
+}
+
+.reg-timing-note {
+    display: inline-flex;
+    align-items: center;
+    font-size: 12px;
+    color: #64748b;
+    font-style: italic;
+    line-height: 1.4;
+}

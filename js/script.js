@@ -80,6 +80,12 @@ const headerHTML = `
                                     </a>
                                 </li>
                                 <li>
+                                    <a href="news-events.html#events" class="nav-dropdown-item">
+                                        <span class="dropdown-item-title">Upcoming Events</span>
+                                        <span class="dropdown-item-desc">Lunch &amp; Learn dates &amp; virtual convenings</span>
+                                    </a>
+                                </li>
+                                <li>
                                     <a href="news-events.html#newsletters" class="nav-dropdown-item">
                                         <span class="dropdown-item-title">ACC Newsletters</span>
                                         <span class="dropdown-item-desc">Monthly updates &amp; regional lending news</span>
@@ -252,7 +258,6 @@ const headerHTML = `
                         </svg>
                     </button>
                     <button type="button" class="search-field-close" id="searchModalCloseBtn" aria-label="Close search (Esc)">
-                        <span class="search-esc-badge">ESC</span>
                         <svg class="search-mobile-close-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                             <line x1="18" y1="6" x2="6" y2="18"></line>
                             <line x1="6" y1="6" x2="18" y2="18"></line>
@@ -762,6 +767,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initialize story modals (Impact page)
     initStoryModals();
+
+    // Initialize upcoming events calendar sync (News & Media page)
+    initUpcomingEvents();
 });
 
 /**
@@ -996,6 +1004,13 @@ const siteRoutes = [
         category: "News & Media",
         keywords: "press releases news announcements media coverage grant awards leadership statements media releases",
         desc: "Official announcements, major capital awards, program launches, and press releases."
+    },
+    {
+        route: "news-events.html#events",
+        title: "Upcoming Events – Lunch & Learn Series (2027)",
+        category: "News & Media",
+        keywords: "upcoming events lunch learn dates calendar rural opportunity zones c-pace ted kowalsky cohnreznick data centers broadband brian vo connect humanity rural healthcare paul rosen mission mobile medical project equity amanda calder registration",
+        desc: "Quarterly virtual peer-learning convenings covering clean energy, rural broadband, healthcare, and employee ownership."
     },
     {
         route: "news-events.html#newsletters",
@@ -2023,4 +2038,47 @@ if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initFooterSubscribeForms);
 } else {
     initFooterSubscribeForms();
+}
+
+/**
+ * Upcoming Events & Media Subnav Scrollspy
+ */
+function initUpcomingEvents() {
+    const eventsSection = document.getElementById('events');
+    if (!eventsSection) return;
+
+    // Sticky Subnav Scrollspy
+    const subnavPills = document.querySelectorAll('.media-subnav-pill');
+    if (subnavPills.length > 0) {
+        const sections = [
+            document.getElementById('publications'),
+            document.getElementById('press'),
+            document.getElementById('events'),
+            document.getElementById('newsletters'),
+            document.getElementById('podcasts'),
+            document.getElementById('videos')
+        ].filter(Boolean);
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.id;
+                    subnavPills.forEach(pill => {
+                        const href = pill.getAttribute('href');
+                        if (href === '#' + id) {
+                            pill.classList.add('active');
+                        } else {
+                            pill.classList.remove('active');
+                        }
+                    });
+                }
+            });
+        }, {
+            root: null,
+            rootMargin: '-20% 0px -70% 0px',
+            threshold: 0
+        });
+
+        sections.forEach(sec => observer.observe(sec));
+    }
 }
