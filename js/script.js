@@ -327,7 +327,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (currentPath.includes('about.html')) {
         const link = document.querySelector('.site-header .nav-link[href="about.html"]');
         if (link) link.closest('.nav-item').classList.add('active');
-    } else if (currentPath.includes('what-we-do.html')) {
+    } else if (currentPath.includes('what-we-do.html') || currentPath.includes('opportunity-appalachia.html')) {
         const link = document.querySelector('.site-header .nav-link[href="what-we-do.html"]');
         if (link) link.closest('.nav-item').classList.add('active');
     } else if (currentPath.includes('our-network.html')) {
@@ -770,6 +770,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initialize upcoming events calendar sync (News & Media page)
     initUpcomingEvents();
+
+    // Initialize Opportunity Appalachia popups (Opportunity Appalachia page)
+    initOAModals();
 });
 
 /**
@@ -924,10 +927,17 @@ const siteRoutes = [
     },
     {
         route: "what-we-do.html#programs",
-        title: "Flagship Programs & Green Bank Initiatives",
+        title: "Flagship Programs & Strategic Initiatives",
         category: "Programs & Services",
         keywords: "programs green bank clean energy epa greenhouse gas reduction fund climate finance solar energy soar small farms",
         desc: "Transformative climate finance, clean energy lending for rural communities, and strategic small business partnerships."
+    },
+    {
+        route: "opportunity-appalachia.html",
+        title: "Opportunity Appalachia – Regional Economic Restructuring",
+        category: "Programs & Services",
+        keywords: "opportunity appalachia oa real estate downtown revitalization technical assistance investor convening opportunity zones project pipeline portfolio central appalachia",
+        desc: "Brings investment to Central Appalachian communities, creating jobs and businesses that support sustainable growth through technical assistance and investor matchmaking."
     },
 
     // --- Our Network Subroutes ---
@@ -2081,4 +2091,72 @@ function initUpcomingEvents() {
 
         sections.forEach(sec => observer.observe(sec));
     }
+}
+
+/**
+ * Opportunity Appalachia Modal Popups
+ */
+function initOAModals() {
+    const modalTriggers = document.querySelectorAll('[data-oa-modal]');
+    if (modalTriggers.length === 0) return;
+
+    let activeModal = null;
+    let lastFocusedElement = null;
+
+    function openOAModal(modalId, triggerEl) {
+        const modal = document.getElementById(modalId);
+        if (!modal) return;
+
+        lastFocusedElement = triggerEl;
+        activeModal = modal;
+        modal.removeAttribute('hidden');
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+
+        const closeBtn = modal.querySelector('.oa-modal-close');
+        if (closeBtn) closeBtn.focus();
+    }
+
+    function closeOAModal() {
+        if (!activeModal) return;
+
+        activeModal.classList.remove('active');
+        activeModal.setAttribute('hidden', '');
+        document.body.style.overflow = '';
+
+        if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
+            lastFocusedElement.focus();
+        }
+        activeModal = null;
+    }
+
+    modalTriggers.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = btn.getAttribute('data-oa-modal');
+            if (targetId) openOAModal(targetId, btn);
+        });
+    });
+
+    document.querySelectorAll('.oa-modal-backdrop').forEach(modal => {
+        const closeBtns = modal.querySelectorAll('.oa-modal-close, .oa-modal-close-btn');
+        closeBtns.forEach(b => {
+            b.addEventListener('click', (e) => {
+                e.preventDefault();
+                closeOAModal();
+            });
+        });
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeOAModal();
+            }
+        });
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && activeModal) {
+            closeOAModal();
+        }
+    });
 }
