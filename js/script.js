@@ -115,7 +115,7 @@ const headerHTML = `
                 </ul>
             </nav>
                         <div class="header-actions">
-                <button type="button" class="header-search-icon-btn" id="siteSearchTrigger" aria-label="Search site routes (Ctrl+K)" title="Search site routes (Ctrl+K)">
+                <button type="button" class="header-search-icon-btn" id="siteSearchTrigger" aria-label="Search site routes (Ctrl+K)">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                         <circle cx="11" cy="11" r="8"></circle>
                         <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
@@ -250,7 +250,7 @@ const headerHTML = `
                             <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
                         </svg>
                     </span>
-                    <input type="text" id="siteSearchInput" class="search-field-input" placeholder="Search pages, topics, CDFIs, programs, or news..." autocomplete="off" spellcheck="false" aria-label="Search anything on the site">
+                    <input type="text" id="siteSearchInput" class="search-field-input" placeholder="Search pages, topics, programs, or news..." autocomplete="off" spellcheck="false" aria-label="Search anything on the site">
                     <button type="button" class="search-field-clear" id="searchBoxClear" aria-label="Clear search input" style="display: none;">
                         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                             <line x1="18" y1="6" x2="6" y2="18"></line>
