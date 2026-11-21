@@ -991,7 +991,6 @@ a.channel-value:hover {
 .form-funding-notice.outside-card {
     background: #ffffff;
     border: 1px solid rgba(45, 61, 144, 0.2);
-    border-left: 4px solid var(--color-navy-4);
     border-radius: 12px;
     padding: 16px 20px;
     margin-bottom: 24px;
