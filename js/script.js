@@ -82,7 +82,7 @@ const headerHTML = `
                                 <li>
                                     <a href="news-events.html#events" class="nav-dropdown-item">
                                         <span class="dropdown-item-title">Upcoming Events</span>
-                                        <span class="dropdown-item-desc">Lunch &amp; Learn dates &amp; virtual convenings</span>
+                                        <span class="dropdown-item-desc">Lunch &amp; Learn dates</span>
                                     </a>
                                 </li>
                                 <li>
@@ -113,6 +113,34 @@ const headerHTML = `
                         <a href="invest.html" class="nav-link">Invest</a>
                     </li>
                 </ul>
+                <div class="mobile-drawer-invest-card">
+                    <div class="drawer-invest-header">
+                        <span class="drawer-invest-badge">
+                            <svg width="20" height="20" viewBox="0 0 30 30" fill="currentColor">
+                                <circle cx="18" cy="8" r="4.5" />
+                                <path d="M 8 14 A 3 3 0 0 0 6.88 14.22 L 2 16 L 2 24 L 6.22 22.17 C 6.72 21.95 7.28 21.94 7.79 22.15 L 16.85 25.85 A 1.5 1.5 0 0 0 17.5 26 A 1.5 1.5 0 0 0 18.24 25.8 L 27.23 20.81 A 1.5 1.5 0 0 0 28 19.5 A 1.5 1.5 0 0 0 26.5 18 L 19 21 L 17.5 21 A 1.5 1.5 0 0 0 19 19.5 A 1.5 1.5 0 0 0 17.96 18.07 L 9.27 14.28 A 3 3 0 0 0 8 14 z"/>
+                            </svg>
+                        </span>
+                        <div>
+                            <span class="drawer-invest-title">Invest in Our Work</span>
+                            <span class="drawer-invest-sub">Support Appalachia's small businesses &amp; clean energy</span>
+                        </div>
+                    </div>
+                    <div class="drawer-invest-actions">
+                        <a href="invest.html" class="drawer-invest-action-btn primary">
+                            <span>Invest Capital</span>
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                        </a>
+                        <a href="invest.html#contact" class="drawer-invest-action-btn secondary">
+                            <span>Partner With Us</span>
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                        </a>
+                        <a href="donate.html" class="drawer-invest-action-btn secondary">
+                            <span>Donate</span>
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                        </a>
+                    </div>
+                </div>
             </nav>
                         <div class="header-actions">
                 <button type="button" class="header-search-icon-btn" id="siteSearchTrigger" aria-label="Search site routes (Ctrl+K)">
@@ -123,6 +151,8 @@ const headerHTML = `
                     <span class="search-tooltip">Search site <kbd>Ctrl K</kbd></span>
                 </button>
                 <div class="invest-dropdown-wrapper">
+                    <!-- Mobile Backdrop Overlay -->
+                    <div class="invest-popup-backdrop" id="investPopupBackdrop"></div>
                     <!-- Popup Button (Collapsed State) -->
                     <button class="invest-trigger-btn" id="investTriggerBtn" aria-expanded="false" aria-haspopup="true" aria-label="Invest in Our Work Menu">
                         <span class="invest-btn-icon">
@@ -131,7 +161,10 @@ const headerHTML = `
                                 <path d="M 8 14 A 3 3 0 0 0 6.88 14.22 L 2 16 L 2 24 L 6.22 22.17 C 6.72 21.95 7.28 21.94 7.79 22.15 L 16.85 25.85 A 1.5 1.5 0 0 0 17.5 26 A 1.5 1.5 0 0 0 18.24 25.8 L 27.23 20.81 A 1.5 1.5 0 0 0 28 19.5 A 1.5 1.5 0 0 0 26.5 18 L 19 21 L 17.5 21 A 1.5 1.5 0 0 0 19 19.5 A 1.5 1.5 0 0 0 17.96 18.07 L 9.27 14.28 A 3 3 0 0 0 8 14 z"/>
                             </svg>
                         </span>
-                        <span class="invest-btn-text">Invest in Our Work</span>
+                        <span class="invest-btn-text">
+                            <span class="invest-text-full">Invest in Our Work</span>
+                            <span class="invest-text-short">Invest</span>
+                        </span>
                         <span class="invest-btn-chevron">
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                                 <polyline points="6 9 12 15 18 9"></polyline>
@@ -365,30 +398,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const investWrapper = document.querySelector('.invest-dropdown-wrapper');
     const investTriggerBtn = document.getElementById('investTriggerBtn');
     const investPopupCloseBtn = document.getElementById('investPopupCloseBtn');
-
-    if (investWrapper && investTriggerBtn) {
-        investTriggerBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            const isOpen = investWrapper.classList.toggle('is-open');
-            investTriggerBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-        });
-
-        if (investPopupCloseBtn) {
-            investPopupCloseBtn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                investWrapper.classList.remove('is-open');
-                investTriggerBtn.setAttribute('aria-expanded', 'false');
-            });
-
-            const investPopupItems = investWrapper.querySelectorAll('.invest-popup-item');
-            investPopupItems.forEach(item => {
-                item.addEventListener('click', () => {
-                    investWrapper.classList.remove('is-open');
-                    investTriggerBtn.setAttribute('aria-expanded', 'false');
-                });
-            });
-        }
-    }
+    const investPopupBackdrop = document.getElementById('investPopupBackdrop');
 
     // Initialize header interactions
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
@@ -396,9 +406,56 @@ document.addEventListener('DOMContentLoaded', () => {
     const hamburgerIcon = document.querySelector('.hamburger-icon');
     const closeIcon = document.querySelector('.close-icon');
 
+    const closeMobileMenu = () => {
+        if (siteHeader && siteHeader.classList.contains('menu-open')) {
+            siteHeader.classList.remove('menu-open');
+            if (hamburgerIcon) hamburgerIcon.style.display = 'block';
+            if (closeIcon) closeIcon.style.display = 'none';
+            document.body.style.overflow = '';
+        }
+    };
+
+    const closeInvestPopup = () => {
+        if (investWrapper) {
+            investWrapper.classList.remove('is-open');
+            if (investTriggerBtn) investTriggerBtn.setAttribute('aria-expanded', 'false');
+        }
+    };
+
+    if (investWrapper && investTriggerBtn) {
+        investTriggerBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            closeMobileMenu();
+            const isOpen = investWrapper.classList.toggle('is-open');
+            investTriggerBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        });
+
+        if (investPopupCloseBtn) {
+            investPopupCloseBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                closeInvestPopup();
+            });
+        }
+
+        if (investPopupBackdrop) {
+            investPopupBackdrop.addEventListener('click', (e) => {
+                e.stopPropagation();
+                closeInvestPopup();
+            });
+        }
+
+        const investPopupItems = investWrapper.querySelectorAll('.invest-popup-item');
+        investPopupItems.forEach(item => {
+            item.addEventListener('click', () => {
+                closeInvestPopup();
+            });
+        });
+    }
+
     // Toggle Mobile Menu
     if (mobileMenuBtn && siteHeader) {
         mobileMenuBtn.addEventListener('click', () => {
+            closeInvestPopup();
             siteHeader.classList.toggle('menu-open');
 
             if (siteHeader.classList.contains('menu-open')) {
@@ -412,6 +469,14 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // Drawer Invest Card Links
+    const drawerInvestLinks = document.querySelectorAll('.drawer-invest-action-btn');
+    drawerInvestLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            closeMobileMenu();
+        });
+    });
 
     // Initialize dropdowns & handle click-to-hide
     const dropdownItems = document.querySelectorAll('.site-header .has-dropdown');
@@ -1020,7 +1085,7 @@ const siteRoutes = [
         title: "Upcoming Events – Lunch & Learn Series (2027)",
         category: "News & Media",
         keywords: "upcoming events lunch learn dates calendar rural opportunity zones c-pace ted kowalsky cohnreznick data centers broadband brian vo connect humanity rural healthcare paul rosen mission mobile medical project equity amanda calder registration",
-        desc: "Quarterly virtual peer-learning convenings covering clean energy, rural broadband, healthcare, and employee ownership."
+        desc: "Quarterly peer-learning convenings covering clean energy, rural broadband, healthcare, and employee ownership."
     },
     {
         route: "news-events.html#newsletters",
