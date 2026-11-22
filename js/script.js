@@ -1,3 +1,16 @@
+function trackClarityEvent(eventName) {
+    if (typeof window.clarity === 'function') {
+        window.clarity('event', eventName);
+    }
+}
+
+document.addEventListener('click', (event) => {
+    const link = event.target.closest?.('a[data-clarity-event]');
+    if (link) {
+        trackClarityEvent(link.dataset.clarityEvent);
+    }
+});
+
 // We store the header HTML in a template string so it works locally without a server (no CORS issues).
 const headerHTML = `
      <header class="site-header">
@@ -1992,6 +2005,7 @@ async function submitContactForm(formElement) {
         }
 
         // Transition to success state
+        trackClarityEvent('contact_form_submitted');
         form.style.display = 'none';
         if (successCard) {
             const userMsg = successCard.querySelector('.success-user-text');
@@ -2082,6 +2096,9 @@ function initFooterSubscribeForms() {
                 }
 
                 // Success state
+                if (!payload.website) {
+                    trackClarityEvent('newsletter_signup_completed');
+                }
                 submitBtn.innerHTML = '<span>Subscribed!</span>';
                 submitBtn.style.backgroundColor = '#026836';
                 submitBtn.style.borderColor = '#026836';
