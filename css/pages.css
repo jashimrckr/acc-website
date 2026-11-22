@@ -41,6 +41,10 @@
     background-image: url('../images/photos/DSC07100-1.jpg');
 }
 
+.page-hero.hero-green-bank::before {
+    background-image: url('../images/photos/solar2.jpeg');
+}
+
 .page-hero.hero-network::before {
     background-image: url('../images/photos/DSC07167-Pano-7.jpg');
 }
@@ -3969,6 +3973,32 @@ body.header-hidden .media-subnav-bar {
     grid-template-columns: 2fr 1fr;
     gap: 40px;
     align-items: flex-start;
+}
+
+.green-bank-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+    gap: 24px;
+}
+
+.green-bank-projects .green-bank-grid {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 30rem), 1fr));
+}
+
+.green-bank-grid h3 {
+    color: #0f172a;
+    font-size: 1.25rem;
+    margin-bottom: 8px;
+}
+
+.green-bank-grid p {
+    color: #334155;
+    line-height: 1.65;
+}
+
+.green-bank-overview .oa-overview-main a {
+    color: #026836;
+    text-decoration: underline;
 }
 
 .oa-overview-main p {

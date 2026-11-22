@@ -51,12 +51,6 @@ const headerHTML = `
                                         <span class="dropdown-item-desc">Community spotlights &amp; lender partnerships</span>
                                     </a>
                                 </li>
-                                <li>
-                                    <a href="impact-insights.html#reports" class="nav-dropdown-item">
-                                        <span class="dropdown-item-title">Reports &amp; Resources</span>
-                                        <span class="dropdown-item-desc">Annual impact reports &amp; publications</span>
-                                    </a>
-                                </li>
                             </ul>
                         </div>
                     </li>
@@ -82,7 +76,7 @@ const headerHTML = `
                                 <li>
                                     <a href="news-events.html#events" class="nav-dropdown-item">
                                         <span class="dropdown-item-title">Upcoming Events</span>
-                                        <span class="dropdown-item-desc">Lunch &amp; Learn dates</span>
+                                        <span class="dropdown-item-desc">Lunch &amp; Learn webinars</span>
                                     </a>
                                 </li>
                                 <li>
@@ -360,7 +354,8 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (currentPath.includes('about.html')) {
         const link = document.querySelector('.site-header .nav-link[href="about.html"]');
         if (link) link.closest('.nav-item').classList.add('active');
-    } else if (currentPath.includes('what-we-do.html') || currentPath.includes('opportunity-appalachia.html')) {
+    } else if (currentPath.includes('what-we-do.html') || currentPath.includes('opportunity-appalachia.html') ||
+        /\/green-bank-financing(?:\.html)?$/.test(currentPath)) {
         const link = document.querySelector('.site-header .nav-link[href="what-we-do.html"]');
         if (link) link.closest('.nav-item').classList.add('active');
     } else if (currentPath.includes('our-network.html')) {
@@ -1003,6 +998,13 @@ const siteRoutes = [
         category: "Programs & Services",
         keywords: "opportunity appalachia oa real estate downtown revitalization technical assistance investor convening opportunity zones project pipeline portfolio central appalachia",
         desc: "Brings investment to Central Appalachian communities, creating jobs and businesses that support sustainable growth through technical assistance and investor matchmaking."
+    },
+    {
+        route: "green-bank-financing.html",
+        title: "Green Bank for Rural America",
+        category: "Programs & Services",
+        keywords: "green bank financing clean energy renewable energy rural solar community lenders technical assistance",
+        desc: "Explore the Green Bank's financing priorities, target communities, and resources for community lenders."
     },
 
     // --- Our Network Subroutes ---
