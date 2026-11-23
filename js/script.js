@@ -11,6 +11,31 @@ document.addEventListener('click', (event) => {
     }
 });
 
+const FOCUSABLE_SELECTOR = 'a[href]:not([tabindex="-1"]), button:not([disabled]):not([tabindex="-1"]), input:not([disabled]):not([tabindex="-1"]), select:not([disabled]):not([tabindex="-1"]), textarea:not([disabled]):not([tabindex="-1"]), [tabindex]:not([tabindex="-1"])';
+
+function getFocusableElements(container) {
+    if (!container) return [];
+    return Array.from(container.querySelectorAll(FOCUSABLE_SELECTOR)).filter((el) => el.getClientRects().length > 0);
+}
+
+function trapFocus(event, container) {
+    if (event.key !== 'Tab' || !container) return;
+    const focusable = getFocusableElements(container);
+    if (focusable.length === 0) {
+        event.preventDefault();
+        return;
+    }
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+    }
+}
+
 // We store the header HTML in a template string so it works locally without a server (no CORS issues).
 const headerHTML = `
      <header class="site-header">
@@ -18,7 +43,7 @@ const headerHTML = `
             <a href="index.html" class="logo" aria-label="Appalachian Community Capital Home">
                 <img src="images/ACC-Logo-header.png" alt="Appalachian Community Capital">
             </a>
-            <nav class="main-nav">
+            <nav class="main-nav" id="site-main-nav">
                 <div class="mobile-search-banner">
                     <button type="button" class="mobile-search-input-btn" id="mobileSearchTriggerBtn" aria-label="Search site routes and topics">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
@@ -46,7 +71,7 @@ const headerHTML = `
                         <a href="our-network.html" class="nav-link">Our Network</a>
                     </li>
                     <li class="nav-item has-dropdown">
-                        <a href="impact-insights.html" class="nav-link">
+                        <a href="impact-insights.html" class="nav-link" aria-haspopup="true" aria-expanded="false">
                             Impact &amp; Insights
                             <svg class="dropdown-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
                         </a>
@@ -68,7 +93,7 @@ const headerHTML = `
                         </div>
                     </li>
                     <li class="nav-item has-dropdown">
-                        <a href="news-events.html" class="nav-link">
+                        <a href="news-events.html" class="nav-link" aria-haspopup="true" aria-expanded="false">
                             News &amp; Media
                             <svg class="dropdown-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
                         </a>
@@ -161,7 +186,7 @@ const headerHTML = `
                     <!-- Mobile Backdrop Overlay -->
                     <div class="invest-popup-backdrop" id="investPopupBackdrop"></div>
                     <!-- Popup Button (Collapsed State) -->
-                    <button class="invest-trigger-btn" id="investTriggerBtn" aria-expanded="false" aria-haspopup="true" aria-label="Invest in Our Work Menu">
+                    <button type="button" class="invest-trigger-btn" id="investTriggerBtn" aria-expanded="false" aria-haspopup="true" aria-label="Invest in Our Work Menu">
                         <span class="invest-btn-icon">
                             <svg width="22" height="22" viewBox="0 0 30 30" fill="currentColor">
                                 <circle cx="18" cy="8" r="4.5" />
@@ -261,7 +286,7 @@ const headerHTML = `
                         </div>
                     </div>
                 </div>
-                <button class="mobile-menu-btn" aria-label="Toggle Menu">
+                <button type="button" class="mobile-menu-btn" aria-label="Toggle Menu" aria-expanded="false" aria-controls="site-main-nav">
                     <svg class="hamburger-icon" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor"
                         stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
                         <line x1="3" y1="12" x2="21" y2="12"></line>
@@ -414,19 +439,31 @@ document.addEventListener('DOMContentLoaded', () => {
     const hamburgerIcon = document.querySelector('.hamburger-icon');
     const closeIcon = document.querySelector('.close-icon');
 
-    const closeMobileMenu = () => {
+    const closeMobileMenu = (options = {}) => {
         if (siteHeader && siteHeader.classList.contains('menu-open')) {
             siteHeader.classList.remove('menu-open');
             if (hamburgerIcon) hamburgerIcon.style.display = 'block';
             if (closeIcon) closeIcon.style.display = 'none';
             document.body.style.overflow = '';
+            if (mobileMenuBtn) mobileMenuBtn.setAttribute('aria-expanded', 'false');
+            if (options.restoreFocus && mobileMenuBtn) mobileMenuBtn.focus();
         }
     };
 
-    const closeInvestPopup = () => {
-        if (investWrapper) {
+    const closeInvestPopup = (options = {}) => {
+        if (investWrapper && investWrapper.classList.contains('is-open')) {
             investWrapper.classList.remove('is-open');
-            if (investTriggerBtn) investTriggerBtn.setAttribute('aria-expanded', 'false');
+            if (investTriggerBtn) {
+                investTriggerBtn.setAttribute('aria-expanded', 'false');
+                if (options.restoreFocus) investTriggerBtn.focus();
+            }
+        }
+    };
+
+    const setDropdownExpanded = (dropdownItem, expanded) => {
+        const link = dropdownItem ? dropdownItem.querySelector('.nav-link') : null;
+        if (link && link.hasAttribute('aria-haspopup')) {
+            link.setAttribute('aria-expanded', expanded ? 'true' : 'false');
         }
     };
 
@@ -466,7 +503,9 @@ document.addEventListener('DOMContentLoaded', () => {
             closeInvestPopup();
             siteHeader.classList.toggle('menu-open');
 
-            if (siteHeader.classList.contains('menu-open')) {
+            const isOpen = siteHeader.classList.contains('menu-open');
+            mobileMenuBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+            if (isOpen) {
                 hamburgerIcon.style.display = 'none';
                 closeIcon.style.display = 'block';
                 document.body.style.overflow = 'hidden';
@@ -505,19 +544,23 @@ document.addEventListener('DOMContentLoaded', () => {
                                 other.classList.add('dropdown-hidden');
                                 const otherMenu = other.querySelector('.nav-dropdown-menu');
                                 if (otherMenu) otherMenu.classList.add('is-hidden');
+                                setDropdownExpanded(other, false);
                             }
                         });
                         dropdownItem.classList.remove('dropdown-hidden');
                         if (dropdownMenu) dropdownMenu.classList.remove('is-hidden');
                         dropdownItem.classList.add('dropdown-open');
+                        setDropdownExpanded(dropdownItem, true);
                     } else {
                         dropdownItem.classList.remove('dropdown-open');
                         dropdownItem.classList.add('dropdown-hidden');
                         if (dropdownMenu) dropdownMenu.classList.add('is-hidden');
+                        setDropdownExpanded(dropdownItem, false);
                     }
                 } else {
                     dropdownItem.classList.remove('dropdown-hidden');
                     if (dropdownMenu) dropdownMenu.classList.remove('is-hidden');
+                    setDropdownExpanded(dropdownItem, true);
                 }
             });
         }
@@ -530,19 +573,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 dropdownItem.classList.add('dropdown-hidden');
                 dropdownItem.classList.remove('dropdown-open');
                 if (dropdownMenu) dropdownMenu.classList.add('is-hidden');
-
-                // If invest popup or mobile drawer is open, close them
-                if (investWrapper) {
-                    investWrapper.classList.remove('is-open');
-                    if (investTriggerBtn) investTriggerBtn.setAttribute('aria-expanded', 'false');
-                }
-
-                if (siteHeader && siteHeader.classList.contains('menu-open')) {
-                    siteHeader.classList.remove('menu-open');
-                    if (hamburgerIcon) hamburgerIcon.style.display = 'block';
-                    if (closeIcon) closeIcon.style.display = 'none';
-                    document.body.style.overflow = '';
-                }
+                setDropdownExpanded(dropdownItem, false);
+                closeInvestPopup();
+                closeMobileMenu();
 
                 // If clicking an anchor for the current page, scroll into view
                 const href = link.getAttribute('href');
@@ -556,11 +589,6 @@ document.addEventListener('DOMContentLoaded', () => {
                         }
                     }
                 }
-
-                // Blur focused link
-                if (document.activeElement) {
-                    document.activeElement.blur();
-                }
             });
         });
 
@@ -568,6 +596,21 @@ document.addEventListener('DOMContentLoaded', () => {
         dropdownItem.addEventListener('mouseenter', () => {
             dropdownItem.classList.remove('dropdown-hidden');
             if (dropdownMenu) dropdownMenu.classList.remove('is-hidden');
+            if (window.innerWidth > 1024) setDropdownExpanded(dropdownItem, true);
+        });
+
+        dropdownItem.addEventListener('mouseleave', () => {
+            if (window.innerWidth > 1024) setDropdownExpanded(dropdownItem, false);
+        });
+
+        dropdownItem.addEventListener('focusin', () => {
+            if (window.innerWidth > 1024) setDropdownExpanded(dropdownItem, true);
+        });
+
+        dropdownItem.addEventListener('focusout', (e) => {
+            if (window.innerWidth > 1024 && !dropdownItem.contains(e.relatedTarget)) {
+                setDropdownExpanded(dropdownItem, false);
+            }
         });
 
         dropdownItem.addEventListener('mousemove', () => {
@@ -586,22 +629,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 dropdownItem.classList.remove('dropdown-open');
                 const dropdownMenu = dropdownItem.querySelector('.nav-dropdown-menu');
                 if (dropdownMenu) dropdownMenu.classList.add('is-hidden');
-                if (document.activeElement && dropdownItem.contains(document.activeElement)) {
-                    document.activeElement.blur();
-                }
+                setDropdownExpanded(dropdownItem, false);
             }
         });
 
         if (investWrapper && !investWrapper.contains(e.target)) {
-            investWrapper.classList.remove('is-open');
-            if (investTriggerBtn) investTriggerBtn.setAttribute('aria-expanded', 'false');
+            closeInvestPopup();
         }
 
         if (siteHeader && siteHeader.classList.contains('menu-open') && !siteHeader.contains(e.target)) {
-            siteHeader.classList.remove('menu-open');
-            if (hamburgerIcon) hamburgerIcon.style.display = 'block';
-            if (closeIcon) closeIcon.style.display = 'none';
-            document.body.style.overflow = '';
+            closeMobileMenu();
         }
     };
 
@@ -611,9 +648,17 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
             if (investWrapper && investWrapper.classList.contains('is-open')) {
-                investWrapper.classList.remove('is-open');
-                if (investTriggerBtn) investTriggerBtn.setAttribute('aria-expanded', 'false');
+                closeInvestPopup({ restoreFocus: true });
+                return;
             }
+            if (siteHeader && siteHeader.classList.contains('menu-open')) {
+                closeMobileMenu({ restoreFocus: true });
+            }
+        }
+        if (investWrapper && investWrapper.classList.contains('is-open')) {
+            trapFocus(e, investWrapper);
+        } else if (siteHeader && siteHeader.classList.contains('menu-open')) {
+            trapFocus(e, siteHeader);
         }
     });
 
@@ -1240,6 +1285,7 @@ function initSiteSearch() {
     let activeCategory = 'all';
     let currentResults = [];
     let selectedIndex = -1;
+    let lastFocusedElement = null;
 
     function escapeHtml(str) {
         if (!str) return '';
@@ -1266,14 +1312,19 @@ function initSiteSearch() {
     }
 
     function openSearchModal() {
+        lastFocusedElement = document.activeElement;
+
         // If mobile nav is open, close it
         const siteHeader = document.querySelector('.site-header');
         if (siteHeader && siteHeader.classList.contains('menu-open')) {
             siteHeader.classList.remove('menu-open');
             const hamburgerIcon = document.querySelector('.hamburger-icon');
             const closeIcon = document.querySelector('.close-icon');
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
             if (hamburgerIcon) hamburgerIcon.style.display = 'block';
             if (closeIcon) closeIcon.style.display = 'none';
+            if (mobileMenuBtn) mobileMenuBtn.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = '';
         }
 
         modal.hidden = false;
@@ -1298,6 +1349,9 @@ function initSiteSearch() {
         document.body.classList.remove('search-modal-open');
         setTimeout(() => {
             modal.hidden = true;
+            if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
+                lastFocusedElement.focus();
+            }
         }, 220);
     }
 
@@ -1613,6 +1667,7 @@ function initSiteSearch() {
 
         // Handle keys when search modal is open
         if (modal.classList.contains('is-open')) {
+            trapFocus(e, modal);
             if (e.key === 'Escape') {
                 e.preventDefault();
                 closeSearchModal();
@@ -1701,6 +1756,10 @@ function initLeaderBioModals() {
             lastFocusedElement.focus();
         }
     }
+
+    modal.addEventListener('keydown', (e) => {
+        if (modal.classList.contains('active')) trapFocus(e, modal);
+    });
 
     // Attach to all Bio buttons
     document.querySelectorAll('.leader-bio-btn').forEach(btn => {
@@ -1826,6 +1885,10 @@ function initStoryModals() {
             lastFocusedElement.focus();
         }
     }
+
+    modal.addEventListener('keydown', (e) => {
+        if (modal.classList.contains('active')) trapFocus(e, modal);
+    });
 
     // Attach to all Read Full Story buttons
     document.querySelectorAll('.story-modal-btn').forEach(btn => {
@@ -2249,6 +2312,10 @@ function initOAModals() {
             if (e.target === modal) {
                 closeOAModal();
             }
+        });
+
+        modal.addEventListener('keydown', (e) => {
+            if (modal.classList.contains('active')) trapFocus(e, modal);
         });
     });
 
