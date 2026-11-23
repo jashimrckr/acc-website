@@ -1101,7 +1101,7 @@ const siteRoutes = [
         desc: "Search and filter all 46 certified member CDFIs by state, specialty, and DeepRoots provider participation."
     },
     {
-        route: "our-network.html#states-reach",
+        route: "our-network.html#directory",
         title: "Geographic Reach Across 13 States & 423 Counties",
         category: "Network & Members",
         keywords: "13 states 423 counties footprint alabama georgia kentucky maryland mississippi new york north carolina ohio pennsylvania south carolina tennessee virginia west virginia arc",
