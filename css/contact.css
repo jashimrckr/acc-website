@@ -499,6 +499,7 @@
     height: 18px;
 }
 
+.contact-info-col h1,
 .contact-info-col h2 {
     font-size: clamp(2rem, 3.2vw, 2.75rem);
     line-height: 1.2;
