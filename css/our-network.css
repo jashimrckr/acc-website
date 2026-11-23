@@ -611,6 +611,7 @@
     color: #ffffff;
     margin-top: clamp(24px, 3.5vw, 32px);
     box-shadow: 0 15px 40px rgba(0, 33, 85, 0.2);
+    scroll-margin-top: 136px;
 }
 
 .become-member-grid {
@@ -831,6 +832,10 @@
     .network-page .membership-pillars-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
+
+    .network-page .become-member-card {
+        scroll-margin-top: 96px;
+    }
 }
 
 @media (max-width: 960px) {
@@ -851,6 +856,10 @@
 }
 
 @media (max-width: 768px) {
+    .network-page .become-member-card {
+        scroll-margin-top: 88px;
+    }
+
     .network-stats-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
         padding: 20px;
@@ -915,6 +924,10 @@
 }
 
 @media (max-width: 480px) {
+    .network-page .become-member-card {
+        scroll-margin-top: 84px;
+    }
+
     .network-stats-grid {
         grid-template-columns: 1fr;
     }
