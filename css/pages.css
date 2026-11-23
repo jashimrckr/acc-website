@@ -3540,6 +3540,30 @@ body.header-hidden .media-subnav-bar {
     margin-bottom: 0;
 }
 
+.story-modal-body img {
+    max-width: 100%;
+    height: auto;
+}
+
+.story-modal-body a {
+    text-decoration: underline;
+    overflow-wrap: anywhere;
+}
+
+.story-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(140px, 100%), 1fr));
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.story-gallery img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+}
+
 .story-modal-footer {
     display: flex;
     align-items: center;
