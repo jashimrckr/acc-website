@@ -1585,6 +1585,32 @@ body.search-modal-open {
     color: #b91c1c;
 }
 
+/* Card Target Highlight on Search Navigation */
+.search-target-highlight {
+    outline: 3px solid #026836 !important;
+    outline-offset: 6px;
+    box-shadow: 0 0 28px rgba(2, 104, 54, 0.45) !important;
+    animation: searchPulseGlow 2.4s ease-out forwards;
+}
+
+@keyframes searchPulseGlow {
+    0% {
+        outline-color: #026836;
+        box-shadow: 0 0 32px rgba(2, 104, 54, 0.6);
+        transform: scale(1.01);
+    }
+    70% {
+        outline-color: #026836;
+        box-shadow: 0 0 16px rgba(2, 104, 54, 0.3);
+        transform: scale(1);
+    }
+    100% {
+        outline-color: transparent;
+        box-shadow: none;
+        transform: scale(1);
+    }
+}
+
 .result-body {
     flex: 1;
     min-width: 0;

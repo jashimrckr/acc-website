@@ -357,6 +357,23 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize Site Search and Route Navigator
     initSiteSearch();
 
+    // Handle deep anchor navigation (e.g. from search navigation)
+    if (window.location.hash) {
+        const hashId = window.location.hash.substring(1);
+        const targetElement = document.getElementById(hashId);
+        if (targetElement) {
+            const parentDetails = targetElement.closest('details');
+            if (parentDetails && !parentDetails.open) {
+                parentDetails.open = true;
+            }
+            setTimeout(() => {
+                targetElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                targetElement.classList.add('search-target-highlight');
+                setTimeout(() => targetElement.classList.remove('search-target-highlight'), 2500);
+            }, 350);
+        }
+    }
+
     // Set active link in header based on URL
     const currentPath = window.location.pathname.toLowerCase();
     const navItems = document.querySelectorAll('.site-header .nav-item');
@@ -1170,6 +1187,530 @@ const siteRoutes = [
         category: "Contact & Inquiries",
         keywords: "office locations headquarters christiansburg virginia washington dc phone email address",
         desc: "Physical addresses, mailing details, and contact directory for ACC's Virginia headquarters and Washington DC presence."
+    },
+    // --- Publications & Research Studies ---
+    {
+        route: "news-events.html#pub-impact-report-2025",
+        title: "2025 Impact Report: Capital, Community, and Resilience Across Appalachia",
+        category: "Publications",
+        keywords: "2025 impact report capital community resilience helene recovery 55m grants jobs 275m campaign",
+        desc: "Annual report detailing $55M deployed, 8,000+ jobs sustained, and 4,800+ small businesses connected to capital."
+    },
+    {
+        route: "news-events.html#pub-truist-report",
+        title: "Appalachian Community Capital (ACC) Truist Foundation Report",
+        category: "Publications",
+        keywords: "truist foundation report small business data analytics hub diverse businesses grant capital",
+        desc: "Special report on flexible grant capital deployment and the launch of ACC's regional Data Analytics Hub."
+    },
+    {
+        route: "news-events.html#pub-soar-farms-khic",
+        title: "Assisting Diverse Small Farms and Non-Profits Under Kentucky's SOAR Program",
+        category: "Publications",
+        keywords: "soar program khic kentucky highlands small farms agriculture microloans non-profits minority farmers",
+        desc: "Report on $50,000 grant supporting the SOAR Small Farm Loan Fund for rural Kentucky agricultural enterprises."
+    },
+    {
+        route: "news-events.html#pub-diverse-small-businesses",
+        title: "Supporting Diverse Small Businesses in the Appalachian Region",
+        category: "Publications",
+        keywords: "supporting diverse small businesses member survey truist foundation underrepresented borrowers 13 states",
+        desc: "Member survey evaluating how CDFI members deployed grant capital to assist diverse and rural entrepreneurs."
+    },
+    {
+        route: "news-events.html#pub-investing-in-investors",
+        title: "Appalachian Community Capital: Investing in the Investors",
+        category: "Publications",
+        keywords: "investing in the investors arc appalachian regional commission wholesale model intermediary scale",
+        desc: "Appalachian Regional Commission feature analyzing ACC's wholesale intermediary financing model."
+    },
+    {
+        route: "news-events.html#pub-oz-playbook",
+        title: "Rural Opportunity Zone and Recovery Playbook",
+        category: "Publications",
+        keywords: "rural opportunity zone recovery playbook economic developers community champions private capital central appalachia",
+        desc: "Practical playbook for structuring financings with social returns and attracting private capital to Opportunity Zones."
+    },
+    {
+        route: "news-events.html#pub-bar-evaluation",
+        title: "Evaluation Report: ACC Business Assistance Response (BAR) Program",
+        category: "Publications",
+        keywords: "bar program evaluation business assistance response arc emergency pandemic relief 3.56m",
+        desc: "Evaluation report examining the $3.56M emergency COVID-19 relief program supporting 31 CDFI lenders."
+    },
+    {
+        route: "news-events.html#pub-cdfi-ceo-succession",
+        title: "Interviews with Former CDFI CEOs: Reflections on the Succession Experience",
+        category: "Publications",
+        keywords: "cdfi ceo succession study stepping stone partners leadership transition board readiness executive legacy",
+        desc: "In-depth study featuring interviews with retired CDFI executives on leadership transition and institutional legacy."
+    },
+    {
+        route: "news-events.html#pub-getting-rural-projects-ready",
+        title: "Getting Rural Projects Ready for Investment (Opportunity Appalachia)",
+        category: "Publications",
+        keywords: "getting rural projects ready opportunity appalachia pre-development prospectus financing 100m oh va wv",
+        desc: "Overview of pre-development technical support preparing 16 rural community projects for over $100M in investment."
+    },
+    // --- Press Releases & Milestones ---
+    {
+        route: "news-events.html#press-henry-golatt",
+        title: "Appalachian Community Capital Welcomes Henry A. Golatt to Its Board of Directors",
+        category: "Press Releases",
+        keywords: "henry golatt board of directors loan committee chair hg consulting growth advantedge credit underwriting",
+        desc: "October 2026: Announcement of Henry A. Golatt joining ACC's Board of Directors as Loan Committee Chair."
+    },
+    {
+        route: "news-events.html#press-cin-3-4m",
+        title: "ACC Community Investment Notes Surpasses $3.4 Million",
+        category: "Press Releases",
+        keywords: "community investment notes 3.4 million heron obran trillium brown advisory impact investing",
+        desc: "September 2026: Milestone capital milestone as Community Investment Notes expand funding for rural community lenders."
+    },
+    {
+        route: "news-events.html#press-three-new-board-members",
+        title: "Appalachian Community Capital Welcomes Three New Members to Board of Directors",
+        category: "Press Releases",
+        keywords: "three new board members robin gabbard khaliff davis tj bogdewic mountain association reinvestment fund bridgeway capital",
+        desc: "August 2026: Robin Gabbard, Khaliff Davis, and T.J. Bogdewic appointed to ACC Board of Directors."
+    },
+    {
+        route: "news-events.html#press-donna-gambrell-legacy",
+        title: "Honoring Donna Gambrell’s Legacy — and Investing in What Comes Next",
+        category: "Press Releases",
+        keywords: "donna gambrell legacy fund strategic initiatives retirement philanthropy endowment",
+        desc: "February 2026: Establishment of the Gambrell Fund for Strategic Initiatives honoring Donna Gambrell's career."
+    },
+    {
+        route: "news-events.html#press-four-new-members-dec-2025",
+        title: "ACC Welcomes Four New Members (December 2025)",
+        category: "Press Releases",
+        keywords: "four new members community ventures virginia community development fund disability opportunity fund unified trust",
+        desc: "December 2025: ACC expands network welcoming Community Ventures, VCDF, DOF, and Unified Trust."
+    },
+    {
+        route: "news-events.html#press-ned-gramlich-award",
+        title: "Donna Gambrell Receives 2025 Ned Gramlich Lifetime Achievement Award",
+        category: "Press Releases",
+        keywords: "ned gramlich lifetime achievement award ofn opportunity finance network donna gambrell responsible finance",
+        desc: "October 2025: Opportunity Finance Network honors Donna Gambrell with national Lifetime Achievement Award."
+    },
+    {
+        route: "news-events.html#press-oa-convening-recap",
+        title: "Opportunity Appalachia 2025 Investor Convening Recap",
+        category: "Press Releases",
+        keywords: "opportunity appalachia 2025 investor convening recap downtown revitalization charleston wv",
+        desc: "September 2025: Key outcomes from the 2025 Convening advancing downtown catalyst projects."
+    },
+    {
+        route: "news-events.html#press-oa-convening-photos",
+        title: "2025 Opportunity Appalachia Investor Convening Photos",
+        category: "Press Releases",
+        keywords: "opportunity appalachia convening photos photo gallery charleston west virginia",
+        desc: "August 2025: Visual gallery and highlights from the annual Opportunity Appalachia Investor Convening."
+    },
+    {
+        route: "news-events.html#press-ceo-search",
+        title: "Position Announcement: ACC President and Chief Executive Officer",
+        category: "Press Releases",
+        keywords: "position announcement ceo search president chief executive officer executive transition",
+        desc: "August 2025: Executive search launch for ACC's next President & Chief Executive Officer."
+    },
+    {
+        route: "news-events.html#press-donna-gambrell-retirement",
+        title: "Donna Gambrell, President & CEO of Appalachian Community Capital, Announces Retirement",
+        category: "Press Releases",
+        keywords: "donna gambrell retirement ceo transition 41 cdfi members 3.5 billion assets",
+        desc: "July 2025: Donna Gambrell announces retirement after leading ACC's expansion from 12 to 41 CDFI members."
+    },
+    {
+        route: "news-events.html#press-four-new-members-mar-2025",
+        title: "ACC Welcomes Four New Members (March 2025)",
+        category: "Press Releases",
+        keywords: "four new members crf usa community works wv ecdi iff network growth",
+        desc: "March 2025: Network expansion welcoming CRF USA, Community Works WV, ECDI, and IFF."
+    },
+    {
+        route: "news-events.html#press-240m-requests",
+        title: "$240M in Requests Received for Game-Changing Investment in Rural America",
+        category: "Press Releases",
+        keywords: "240m requests green bank rural america epa clean energy renewable financing preliminary demand",
+        desc: "February 2025: Green Bank for Rural America receives over $240M in preliminary rural clean energy financing requests."
+    },
+    {
+        route: "news-events.html#press-goldman-sachs",
+        title: "Goldman Sachs Invests in Appalachian Community Capital and Regional Small Businesses",
+        category: "Press Releases",
+        keywords: "goldman sachs investment 10000 small businesses west virginia catalytic capital",
+        desc: "December 2024: Goldman Sachs commits catalytic capital supporting West Virginia and regional small businesses."
+    },
+    {
+        route: "news-events.html#press-daniel-wallace-gbra",
+        title: "ACC Names Daniel Wallace as President and CEO of Green Bank for Rural America",
+        category: "Press Releases",
+        keywords: "daniel wallace president ceo green bank for rural america 500 million subsidiary appointment",
+        desc: "November 2024: Announcement of Daniel Wallace leading the $500 million Green Bank for Rural America."
+    },
+    {
+        route: "news-events.html#press-wncsbi-dogwood",
+        title: "ACC Launches Western North Carolina Small Business Initiative with Dogwood Health Trust",
+        category: "Press Releases",
+        keywords: "western north carolina small business initiative wncsbi dogwood health trust hurricane helene emergency relief",
+        desc: "October 2024: Rollout of $10M relief initiative providing emergency recovery grants to small businesses."
+    },
+    {
+        route: "news-events.html#press-cdfi-fund-800k",
+        title: "ACC Receives $800,000 Financial Assistance Grant from CDFI Fund",
+        category: "Press Releases",
+        keywords: "cdfi fund 800000 financial assistance treasury grant small business lending",
+        desc: "September 2024: U.S. Treasury's CDFI Fund awards ACC $800,000 to expand small business financing."
+    },
+    {
+        route: "news-events.html#press-truist-1-3m",
+        title: "Appalachian Community Capital Awarded $1.3 Million Grant from Truist Foundation",
+        category: "Press Releases",
+        keywords: "truist foundation 1.3 million grant diverse small businesses technical assistance",
+        desc: "August 2024: Major foundation grant accelerating capital access and tech assistance for diverse enterprises."
+    },
+    {
+        route: "news-events.html#press-epa-500m-gbra",
+        title: "ACC Formally Announces $500 Million Award from EPA Greenhouse Gas Reduction Fund",
+        category: "Press Releases",
+        keywords: "epa greenhouse gas reduction fund 500 million gbra green bank rural america 2.25 billion",
+        desc: "August 2024: Formal rollout of the Green Bank for Rural America to finance $2.25 billion in clean energy."
+    },
+    {
+        route: "news-events.html#press-oa-coaching-rfp",
+        title: "ACC Seeks Coaching and Conference Management Services for Opportunity Appalachia",
+        category: "Press Releases",
+        keywords: "opportunity appalachia coaching rfp conference management technical support",
+        desc: "May 2024: RFP solicitation for technical coaching and event management for Opportunity Appalachia."
+    },
+    {
+        route: "news-events.html#press-gbra-comms-rfp",
+        title: "ACC Seeks Communications Support Services for Green Bank for Rural America",
+        category: "Press Releases",
+        keywords: "green bank communications rfp public relations media support gbra",
+        desc: "May 2024: RFP solicitation for strategic communications services for the Green Bank for Rural America."
+    },
+    {
+        route: "news-events.html#press-epa-ccia-500m",
+        title: "Appalachian Community Capital Selected for $500M Award from EPA's CCIA",
+        category: "Press Releases",
+        keywords: "epa ccia selection 500 million clean communities investment accelerator 18000 jobs",
+        desc: "April 2024: Historic EPA CCIA grant selection creating an estimated 18,000 rural clean energy jobs."
+    },
+    {
+        route: "news-events.html#press-truist-350k-match",
+        title: "ACC Receives $350,000 Matching Grant from Truist Charitable Fund",
+        category: "Press Releases",
+        keywords: "truist charitable fund 350000 matching grant opportunity appalachia nc oh tn va wv ky",
+        desc: "February 2024: Matching grant supporting Opportunity Appalachia community redevelopment projects across 6 states."
+    },
+    {
+        route: "news-events.html#press-wnc-tech-transformation",
+        title: "ACC Launches Technology Transformation Project for CDFI Members in Western NC",
+        category: "Press Releases",
+        keywords: "technology transformation project dogwood health trust cdfi infrastructure western nc",
+        desc: "August 2023: Technology grant modernizing digital infrastructure and underwriting tools for member CDFIs."
+    },
+    {
+        route: "news-events.html#press-connect-humanity-25m",
+        title: "Connect Humanity Partners with ACC to Raise $25M to Bridge the Digital Divide",
+        category: "Press Releases",
+        keywords: "connect humanity 25m digital divide high-speed broadband idea equity",
+        desc: "July 2023: Joint campaign funding community broadband infrastructure in underserved rural areas."
+    },
+    {
+        route: "news-events.html#press-oa-convening-252m",
+        title: "Opportunity Appalachia Investor Convening Showcases 33 Projects Seeking $252M",
+        category: "Press Releases",
+        keywords: "opportunity appalachia 33 projects 252m 3000 jobs coal-impacted downtowns",
+        desc: "May 2023: Virtual convening showcasing 33 rural development projects anticipated to create 3,000 jobs."
+    },
+    {
+        route: "news-events.html#press-cdfi-erp-600k",
+        title: "ACC Receives Over $600,000 from CDFI Fund's Equitable Recovery Program",
+        category: "Press Releases",
+        keywords: "equitable recovery program erp 600000 treasury cdfi fund pandemic relief",
+        desc: "April 2023: Federal grant expanding credit for businesses in pandemic-impacted communities."
+    },
+    {
+        route: "news-events.html#press-va-cdfi-coalition",
+        title: "Virginia CDFI Coalition Celebrates Win For Virginia",
+        category: "Press Releases",
+        keywords: "virginia cdfi coalition win sb 1320 hb 1411 youngkin state fund legislation",
+        desc: "March 2023: Passage and signing into law of landmark legislation codifying the Virginia CDFI Fund."
+    },
+    // --- Upcoming Events & Convenings ---
+    {
+        route: "news-events.html#event-oz-cpace",
+        title: "Lunch & Learn: Rural Opportunity Zones / C-PACE (Jan 12, 2027)",
+        category: "Upcoming Events",
+        keywords: "lunch learn rural opportunity zones c-pace clean energy ted kowalsky cohnreznick webinar",
+        desc: "Exploring Commercial Property Assessed Clean Energy (C-PACE) and Rural Opportunity Zones with Ted Kowalsky."
+    },
+    {
+        route: "news-events.html#event-data-centers-broadband",
+        title: "Lunch & Learn: Data Centers & Rural Broadband (Feb 16, 2027)",
+        category: "Upcoming Events",
+        keywords: "lunch learn data centers rural broadband digital equity brian vo connect humanity webinar",
+        desc: "Evaluating community broadband connectivity and regional data center energy needs with Brian Vo."
+    },
+    {
+        route: "news-events.html#event-rural-healthcare",
+        title: "Lunch & Learn: Rural Healthcare (Mar 16, 2027)",
+        category: "Upcoming Events",
+        keywords: "lunch learn rural healthcare mobile clinics clinic deserts dr paul rosen mission mobile medical webinar",
+        desc: "Overcoming healthcare deserts through mobile clinic deployments and CDFI capital with Dr. Paul Rosen."
+    },
+    {
+        route: "news-events.html#event-project-equity",
+        title: "Lunch & Learn: Project Equity & Employee Ownership (Apr 13, 2027)",
+        category: "Upcoming Events",
+        keywords: "lunch learn project equity employee ownership worker co-ops amanda calder wealth building webinar",
+        desc: "Preserving cornerstone small businesses through employee ownership and worker trusts with Amanda Calder."
+    },
+    // --- Podcasts & Audio Series ---
+    {
+        route: "news-events.html#podcast-appalachian-impact",
+        title: "Appalachian Impact Podcast (ACC Limited Series)",
+        category: "Podcasts & Media",
+        keywords: "appalachian impact podcast apple podcasts acc limited series audio interviews",
+        desc: "ACC's original limited podcast series exploring high-impact community investments and dedicated local lenders."
+    },
+    {
+        route: "news-events.html#podcast-nyfed-missing-markets",
+        title: "CDFIs: Serving the Underserved and Making Missing Markets (NY Fed)",
+        category: "Podcasts & Media",
+        keywords: "serving the underserved missing markets federal reserve bank new york ny fed podcast",
+        desc: "Produced by the Federal Reserve Bank of New York: how CDFIs fill critical lending gaps in overlooked markets."
+    },
+    {
+        route: "news-events.html#podcast-community-health-prosperity",
+        title: "Why CDFIs are Essential for Community Health and Prosperity",
+        category: "Podcasts & Media",
+        keywords: "community health and prosperity build healthy places network video audio snapshots",
+        desc: "Build Healthy Places Network feature exploring how mission-driven CDFI capital strengthens community wellness."
+    },
+    {
+        route: "news-events.html#podcast-appalachia-meets-world",
+        title: "Appalachia Meets World – Ep. 92: Access to Capital in Appalachia",
+        category: "Podcasts & Media",
+        keywords: "appalachia meets world episode 92 access to capital credit disparities regional innovation",
+        desc: "In-depth podcast episode on addressing credit disparities and economic resilience across coal-impacted counties."
+    },
+    {
+        route: "news-events.html#podcast-renegade-capital",
+        title: "Are CDFIs the Original Capital Renegades? (Renegade Capital)",
+        category: "Podcasts & Media",
+        keywords: "capital renegades renegade capital buzzsprout barrier to credit equity in finance",
+        desc: "Candid conversation on how mission lenders rewrite finance rules and dismantle credit barriers."
+    },
+    {
+        route: "news-events.html#podcast-banking-rural-america",
+        title: "Banking in Rural America (FDIC Podcast)",
+        category: "Podcasts & Media",
+        keywords: "banking in rural america fdic podcast anchor fm community bank partnerships",
+        desc: "Federal Deposit Insurance Corporation feature discussing rural banking ecosystems and CDFI partnerships."
+    },
+    {
+        route: "news-events.html#podcast-closing-broadband-gap",
+        title: "Closing the Broadband Gap in Appalachia (FDIC Feature)",
+        category: "Podcasts & Media",
+        keywords: "closing the broadband gap fdic infrastructure digital divide loan capital",
+        desc: "Insights into closing the regional digital divide through catalytic loan capital and collaborative initiatives."
+    },
+    // --- Videos & Multimedia Features ---
+    {
+        route: "news-events.html#video-wncsbi",
+        title: "Western North Carolina Small Business Initiative (WNCSBI Video)",
+        category: "Videos",
+        keywords: "wncsbi video western north carolina small business initiative disaster recovery dogwood youtube",
+        desc: "Video profile showing how emergency grant capital and CDFI support fueled small business recovery after Hurricane Helene."
+    },
+    {
+        route: "news-events.html#video-oa-pre-development",
+        title: "Opportunity Appalachia: Pre-Development Stage Support (Video)",
+        category: "Videos",
+        keywords: "opportunity appalachia video pre-development support financial structuring prospectus youtube",
+        desc: "Program video explaining pre-development support connecting sponsors to architects, tax credits, and investors."
+    },
+    {
+        route: "news-events.html#video-khic-kelly-upchurch",
+        title: "Kentucky Highlands & American Health Management (Partner Spotlight Video)",
+        category: "Videos",
+        keywords: "kentucky highlands american health management kelly upchurch khic healthcare video youtube",
+        desc: "How Kentucky Highlands and ACC financed healthcare justice and change with Kelly Upchurch in Southeastern Kentucky."
+    },
+    {
+        route: "news-events.html#video-ft-bankless-america",
+        title: "“Bankless in America” – Financial Times Documentary",
+        category: "Videos",
+        keywords: "bankless in america financial times documentary ft banking deserts rural cdfi youtube",
+        desc: "Financial Times documentary highlighting rural banking deserts and the essential role played by community lenders."
+    },
+    {
+        route: "news-events.html#video-lenwood-long",
+        title: "Lenwood Long – CSBDF (CDFI Succession Video Series)",
+        category: "Videos",
+        keywords: "lenwood long csbdf cdfi ceo succession planning video series leadership",
+        desc: "Reflections from former CSBDF CEO Lenwood Long on executive succession, mission continuity, and board readiness."
+    },
+    {
+        route: "news-events.html#video-ron-phillips",
+        title: "Ron Phillips – CEI (CDFI Succession Video Series)",
+        category: "Videos",
+        keywords: "ron phillips cei coastal enterprises cdfi ceo succession planning video series",
+        desc: "CEI founder and former CEO Ron Phillips discusses leadership transition and organizational longevity."
+    },
+    {
+        route: "news-events.html#video-gary-lindner",
+        title: "Gary Lindner – PeopleFund (CDFI Succession Video Series)",
+        category: "Videos",
+        keywords: "gary lindner peoplefund cdfi ceo succession video series transition",
+        desc: "Former PeopleFund CEO Gary Lindner on navigating executive transitions and preparing future leaders."
+    },
+    {
+        route: "news-events.html#video-deborah-mcketty",
+        title: "Deborah McKetty – CommunityWorks (CDFI Succession Video Series)",
+        category: "Videos",
+        keywords: "deborah mcketty communityworks cdfi ceo succession video series",
+        desc: "CommunityWorks former CEO Deborah McKetty shares insights on succession planning and board engagement."
+    },
+    {
+        route: "news-events.html#video-mark-peterson",
+        title: "Mark Peterson – Bridgeway Capital (CDFI Succession Video Series)",
+        category: "Videos",
+        keywords: "mark peterson bridgeway capital cdfi ceo succession video series",
+        desc: "Former Bridgeway Capital CEO Mark Peterson on institutional readiness and executive succession."
+    },
+    {
+        route: "news-events.html#video-nancy-andrews",
+        title: "Nancy Andrews – LIIF (CDFI Succession Video Series)",
+        category: "Videos",
+        keywords: "nancy andrews liif low income investment fund cdfi ceo succession video series",
+        desc: "Former LIIF CEO Nancy Andrews shares perspectives on executive transitions in community development finance."
+    },
+    {
+        route: "news-events.html#video-eric-weaver",
+        title: "Eric Weaver – Opportunity Fund (CDFI Succession Video Series)",
+        category: "Videos",
+        keywords: "eric weaver opportunity fund cdfi ceo succession video series leadership",
+        desc: "Opportunity Fund founder and former CEO Eric Weaver reflects on founder transition and leadership evolution."
+    },
+    // --- Impact Stories & Spotlights ---
+    {
+        route: "impact-insights.html#story-handinhand",
+        title: "Small Business Spotlight – HandinHand Counseling Services",
+        category: "Impact Stories",
+        keywords: "handinhand counseling services tess kenney neighborhood community development fund ncdf mental health therapy",
+        desc: "How Tess Kenney expanded trauma-informed, culturally responsive therapy in Pennsylvania with NCDF financing."
+    },
+    {
+        route: "impact-insights.html#story-cakes-boutique",
+        title: "Small Business Spotlight – Cakes Designer Boutique & Academy",
+        category: "Impact Stories",
+        keywords: "cakes designer boutique academy guadalupe quaranta ace access to capital for entrepreneurs atlanta bakery hispanic",
+        desc: "Guadalupe Quaranta expanded her commercial bakery and academy in Atlanta with financing from ACE."
+    },
+    {
+        route: "impact-insights.html#story-future-focus",
+        title: "Small Business Spotlight – Future Focus Child Care",
+        category: "Impact Stories",
+        keywords: "future focus child care dejuana smith pittsburgh ncdf daycare building purchase 10000 sq ft",
+        desc: "Dejuana Smith grew an in-home daycare into a 10,000 sq ft facility serving 70 children in Pittsburgh with NCDF support."
+    },
+    {
+        route: "impact-insights.html#story-foundations-care",
+        title: "Small Business Spotlight – Foundations Total Care",
+        category: "Impact Stories",
+        keywords: "foundations total care te'aira mallory union ohio ecdi home healthcare idd community",
+        desc: "Te'Aira Mallory expanded personalized healthcare and IDD care across all 88 Ohio counties with ECDI financing."
+    },
+    {
+        route: "impact-insights.html#story-acoustic-corner",
+        title: "Small Business Spotlight – Acoustic Corner (David Zoll)",
+        category: "Impact Stories",
+        keywords: "acoustic corner david zoll black mountain north carolina mountain bizworks music shop building ownership",
+        desc: "David Zoll transitioned from part-time employee to building and business owner in Black Mountain with Mountain BizWorks."
+    },
+    {
+        route: "impact-insights.html#story-winston-brett",
+        title: "Business Growth Spotlight – Winston, Brett & Eric",
+        category: "Impact Stories",
+        keywords: "winston brett eric small business growth entrepreneurs capital",
+        desc: "Spotlight highlighting entrepreneur growth and local employment created through member CDFI partnership."
+    },
+    {
+        route: "impact-insights.html#story-tantrum-brewing",
+        title: "Impact Story – Tantrum Brewing Company",
+        category: "Impact Stories",
+        keywords: "tantrum brewing company cleveland georgia craft brewery tourism agriculture",
+        desc: "Family-owned craft brewery and agri-tourism destination created in North Georgia with member CDFI loan support."
+    },
+    {
+        route: "impact-insights.html#story-blue-firefly",
+        title: "Impact Story – Blue Firefly Inn (Saluda, NC)",
+        category: "Impact Stories",
+        keywords: "blue firefly inn alexis deal saluda north carolina natural capital investment fund cycling bed and breakfast",
+        desc: "Alexis Deal turned a historic vacant property into Saluda's first cycling-focused bed & breakfast with NCIF financing."
+    },
+    {
+        route: "impact-insights.html#story-shipley-farms",
+        title: "Impact Story – Shipley Farms (Vilas, NC)",
+        category: "Impact Stories",
+        keywords: "shipley farms gray shipley vilas north carolina ncif sustainable cattle pasture-raised beef",
+        desc: "Multi-generation farm in NC built a premium sustainable beef brand supporting local farmers with NCIF and ACC financing."
+    },
+    {
+        route: "impact-insights.html#story-horizon-health",
+        title: "Impact Story – Horizon Adult Health Care",
+        category: "Impact Stories",
+        keywords: "horizon adult health care kentucky rural elderly day care medical clinics khic",
+        desc: "Financing community-based adult day care and health services for seniors in rural Kentucky."
+    },
+    {
+        route: "impact-insights.html#story-secure-futures",
+        title: "Impact Story – Secure Futures LLC (Solar Energy)",
+        category: "Impact Stories",
+        keywords: "secure futures solar clean energy commercial solar arrays rural virginia schools universities",
+        desc: "Deploying commercial and public solar power arrays across rural Virginia schools and municipalities."
+    },
+    {
+        route: "impact-insights.html#story-vanhooseco",
+        title: "Impact Story – VANHOOSECO™ Precast Concrete",
+        category: "Impact Stories",
+        keywords: "vanhooseco precast concrete jeff vanhoose manufacturing infrastructure tennessee",
+        desc: "Expanding specialized precast concrete manufacturing and infrastructure jobs in Eastern Tennessee."
+    },
+    {
+        route: "impact-insights.html#story-enjoy-entertainment",
+        title: "Impact Story – enJOY Entertainment, LLC",
+        category: "Impact Stories",
+        keywords: "enjoy entertainment community gathering family entertainment rural appalachia",
+        desc: "Providing family entertainment and community gathering space in underserved Appalachian communities."
+    },
+    {
+        route: "impact-insights.html#story-tim-tam",
+        title: "Impact Story – Tim Tam Logistics",
+        category: "Impact Stories",
+        keywords: "tim tam logistics trucking freight transport jobs rural enterprise",
+        desc: "Growing a regional freight and logistics transport business supporting local supply chains and jobs."
+    },
+    {
+        route: "impact-insights.html#story-sound-space",
+        title: "Impact Story – Sound Space",
+        category: "Impact Stories",
+        keywords: "sound space music studio rehearsal creative economy arts",
+        desc: "Investing in community music rehearsal and recording studios anchoring the regional creative economy."
+    },
+    {
+        route: "impact-insights.html#story-kay-fch",
+        title: "Impact Story – Kay FCH, LLC",
+        category: "Impact Stories",
+        keywords: "kay fch residential care assisted living rural community facility",
+        desc: "Supporting specialized community-based residential and adult care facilities in rural Appalachia."
     }
 ];
 
@@ -1225,6 +1766,30 @@ function initSiteSearch() {
         'Contact & Inquiries': {
             class: 'cat-contact',
             svg: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>'
+        },
+        'Publications': {
+            class: 'cat-news',
+            svg: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>'
+        },
+        'Press Releases': {
+            class: 'cat-news',
+            svg: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"></path><path d="M18 14h-8"></path><path d="M15 18h-5"></path><path d="M10 6h8v4h-8V6Z"></path></svg>'
+        },
+        'Upcoming Events': {
+            class: 'cat-programs',
+            svg: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>'
+        },
+        'Podcasts & Media': {
+            class: 'cat-about',
+            svg: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg>'
+        },
+        'Videos': {
+            class: 'cat-invest',
+            svg: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>'
+        },
+        'Impact Stories': {
+            class: 'cat-impact',
+            svg: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>'
         }
     };
 
@@ -1299,6 +1864,14 @@ function initSiteSearch() {
         }, 220);
     }
 
+    function highlightCard(el) {
+        if (!el) return;
+        el.classList.add('search-target-highlight');
+        setTimeout(() => {
+            el.classList.remove('search-target-highlight');
+        }, 2500);
+    }
+
     function navigateToRoute(targetRoute) {
         if (!targetRoute) return;
         closeSearchModal();
@@ -1312,8 +1885,13 @@ function initSiteSearch() {
         if (isCurrentPage && routeHash) {
             const targetEl = document.getElementById(routeHash);
             if (targetEl) {
-                targetEl.scrollIntoView({ behavior: 'smooth' });
+                const detailsParent = targetEl.closest('details');
+                if (detailsParent && !detailsParent.open) {
+                    detailsParent.open = true;
+                }
+                targetEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
                 history.pushState(null, '', '#' + routeHash);
+                highlightCard(targetEl);
                 return;
             }
         }
@@ -1363,10 +1941,11 @@ function initSiteSearch() {
 
         if (activeCategory !== 'all') {
             filtered = filtered.filter(item => {
+                if (activeCategory === 'Main Pages') return item.category === 'Main Pages';
                 if (activeCategory === 'Programs & Services') return item.category.includes('Programs');
                 if (activeCategory === 'Network & Members') return item.category.includes('Network');
-                if (activeCategory === 'Impact & Stories') return item.category.includes('Impact');
-                if (activeCategory === 'News & Media') return item.category.includes('News');
+                if (activeCategory === 'Impact & Stories') return item.category.includes('Impact') || item.category.includes('Stories');
+                if (activeCategory === 'News & Media') return item.category.includes('News') || item.category.includes('Press') || item.category.includes('Publication') || item.category.includes('Podcast') || item.category.includes('Video') || item.category.includes('Event');
                 if (activeCategory === 'Invest & Donate') return item.category.includes('Invest') || item.category.includes('Donate');
                 return item.category === activeCategory;
             });
