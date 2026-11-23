@@ -167,28 +167,26 @@
                                 department.
                             </p>
 
-                            <div class="form-submission-error"></div>
+                            <div class="form-submission-error" role="alert" aria-live="assertive"></div>
 
                             <form class="acc-contact-form" novalidate>
                                 <!-- Name Field (First, Last) -->
                                 <div class="form-group">
-                                    <label class="form-label">
+                                    <span class="form-label" id="name-group-label">
                                         Name<span class="required-star">*</span>
-                                    </label>
-                                    <div class="form-row">
+                                    </span>
+                                    <div class="form-row" role="group" aria-labelledby="name-group-label">
                                         <div class="input-subfield">
                                             <input type="text" id="firstName" class="acc-form-input input-first-name"
-                                                name="firstName" required autocomplete="given-name"
-                                                aria-label="First Name">
-                                            <span class="field-sublabel">First</span>
-                                            <span class="field-error-msg">Please enter your first name</span>
+                                                name="firstName" required autocomplete="given-name">
+                                            <label for="firstName" class="field-sublabel">First</label>
+                                            <span id="firstName-error" class="field-error-msg">Please enter your first name</span>
                                         </div>
                                         <div class="input-subfield">
                                             <input type="text" id="lastName" class="acc-form-input input-last-name"
-                                                name="lastName" required autocomplete="family-name"
-                                                aria-label="Last Name">
-                                            <span class="field-sublabel">Last</span>
-                                            <span class="field-error-msg">Please enter your last name</span>
+                                                name="lastName" required autocomplete="family-name">
+                                            <label for="lastName" class="field-sublabel">Last</label>
+                                            <span id="lastName-error" class="field-error-msg">Please enter your last name</span>
                                         </div>
                                     </div>
                                     <input type="hidden" id="name" name="name">
@@ -201,8 +199,8 @@
                                             Phone
                                         </label>
                                         <input type="tel" id="phone" class="acc-form-input input-phone" name="phone"
-                                            placeholder="(999) 999-9999" required autocomplete="tel">
-                                        <span class="field-error-msg">Please enter a valid phone number</span>
+                                            placeholder="(999) 999-9999" autocomplete="tel">
+                                        <span id="phone-error" class="field-error-msg">Please enter a valid phone number</span>
                                     </div>
                                     <div class="form-group">
                                         <label class="form-label" for="email">
@@ -210,7 +208,7 @@
                                         </label>
                                         <input type="email" id="email" class="acc-form-input input-email" name="email"
                                             required autocomplete="email">
-                                        <span class="field-error-msg">Please enter a valid email address</span>
+                                        <span id="email-error" class="field-error-msg">Please enter a valid email address</span>
                                     </div>
                                 </div>
 
@@ -240,15 +238,17 @@
                                     </label>
                                     <textarea id="message" class="acc-form-textarea" name="message" rows="5" required
                                         placeholder="Tell us about your organization or inquiry..."></textarea>
-                                    <span class="field-error-msg">Please enter your message</span>
+                                    <span id="message-error" class="field-error-msg">Please enter your message</span>
                                 </div>
 
                                 <!-- CAPTCHA -->
-                                <div class="form-group captcha-container">
-                                    <label class="form-label">CAPTCHA</label>
+                                <div class="form-group captcha-container" role="group" aria-labelledby="captcha-label">
+                                    <p id="captcha-label" class="form-label">
+                                        CAPTCHA<span class="required-star">*</span>
+                                    </p>
                                     <div class="g-recaptcha" data-sitekey="6LfwEWUrAAAAABEwoPI5JYN0hBnaS8Bk3I3CNLzh">
                                     </div>
-                                    <span class="field-error-msg captcha-error">Please complete the CAPTCHA.</span>
+                                    <span id="captcha-error" class="field-error-msg captcha-error">Please complete the CAPTCHA.</span>
                                 </div>
 
                                 <!-- SUBMIT button -->

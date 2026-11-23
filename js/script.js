@@ -816,6 +816,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
                 form.querySelectorAll('.acc-form-input, .acc-form-select, .acc-form-textarea').forEach(input => {
                     input.classList.remove('has-error');
+                    input.removeAttribute('aria-invalid');
+                    input.removeAttribute('aria-describedby');
                 });
                 form.querySelectorAll('.field-error-msg').forEach(msg => {
                     msg.classList.remove('visible');
@@ -1887,10 +1889,29 @@ async function submitContactForm(formElement) {
     const successCard = wrapper ? wrapper.querySelector('.form-success-card') : null;
     const formError = wrapper ? wrapper.querySelector('.form-submission-error') : null;
 
-    // Reset error styling
-    form.querySelectorAll('.acc-form-input, .acc-form-select, .acc-form-textarea').forEach(input => {
+    const clearFieldError = (input) => {
+        if (!input) return;
         input.classList.remove('has-error');
-    });
+        input.removeAttribute('aria-invalid');
+        input.removeAttribute('aria-describedby');
+        const err = input.parentElement ? input.parentElement.querySelector('.field-error-msg') : null;
+        if (err) err.classList.remove('visible');
+    };
+
+    const showFieldError = (input) => {
+        if (!input) return;
+        input.classList.add('has-error');
+        input.setAttribute('aria-invalid', 'true');
+        const err = input.parentElement ? input.parentElement.querySelector('.field-error-msg') : null;
+        if (err) {
+            if (!err.id && input.id) err.id = input.id + '-error';
+            err.classList.add('visible');
+            if (err.id) input.setAttribute('aria-describedby', err.id);
+        }
+    };
+
+    // Reset error styling
+    form.querySelectorAll('.acc-form-input, .acc-form-select, .acc-form-textarea').forEach(clearFieldError);
     form.querySelectorAll('.field-error-msg').forEach(msg => {
         msg.classList.remove('visible');
     });
@@ -1904,34 +1925,26 @@ async function submitContactForm(formElement) {
     // Validate First Name
     if (firstNameInput && !firstNameInput.value.trim()) {
         isValid = false;
-        firstNameInput.classList.add('has-error');
-        const err = firstNameInput.parentElement.querySelector('.field-error-msg');
-        if (err) err.classList.add('visible');
+        showFieldError(firstNameInput);
     }
 
     // Validate Last Name
     if (lastNameInput && !lastNameInput.value.trim()) {
         isValid = false;
-        lastNameInput.classList.add('has-error');
-        const err = lastNameInput.parentElement.querySelector('.field-error-msg');
-        if (err) err.classList.add('visible');
+        showFieldError(lastNameInput);
     }
 
     // Validate Email
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (emailInput && !emailRegex.test(emailInput.value.trim())) {
         isValid = false;
-        emailInput.classList.add('has-error');
-        const err = emailInput.parentElement.querySelector('.field-error-msg');
-        if (err) err.classList.add('visible');
+        showFieldError(emailInput);
     }
 
     // Validate Message (required by backend)
     if (messageInput && !messageInput.value.trim()) {
         isValid = false;
-        messageInput.classList.add('has-error');
-        const err = messageInput.parentElement.querySelector('.field-error-msg');
-        if (err) err.classList.add('visible');
+        showFieldError(messageInput);
     }
 
     if (!isValid) {
@@ -1954,6 +1967,7 @@ async function submitContactForm(formElement) {
         if (captchaError) {
             captchaError.textContent = "Please complete the CAPTCHA.";
             captchaError.classList.add('visible');
+            captchaError.setAttribute('role', 'alert');
         }
         return;
     }
