@@ -18,6 +18,29 @@ function getFocusableElements(container) {
     return Array.from(container.querySelectorAll(FOCUSABLE_SELECTOR)).filter((el) => el.getClientRects().length > 0);
 }
 
+function enhanceNewWindowLinks(root = document) {
+    root.querySelectorAll('a[target="_blank"]').forEach((link) => {
+        const relTokens = new Set((link.getAttribute('rel') || '').split(/\s+/).filter(Boolean));
+        relTokens.add('noopener');
+        relTokens.add('noreferrer');
+        link.setAttribute('rel', Array.from(relTokens).join(' '));
+
+        const existingLabel = (link.getAttribute('aria-label') || '').trim();
+        if (existingLabel) {
+            if (!/opens in a new (tab|window)/i.test(existingLabel)) {
+                link.setAttribute('aria-label', `${existingLabel} (opens in a new tab)`);
+            }
+            return;
+        }
+
+        if (link.querySelector('.opens-new-window')) return;
+        const hint = document.createElement('span');
+        hint.className = 'visually-hidden opens-new-window';
+        hint.textContent = ' (opens in a new tab)';
+        link.appendChild(hint);
+    });
+}
+
 function trapFocus(event, container) {
     if (event.key !== 'Tab' || !container) return;
     const focusable = getFocusableElements(container);
@@ -378,6 +401,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (headerPlaceholder) {
         headerPlaceholder.innerHTML = headerHTML;
     }
+
+    enhanceNewWindowLinks();
 
     // Initialize Site Search and Route Navigator
     initSiteSearch();
