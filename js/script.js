@@ -2141,6 +2141,25 @@ async function submitContactForm(formElement) {
 
 window.submitContactForm = submitContactForm;
 
+function setSubscribeStatus(form, message) {
+    const status = form.querySelector('.subscribe-status');
+    if (!status) return;
+    status.textContent = '';
+    if (message) {
+        requestAnimationFrame(() => {
+            status.textContent = message;
+        });
+    }
+}
+
+function restoreSubscribeButton(submitBtn, originalBtnHTML) {
+    submitBtn.disabled = false;
+    submitBtn.removeAttribute('aria-busy');
+    submitBtn.style.backgroundColor = '';
+    submitBtn.style.borderColor = '';
+    submitBtn.innerHTML = originalBtnHTML;
+}
+
 // Footer Newsletter Subscription Handler with Honeypot Anti-Bot Protection
 function initFooterSubscribeForms() {
     const subscribeForms = document.querySelectorAll('.subscribe-form');
@@ -2161,7 +2180,10 @@ function initFooterSubscribeForms() {
             const name = nameInput.value.trim();
             const email = emailInput.value.trim();
 
-            if (!name || !email) return;
+            if (!name || !email) {
+                setSubscribeStatus(form, 'Please enter your name and email address.');
+                return;
+            }
 
             const payload = {
                 name: name,
@@ -2171,8 +2193,10 @@ function initFooterSubscribeForms() {
 
             const originalBtnHTML = submitBtn.innerHTML;
             submitBtn.disabled = true;
+            submitBtn.setAttribute('aria-busy', 'true');
+            setSubscribeStatus(form, 'Subscribing to the newsletter.');
             submitBtn.innerHTML = `
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="captcha-spin" style="animation: captchaSpin 0.7s linear infinite; display: inline-block; vertical-align: middle; margin-right: 6px;">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="captcha-spin" style="animation: captchaSpin 0.7s linear infinite; display: inline-block; vertical-align: middle; margin-right: 6px;" aria-hidden="true">
                     <circle cx="12" cy="12" r="10" stroke-opacity="0.3"></circle>
                     <path d="M12 2a10 10 0 0 1 10 10"></path>
                 </svg>
@@ -2201,29 +2225,27 @@ function initFooterSubscribeForms() {
                 if (!payload.website) {
                     trackClarityEvent('newsletter_signup_completed');
                 }
+                submitBtn.removeAttribute('aria-busy');
                 submitBtn.innerHTML = '<span>Subscribed!</span>';
                 submitBtn.style.backgroundColor = '#026836';
                 submitBtn.style.borderColor = '#026836';
+                setSubscribeStatus(form, 'You are subscribed to the ACC newsletter.');
                 form.reset();
 
                 setTimeout(() => {
-                    submitBtn.disabled = false;
-                    submitBtn.style.backgroundColor = '';
-                    submitBtn.style.borderColor = '';
-                    submitBtn.innerHTML = originalBtnHTML;
+                    restoreSubscribeButton(submitBtn, originalBtnHTML);
                 }, 4000);
 
             } catch (error) {
                 console.error("Newsletter subscription error:", error);
+                submitBtn.removeAttribute('aria-busy');
                 submitBtn.innerHTML = '<span>Error. Try again</span>';
                 submitBtn.style.backgroundColor = '#b91c1c';
                 submitBtn.style.borderColor = '#b91c1c';
+                setSubscribeStatus(form, 'Subscription failed. Please try again.');
 
                 setTimeout(() => {
-                    submitBtn.disabled = false;
-                    submitBtn.style.backgroundColor = '';
-                    submitBtn.style.borderColor = '';
-                    submitBtn.innerHTML = originalBtnHTML;
+                    restoreSubscribeButton(submitBtn, originalBtnHTML);
                 }, 4000);
             }
         });

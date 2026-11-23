@@ -71,7 +71,7 @@
 
                         <div class="contact-channels-list">
                             <div class="contact-channel-item">
-                                <div class="channel-icon">
+                                <div class="channel-icon" aria-hidden="true">
                                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                         stroke-linecap="round" stroke-linejoin="round">
                                         <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
@@ -86,7 +86,7 @@
                             </div>
 
                             <div class="contact-channel-item">
-                                <div class="channel-icon">
+                                <div class="channel-icon" aria-hidden="true">
                                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                         stroke-linecap="round" stroke-linejoin="round">
                                         <path
@@ -102,7 +102,7 @@
                             </div>
 
                             <div class="contact-channel-item">
-                                <div class="channel-icon">
+                                <div class="channel-icon" aria-hidden="true">
                                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                         stroke-linecap="round" stroke-linejoin="round">
                                         <circle cx="12" cy="12" r="10"></circle>
@@ -121,7 +121,7 @@
                         <div class="map-card-container">
                             <div class="map-placeholder-content">
                                 <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                                     <polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon>
                                     <line x1="8" y1="2" x2="8" y2="18"></line>
                                     <line x1="16" y1="6" x2="16" y2="22"></line>
@@ -143,7 +143,7 @@
                         <div class="form-funding-notice outside-card">
                             <div class="form-funding-notice-main">
                                 <svg class="notice-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                                     <circle cx="12" cy="12" r="10"></circle>
                                     <line x1="12" y1="16" x2="12" y2="12"></line>
                                     <line x1="12" y1="8" x2="12.01" y2="8"></line>
@@ -261,7 +261,7 @@
 
                             <!-- Success Feedback Card -->
                             <div class="form-success-card" aria-live="polite">
-                                <div class="success-icon-badge">
+                                <div class="success-icon-badge" aria-hidden="true">
                                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
                                         stroke-linecap="round" stroke-linejoin="round">
                                         <polyline points="20 6 9 17 4 12"></polyline>
@@ -272,7 +272,7 @@
                                     Capital. A member of our team will review your inquiry and follow up shortly.</p>
                                 <button type="button" class="btn-reset-form">
                                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                        stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                        stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                                         <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path>
                                         <path d="M3 3v5h5"></path>
                                     </svg>
@@ -318,6 +318,7 @@
                             <button type="submit" class="btn dark subscribe-btn">
                                 <span>Subscribe</span>
                             </button>
+                            <p class="visually-hidden subscribe-status" role="status" aria-live="polite" aria-atomic="true"></p>
                         </form>
                     </div>
                 </div>
