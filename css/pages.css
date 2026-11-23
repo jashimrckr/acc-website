@@ -3767,6 +3767,7 @@ body.header-hidden .media-subnav-bar {
     font-weight: 700;
     border-radius: 20px;
     letter-spacing: 0.02em;
+    padding: 3px 10px;
 }
 
 .event-pill-status {
