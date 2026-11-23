@@ -24,6 +24,7 @@
     line-height: 1.18;
     font-weight: 400;
     letter-spacing: -0.5px;
+    color: #fff;
 }
 
 .home-page .inner .content {
@@ -36,7 +37,7 @@
 }
 
 .home-page .inner .content p {
-    color: #333;
+    color: #fff;
     font-size: 1.125rem;
     line-height: 1.6;
 }
@@ -49,10 +50,11 @@
 }
 
 .appalachia-bg-hero {
-    background: url('../images/bg.png') no-repeat right bottom;
+    background: url('../images/home.jpg') no-repeat center right;
+    background-position: top;
     background-size: 100%;
-    background-position: 102% calc(110% + var(--scroll-p, 0%));
     transition: background-position 0.1s ease-out;
+    margin-top: 110px;
 }
 
 .appalachia-bg-hero section {
@@ -327,7 +329,7 @@
 
     .appalachia-bg-hero {
         background-size: cover;
-        background-position: bottom center;
+        background-position: center right;
     }
 
     .appalachia-bg-hero section {
@@ -455,7 +457,7 @@
     }
 
     .appalachia-bg-hero {
-        background: url('../images/bg.png') no-repeat center bottom;
+        background: url('https://appalachiancommunitycapitalcdfi.org/wp-content/uploads/2021/11/home.jpg') no-repeat center center;
         background-size: cover;
     }
 
