@@ -1085,6 +1085,13 @@ const siteRoutes = [
         desc: "Brings investment to Central Appalachian communities, creating jobs and businesses that support sustainable growth through technical assistance and investor matchmaking."
     },
     {
+        route: "2025-opportunity-appalachia-investor-convening-photos.html",
+        title: "2025 Opportunity Appalachia Investor Convening Photos",
+        category: "News & Media",
+        keywords: "oa photo album gallery pictures event photos Asheville NC North Carolina August 2025",
+        desc: "Browse 289 photos from the August 2025 investor convening in Asheville, including project pitches, panel discussions and site visits."
+    },
+    {
         route: "green-bank-financing.html",
         title: "Green Bank for Rural America",
         category: "Programs & Services",
