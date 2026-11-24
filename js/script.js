@@ -1041,6 +1041,25 @@ const siteRoutes = [
         desc: "Robust committee structures and governance frameworks ensuring transparency and sound underwriting practices."
     },
 
+    {
+        route: "about.html#audited-financial-statements",
+        title: "Audited Financial Statements",
+        category: "About",
+        keywords: "annual audits financial documents reports archive governance pdf",
+        desc: "Browse ACC’s audited financial statements and single audit reports by year."
+    },
+    ...[
+        { title: "Audited Financial Statements", slug: "audited-financial-statements", years: [2025, 2024, 2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015, 2014] },
+        { title: "Single Audit", slug: "single-audit", years: [2025, 2024, 2023, 2022, 2021, 2020] },
+        { title: "Restated Single Audit Report", slug: "restated-single-audit", years: [2023] }
+    ].flatMap(({ title, slug, years }) => years.map(year => ({
+        route: `docs/ACC-${year}-${slug}.pdf`,
+        title: `${year} ${title}`,
+        category: "About",
+        keywords: "annual financial documents audit reports pdf",
+        desc: "ACC financial reporting archive · PDF opens in a new tab."
+    }))),
+
     // --- What We Do Subroutes ---
     {
         route: "what-we-do.html#pillars",
@@ -1572,9 +1591,10 @@ function initSiteSearch() {
                 const highlightedDesc = highlightMatch(item.desc, rawTokens);
                 const isSelected = idx === selectedIndex ? ' is-selected' : '';
                 const iconInfo = categoryIcons[item.category] || categoryIcons['Main Pages'];
+                const linkTarget = item.route.endsWith('.pdf') ? ' target="_blank" rel="noopener noreferrer"' : '';
 
                 return `
-                    <a href="${escapeHtml(item.route)}" class="search-result-row${isSelected}" data-index="${idx}" data-route="${escapeHtml(item.route)}" role="option">
+                    <a href="${escapeHtml(item.route)}"${linkTarget} class="search-result-row${isSelected}" data-index="${idx}" data-route="${escapeHtml(item.route)}" role="option">
                         <div class="result-leading-icon ${iconInfo.class}">
                             ${iconInfo.svg}
                         </div>
@@ -1609,6 +1629,7 @@ function initSiteSearch() {
                 });
 
                 row.addEventListener('click', (e) => {
+                    if (row.target === '_blank') return;
                     e.preventDefault();
                     const route = row.getAttribute('data-route');
                     navigateToRoute(route);
@@ -1717,11 +1738,8 @@ function initSiteSearch() {
                 }
             } else if (e.key === 'Enter') {
                 e.preventDefault();
-                if (selectedIndex >= 0 && selectedIndex < currentResults.length) {
-                    navigateToRoute(currentResults[selectedIndex].route);
-                } else if (currentResults.length > 0) {
-                    navigateToRoute(currentResults[0].route);
-                }
+                const selectedRow = resultsList.querySelector('.search-result-row.is-selected');
+                if (selectedRow) selectedRow.click();
             }
         }
     });

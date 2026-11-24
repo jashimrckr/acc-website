@@ -1350,14 +1350,10 @@ body.search-modal-open {
 
 }
 
-.search-field-input:focus-visible {
-    outline: 2px solid #000;
-    outline-offset: 2px;
-}
-
 .search-field-input::placeholder {
     color: #999;
     font-weight: 400;
+    font-size: 15px;
 }
 
 .search-field-clear {

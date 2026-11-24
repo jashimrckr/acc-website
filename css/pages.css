@@ -3019,6 +3019,49 @@ body.header-hidden .media-subnav-bar {
 }
 
 /* Publications Grid & Cards */
+#audited-financial-statements {
+    scroll-margin-top: 7.5rem;
+}
+
+.audit-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr));
+    gap: 20px;
+}
+
+.audit-year {
+    padding: 24px;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    background: #f8fafc;
+}
+
+.audit-year .archive-year-title {
+    color: var(--color-navy-6);
+    border-color: var(--color-gold-light);
+}
+
+.audit-year ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.audit-year a {
+    display: inline-block;
+    padding: 6px 0;
+    color: var(--color-navy-4);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.audit-year a:hover,
+.audit-year a:focus-visible {
+    color: var(--color-navy-6);
+    text-decoration-thickness: 2px;
+}
+
 .publications-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
