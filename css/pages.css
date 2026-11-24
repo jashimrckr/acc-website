@@ -3019,7 +3019,8 @@ body.header-hidden .media-subnav-bar {
 }
 
 /* Publications Grid & Cards */
-#audited-financial-statements {
+#audited-financial-statements,
+#yearend-letters-to-investors {
     scroll-margin-top: 7.5rem;
 }
 
@@ -3027,6 +3028,10 @@ body.header-hidden .media-subnav-bar {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr));
     gap: 20px;
+}
+
+.investor-letter-grid {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
 }
 
 .audit-year {

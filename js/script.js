@@ -1060,6 +1060,21 @@ const siteRoutes = [
         desc: "ACC financial reporting archive · PDF opens in a new tab."
     }))),
 
+    {
+        route: "about.html#yearend-letters-to-investors",
+        title: "Year-End Letters to Investors",
+        category: "About",
+        keywords: "yearend year end annual investor letters updates year in review",
+        desc: "Browse ACC’s annual letters to investors by year."
+    },
+    ...[2024, 2023, 2022, 2021].map(year => ({
+        route: `docs/ACC-${year}-year-end-letter-to-investors.pdf`,
+        title: `${year} Year-End Letter to Investors`,
+        category: "About",
+        keywords: "yearend year end annual investor letters updates year in review",
+        desc: "ACC’s annual investor update · PDF opens in a new tab."
+    })),
+
     // --- What We Do Subroutes ---
     {
         route: "what-we-do.html#pillars",
