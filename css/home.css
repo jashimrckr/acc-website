@@ -49,17 +49,18 @@
 }
 
 .appalachia-bg-hero {
-    background: url('../images/bg.png') no-repeat right bottom;
-    background-size: 100%;
-    background-position: 102% calc(110% + var(--scroll-p, 0%));
-    transition: background-position 0.1s ease-out;
+    background: url('../images/DSC07167-Pano-7.jpg') left bottom / cover no-repeat;
 }
 
-.appalachia-bg-hero section {
-    /* background: transparent url('../images/people2.png') no-repeat right 10% bottom; */
-    background-position: 100% calc(112% - var(--scroll-p, 0%));
-    background-size: 70%;
-    transition: background-position 0.1s ease-out;
+.home-page .site-header {
+    background-color: #fffdf9;
+}
+
+/* Keep contrast on the lettering so the sunrise retains its color. */
+.home-page .appalachia-bg-hero .inner .content h1,
+.home-page .appalachia-bg-hero .inner .content p {
+    color: #08172c;
+    text-shadow: 0 0 2px #fff8ed, 0 0 6px rgb(255 248 237 / 70%);
 }
 
 /* ====================================================
@@ -325,16 +326,6 @@
         font-size: 2.85rem;
     }
 
-    .appalachia-bg-hero {
-        background-size: cover;
-        background-position: bottom center;
-    }
-
-    .appalachia-bg-hero section {
-        background-size: 55%;
-        background-position: right bottom;
-    }
-
     .more-about-acc .split-content {
         gap: 2.5rem;
     }
@@ -420,8 +411,6 @@
     }
 
     .appalachia-bg-hero section {
-        background-size: 100%;
-        background-position: bottom center;
         min-height: 80dvh;
     }
 }
@@ -454,11 +443,9 @@
         line-height: 1.55;
     }
 
-    .appalachia-bg-hero {
-        background: url('../images/bg.png') no-repeat center bottom;
-        background-size: cover;
+    .appalachia-bg-hero section {
+        padding: 60px 0 80px;
     }
-
 
     .hero-actions {
         padding-top: 8px;
